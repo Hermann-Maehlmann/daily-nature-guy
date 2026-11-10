@@ -172,5 +172,23 @@
     "geplant_fuer": "2026-11-11T21:00:00+01:00",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=8959522829409339687",
     "quelle": "de Kok-Mercado et al. 2013, Johns Hopkins Medicine (Science)"
+  },
+  {
+    "datum": "2026-11-10T19:28:00+01:00",
+    "thema": "Mistkäfer orientiert sich an der Milchstraße (Dacke 2013), mit Kappen nur im Kreis",
+    "titel": "The Beetle That Reads The Stars",
+    "status": "entwurf",
+    "geplant_fuer": "2026-11-11T21:30:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-9026409036300596947",
+    "quelle": "Current Biology 2013 (Dacke et al.)"
+  },
+  {
+    "datum": "2026-11-10T19:28:00+01:00",
+    "thema": "Seeotter halten beim Schlafen Pfoten (Raft), Kelp als Anker, Achseltasche mit Lieblingsstein",
+    "titel": "Why Sea Otters Hold Hands",
+    "status": "entwurf",
+    "geplant_fuer": "2026-11-11T22:00:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=6325710825217475594",
+    "quelle": "NOAA Ocean Today / US FWS"
   }
 ]
