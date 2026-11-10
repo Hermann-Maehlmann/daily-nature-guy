@@ -1,0 +1,393 @@
+{
+ "titel": "This Bug Eats Fish Tongues",
+ "voice": "am_michael",
+ "mood": "spannung",
+ "musicVol": 0.14,
+ "key": "#7cf0ff",
+ "capY": 0.665,
+ "hook": "THIS BUG\nEATS FISH\n*TONGUES* 👅",
+ "beats": [
+  {
+   "say": "This bug crawls into a fish's mouth and eats its *tongue.*",
+   "sfx": "boom",
+   "scene": {
+    "bg": "mouth",
+    "cam": {
+     "z0": 1.12,
+     "z1": 1.0,
+     "y": 0.45
+    },
+    "fx": [
+     "rumble"
+    ],
+    "layers": [
+     {
+      "e": "👅",
+      "x": 0.45,
+      "y": 0.47,
+      "s": 0.62,
+      "anim": "breathe"
+     },
+     {
+      "e": "🪳",
+      "x": 0.47,
+      "y": 0.43,
+      "s": 0.34,
+      "r": -15,
+      "anim": "wiggle"
+     }
+    ]
+   }
+  },
+  {
+   "say": "But that's not even the *worst* part.",
+   "sfx": "boom",
+   "scene": {
+    "bg": "alarm",
+    "fx": [
+     "flash",
+     "shake"
+    ],
+    "cam": {
+     "z0": 1.0,
+     "z1": 1.15
+    },
+    "layers": [
+     {
+      "e": "🐟",
+      "x": 0.45,
+      "y": 0.43,
+      "s": 0.78,
+      "anim": "shake",
+      "from": {
+       "s": 0.3
+      }
+     },
+     {
+      "e": "😱",
+      "x": 0.66,
+      "y": 0.3,
+      "s": 0.2,
+      "at": 0.25,
+      "from": {
+       "s": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "It sneaks in through the *gills,*",
+   "scene": {
+    "bg": "ocean",
+    "cam": {
+     "z0": 1.0,
+     "z1": 1.25,
+     "x": 0.55,
+     "y": 0.42
+    },
+    "layers": [
+     {
+      "e": "🐟",
+      "x": 0.42,
+      "y": 0.42,
+      "s": 0.9,
+      "anim": "bob"
+     },
+     {
+      "e": "🪳",
+      "x": 0.36,
+      "y": 0.45,
+      "s": 0.16,
+      "r": 60,
+      "from": {
+       "x": -0.1,
+       "y": 0.6
+      },
+      "inDur": 0.9,
+      "ease": "out",
+      "anim": "wiggle"
+     }
+    ]
+   }
+  },
+  {
+   "say": "grabs the tongue with *fourteen* hooked legs,",
+   "scene": {
+    "bg": "mouth",
+    "label": "14 LEGS 🪝",
+    "cam": {
+     "z0": 1.05,
+     "z1": 1.18
+    },
+    "layers": [
+     {
+      "e": "👅",
+      "x": 0.45,
+      "y": 0.5,
+      "s": 0.66,
+      "anim": "breathe"
+     },
+     {
+      "e": "🪳",
+      "x": 0.45,
+      "y": 0.4,
+      "s": 0.36,
+      "from": {
+       "y": -0.1,
+       "s": 0.6
+      },
+      "inDur": 0.35,
+      "ease": "out",
+      "anim": "chomp"
+     }
+    ]
+   }
+  },
+  {
+   "say": "and sucks out its *blood.*",
+   "sfx": "squish",
+   "scene": {
+    "bg": "mouth",
+    "fx": [
+     "red"
+    ],
+    "cam": {
+     "z0": 1.15,
+     "z1": 1.3,
+     "y": 0.48
+    },
+    "layers": [
+     {
+      "e": "👅",
+      "x": 0.45,
+      "y": 0.5,
+      "s": 0.66,
+      "anim": "pulse"
+     },
+     {
+      "e": "🪳",
+      "x": 0.45,
+      "y": 0.4,
+      "s": 0.36,
+      "anim": "chomp"
+     },
+     {
+      "e": "🩸",
+      "x": 0.3,
+      "y": 0.6,
+      "s": 0.12,
+      "at": 0.15,
+      "from": {
+       "y": 0.45,
+       "a": 0
+      },
+      "ease": "out",
+      "inDur": 0.6
+     },
+     {
+      "e": "🩸",
+      "x": 0.62,
+      "y": 0.62,
+      "s": 0.1,
+      "at": 0.4,
+      "from": {
+       "y": 0.47,
+       "a": 0
+      },
+      "ease": "out",
+      "inDur": 0.6
+     }
+    ]
+   }
+  },
+  {
+   "say": "Slowly, the tongue *withers…*",
+   "scene": {
+    "bg": "dark",
+    "cam": {
+     "z0": 1.0,
+     "z1": 1.12
+    },
+    "layers": [
+     {
+      "e": "👅",
+      "x": 0.45,
+      "y": 0.45,
+      "s": 0.7,
+      "anim": "wither"
+     },
+     {
+      "e": "🪳",
+      "x": 0.45,
+      "y": 0.34,
+      "s": 0.3,
+      "anim": "chomp"
+     }
+    ]
+   }
+  },
+  {
+   "say": "and falls *off.*",
+   "sfx": "squish",
+   "scene": {
+    "bg": "mouth",
+    "fx": [
+     "shake"
+    ],
+    "cam": {
+     "z0": 1.1,
+     "z1": 1.0
+    },
+    "layers": [
+     {
+      "e": "👅",
+      "x": 0.45,
+      "y": 0.45,
+      "s": 0.5,
+      "r": 20,
+      "alpha": 0.8,
+      "to": {
+       "y": 1.25,
+       "r": 160
+      },
+      "toDur": 0.8
+     },
+     {
+      "e": "💀",
+      "x": 0.7,
+      "y": 0.27,
+      "s": 0.16,
+      "at": 0.3,
+      "from": {
+       "s": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "Then the bug grabs the stump,",
+   "scene": {
+    "bg": "mouth",
+    "cam": {
+     "z0": 1.0,
+     "z1": 1.2,
+     "y": 0.48
+    },
+    "layers": [
+     {
+      "e": "🪳",
+      "x": 0.45,
+      "y": 0.47,
+      "s": 0.5,
+      "from": {
+       "y": 0.25,
+       "r": -40
+      },
+      "ease": "out",
+      "inDur": 0.5,
+      "anim": "wiggle"
+     }
+    ]
+   }
+  },
+  {
+   "say": "and *becomes* the fish's new tongue.",
+   "sfx": "boom",
+   "scene": {
+    "bg": "mouth",
+    "fx": [
+     "flash"
+    ],
+    "label": "NEW TONGUE ✅",
+    "cam": {
+     "z0": 1.2,
+     "z1": 1.05
+    },
+    "layers": [
+     {
+      "e": "🪳",
+      "x": 0.45,
+      "y": 0.47,
+      "s": 0.72,
+      "r": 90,
+      "glow": "rgba(255,225,77,.9)",
+      "anim": "breathe"
+     }
+    ]
+   }
+  },
+  {
+   "say": "For the *rest* of its life.",
+   "scene": {
+    "bg": "ocean",
+    "cam": {
+     "z0": 1.0,
+     "z1": 1.18,
+     "x": 0.3
+    },
+    "layers": [
+     {
+      "e": "🐟",
+      "x": 0.5,
+      "y": 0.42,
+      "s": 0.85,
+      "anim": "bob",
+      "to": {
+       "x": 0.35
+      }
+     },
+     {
+      "e": "🪳",
+      "x": 0.2,
+      "y": 0.44,
+      "s": 0.12,
+      "r": -90,
+      "anim": "wiggle",
+      "to": {
+       "x": 0.05
+      }
+     }
+    ]
+   }
+  },
+  {
+   "say": "It's the only parasite known to *replace* a body part.",
+   "gap": 0.02,
+   "scene": {
+    "bg": "alarm",
+    "cam": {
+     "z0": 1.0,
+     "z1": 1.3
+    },
+    "fx": [
+     "rumble"
+    ],
+    "layers": [
+     {
+      "e": "🪳",
+      "x": 0.45,
+      "y": 0.42,
+      "s": 0.62,
+      "anim": "wiggle",
+      "from": {
+       "s": 0.2
+      }
+     },
+     {
+      "e": "👑",
+      "x": 0.45,
+      "y": 0.22,
+      "s": 0.2,
+      "at": 0.4,
+      "from": {
+       "y": -0.1
+      },
+      "ease": "back"
+     }
+    ]
+   }
+  }
+ ]
+}
