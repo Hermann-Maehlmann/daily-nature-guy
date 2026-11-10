@@ -71,15 +71,25 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
     const ac = new OfflineAudioContext(2, len, rate);
     const vo = ac.createGain(); vo.gain.value = 1.15; const comp = ac.createDynamicsCompressor(); comp.threshold.value = -20; comp.ratio.value = 4; vo.connect(comp); comp.connect(ac.destination);
     for (const c of clips) { const bf = ac.createBuffer(1, c.s.length, c.rate); bf.copyToChannel(c.s, 0); const src = ac.createBufferSource(); src.buffer = bf; src.connect(vo); src.start(c.at); }
-    if (spec.music !== false) { // dunkler Doku-Klangteppich: tiefe Flächen + Unterwasser-Rauschen
-      const bus = ac.createGain(); bus.gain.setValueAtTime(0, 0); bus.gain.linearRampToValueAtTime(spec.musicVol ?? .22, .4); bus.gain.setValueAtTime(spec.musicVol ?? .22, total - .3); bus.gain.linearRampToValueAtTime(0, total); bus.connect(ac.destination);
-      const lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 520; lp.connect(bus);
-      for (const [f, d] of [[55, 0], [55, 7], [82.4, -5], [110, 3]]) { const o = ac.createOscillator(); o.type = "sawtooth"; o.frequency.value = f; o.detune.value = d; const og = ac.createGain(); og.gain.value = .07; o.connect(og); og.connect(lp); o.start(0); o.stop(total); }
-      const lfo = ac.createOscillator(); lfo.frequency.value = .18; const lg = ac.createGain(); lg.gain.value = 220; lfo.connect(lg); lg.connect(lp.frequency); lfo.start(0); lfo.stop(total);
-      const nb = ac.createBuffer(1, rate * 2, rate), nd2 = nb.getChannelData(0); let last = 0; for (let i = 0; i < nd2.length; i++) { last = .985 * last + .015 * (Math.random() * 2 - 1); nd2[i] = last * 6; }
-      const ns = ac.createBufferSource(); ns.buffer = nb; ns.loop = true; const ng = ac.createGain(); ng.gain.value = .5; ns.connect(ng); ng.connect(bus); ns.start(0); ns.stop(total);
-      // Herzschlag-Puls für Spannung
-      for (let tb = .2; tb < total; tb += .86) for (const off of [0, .16]) { const o = ac.createOscillator(); o.frequency.setValueAtTime(62, tb + off); o.frequency.exponentialRampToValueAtTime(40, tb + off + .15); const hg = ac.createGain(); hg.gain.setValueAtTime(off ? .18 : .28, tb + off); hg.gain.exponentialRampToValueAtTime(.001, tb + off + .18); o.connect(hg); hg.connect(bus); o.start(tb + off); o.stop(tb + off + .2); }
+    if (spec.music !== false) { // leise Doku-Musik: warme Flächen in a-Moll + sanfte Klavier-Töne, kein Rauschen
+      const vol = spec.musicVol ?? .2, bus = ac.createGain(); bus.gain.setValueAtTime(0, 0); bus.gain.linearRampToValueAtTime(vol, .25); bus.gain.setValueAtTime(vol, Math.max(.3, total - .25)); bus.gain.linearRampToValueAtTime(0, total); bus.connect(ac.destination);
+      const lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1800; lp.connect(bus);
+      // Hall aus abklingendem Rauschen (nur im Hall, nicht hörbar als Rauschen)
+      const rv = ac.createConvolver(), ir = ac.createBuffer(2, rate * 2.5, rate); for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 3.5); } rv.buffer = ir;
+      const wet = ac.createGain(); wet.gain.value = .45; rv.connect(wet); wet.connect(bus);
+      const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
+      const chords = [[45, 57, 60, 64], [41, 53, 57, 60], [36, 48, 55, 64], [43, 55, 59, 62]]; // Am F C G
+      const bar = 2.4; let k = 0;
+      for (let t0 = 0; t0 < total; t0 += bar, k++) {
+        const ch = chords[k % 4];
+        for (const m of ch) { const o = ac.createOscillator(); o.type = "triangle"; o.frequency.value = hz(m); o.detune.value = (Math.random() - .5) * 8;
+          const gg = ac.createGain(); const g0 = m < 50 ? .09 : .045; gg.gain.setValueAtTime(0, t0); gg.gain.linearRampToValueAtTime(g0, t0 + .8); gg.gain.setValueAtTime(g0, t0 + bar - .3); gg.gain.linearRampToValueAtTime(0, t0 + bar + .5);
+          o.connect(gg); gg.connect(lp); gg.connect(rv); o.start(t0); o.stop(t0 + bar + .6); }
+        // Klavier-artige Töne (Arpeggio, weich angeschlagen)
+        const arp = [ch[1] + 12, ch[2] + 12, ch[3] + 12, ch[2] + 12];
+        arp.forEach((m, j) => { const t = t0 + j * bar / 4; if (t > total - .2) return;
+          for (const [mul, amp] of [[1, .06], [2, .018], [3, .008]]) { const o = ac.createOscillator(); o.frequency.value = hz(m) * mul; const gg = ac.createGain(); gg.gain.setValueAtTime(0, t); gg.gain.linearRampToValueAtTime(amp, t + .01); gg.gain.exponentialRampToValueAtTime(.0005, t + 1.6); o.connect(gg); gg.connect(lp); gg.connect(rv); o.start(t); o.stop(t + 1.7); } });
+      }
     }
     const noise = ac.createBuffer(1, rate, rate); const nd = noise.getChannelData(0); for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
     spec.beats.forEach((b, i) => {
@@ -87,7 +97,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
       if (sfx === "whoosh" || sfx === "boom") { const src = ac.createBufferSource(); src.buffer = noise; const bp = ac.createBiquadFilter(); bp.type = "bandpass"; bp.Q.value = 1.2; bp.frequency.setValueAtTime(400, Math.max(0, t - .12)); bp.frequency.exponentialRampToValueAtTime(3500, t + .1);
         const gg = ac.createGain(); gg.gain.setValueAtTime(0, Math.max(0, t - .14)); gg.gain.linearRampToValueAtTime(.22, t); gg.gain.exponentialRampToValueAtTime(.001, t + .25); src.connect(bp); bp.connect(gg); gg.connect(ac.destination); src.start(Math.max(0, t - .14)); src.stop(t + .3); }
       if (sfx === "soft") { const src = ac.createBufferSource(); src.buffer = noise; const bp = ac.createBiquadFilter(); bp.type = "lowpass"; bp.frequency.setValueAtTime(300, Math.max(0, t - .2)); bp.frequency.exponentialRampToValueAtTime(1400, t);
-        const gg = ac.createGain(); gg.gain.setValueAtTime(0, Math.max(0, t - .2)); gg.gain.linearRampToValueAtTime(.07, t); gg.gain.exponentialRampToValueAtTime(.001, t + .3); src.connect(bp); bp.connect(gg); gg.connect(ac.destination); src.start(Math.max(0, t - .2)); src.stop(t + .35); }
+        const gg = ac.createGain(); gg.gain.setValueAtTime(0, Math.max(0, t - .2)); gg.gain.linearRampToValueAtTime(.03, t); gg.gain.exponentialRampToValueAtTime(.001, t + .3); src.connect(bp); bp.connect(gg); gg.connect(ac.destination); src.start(Math.max(0, t - .2)); src.stop(t + .35); }
       if (sfx === "boom") { const o = ac.createOscillator(); o.frequency.setValueAtTime(110, t); o.frequency.exponentialRampToValueAtTime(38, t + .5); const gg = ac.createGain(); gg.gain.setValueAtTime(.7, t); gg.gain.exponentialRampToValueAtTime(.001, t + .7); o.connect(gg); gg.connect(ac.destination); o.start(t); o.stop(t + .75); }
       if (sfx === "squish") { const o = ac.createOscillator(); o.type = "sawtooth"; o.frequency.setValueAtTime(300, t); o.frequency.exponentialRampToValueAtTime(70, t + .25); const lp = ac.createBiquadFilter(); lp.frequency.value = 900; const gg = ac.createGain(); gg.gain.setValueAtTime(.25, t); gg.gain.exponentialRampToValueAtTime(.001, t + .3); o.connect(lp); lp.connect(gg); gg.connect(ac.destination); o.start(t); o.stop(t + .32); }
     });
