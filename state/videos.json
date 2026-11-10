@@ -6,7 +6,8 @@
     "status": "oeffentlich",
     "geplant_fuer": "2026-11-10T10:00:00+01:00",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-5158329376294613477",
-    "quelle": "Lohse, Schmitz & Versluis, Nature 413 (2001), doi:10.1038/35097152"
+    "quelle": "Lohse, Schmitz & Versluis, Nature 413 (2001), doi:10.1038/35097152",
+    "hinweis": "veröffentlicht, aber ruckelige Version (alter Renderer)"
   },
   {
     "datum": "2026-11-10T09:19:00+01:00",
@@ -15,6 +16,25 @@
     "status": "entwurf",
     "geplant_fuer": "2026-11-11T18:30:00+01:00",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=463941626733612203",
-    "quelle": "Dean et al., Science 248 (1990), doi:10.1126/science.2349480"
+    "quelle": "Dean et al., Science 248 (1990), doi:10.1126/science.2349480",
+    "hinweis": "Video am 10.11. durch flüssige 30-fps-Version ersetzt, mit Thumbnail"
+  },
+  {
+    "datum": "2026-11-10T13:42:00+01:00",
+    "thema": "Schleimaal: Schleim quillt ~10.000-fach auf und verstopft Haikiemen",
+    "titel": "Slime That Chokes Sharks",
+    "status": "oeffentlich",
+    "geplant_fuer": "2026-11-10T14:00:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-4064854574395339505",
+    "quelle": "Zintzen et al., Scientific Reports 1:131 (2011)"
+  },
+  {
+    "datum": "2026-11-10T13:42:00+01:00",
+    "thema": "Zombie-Ameisen-Pilz Ophiocordyceps: Todesbiss mittags, Stiel aus dem Kopf",
+    "titel": "The Fungus That Makes Zombies",
+    "status": "entwurf",
+    "geplant_fuer": "2026-11-11T19:00:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=5192405189485478748",
+    "quelle": "Hughes et al., BMC Ecology 11:13 (2011)"
   }
 ]
