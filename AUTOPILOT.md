@@ -15,6 +15,8 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
    - Git-Name setzen: `git config user.name "KI-Labor Autopilot"` und `git config user.email autopilot@users.noreply.github.com`.
    - `state/videos.json` lesen: Liste aller bisherigen Videos (Thema, Titel, Datum, öffentlich/Entwurf). Prüfen, wie viele öffentliche Posts in den letzten 24 h eingeplant wurden. Sind es schon 4 oder mehr, wird Video A ebenfalls nur Entwurf.
 
+   - **Gesundheitscheck:** Mit `getScheduledPosts` (gestern bis morgen) und `state/videos.json` prüfen, ob die öffentlichen Posts früherer Läufe wirklich rausgegangen sind. Steht ein Post, dessen Zeit vorbei ist, noch auf PENDING oder auf ERROR/FAILED, oder schlägt ein Connector (Metricool, Parallel Search, GitHub) fehl, beginnt die Zusammenfassung am Ende mit **„⚠️ Hermann, bitte kümmern:“** und sagt in einem Satz, was kaputt ist und was er tun muss (z. B. TikTok in Metricool neu verbinden). Dann nichts Neues öffentlich einplanen, solange TikTok-Posts scheitern.
+
 2. **Themen wählen** (2 verschiedene, nie ein Thema aus `state/videos.json` wiederholen)
    - Überraschende, wahre Tier- oder Naturfakten mit Krimi-, Ekel-, Wow- oder Lach-Faktor. Gute Felder: Insekten, Tiefsee, Parasiten, Vögel, Pilze, Pflanzen, Raubtiere, Tarnung, Paarung, Rekorde.
    - Fakten mit Parallel Search (`web_search`) gegenprüfen. Nur, was eine seriöse Quelle (Uni, Museum, Fachartikel, National Geographic, BBC Earth …) belegt. Eine Quelle für die Caption merken.
@@ -44,4 +46,4 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
    - Drehbuch-JSON nach `state/drehbuecher/<datum>-<slug>.json` kopieren (Videos selbst nicht committen).
    - Commit „Autopilot: <titel A> + <titel B>“ und push auf `main`.
 
-8. **Abschluss**: kurze deutsche Zusammenfassung (Titel, Uhrzeit, öffentlich/Entwurf, Planner-Links). Bei Fehlern klar sagen, was nicht geklappt hat. Nichts doppelt posten: wenn unklar ist, ob ein Post angelegt wurde, erst mit `getScheduledPosts` nachsehen.
+8. **Abschluss**: kurze deutsche Zusammenfassung. Gab es ein Problem (auch aus dem Gesundheitscheck), steht die Warnung „⚠️ Hermann, bitte kümmern:“ ganz oben, damit er es in der Push-Nachricht sofort sieht. Sonst (Titel, Uhrzeit, öffentlich/Entwurf, Planner-Links). Bei Fehlern klar sagen, was nicht geklappt hat. Nichts doppelt posten: wenn unklar ist, ob ein Post angelegt wurde, erst mit `getScheduledPosts` nachsehen.
