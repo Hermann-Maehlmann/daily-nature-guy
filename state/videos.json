@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "datum": "2026-11-10T09:19:00+01:00",
+    "thema": "Pistolenkrebs: Kavitationsblase so heiß wie die Sonnenoberfläche",
+    "titel": "Shrimp Hotter Than The Sun",
+    "status": "oeffentlich",
+    "geplant_fuer": "2026-11-10T10:00:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-5158329376294613477",
+    "quelle": "Lohse, Schmitz & Versluis, Nature 413 (2001), doi:10.1038/35097152"
+  },
+  {
+    "datum": "2026-11-10T09:19:00+01:00",
+    "thema": "Bombardierkäfer: 100 °C heißes Spray, ~500 Pulse pro Sekunde",
+    "titel": "The Beetle With A Boiling Butt",
+    "status": "entwurf",
+    "geplant_fuer": "2026-11-11T18:30:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=463941626733612203",
+    "quelle": "Dean et al., Science 248 (1990), doi:10.1126/science.2349480"
+  }
+]
