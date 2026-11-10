@@ -22,14 +22,15 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
    - Fakten mit Parallel Search (`web_search`) gegenprüfen. Nur, was eine seriöse Quelle (Uni, Museum, Fachartikel, National Geographic, BBC Earth …) belegt. Eine Quelle für die Caption merken.
 
 3. **Drehbuch + Animation bauen** (je Video) – **fester Stil seit 10.11.2026: gezeichneter Erklärfilm, Anleitung in `autopilot/v2/STIL.md` genau lesen.**
-   - Drehbuch `out/<slug>.json` und Szenendatei `out/<slug>-szenen.js` mit eigenen, für das Tier gezeichneten Figuren (Vorbild `autopilot/v2/szenen/pistolenkrebs.js`). Englisch, Stimme `bm_george`, `speed` 1.0–1.15 (ruhig, nicht hetzen), 9–12 Beats, 20–30 s, erster Beat harter Hook, kein Outro, **nie** „Part 2“.
+   - Drehbuch `out/<slug>.json` und Szenendatei `out/<slug>-szenen.js` mit eigenen, für das Tier gezeichneten Figuren (Vorbild `autopilot/v2/szenen/pistolenkrebs.js`). Englisch, ruhig erzählt (nicht hetzen), 9–12 Beats, 20–30 s, erster Beat harter Hook, kein Outro, **nie** „Part 2“.
    - Feld `"thumbnail"`: Cover-Text, höchstens 4 Wörter, ein Wort in *Sternchen*, nicht derselbe Satz wie der Hook.
    - Altes Emoji-Format (`autopilot/render.js`, `schema.js`) **nicht mehr verwenden**.
    - Selbst kritisch prüfen wie Kai im Labor: Hook stark? Fakten korrekt? Zeigt jedes Bild genau den gesprochenen Satz? Ist das Tier erkennbar und schön gezeichnet (Stil-Checkliste in STIL.md)?
 
-4. **Vorschau, dann rendern**
-   - Vorschau: `PREVIEW=0.5,3,6,9,12,15,18 node autopilot/v2/render5.js out/<slug>.json out/<slug>-p` und alle Bilder ansehen. Leere Bilder, kaputte Figuren, Text hinter TikTok-Buttons → Szenendatei verbessern und Vorschau wiederholen (mindestens eine Verbesserungsrunde).
-   - Rendern: `node autopilot/v2/render5.js out/<slug>.json out/<slug>.mp4` (30 fps Bild für Bild, ca. 4–10 Min).
+4. **Stimme, Vorschau, dann rendern**
+   - **Stimme (Pflicht):** `bash autopilot/v2/stimme.sh out/<slug>.json` spricht jeden Satz mit der natürlichen Chatterbox-Männerstimme ein (von Hermann am 10.11.2026 abgenommen) und schreibt `out/<slug>-cb.json`. Erster Aufruf installiert das Modell (5–10 Min), dann ca. 35 s pro Satz. **Ab hier immer `out/<slug>-cb.json` rendern.** Nur wenn Chatterbox gar nicht startet: mit `out/<slug>.json` rendern (Kokoro `bm_george`, `speed` 1.1) und in der Zusammenfassung „⚠️ Hermann, bitte kümmern: natürliche Stimme ging nicht“ melden.
+   - Vorschau: `PREVIEW=0.5,3,6,9,12,15,18 node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>-p` und alle Bilder ansehen. Leere Bilder, kaputte Figuren, Text hinter TikTok-Buttons → Szenendatei verbessern und Vorschau wiederholen (mindestens eine Verbesserungsrunde).
+   - Rendern: `node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>.mp4` (30 fps Bild für Bild, ca. 4–10 Min).
    - Flüssigkeit prüfen: `ffmpeg -i out/<slug>.mp4 -vf mpdecimate -loglevel debug -f null - 2>&1 | grep -c "drop pts"` muss unter 100 liegen (sonst nicht posten, Fehler melden).
    - Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` ansehen. Leer oder kaputt → nicht posten, Fehler melden.
 

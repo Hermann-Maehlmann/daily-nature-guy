@@ -6,9 +6,10 @@ Gezeichneter Wissenschafts-Erklärfilm, angelehnt an den Look bekannter Erklärk
 ## Wie ein Video gebaut wird
 
 1. **Drehbuch** `out/<slug>.json` (Format unten) und **Szenendatei** `out/<slug>-szenen.js` mit eigenen Figuren und Shots fürs Thema.
-2. **Vorschau** (schnell, ca. 1 Min): `PREVIEW=0.5,3,6,9,12,15 node autopilot/v2/render5.js out/<slug>.json out/<slug>-p` erzeugt `out/<slug>-p-<t>.jpg`. Ansehen, verbessern, wiederholen, bis jedes Bild gut aussieht.
-3. **Rendern**: `node autopilot/v2/render5.js out/<slug>.json out/<slug>.mp4` (30 fps, Bild für Bild, ca. 4–10 Min, ~10 MB).
-4. Danach wie gewohnt Kontrollbild, `thumb.js`, `cover.sh` (siehe AUTOPILOT.md).
+2. **Stimme**: `bash autopilot/v2/stimme.sh out/<slug>.json` (natürliche Chatterbox-Stimme) -> `out/<slug>-cb.json`. Alle weiteren Schritte mit dieser Datei.
+3. **Vorschau** (schnell, ca. 1 Min): `PREVIEW=0.5,3,6,9,12,15 node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>-p` erzeugt `out/<slug>-p-<t>.jpg`. Ansehen, verbessern, wiederholen, bis jedes Bild gut aussieht.
+4. **Rendern**: `node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>.mp4` (30 fps, Bild für Bild, ca. 4–10 Min, ~10 MB).
+5. Danach wie gewohnt Kontrollbild, `thumb.js`, `cover.sh` (siehe AUTOPILOT.md).
 
 Vorbilder: `autopilot/v2/szenen/pistolenkrebs.js` (kurzes Beispiel mit eigenen Figuren) und die Shots in `anim2d.js` (Zungen-Parasit, das von Hermann abgenommene Video).
 
@@ -22,7 +23,7 @@ Vorbilder: `autopilot/v2/szenen/pistolenkrebs.js` (kurzes Beispiel mit eigenen F
 ```
 - `sceneFile` relativ zum Drehbuch. `shot` = Name eines Shots aus der Szenendatei (oder aus anim2d.js).
 - 9–12 Beats, zusammen 20–30 s. Jeder Satz kurz, ein Schlüsselwort in *Sternchen* (gelb im Untertitel).
-- `speed` 1.0–1.15 (Hermann: nicht hetzen, ruhig erzählen). Stimme `bm_george`. Kein Outro, kein „Follow“, letzter Satz lädt zum Neuschauen ein (Loop).
+- Gesprochen wird mit Chatterbox (stimme.sh). `voice`/`speed` gelten nur für den Notfall ohne Chatterbox (Kokoro `bm_george`, `speed` 1.1). Hermann: ruhig erzählen, nicht hetzen. Kein Outro, kein „Follow“, letzter Satz lädt zum Neuschauen ein (Loop).
 - `hook`: 2 Zeilen Großtext im ersten Bild. Optional pro Beat `sfx`: `soft` (Standard), `whoosh`, `boom`, `squish`.
 - Für Landtiere: `"fg": false` (kein Riff-Vordergrund) und eigener Hintergrund, siehe unten.
 
