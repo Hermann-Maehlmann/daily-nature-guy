@@ -24,19 +24,22 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
 3. **Drehbuch schreiben** (je Video)
    - `node autopilot/schema.js` zeigt das Format und ein Vorbild. Daraus ein JSON schreiben nach `out/<slug>.json`.
    - Regeln: `format` 9:16, `stil` cartoon, `sprache` en, `stimme` am_michael, `musik` true, `outro` true. 8–11 Szenen, zusammen 18–28 s. Erste Szene ist ein harter Hook (Frage oder Schock-Satz). Jede Szene hat Figuren (`darsteller` mit Emojis) und einen `sprecher`-Satz, der erklärt, was passiert. Witzige Sprechblasen (`sagt`). Letzte Szene `typ: ende` mit Unterzeile „Follow for daily nature facts“. **Nie** „Part 2“ oder Fortsetzung.
+   - Zusätzlich Feld `"thumbnail"`: Cover-Text fürs Thumbnail, höchstens 4 Wörter, neugierig oder schockierend, ein Wort in *Sternchen* (wird Akzentfarbe), z. B. `"Hotter than the *sun*?!"`. Nicht derselbe Satz wie der Hook.
    - Selbst kritisch prüfen wie Kai im Labor: Hook stark? Fakten korrekt? Jede Szene mit Bewegung? Text höchstens 7 Wörter? Dann verbessern.
 
 4. **Rendern**
    - `node autopilot/render.js out/<slug>.json out/<slug>.mp4` (dauert 2–4 Min, lädt beim ersten Mal die Stimme von npm).
    - Danach Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` und ansehen. Fehlen Figuren oder ist das Bild leer, nicht posten, sondern Fehler melden.
 
-5. **Ablegen**: `autopilot/host.sh upload out/<slugA>.mp4 out/<slugB>.mp4` legt beide Videos auf den Branch `videos` und gibt je eine öffentliche URL aus (raw.githubusercontent.com). Die Meldung „push negotiation failed“ ist harmlos.
+   - **Thumbnail:** `node autopilot/thumb.js out/<slug>.mp4 out/<slug>.json out/<slug>.jpg` (Hook-Bild plus Cover-Text-Sticker, 1080×1920). Ansehen: Figur sichtbar, Text lesbar, nichts abgeschnitten.
+
+5. **Ablegen**: `autopilot/host.sh upload out/<slugA>.mp4 out/<slugA>.jpg out/<slugB>.mp4 out/<slugB>.jpg` legt Videos und Thumbnails auf den Branch `videos` und gibt je eine öffentliche URL aus (raw.githubusercontent.com). Die Meldung „push negotiation failed“ ist harmlos.
 
 6. **In Metricool einplanen** (Metricool-Connector)
    - `getBrandSettings`: die Marke mit TikTok (blogId 7900279, Zeitzone daraus, meist Europe/Berlin).
    - Zeit: mit `getBestTimeToPostByNetwork` (tiktok) den besten Slot in den nächsten 6 Stunden wählen, frühestens 20 Min ab jetzt, mindestens 2 Stunden Abstand zum letzten öffentlichen Post aus `state/videos.json`.
    - `createScheduledPost` mit `info`:
-     `{"text": <Caption>, "providers":[{"network":"tiktok"}], "media":[<URL>], "publicationDate":{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":<tz>}, "autoPublish": true, "draft": <false für A, true für B>, "tiktokData":{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":true,"title":<Titel>}, "firstCommentText":"", "descendants":[], "shortener":false, "smartLinkData":{"ids":[]}, "hasNotReadNotes":false, "mediaAltText":[]}`
+     `{"text": <Caption>, "providers":[{"network":"tiktok"}], "media":[<Video-URL>], "videoThumbnailUrl":<JPG-URL>, "publicationDate":{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":<tz>}, "autoPublish": true, "draft": <false für A, true für B>, "tiktokData":{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":true,"title":<Titel>}, "firstCommentText":"", "descendants":[], "shortener":false, "smartLinkData":{"ids":[]}, "hasNotReadNotes":false, "mediaAltText":[]}`
    - Caption (Englisch, kurz: höchstens 150 Zeichen ohne Hashtags, Hermanns Wunsch vom 10.11.2026): 1 knackiger Hook-Satz plus 1 Frage oder Aufforderung an die Zuschauer, die zum Kommentieren einlädt (z. B. „Would you survive this? 👇“, „Which animal should be next?“, „Tag a friend who…“, „Guess the temperature before the end 🔥“). Wechsle die Art der Frage von Video zu Video. Danach kurz die Quelle („Source: Nature“) und 3 bis 4 Hashtags (einer Nische, einer #naturefacts). Kein „Part 2“.
    - Beispiel: `This shrimp gets hotter than the sun 🦐🔥 Would you go near it? 👇 (Source: Nature) #pistolshrimp #naturefacts #oceanlife`
    - Für Entwürfe (B) als Datum den nächsten Tag 18:00 nehmen.
