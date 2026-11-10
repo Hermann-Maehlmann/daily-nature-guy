@@ -21,28 +21,29 @@
     else { for (let i = 0; i < 5; i++) { const a = -Math.PI / 2 + (i - 2) * .38 + Math.sin(t * 1.2 + ph + i) * .06; g.beginPath(); g.moveTo(-8, 0); g.quadraticCurveTo(Math.cos(a) * 60 - 10, Math.sin(a) * 60, Math.cos(a) * 130, Math.sin(a) * 130); g.lineTo(Math.cos(a) * 130 + 14, Math.sin(a) * 130 + 4); g.quadraticCurveTo(Math.cos(a) * 60 + 10, Math.sin(a) * 60, 8, 0); g.fill(); } }
     g.restore();
   }
-  function reef(t, camx, camy, z) {
-    const bg = g.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, "#29b6e0"); bg.addColorStop(.35, "#1572b8"); bg.addColorStop(.75, "#0d3a7d"); bg.addColorStop(1, "#091f52");
+  function reef(t, camx, camy, z, pal) {
+    pal = pal || {}; const sky = pal.sky || ["#1d9ccc", "#1263a8", "#0b3172", "#071a47"];
+    const bg = g.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, sky[0]); bg.addColorStop(.35, sky[1]); bg.addColorStop(.75, sky[2]); bg.addColorStop(1, sky[3]);
     g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = bg; g.fillRect(0, 0, W, H);
     const sg = g.createRadialGradient(W * .6, -200, 50, W * .6, -200, H * .8); sg.addColorStop(0, "rgba(190,250,255,.55)"); sg.addColorStop(1, "rgba(190,250,255,0)"); g.fillStyle = sg; g.fillRect(0, 0, W, H);
     g.save(); g.globalCompositeOperation = "lighter";
-    for (let i = 0; i < 7; i++) { const x = ((i * 190 - camx * .05 + Math.sin(t * .5 + i) * 40) % (W + 400) + W + 400) % (W + 400) - 200;
-      const lg = g.createLinearGradient(0, 0, 0, H * .85); lg.addColorStop(0, "rgba(170,240,255,.16)"); lg.addColorStop(1, "rgba(170,240,255,0)"); g.fillStyle = lg;
+    for (let i = 0; i < (pal.rays === false ? 0 : 7); i++) { const x = ((i * 190 - camx * .05 + Math.sin(t * .5 + i) * 40) % (W + 400) + W + 400) % (W + 400) - 200;
+      const lg = g.createLinearGradient(0, 0, 0, H * .85); lg.addColorStop(0, "rgba(170,240,255,.075)"); lg.addColorStop(1, "rgba(170,240,255,0)"); g.fillStyle = lg;
       g.beginPath(); g.moveTo(x, -20); g.lineTo(x + 70 + i % 3 * 30, -20); g.lineTo(x + 380, H * .85); g.lineTo(x + 220, H * .85); g.fill(); }
     g.restore();
-    const cols = [["#1f5ea6", "#2a72bd"], ["#173f86", "#215099"], ["#102a63", "#18397a"]];
+    const cols = pal.hills || [["#1f5ea6", "#2a72bd"], ["#173f86", "#215099"], ["#102a63", "#18397a"]];
     rocks.forEach((L, li) => { const par = [.25, .45, .7][li], base = H * (.72 + li * .09) - camy * par * .3;
       g.save(); if (li === 0) g.filter = "blur(6px)";
       for (const r of L) { const x = W / 2 + (r.x - camx * par) * (1 + (z - 1) * par * .3);
         g.fillStyle = cols[li][0]; g.beginPath(); g.moveTo(x - r.w / 2, H + 50); g.bezierCurveTo(x - r.w / 2, base - r.h, x + r.w / 2, base - r.h * (.7 + r.c * .5), x + r.w / 2, H + 50); g.fill();
         g.fillStyle = cols[li][1]; g.beginPath(); g.moveTo(x - r.w * .42, base - r.h * .35); g.bezierCurveTo(x - r.w * .4, base - r.h * .78, x + r.w * .1, base - r.h * .78, x + r.w * .05, base - r.h * .62); g.bezierCurveTo(x - r.w * .2, base - r.h * .6, x - r.w * .3, base - r.h * .5, x - r.w * .42, base - r.h * .35); g.fill(); }
       g.fillStyle = cols[li][0]; g.fillRect(0, base + 40, W, H);
-      for (const c of corals) if (c.layer === li) { const x = W / 2 + (c.x - camx * par); if (x > -200 && x < W + 200) { g.globalAlpha = [.55, .8, 1][li]; coral(x, base + 70, c.s * [.6, .8, 1][li], CC[c.c], c.k, t, c.ph); g.globalAlpha = 1; } }
+      if (pal.corals !== false) for (const c of corals) if (c.layer === li) { const x = W / 2 + (c.x - camx * par); if (x > -200 && x < W + 200) { g.globalAlpha = [.55, .8, 1][li]; coral(x, base + 70, c.s * [.6, .8, 1][li], CC[c.c], c.k, t, c.ph); g.globalAlpha = 1; } }
       g.restore();
     });
     g.save(); g.globalCompositeOperation = "lighter";
     for (const p of snow) { const x = ((p.x - camx * p.d * .3 + Math.sin(t * p.s + p.x) * 10) % W + W) % W, y = ((p.y - t * 12 * p.s - camy * p.d * .2) % H + H) % H;
-      const r = p.r * 2.2, gr = g.createRadialGradient(x, y, 0, x, y, r * 2); gr.addColorStop(0, `rgba(200,250,255,${.35 + p.d * .45})`); gr.addColorStop(1, "rgba(200,250,255,0)"); g.fillStyle = gr; g.beginPath(); g.arc(x, y, r * 2, 0, 7); g.fill(); }
+      const r = p.r * 2.2, gr = g.createRadialGradient(x, y, 0, x, y, r * 2); gr.addColorStop(0, `rgba(${pal.dust || "200,250,255"},${.35 + p.d * .45})`); gr.addColorStop(1, "rgba(200,250,255,0)"); g.fillStyle = gr; g.beginPath(); g.arc(x, y, r * 2, 0, 7); g.fill(); }
     g.restore();
   }
   function foreground(t, camx) {
@@ -55,6 +56,18 @@
     const x = bloom.x; x.filter = "none"; x.clearRect(0, 0, W / 4, H / 4); x.filter = "brightness(1.4) contrast(1.6) blur(6px)"; x.drawImage(out, 0, 0, W / 4, H / 4);
     g.setTransform(1, 0, 0, 1, 0, 0); g.save(); g.globalCompositeOperation = "screen"; g.globalAlpha = .2; g.imageSmoothingQuality = "high"; g.drawImage(bloom.c, 0, 0, W, H); g.restore();
   }
+
+  // ---------------- Licht-Technik wie in gezeichneten Erklärfilmen ----------------
+  // Licht kommt von oben rechts. rim(): heller Saum an der Lichtkante, shadowCut(): harter, flacher Schatten unten links.
+  // path(c) zeichnet nur den Pfad (beginPath...); beides muss im aktuellen Koordinatensystem der Figur aufgerufen werden.
+  function rim(c, path, col, w) { c.save(); path(c); c.clip(); c.translate(-w * .7, w); path(c); c.translate(w * .7, -w); c.rect(-5000, -5000, 10000, 10000); c.fillStyle = col; c.fill("evenodd"); c.restore(); }
+  function shadowCut(c, path, col, w) { c.save(); path(c); c.clip(); c.translate(w * .7, -w); path(c); c.translate(-w * .7, w); c.rect(-5000, -5000, 10000, 10000); c.fillStyle = col; c.fill("evenodd"); c.restore(); }
+  // Form komplett: Grundfarbe + Schatten + Lichtsaum
+  function kshape(c, path, base, o) { o = o || {}; c.save(); path(c); c.fillStyle = base; c.fill(); c.restore(); shadowCut(c, path, o.shadow || "rgba(20,0,60,.25)", o.sw ?? 14); rim(c, path, o.rim || "rgba(255,255,255,.35)", o.rw ?? 6); }
+  // feines Filmkorn
+  function grain() { if (!grain.c) { grain.c = document.createElement("canvas"); grain.c.width = 512; grain.c.height = 512; const x = grain.c.getContext("2d"), d = x.createImageData(512, 512); for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); grain.p = g.createPattern(grain.c, "repeat"); }
+    g.setTransform(1, 0, 0, 1, (Math.random() * 512) | 0, (Math.random() * 512) | 0); g.save(); g.globalAlpha = .045; g.globalCompositeOperation = "overlay"; g.fillStyle = grain.p; g.fillRect(-512, -512, W + 1024, H + 1024); g.restore(); g.setTransform(1, 0, 0, 1, 0, 0); }
+  const easeBack = (t) => { t = clamp(t, 0, 1); const k = 1.70158; return 1 + (k + 1) * Math.pow(t - 1, 3) + k * Math.pow(t - 1, 2); };
 
   // ---------------- Fisch (Seitenansicht, schaut nach rechts) ----------------
   function bodyPath(c) {
@@ -95,6 +108,7 @@
     c.fillStyle = "#ffd6c4"; c.beginPath(); c.moveTo(-240, 60); c.bezierCurveTo(-60, 80, 120, 70, 330, 20); c.lineTo(330, 200); c.lineTo(-240, 200); c.fill();
     c.fillStyle = "#c92f4a"; c.beginPath(); c.moveTo(-240, -40); c.bezierCurveTo(-100, -70, 40, -100, 330, -80); c.lineTo(330, -220); c.lineTo(-240, -220); c.fill();
     c.save(); c.beginPath(); c.rect(-240, -220, 600, 120); c.clip(); c.translate(0, 7); c.strokeStyle = "rgba(255,170,170,.7)"; c.lineWidth = 8; bodyPath(c); c.stroke(); c.restore();
+    rim(c, bodyPath, "rgba(255,200,190,.9)", 10); shadowCut(c, bodyPath, "rgba(120,10,50,.28)", 16);
     const hl = c.createRadialGradient(150, -70, 10, 150, -70, 200); hl.addColorStop(0, "rgba(255,235,225,.35)"); hl.addColorStop(1, "rgba(255,235,225,0)"); c.fillStyle = hl; c.fillRect(-300, -200, 650, 400);
     // Röntgen / Schnitt
     if (o.cut) cutaway(c, o);
@@ -271,14 +285,17 @@
     g.fillStyle = "rgba(0,0,0,.45)"; g.beginPath(); g.roundRect(cx - bw / 2, y0 - bh / 2, bw, bh, 26); g.fill();
     lines.forEach((l, i) => { g.fillStyle = "#fff"; g.fillText(l, cx, y0 + (i - (lines.length - 1) / 2) * 104); }); g.restore(); }
 
+  // Baukasten für Szenen-Dateien des Autopiloten (eigene Figuren pro Thema): window.KZ.shot("name", (lt, d, t) => {...})
+  window.KZ = { g, W, H, clamp, lerp, sm, easeBack, R, rim, shadowCut, kshape, reef, cam, foreground, bloom, glow, label, coral, drawFish, fishAt, isoTop, isoSide, SHOTS,
+    shot(name, fn) { SHOTS[name] = fn; }, get t() { return TT; } };
   window.makeAnim = function (spec, words, beats) {
     const total = beats[beats.length - 1].t1;
     function frame(t) {
       let bi = beats.findIndex((b) => t < b.t1); if (bi < 0) bi = beats.length - 1; TT = t;
       const b = beats[bi]; g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none";
-      SHOTS[spec.beats[bi].scene.shot](t - b.t0, b.t1 - b.t0, t);
-      if (!spec.beats[bi].scene.noFg) foreground(t, t * 30);
-      bloom();
+      const fn = SHOTS[spec.beats[bi].scene.shot]; if (!fn) throw new Error("Shot fehlt: " + spec.beats[bi].scene.shot); fn(t - b.t0, b.t1 - b.t0, t);
+      if (!spec.beats[bi].scene.noFg && spec.fg !== false) foreground(t, t * 30);
+      bloom(); grain();
       g.setTransform(1, 0, 0, 1, 0, 0);
       const vg = g.createRadialGradient(W / 2, H * .45, H * .3, W / 2, H * .5, H * .8); vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, "rgba(5,10,40,.45)"); g.fillStyle = vg; g.fillRect(0, 0, W, H);
       if (bi === 0 && spec.hook) hookLine(spec.hook);

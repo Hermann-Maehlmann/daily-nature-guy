@@ -6,10 +6,13 @@ const HERE = __dirname, NPM = path.join(HERE, "..", "npm"), LAB = path.join(HERE
 const [specFile, outFile] = process.argv.slice(2);
 const spec = JSON.parse(fs.readFileSync(specFile, "utf8"));
 const MEDIA = process.env.MEDIA || path.dirname(path.resolve(specFile));
-const FONT = process.env.FONT_DIR || "/tmp/fx/package/files";
+const FONT = process.env.FONT_DIR || path.join(HERE, "fonts");
 const CDNJS = { "marked/12.0.2/marked.min.js": "marked@12.0.2/marked.min.js", "dompurify/3.1.6/purify.min.js": "dompurify@3.1.6/dist/purify.min.js", "three.js/r128/three.min.js": "three@0.128.0/build/three.min.js" };
 const MIME = { js: "text/javascript", mjs: "text/javascript", json: "application/json", wasm: "application/wasm", woff2: "font/woff2" };
-function npmFile(rest) { const m = rest.match(/^((?:@[^/]+\/)?[^/@]+@[^/]+)\/(.*)$/); if (!m) return null; let d = path.join(NPM, m[1].replace("/", "__")); if (!fs.existsSync(d)) d = path.join(NPM, m[1]); const f = path.join(d, m[2]); return fs.existsSync(f) ? f : null; }
+function pkgDir(spec) { const dir = path.join(NPM, spec.replace("/", "__")); if (!fs.existsSync(dir)) { // fehlendes npm-Paket holen (CDNs sind im Container gesperrt, npm nicht)
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "pk-")); const name = cp.execSync("npm pack " + JSON.stringify(spec) + " --silent", { cwd: tmp }).toString().trim().split("\n").pop();
+  fs.mkdirSync(dir, { recursive: true }); cp.execSync("tar xzf " + JSON.stringify(path.join(tmp, name)) + " -C " + JSON.stringify(dir) + " --strip-components=1"); } return dir; }
+function npmFile(rest) { const m = rest.match(/^((?:@[^/]+\/)?[^/@]+@[^/]+)\/(.*)$/); if (!m) return null; let d = path.join(NPM, m[1].replace("/", "__")); if (!fs.existsSync(d) && fs.existsSync(path.join(NPM, m[1]))) d = path.join(NPM, m[1]); if (!fs.existsSync(d)) d = pkgDir(m[1]); const f = path.join(d, m[2]); return fs.existsSync(f) ? f : null; }
 const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main/";
 
 (async () => {
@@ -23,6 +26,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
       if (url === "http://lab.local/") return route.fulfill({ contentType: "text/html; charset=utf-8", body: fs.readFileSync(LAB, "utf8").replace("const a = await t.generate(text, { voice, speed: 1.3 });", "const [vv, sp] = voice.split('|'); const a = await t.generate(text, { voice: vv, speed: +sp || 1.3 });").replace("(async () => {\n  const C = window.claude;", "Object.assign(window, { VOICE, makeMusic });\n(async () => {\n  const C = window.claude;") });
       if (url.startsWith("http://lab.local/three/")) return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(NPM, "three@0.128.0", url.slice(23))) });
       if (url === "http://lab.local/anim2d.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "anim2d.js")) });
+      if (url === "http://lab.local/scene.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.resolve(path.dirname(specFile), spec.sceneFile)) });
       if (url === "http://lab.local/anim3d.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "anim3d.js")) });
       if (url === "http://lab.local/stage3.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "stage3.js")) });
       if (url.startsWith("http://lab.local/media/")) return route.fulfill({ contentType: "image/jpeg", body: fs.readFileSync(path.join(MEDIA, decodeURIComponent(url.slice(23)))) });
@@ -40,6 +44,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
   await page.goto("http://lab.local/", { waitUntil: "load", timeout: 120000 });
   await page.waitForFunction(() => window.VOICE && window.makeMusic, null, { timeout: 60000 });
   await page.addScriptTag({ url: "http://lab.local/anim2d.js" }); await page.waitForFunction(() => window.__animReady, null, { timeout: 120000 });
+  if (spec.sceneFile) await page.addScriptTag({ url: "http://lab.local/scene.js" }); // eigene Figuren/Shots des Themas (nutzt window.KZ)
   // Clips in Einzelbilder (1080 hoch, 30 fps) zerlegen
   const clips = {};
   for (const b of spec.beats) { const c = b.scene.clip; if (!c || clips[c]) continue;
