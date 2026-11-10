@@ -136,5 +136,23 @@
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=9089840177601793427",
     "quelle": "BBC The Life of Birds (Attenborough); The Conversation 2014 (Kettenmimikry v. a. bei Vögeln in Menschenobhut)",
     "hinweis": "Sonderaktion 10.11.: Halbstunden-Takt 14:30-19:00 auf Hermanns Wunsch"
+  },
+  {
+    "datum": "2026-11-10T15:30:00+01:00",
+    "thema": "Perlfisch lebt im After der Seegurke (Seegurken atmen durch den After)",
+    "titel": "The Fish That Lives In A Butt",
+    "status": "entwurf",
+    "geplant_fuer": "2026-11-11T19:30:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-3249744983703794743",
+    "quelle": "Smithsonian Ocean"
+  },
+  {
+    "datum": "2026-11-10T15:30:00+01:00",
+    "thema": "Zitteraal springt aus dem Wasser, um Angreifer zu schocken (Catania 2016)",
+    "titel": "The Eel That Jumps To Shock You",
+    "status": "entwurf",
+    "geplant_fuer": "2026-11-11T20:00:00+01:00",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-6880940886676322366",
+    "quelle": "PNAS (Catania 2016)"
   }
 ]
