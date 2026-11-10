@@ -19,12 +19,12 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
 
    - **Gesundheitscheck:** Mit `getScheduledPosts` (gestern bis morgen) und `state/videos.json` prüfen, ob die öffentlichen Posts früherer Läufe wirklich rausgegangen sind. Steht ein Post, dessen Zeit vorbei ist, noch auf PENDING oder auf ERROR/FAILED, oder schlägt ein Connector (Metricool, Parallel Search, GitHub) fehl, beginnt die Zusammenfassung am Ende mit **„⚠️ Hermann, bitte kümmern:“** und sagt in einem Satz, was kaputt ist und was er tun muss (z. B. TikTok in Metricool neu verbinden). Dann nichts Neues öffentlich einplanen, solange TikTok-Posts scheitern.
 
-2. **Thema wählen** (nie ein Thema aus `state/videos.json` wiederholen; bevorzugt Tiere, für die es in `autopilot/v2/figuren.js` schon eine Grundfigur gibt oder die sich daraus ableiten lassen)
+2. **Thema wählen** (nie ein Thema aus `state/videos.json` wiederholen, Tierart frei wählen)
    - Überraschende, wahre Tier- oder Naturfakten mit Krimi-, Ekel-, Wow- oder Lach-Faktor. Gute Felder: Insekten, Tiefsee, Parasiten, Vögel, Pilze, Pflanzen, Raubtiere, Tarnung, Paarung, Rekorde.
    - Fakten mit Parallel Search (`web_search`) gegenprüfen. Nur, was eine seriöse Quelle (Uni, Museum, Fachartikel, National Geographic, BBC Earth …) belegt. Eine Quelle für die Caption merken.
 
 3. **Drehbuch + Animation bauen** – **fester Stil seit 10.11.2026: gezeichneter Erklärfilm, Anleitung in `autopilot/v2/STIL.md` genau lesen.**
-   - Drehbuch `out/<slug>.json` und Szenendatei `out/<slug>-szenen.js` mit eigenen, für das Tier gezeichneten Figuren. **Zuerst die Figuren-Bibliothek nutzen** (`KZ.fig.fish/insect/bird/mammal/crustacean/octopus/snake`, Übersicht `autopilot/v2/szenen/bibliothek.js`) und mit Farben (`pal`) und Zusatzteilen an das echte Tier anpassen (Hörner, Stacheln, Muster, Proportionen). Vorbild für eine Szenendatei: `autopilot/v2/szenen/pistolenkrebs.js`. Englisch, ruhig erzählt (nicht hetzen), 9–12 Beats, 20–30 s, erster Beat harter Hook, kein Outro, **nie** „Part 2“.
+   - Drehbuch `out/<slug>.json` und Szenendatei `out/<slug>-szenen.js` mit eigenen, für das Tier gezeichneten Figuren. **Jedes Tier wird neu und genau nach dem echten Tier gezeichnet** (Hermann 10.11.2026: keine Einheitsfiguren, jedes Video so ausgefeilt wie der Zungen-Parasit). `KZ.fig.*` aus `autopilot/v2/figuren.js` darf nur als Hilfe dienen (z. B. Augen `fig.eye`, Beine `fig.legA`/`fig.legM`), nie als fertige Figur. Vorbild für eine Szenendatei: `autopilot/v2/szenen/pistolenkrebs.js`. Englisch, ruhig erzählt (nicht hetzen), 9–12 Beats, 20–30 s, erster Beat harter Hook, kein Outro, **nie** „Part 2“.
    - Feld `"thumbnail"`: Cover-Text, höchstens 4 Wörter, ein Wort in *Sternchen*, nicht derselbe Satz wie der Hook.
    - Altes Emoji-Format (`autopilot/render.js`, `schema.js`) **nicht mehr verwenden**.
    - Selbst kritisch prüfen wie Kai im Labor: Hook stark? Fakten korrekt? Zeigt jedes Bild genau den gesprochenen Satz? Ist das Tier erkennbar und schön gezeichnet (Stil-Checkliste in STIL.md)?
@@ -36,7 +36,6 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
      2. Runde: Stil-Checkliste aus STIL.md (kshape überall, satte Farben, Leuchten, große Augen, nichts leer oder abgeschnitten, nichts in TikTok-Zonen).
      3. Runde: Bewegung und Wirkung (Kamera fährt in jedem Beat, Figuren lebendig, starker erster Beat). Letzte Fehler beheben.
      Bestanden nur, wenn nach Runde 3 kein Bild mehr einen klaren Fehler hat. Sonst wird das Video Entwurf.
-   - Gelungene neue Figur (z. B. ein Tier, das es noch nicht gab) als Funktion in `autopilot/v2/figuren.js` ergänzen und mit committen, damit spätere Videos sie nutzen.
    - Rendern: `node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>.mp4` (30 fps Bild für Bild, ca. 4–10 Min).
    - Flüssigkeit prüfen: `ffmpeg -i out/<slug>.mp4 -vf mpdecimate -loglevel debug -f null - 2>&1 | grep -c "drop pts"` muss unter 100 liegen (sonst nicht posten, Fehler melden).
    - Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` ansehen. Leer oder kaputt → nicht posten, Fehler melden.

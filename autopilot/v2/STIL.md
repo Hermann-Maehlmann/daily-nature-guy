@@ -49,7 +49,7 @@ Fertige Grundfiguren im Stil, Seitenansicht, Kopf nach rechts, Boden bei y=0, L�
 `fish`, `insect` (Option `ant`, `wings`, `fly`, `stripes`, `bite`), `bird` (`fly`, `beakOpen`), `mammal` (`ears: "pointy"|"round"`, `tail`, `mouth`), `crustacean` (`snap`, `clawSize`), `octopus`, `snake`.
 Alle: `{ t, walk, pal: {Farben}, mood: "angry"|"scared", look }`. Helfer: `fig.eye`, `fig.legA` (Gliederbein), `fig.legM` (Pfote), `fig.shade`, `fig.ell`.
 Übersicht ansehen: `PREVIEW=1.3 node autopilot/v2/render5.js autopilot/v2/szenen/bibliothek.json out/bib`.
-Grundfigur nehmen, Farben anpassen, typische Merkmale dazuzeichnen. Passt keine, eine neue Figur bauen und danach in figuren.js aufnehmen.
+Wichtig: Jedes Tier wird für jedes Video neu und genau nach dem echten Tier gezeichnet (Hermann). Die Grundfiguren und Helfer sind nur Bausteine und Anschauung, keine fertigen Figuren.
 
 ## Stilregeln (Checkliste vor dem Rendern)
 
