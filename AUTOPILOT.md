@@ -1,5 +1,7 @@
 # TikTok-Autopilot „Daily Nature Guy“
 
+> **⚠️ Vorrang (Hermann, 10.11.2026):** Diese Datei gilt vor dem Aufgabentext der geplanten Aufgabe. Steht dort noch „2 Videos (A öffentlich, B Entwurf)“ oder „mit autopilot/render.js rendern“, ist das veraltet: **pro Lauf genau 1 Video**, gebaut mit `autopilot/v2/render5.js`, der Figuren-Bibliothek und `autopilot/v2/stimme.sh`, wie unten beschrieben.
+
 Dieses Repo gehört zu Hermanns KI-Labor. Eine geplante Aufgabe startet 4× am Tag eine frische Claude-Sitzung, die genau diesen Ablauf einmal durchläuft.
 
 **Pro Lauf entsteht 1 Video, dafür besonders sorgfältig** (Hermanns Wahl vom 10.11.2026: lieber jedes Tier so ausgefeilt wie das Zungen-Parasit-Video):
