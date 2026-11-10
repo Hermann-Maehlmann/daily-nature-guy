@@ -28,7 +28,8 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
    - Selbst kritisch prüfen wie Kai im Labor: Hook stark? Fakten korrekt? Jede Szene mit Bewegung? Text höchstens 7 Wörter? Dann verbessern.
 
 4. **Rendern**
-   - `node autopilot/render.js out/<slug>.json out/<slug>.mp4` (dauert 2–4 Min, lädt beim ersten Mal die Stimme von npm).
+   - `node autopilot/render.js out/<slug>.json out/<slug>.mp4` (rendert Bild für Bild mit 30 fps, dauert ca. 4 Min pro Video; tipp: npm-Cache aus `/mnt/project-files/ki-labor/autopilot/npm/` nach `autopilot/npm/` kopieren, falls vorhanden).
+   - Flüssigkeit prüfen: `ffmpeg -i out/<slug>.mp4 -vf mpdecimate -loglevel debug -f null - 2>&1 | grep -c "drop pts"` muss unter 100 liegen (sonst ruckelt das Video: nicht posten, Fehler melden).
    - Danach Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` und ansehen. Fehlen Figuren oder ist das Bild leer, nicht posten, sondern Fehler melden.
 
    - **Thumbnail:** `node autopilot/thumb.js out/<slug>.mp4 out/<slug>.json out/<slug>.jpg` (Hook-Bild plus Cover-Text-Sticker, 1080×1920). Ansehen: Figur sichtbar, Text lesbar, nichts abgeschnitten.

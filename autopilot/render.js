@@ -48,7 +48,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
     const url = route.request().url();
     try {
       if (url.startsWith("http://lab.local/")) {
-        if (url === "http://lab.local/" ) return route.fulfill({ body: fs.readFileSync(LAB, "utf8").replace("(async () => {\n  const C = window.claude;", "window.__videoBox = videoBox; window.__normSpec = normSpec;\n(async () => {\n  const C = window.claude;"), contentType: "text/html; charset=utf-8" });
+        if (url === "http://lab.local/" ) return route.fulfill({ body: fs.readFileSync(LAB, "utf8").replace("(async () => {\n  const C = window.claude;", "window.__videoBox = videoBox; window.__normSpec = normSpec; Object.assign(window, { voiceOver, bitmapsOf, makeRenderer, makeMusic, makeSfx, playVoice });\n(async () => {\n  const C = window.claude;"), contentType: "text/html; charset=utf-8" });
         return route.fulfill({ status: 404, body: "" });
       }
       let file = null;
@@ -66,22 +66,60 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
   });
   await page.goto("http://lab.local/", { waitUntil: "load", timeout: 120000 });
   await page.waitForFunction(() => typeof window.__videoBox === "function", null, { timeout: 60000 });
-  const dl = page.waitForEvent("download", { timeout: 15 * 60000 });
-  await page.evaluate((s) => {
-    s = window.__normSpec(s); const box = window.__videoBox(s, () => [], { edit: false });
-    box.id = "autopilot-box"; document.body.prepend(box);
-    window.__note = () => box.querySelector(".vnote").textContent;
-    box.querySelector(".vsave").click();
+  // Bild für Bild rendern (nicht in Echtzeit aufnehmen): jedes der 30 Bilder pro Sekunde wird einzeln gezeichnet,
+  // egal wie langsam der Server ist. Ton wird offline (OfflineAudioContext) berechnet.
+  const FPS = 30;
+  const info = await page.evaluate(async (raw) => {
+    try { await Promise.race([document.fonts.load('400 80px "Bangers"'), new Promise((r) => setTimeout(r, 4000))]); } catch (_) {}
+    try { await document.fonts.ready; } catch (_) {}
+    const spec = window.__normSpec(raw);
+    const r = await voiceOver(spec, (t) => console.log("…", t));
+    const S = r.spec, VO = r.vo;
+    const cv = document.createElement("canvas"); document.body.prepend(cv);
+    const bm = await bitmapsOf([]);
+    const R = makeRenderer(S, cv, bm);
+    window.__R = R; window.__cv = cv;
+    // Ton
+    const rate = 48000, len = Math.ceil((R.total + 0.3) * rate);
+    const ac = new OfflineAudioContext(2, len, rate), dest = ac.destination;
+    const voOn = VO.some(Boolean) || !!VO.outro;
+    if (S.musik) { makeMusic(ac, dest, R.total, S.stimmung, voOn ? .2 : .5); makeSfx(ac, dest, S, voOn ? .5 : .8); }
+    if (voOn) playVoice(ac, dest, S, VO);
+    const buf = await ac.startRendering();
+    const L = buf.getChannelData(0), Rr = buf.getChannelData(1);
+    const pcm = new Int16Array(len * 2);
+    for (let i = 0; i < len; i++) { pcm[2 * i] = Math.max(-1, Math.min(1, L[i])) * 32767; pcm[2 * i + 1] = Math.max(-1, Math.min(1, Rr[i])) * 32767; }
+    const u8 = new Uint8Array(pcm.buffer); let bin = ""; for (let i = 0; i < u8.length; i += 0x8000) bin += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000));
+    return { total: R.total, w: cv.width, h: cv.height, audio: btoa(bin) };
   }, spec);
-  const timer = setInterval(async () => { try { console.log("…", await page.evaluate(() => window.__note())); } catch (_) {} }, 10000);
-  const d = await dl; clearInterval(timer);
-  const raw = outFile + ".raw";
-  await d.saveAs(raw);
-  await browser.close();
-  // gleichmäßige 30 fps, H.264 + AAC, < 11 MB (Metricool-Limit 12 MB)
-  const dur = parseFloat(cp.execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", raw]).toString()) || 30;
-  const vk = Math.max(1200, Math.min(6000, Math.floor(10.0e6 * 8 / dur / 1000) - 160));
-  cp.execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", raw, "-r", "30", "-c:v", "libx264", "-preset", "medium", "-b:v", vk + "k", "-maxrate", vk + "k", "-bufsize", 2 * vk + "k", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", outFile]);
-  fs.unlinkSync(raw);
+  const tmp = fs.mkdtempSync(path.join(require("os").tmpdir(), "rd-"));
+  const pcmFile = path.join(tmp, "a.pcm"); fs.writeFileSync(pcmFile, Buffer.from(info.audio, "base64"));
+  const N = Math.round(info.total * FPS);
+  const ff = cp.spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(FPS), "-c:v", "mjpeg", "-i", "-",
+    "-f", "s16le", "-ar", "48000", "-ac", "2", "-i", pcmFile, "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "fast", "-crf", "14",
+    "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-shortest", path.join(tmp, "master.mp4")], { stdio: ["pipe", "inherit", "inherit"] });
+  const ffDone = new Promise((res, rej) => ff.on("close", (c) => c === 0 ? res() : rej(new Error("ffmpeg " + c))));
+  const B = 15;
+  for (let i = 0; i < N; i += B) {
+    const frames = await page.evaluate(async ([i0, n, fps]) => {
+      const out = [];
+      for (let k = i0; k < i0 + n; k++) {
+        window.__R.frame(Math.min(k / fps, window.__R.total - 1e-3));
+        const blob = await new Promise((r) => window.__cv.toBlob(r, "image/jpeg", 0.93));
+        const u8 = new Uint8Array(await blob.arrayBuffer()); let bin = ""; for (let j = 0; j < u8.length; j += 0x8000) bin += String.fromCharCode.apply(null, u8.subarray(j, j + 0x8000));
+        out.push(btoa(bin));
+      }
+      return out;
+    }, [i, Math.min(B, N - i), FPS]);
+    for (const f of frames) { if (!ff.stdin.write(Buffer.from(f, "base64"))) await new Promise((r) => ff.stdin.once("drain", r)); }
+    if ((i / B) % 20 === 0) console.log("… Bild " + i + " von " + N);
+  }
+  ff.stdin.end(); await ffDone; await browser.close();
+  // 2-Pass auf Zielgröße < 11 MB (Metricool nimmt höchstens 12 MB)
+  const dur = info.total, vk = Math.max(1500, Math.min(8000, Math.floor(10.4e6 * 8 / (dur + 0.5) / 1000) - 170));
+  const enc = ["-c:v", "libx264", "-preset", "slow", "-b:v", vk + "k", "-maxrate", Math.round(vk * 1.6) + "k", "-bufsize", 2 * vk + "k", "-pix_fmt", "yuv420p", "-passlogfile", path.join(tmp, "p")];
+  cp.execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", path.join(tmp, "master.mp4"), ...enc, "-pass", "1", "-an", "-f", "null", "-"]);
+  cp.execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", path.join(tmp, "master.mp4"), ...enc, "-pass", "2", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", outFile]);
+  fs.rmSync(tmp, { recursive: true, force: true });
   console.log("OK", outFile, (fs.statSync(outFile).size / 1e6).toFixed(1) + " MB", dur.toFixed(1) + " s");
 })().catch((e) => { console.error("FEHLER", e); process.exit(1); });
