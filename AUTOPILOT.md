@@ -37,7 +37,8 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
    - Zeit: mit `getBestTimeToPostByNetwork` (tiktok) den besten Slot in den nächsten 6 Stunden wählen, frühestens 20 Min ab jetzt, mindestens 2 Stunden Abstand zum letzten öffentlichen Post aus `state/videos.json`.
    - `createScheduledPost` mit `info`:
      `{"text": <Caption>, "providers":[{"network":"tiktok"}], "media":[<URL>], "publicationDate":{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":<tz>}, "autoPublish": true, "draft": <false für A, true für B>, "tiktokData":{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":true,"title":<Titel>}, "firstCommentText":"", "descendants":[], "shortener":false, "smartLinkData":{"ids":[]}, "hasNotReadNotes":false, "mediaAltText":[]}`
-   - Caption (Englisch, max. 300 Zeichen): 1 Neugier-Satz, 1 Satz Kontext, Quelle in Klammern, 4 Hashtags (einer davon Nische). Kein „Part 2“.
+   - Caption (Englisch, kurz: höchstens 150 Zeichen ohne Hashtags, Hermanns Wunsch vom 10.11.2026): 1 knackiger Hook-Satz plus 1 Frage oder Aufforderung an die Zuschauer, die zum Kommentieren einlädt (z. B. „Would you survive this? 👇“, „Which animal should be next?“, „Tag a friend who…“, „Guess the temperature before the end 🔥“). Wechsle die Art der Frage von Video zu Video. Danach kurz die Quelle („Source: Nature“) und 3 bis 4 Hashtags (einer Nische, einer #naturefacts). Kein „Part 2“.
+   - Beispiel: `This shrimp gets hotter than the sun 🦐🔥 Would you go near it? 👇 (Source: Nature) #pistolshrimp #naturefacts #oceanlife`
    - Für Entwürfe (B) als Datum den nächsten Tag 18:00 nehmen.
    - Metricool kopiert das Video beim Einplanen sofort auf eigene Server (`media` in der Antwort zeigt dann static.metricool.com). Danach `autopilot/host.sh clear`, damit die Videos nicht öffentlich im Repo liegen bleiben.
 
