@@ -26,6 +26,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
       if (url === "http://lab.local/") return route.fulfill({ contentType: "text/html; charset=utf-8", body: fs.readFileSync(LAB, "utf8").replace("const a = await t.generate(text, { voice, speed: 1.3 });", "const [vv, sp] = voice.split('|'); const a = await t.generate(text, { voice: vv, speed: +sp || 1.3 });").replace("(async () => {\n  const C = window.claude;", "Object.assign(window, { VOICE, makeMusic });\n(async () => {\n  const C = window.claude;") });
       if (url.startsWith("http://lab.local/three/")) return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(NPM, "three@0.128.0", url.slice(23))) });
       if (url === "http://lab.local/anim2d.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "anim2d.js")) });
+      if (url === "http://lab.local/figuren.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "figuren.js")) });
       if (url === "http://lab.local/scene.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.resolve(path.dirname(specFile), spec.sceneFile)) });
       if (url === "http://lab.local/anim3d.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "anim3d.js")) });
       if (url === "http://lab.local/stage3.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "stage3.js")) });
@@ -44,6 +45,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
   await page.goto("http://lab.local/", { waitUntil: "load", timeout: 120000 });
   await page.waitForFunction(() => window.VOICE && window.makeMusic, null, { timeout: 60000 });
   await page.addScriptTag({ url: "http://lab.local/anim2d.js" }); await page.waitForFunction(() => window.__animReady, null, { timeout: 120000 });
+  await page.addScriptTag({ url: "http://lab.local/figuren.js" }); await page.waitForFunction(() => window.__figReady, null, { timeout: 60000 });
   if (spec.sceneFile) await page.addScriptTag({ url: "http://lab.local/scene.js" }); // eigene Figuren/Shots des Themas (nutzt window.KZ)
   // Clips in Einzelbilder (1080 hoch, 30 fps) zerlegen
   const clips = {};
