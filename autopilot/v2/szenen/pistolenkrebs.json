@@ -1,0 +1,30 @@
+{
+ "titel": "Pistol shrimp test",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "LOUDER THAN\nA GUNSHOT",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "sceneFile": "pistolenkrebs.js",
+ "beats": [
+  {
+   "say": "This tiny shrimp has a *weapon.*",
+   "scene": {
+    "shot": "krebsHook"
+   }
+  },
+  {
+   "say": "It snaps its claw so fast it makes a *bubble* explode!",
+   "scene": {
+    "shot": "krebsSnap"
+   }
+  },
+  {
+   "say": "For a split second, it's almost as hot as the *sun.*",
+   "scene": {
+    "shot": "krebsHeat"
+   }
+  }
+ ],
+ "thumbnail": "Hotter than the *sun*?!"
+}

@@ -1,0 +1,201 @@
+{
+ "titel": "The Parasite That Becomes A Tongue",
+ "voice": "bm_george",
+ "hook": "LOOK INSIDE\nITS MOUTH",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "beats": [
+  {
+   "say": "Look closely at this fish's *mouth.*",
+   "scene": {
+    "img": "p00.jpg",
+    "f0": [
+     0.45,
+     0.55
+    ],
+    "f1": [
+     0.4,
+     0.7
+    ],
+    "z0": 1.0,
+    "z1": 1.25,
+    "credit": "Photo: Christian Gloor, CC BY 2.0"
+   }
+  },
+  {
+   "say": "That's not its *tongue.*",
+   "sfx": "boom",
+   "scene": {
+    "img": "p00.jpg",
+    "f0": [
+     0.39,
+     0.73
+    ],
+    "f1": [
+     0.39,
+     0.73
+    ],
+    "z0": 1.9,
+    "z1": 2.15,
+    "credit": "Photo: Christian Gloor, CC BY 2.0",
+    "hard": true
+   }
+  },
+  {
+   "say": "It's a parasite. And it *ate* the real one.",
+   "scene": {
+    "img": "p05.jpg",
+    "f0": [
+     0.5,
+     0.5
+    ],
+    "f1": [
+     0.56,
+     0.62
+    ],
+    "z0": 1.0,
+    "z1": 1.3,
+    "credit": "Photo: Marco Vinci, CC BY-SA 3.0"
+   }
+  },
+  {
+   "say": "As a tiny larva, it slips in through the *gills.*",
+   "scene": {
+    "img": "p07.jpg",
+    "f0": [
+     0.45,
+     0.55
+    ],
+    "f1": [
+     0.57,
+     0.6
+    ],
+    "z0": 1.0,
+    "z1": 1.35,
+    "credit": "Photo: Georgia Stathopoulou, CC BY-SA 4.0"
+   }
+  },
+  {
+   "say": "With *fourteen* hooked legs, it clamps onto the tongue,",
+   "scene": {
+    "img": "p02.jpg",
+    "f0": [
+     0.55,
+     0.45
+    ],
+    "f1": [
+     0.63,
+     0.45
+    ],
+    "z0": 1.1,
+    "z1": 1.5,
+    "credit": "Photo: Marco Vinci, CC BY-SA 3.0"
+   }
+  },
+  {
+   "say": "and drinks the *blood* inside it.",
+   "scene": {
+    "img": "p01.jpg",
+    "f0": [
+     0.48,
+     0.48
+    ],
+    "f1": [
+     0.48,
+     0.45
+    ],
+    "z0": 1.2,
+    "z1": 1.55,
+    "credit": "Photo: Marco Vinci, CC BY-SA 3.0"
+   }
+  },
+  {
+   "say": "Starved of blood, the tongue *withers,* and falls off.",
+   "scene": {
+    "img": "p08.jpg",
+    "f0": [
+     0.15,
+     0.45
+    ],
+    "f1": [
+     0.1,
+     0.42
+    ],
+    "z0": 1.0,
+    "z1": 1.3,
+    "credit": "Photo: Rickard Zerpe, CC BY 2.0"
+   }
+  },
+  {
+   "say": "Then the parasite grabs the stump,",
+   "scene": {
+    "img": "p03.jpg",
+    "f0": [
+     0.5,
+     0.4
+    ],
+    "f1": [
+     0.62,
+     0.35
+    ],
+    "z0": 1.05,
+    "z1": 1.4,
+    "credit": "Photo: Marco Vinci, CC BY-SA 3.0"
+   }
+  },
+  {
+   "say": "and *becomes* the fish's new tongue.",
+   "sfx": "boom",
+   "scene": {
+    "img": "p05.jpg",
+    "f0": [
+     0.55,
+     0.6
+    ],
+    "f1": [
+     0.56,
+     0.63
+    ],
+    "z0": 1.4,
+    "z1": 1.8,
+    "credit": "Photo: Marco Vinci, CC BY-SA 3.0"
+   }
+  },
+  {
+   "say": "Scientists know no other parasite that *replaces* a body part.",
+   "scene": {
+    "img": "p06.jpg",
+    "f0": [
+     0.5,
+     0.45
+    ],
+    "f1": [
+     0.48,
+     0.36
+    ],
+    "z0": 1.0,
+    "z1": 1.3,
+    "credit": "Photo: Frank Schulenburg, CC0"
+   }
+  },
+  {
+   "say": "And this one is still in there.",
+   "gap": 0.02,
+   "scene": {
+    "img": "p00.jpg",
+    "f0": [
+     0.4,
+     0.7
+    ],
+    "f1": [
+     0.45,
+     0.55
+    ],
+    "z0": 1.35,
+    "z1": 1.05,
+    "credit": "Photo: Christian Gloor, CC BY 2.0"
+   }
+  }
+ ]
+}

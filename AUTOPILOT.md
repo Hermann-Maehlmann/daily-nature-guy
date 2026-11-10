@@ -21,20 +21,22 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
    - Überraschende, wahre Tier- oder Naturfakten mit Krimi-, Ekel-, Wow- oder Lach-Faktor. Gute Felder: Insekten, Tiefsee, Parasiten, Vögel, Pilze, Pflanzen, Raubtiere, Tarnung, Paarung, Rekorde.
    - Fakten mit Parallel Search (`web_search`) gegenprüfen. Nur, was eine seriöse Quelle (Uni, Museum, Fachartikel, National Geographic, BBC Earth …) belegt. Eine Quelle für die Caption merken.
 
-3. **Drehbuch schreiben** (je Video)
-   - `node autopilot/schema.js` zeigt das Format und ein Vorbild. Daraus ein JSON schreiben nach `out/<slug>.json`.
-   - Regeln: `format` 9:16, `stil` cartoon, `sprache` en, `stimme` am_michael, `musik` true, `outro` true. 8–11 Szenen, zusammen 18–28 s. Erste Szene ist ein harter Hook (Frage oder Schock-Satz). Jede Szene hat Figuren (`darsteller` mit Emojis) und einen `sprecher`-Satz, der erklärt, was passiert. Witzige Sprechblasen (`sagt`). Letzte Szene `typ: ende` mit Unterzeile „Follow for daily nature facts“. **Nie** „Part 2“ oder Fortsetzung.
-   - Zusätzlich Feld `"thumbnail"`: Cover-Text fürs Thumbnail, höchstens 4 Wörter, neugierig oder schockierend, ein Wort in *Sternchen* (wird Akzentfarbe), z. B. `"Hotter than the *sun*?!"`. Nicht derselbe Satz wie der Hook.
-   - Selbst kritisch prüfen wie Kai im Labor: Hook stark? Fakten korrekt? Jede Szene mit Bewegung? Text höchstens 7 Wörter? Dann verbessern.
+3. **Drehbuch + Animation bauen** (je Video) – **fester Stil seit 10.11.2026: gezeichneter Erklärfilm, Anleitung in `autopilot/v2/STIL.md` genau lesen.**
+   - Drehbuch `out/<slug>.json` und Szenendatei `out/<slug>-szenen.js` mit eigenen, für das Tier gezeichneten Figuren (Vorbild `autopilot/v2/szenen/pistolenkrebs.js`). Englisch, ruhig erzählt (nicht hetzen), 9–12 Beats, 20–30 s, erster Beat harter Hook, kein Outro, **nie** „Part 2“.
+   - Feld `"thumbnail"`: Cover-Text, höchstens 4 Wörter, ein Wort in *Sternchen*, nicht derselbe Satz wie der Hook.
+   - Altes Emoji-Format (`autopilot/render.js`, `schema.js`) **nicht mehr verwenden**.
+   - Selbst kritisch prüfen wie Kai im Labor: Hook stark? Fakten korrekt? Zeigt jedes Bild genau den gesprochenen Satz? Ist das Tier erkennbar und schön gezeichnet (Stil-Checkliste in STIL.md)?
 
-4. **Rendern**
-   - `node autopilot/render.js out/<slug>.json out/<slug>.mp4` (rendert Bild für Bild mit 30 fps, dauert ca. 4 Min pro Video; tipp: npm-Cache aus `/mnt/project-files/ki-labor/autopilot/npm/` nach `autopilot/npm/` kopieren, falls vorhanden).
-   - Flüssigkeit prüfen: `ffmpeg -i out/<slug>.mp4 -vf mpdecimate -loglevel debug -f null - 2>&1 | grep -c "drop pts"` muss unter 100 liegen (sonst ruckelt das Video: nicht posten, Fehler melden).
-   - Danach Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` und ansehen. Fehlen Figuren oder ist das Bild leer, nicht posten, sondern Fehler melden.
+4. **Stimme, Vorschau, dann rendern**
+   - **Stimme (Pflicht):** `bash autopilot/v2/stimme.sh out/<slug>.json` spricht jeden Satz mit der natürlichen Chatterbox-Männerstimme ein (von Hermann am 10.11.2026 abgenommen) und schreibt `out/<slug>-cb.json`. Erster Aufruf installiert das Modell (5–10 Min), dann ca. 35 s pro Satz. **Ab hier immer `out/<slug>-cb.json` rendern.** Nur wenn Chatterbox gar nicht startet: mit `out/<slug>.json` rendern (Kokoro `bm_george`, `speed` 1.1) und in der Zusammenfassung „⚠️ Hermann, bitte kümmern: natürliche Stimme ging nicht“ melden.
+   - Vorschau: `PREVIEW=0.5,3,6,9,12,15,18 node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>-p` und alle Bilder ansehen. Leere Bilder, kaputte Figuren, Text hinter TikTok-Buttons → Szenendatei verbessern und Vorschau wiederholen (mindestens eine Verbesserungsrunde).
+   - Rendern: `node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>.mp4` (30 fps Bild für Bild, ca. 4–10 Min).
+   - Flüssigkeit prüfen: `ffmpeg -i out/<slug>.mp4 -vf mpdecimate -loglevel debug -f null - 2>&1 | grep -c "drop pts"` muss unter 100 liegen (sonst nicht posten, Fehler melden).
+   - Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` ansehen. Leer oder kaputt → nicht posten, Fehler melden.
 
    - **Thumbnail:** `node autopilot/thumb.js out/<slug>.mp4 out/<slug>.json out/<slug>.jpg` (Hook-Bild plus Cover-Text-Sticker, 1080×1920). Ansehen: Figur sichtbar, Text lesbar, nichts abgeschnitten.
    - **Cover ins Video:** `bash autopilot/cover.sh out/<slug>.mp4 out/<slug>.jpg` setzt das Thumbnail als erstes Bild (0,1 s) ins Video. Hermanns Konto übernimmt `videoThumbnailUrl` nicht, TikTok nimmt das erste Bild als Cover. Deshalb ist dieser Schritt Pflicht.
-   - **TikTok-Layout:** render.js schiebt Text und Figuren automatisch aus den TikTok-Zonen (rechts ca. 150 px Buttons, unten ca. 360 px Name/Caption, oben 120 px). Im Kontrollbild prüfen, dass nichts Wichtiges rechts unten liegt. Im Drehbuch `wo: "rechts"` und `wo: "unten"` sparsam einsetzen.
+   - **TikTok-Layout:** rechts ca. 150 px Buttons, unten ca. 360 px Name/Caption, oben 120 px. Im Kontrollbild prüfen, dass nichts Wichtiges dort liegt.
 
 5. **Ablegen**: `autopilot/host.sh upload out/<slugA>.mp4 out/<slugB>.mp4` legt die Videos (mit eingebautem Cover) auf den Branch `videos` und gibt je eine öffentliche URL aus (raw.githubusercontent.com). Die Meldung „push negotiation failed“ ist harmlos.
 
@@ -50,7 +52,7 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
 
 7. **Buch führen**
    - Pro Video einen Eintrag an `state/videos.json` anhängen: `{"datum", "thema", "titel", "status": "oeffentlich"|"entwurf", "geplant_fuer", "plannerUrl", "quelle"}`.
-   - Drehbuch-JSON nach `state/drehbuecher/<datum>-<slug>.json` kopieren (Videos selbst nicht committen).
+   - Drehbuch-JSON und Szenendatei nach `state/drehbuecher/<datum>-<slug>.json` bzw. `<datum>-<slug>-szenen.js` kopieren (bewährte Figuren können später wiederverwendet werden) (Videos selbst nicht committen).
    - Commit „Autopilot: <titel A> + <titel B>“ und push auf `main`.
 
 8. **Abschluss**: kurze deutsche Zusammenfassung. Gab es ein Problem (auch aus dem Gesundheitscheck), steht die Warnung „⚠️ Hermann, bitte kümmern:“ ganz oben, damit er es in der Push-Nachricht sofort sieht. Sonst (Titel, Uhrzeit, öffentlich/Entwurf, Planner-Links). Bei Fehlern klar sagen, was nicht geklappt hat. Nichts doppelt posten: wenn unklar ist, ob ein Post angelegt wurde, erst mit `getScheduledPosts` nachsehen.

@@ -1,0 +1,79 @@
+{
+ "titel": "Tongue Parasite 3D",
+ "voice": "bm_george",
+ "hook": "LOOK INSIDE\nITS MOUTH",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "beats": [
+  {
+   "say": "Look closely at this fish's *mouth.*",
+   "scene": {
+    "shot": "hook"
+   }
+  },
+  {
+   "say": "That's not its *tongue.*",
+   "scene": {
+    "shot": "notTongue"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "It's a parasite. And it *ate* the real one.",
+   "scene": {
+    "shot": "parasite"
+   }
+  },
+  {
+   "say": "As a tiny larva, it slips in through the *gills.*",
+   "scene": {
+    "shot": "larva"
+   }
+  },
+  {
+   "say": "With *fourteen* hooked legs, it clamps onto the tongue,",
+   "scene": {
+    "shot": "clamp"
+   }
+  },
+  {
+   "say": "and drinks the *blood* inside it.",
+   "scene": {
+    "shot": "blood"
+   }
+  },
+  {
+   "say": "Starved of blood, the tongue *withers,* and falls off.",
+   "scene": {
+    "shot": "wither"
+   }
+  },
+  {
+   "say": "Then the parasite grabs the stump,",
+   "scene": {
+    "shot": "stump"
+   }
+  },
+  {
+   "say": "and *becomes* the fish's new tongue.",
+   "scene": {
+    "shot": "newTongue"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Scientists know no other parasite that *replaces* a body part.",
+   "scene": {
+    "shot": "pullBack"
+   }
+  },
+  {
+   "say": "And this one is still in there.",
+   "scene": {
+    "shot": "outro"
+   },
+   "gap": 0.02
+  }
+ ]
+}
