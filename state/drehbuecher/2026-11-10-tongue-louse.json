@@ -1,0 +1,90 @@
+{
+ "titel": "Tongue Parasite calm",
+ "voice": "bm_george",
+ "hook": "ITS TONGUE\nIS ALIVE",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.24,
+ "beats": [
+  {
+   "say": "This fish's tongue... is *alive.*",
+   "scene": {
+    "shot": "hook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "That's NOT a tongue. It's a *parasite!*",
+   "scene": {
+    "shot": "notTongue"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And it *ate* the real one!",
+   "scene": {
+    "shot": "parasite"
+   }
+  },
+  {
+   "say": "As a tiny larva, it slips in through the *gills.*",
+   "scene": {
+    "shot": "larva"
+   },
+   "wav": "vo_03.wav"
+  },
+  {
+   "say": "With *fourteen* hooked legs, it clamps onto the tongue...",
+   "scene": {
+    "shot": "clamp"
+   },
+   "wav": "vo_04.wav"
+  },
+  {
+   "say": "and drinks the *blood* inside it!",
+   "scene": {
+    "shot": "blood"
+   },
+   "wav": "vo_05.wav"
+  },
+  {
+   "say": "Starved of blood, the tongue *withers...* and falls off!",
+   "scene": {
+    "shot": "wither"
+   },
+   "wav": "vo_06.wav"
+  },
+  {
+   "say": "Then the parasite grabs the stump...",
+   "scene": {
+    "shot": "stump"
+   },
+   "wav": "vo_07.wav"
+  },
+  {
+   "say": "and *becomes* the fish's new tongue!",
+   "scene": {
+    "shot": "newTongue"
+   },
+   "sfx": "boom",
+   "wav": "vo_08.wav"
+  },
+  {
+   "say": "No other known parasite *replaces* a body part!",
+   "scene": {
+    "shot": "pullBack"
+   },
+   "wav": "vo_09.wav"
+  },
+  {
+   "say": "So if you ever look into a fish's mouth... remember:",
+   "scene": {
+    "shot": "outro"
+   }
+  }
+ ],
+ "pitch": 1,
+ "exaggeration": 0.5,
+ "cfg": 0.5,
+ "thumbnail": "Its tongue is *alive*"
+}
