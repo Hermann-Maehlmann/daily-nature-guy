@@ -20,7 +20,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
   await page.route("**/*", async (route) => {
     const url = route.request().url();
     try {
-      if (url === "http://lab.local/") return route.fulfill({ contentType: "text/html; charset=utf-8", body: fs.readFileSync(LAB, "utf8").replace("(async () => {\n  const C = window.claude;", "Object.assign(window, { VOICE, makeMusic });\n(async () => {\n  const C = window.claude;") });
+      if (url === "http://lab.local/") return route.fulfill({ contentType: "text/html; charset=utf-8", body: fs.readFileSync(LAB, "utf8").replace("const a = await t.generate(text, { voice, speed: 1.3 });", "const [vv, sp] = voice.split('|'); const a = await t.generate(text, { voice: vv, speed: +sp || 1.3 });").replace("(async () => {\n  const C = window.claude;", "Object.assign(window, { VOICE, makeMusic });\n(async () => {\n  const C = window.claude;") });
       if (url === "http://lab.local/stage3.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "stage3.js")) });
       if (url.startsWith("http://lab.local/media/")) return route.fulfill({ contentType: "image/jpeg", body: fs.readFileSync(path.join(MEDIA, decodeURIComponent(url.slice(23)))) });
       if (url.startsWith("http://lab.local/font/")) return route.fulfill({ contentType: "font/woff2", body: fs.readFileSync(path.join(FONT, url.split("/").pop())) });
@@ -52,7 +52,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
     // 1) Stimme pro Beat, Stille vorne/hinten weg, lückenlos aneinander
     const clips = [], beats = [], words = []; let at = 0, chunk = 0;
     for (const b of spec.beats) {
-      const v = await VOICE.say(b.say.replace(/\*/g, ""), spec.voice);
+      const v = await VOICE.say(b.say.replace(/\*/g, ""), (b.voice || spec.voice) + "|" + (b.speed || spec.speed || 1.3));
       let s = v.samples, i0 = 0; while (i0 < s.length && Math.abs(s[i0]) < .01) i0++; i0 = Math.max(0, i0 - Math.round(v.rate * .02));
       s = s.slice(i0); const dur = s.length / v.rate;
       const t0 = at, gap = b.gap ?? .06, t1 = t0 + Math.max(dur + gap, b.min || 0);

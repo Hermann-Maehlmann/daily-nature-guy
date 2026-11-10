@@ -83,6 +83,7 @@
       const lg = g.createLinearGradient(0, H * .5, 0, H); lg.addColorStop(0, "rgba(0,0,0,0)"); lg.addColorStop(1, "rgba(0,0,0,.55)"); g.fillStyle = lg; g.fillRect(0, H * .5, W, H * .5);
       grain(g, t);
       if (bi === 0 && spec.hook) hookLine(g, spec.hook, t);
+      if (spec.beats[bi].scene.title) hookLine(g, spec.beats[bi].scene.title, t);
       if (spec.beats[bi].scene.credit) credit(g, spec.beats[bi].scene.credit);
       caption(g, words, t, { y: spec.capY || .66, key: spec.key || "#ffd84d" });
     }
