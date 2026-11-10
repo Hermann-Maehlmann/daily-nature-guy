@@ -1,0 +1,91 @@
+{
+ "titel": "Tongue Parasite 3D",
+ "voice": "bm_george",
+ "hook": "LOOK INSIDE\nITS MOUTH",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.24,
+ "beats": [
+  {
+   "say": "Look closely at this fish's *mouth!*",
+   "scene": {
+    "shot": "hook"
+   },
+   "speed": 1.4
+  },
+  {
+   "say": "That's NOT its *tongue!*",
+   "scene": {
+    "shot": "notTongue"
+   },
+   "sfx": "boom",
+   "speed": 1.35
+  },
+  {
+   "say": "It's a parasite... and it *ate* the real one!",
+   "scene": {
+    "shot": "parasite"
+   },
+   "speed": 1.45
+  },
+  {
+   "say": "As a tiny larva, it slips in through the *gills.*",
+   "scene": {
+    "shot": "larva"
+   },
+   "speed": 1.5
+  },
+  {
+   "say": "With *fourteen* hooked legs, it clamps onto the tongue...",
+   "scene": {
+    "shot": "clamp"
+   },
+   "speed": 1.5
+  },
+  {
+   "say": "and drinks the *blood* inside it!",
+   "scene": {
+    "shot": "blood"
+   },
+   "speed": 1.45
+  },
+  {
+   "say": "Starved of blood, the tongue *withers...* and falls off!",
+   "scene": {
+    "shot": "wither"
+   },
+   "speed": 1.45
+  },
+  {
+   "say": "Then the parasite grabs the stump...",
+   "scene": {
+    "shot": "stump"
+   },
+   "speed": 1.5
+  },
+  {
+   "say": "and *becomes* the fish's new tongue!",
+   "scene": {
+    "shot": "newTongue"
+   },
+   "sfx": "boom",
+   "speed": 1.4
+  },
+  {
+   "say": "No other known parasite *replaces* a body part!",
+   "scene": {
+    "shot": "pullBack"
+   },
+   "speed": 1.5
+  },
+  {
+   "say": "And this one is still in there.",
+   "scene": {
+    "shot": "outro"
+   },
+   "gap": 0.02,
+   "speed": 1.4
+  }
+ ],
+ "pitch": 1.06
+}

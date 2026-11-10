@@ -57,7 +57,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
     for (const b of spec.beats) {
       const v = await VOICE.say(b.say.replace(/\*/g, ""), (b.voice || spec.voice) + "|" + (b.speed || spec.speed || 1.3));
       let s = v.samples, i0 = 0; while (i0 < s.length && Math.abs(s[i0]) < .01) i0++; i0 = Math.max(0, i0 - Math.round(v.rate * .02));
-      s = s.slice(i0); const dur = s.length / v.rate;
+      s = s.slice(i0); const PIT = spec.pitch || 1; const dur = s.length / v.rate / PIT;
       const t0 = at, gap = b.gap ?? .06, t1 = t0 + Math.max(dur + gap, b.min || 0);
       clips.push({ s, rate: v.rate, at: t0 }); beats.push({ t0, t1 });
       // Wortzeiten grob nach Silbenlänge verteilen
@@ -73,7 +73,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
     const rate = 48000, len = Math.ceil((total + .05) * rate);
     const ac = new OfflineAudioContext(2, len, rate);
     const vo = ac.createGain(); vo.gain.value = 1.15; const comp = ac.createDynamicsCompressor(); comp.threshold.value = -20; comp.ratio.value = 4; vo.connect(comp); comp.connect(ac.destination);
-    for (const c of clips) { const bf = ac.createBuffer(1, c.s.length, c.rate); bf.copyToChannel(c.s, 0); const src = ac.createBufferSource(); src.buffer = bf; src.connect(vo); src.start(c.at); }
+    for (const c of clips) { const bf = ac.createBuffer(1, c.s.length, c.rate); bf.copyToChannel(c.s, 0); const src = ac.createBufferSource(); src.buffer = bf; src.playbackRate.value = spec.pitch || 1; src.connect(vo); src.start(c.at); }
     if (spec.music !== false) { // leise Doku-Musik: warme Flächen in a-Moll + sanfte Klavier-Töne, kein Rauschen
       const vol = spec.musicVol ?? .2, bus = ac.createGain(); bus.gain.setValueAtTime(0, 0); bus.gain.linearRampToValueAtTime(vol, .25); bus.gain.setValueAtTime(vol, Math.max(.3, total - .25)); bus.gain.linearRampToValueAtTime(0, total); bus.connect(ac.destination);
       const lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1800; lp.connect(bus);
