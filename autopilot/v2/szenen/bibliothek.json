@@ -1,0 +1,17 @@
+{
+ "voice": "bm_george",
+ "speed": 1.1,
+ "fg": false,
+ "music": false,
+ "capY": 0.95,
+ "sceneFile": "bibliothek.js",
+ "beats": [
+  {
+   "say": "Test.",
+   "scene": {
+    "shot": "lineup"
+   },
+   "min": 3
+  }
+ ]
+}
