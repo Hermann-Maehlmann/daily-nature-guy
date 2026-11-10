@@ -33,14 +33,16 @@ Ergibt 4 öffentliche Posts + 4 Entwürfe pro Tag. **Niemals mehr als 4 öffentl
    - Danach Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` und ansehen. Fehlen Figuren oder ist das Bild leer, nicht posten, sondern Fehler melden.
 
    - **Thumbnail:** `node autopilot/thumb.js out/<slug>.mp4 out/<slug>.json out/<slug>.jpg` (Hook-Bild plus Cover-Text-Sticker, 1080×1920). Ansehen: Figur sichtbar, Text lesbar, nichts abgeschnitten.
+   - **Cover ins Video:** `bash autopilot/cover.sh out/<slug>.mp4 out/<slug>.jpg` setzt das Thumbnail als erstes Bild (0,1 s) ins Video. Hermanns Konto übernimmt `videoThumbnailUrl` nicht, TikTok nimmt das erste Bild als Cover. Deshalb ist dieser Schritt Pflicht.
+   - **TikTok-Layout:** render.js schiebt Text und Figuren automatisch aus den TikTok-Zonen (rechts ca. 150 px Buttons, unten ca. 360 px Name/Caption, oben 120 px). Im Kontrollbild prüfen, dass nichts Wichtiges rechts unten liegt. Im Drehbuch `wo: "rechts"` und `wo: "unten"` sparsam einsetzen.
 
-5. **Ablegen**: `autopilot/host.sh upload out/<slugA>.mp4 out/<slugA>.jpg out/<slugB>.mp4 out/<slugB>.jpg` legt Videos und Thumbnails auf den Branch `videos` und gibt je eine öffentliche URL aus (raw.githubusercontent.com). Die Meldung „push negotiation failed“ ist harmlos.
+5. **Ablegen**: `autopilot/host.sh upload out/<slugA>.mp4 out/<slugB>.mp4` legt die Videos (mit eingebautem Cover) auf den Branch `videos` und gibt je eine öffentliche URL aus (raw.githubusercontent.com). Die Meldung „push negotiation failed“ ist harmlos.
 
 6. **In Metricool einplanen** (Metricool-Connector)
    - `getBrandSettings`: die Marke mit TikTok (blogId 7900279, Zeitzone daraus, meist Europe/Berlin).
    - Zeit: mit `getBestTimeToPostByNetwork` (tiktok) den besten Slot in den nächsten 6 Stunden wählen, frühestens 20 Min ab jetzt, mindestens 2 Stunden Abstand zum letzten öffentlichen Post aus `state/videos.json`.
    - `createScheduledPost` mit `info`:
-     `{"text": <Caption>, "providers":[{"network":"tiktok"}], "media":[<Video-URL>], "videoThumbnailUrl":<JPG-URL>, "publicationDate":{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":<tz>}, "autoPublish": true, "draft": <false für A, true für B>, "tiktokData":{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":true,"title":<Titel>}, "firstCommentText":"", "descendants":[], "shortener":false, "smartLinkData":{"ids":[]}, "hasNotReadNotes":false, "mediaAltText":[]}`
+     `{"text": <Caption>, "providers":[{"network":"tiktok"}], "media":[<Video-URL>], "publicationDate":{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":<tz>}, "autoPublish": true, "draft": <false für A, true für B>, "tiktokData":{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":true,"title":<Titel>}, "firstCommentText":"", "descendants":[], "shortener":false, "smartLinkData":{"ids":[]}, "hasNotReadNotes":false, "mediaAltText":[]}`
    - Caption (Englisch, kurz: höchstens 150 Zeichen ohne Hashtags, Hermanns Wunsch vom 10.11.2026): 1 knackiger Hook-Satz plus 1 Frage oder Aufforderung an die Zuschauer, die zum Kommentieren einlädt (z. B. „Would you survive this? 👇“, „Which animal should be next?“, „Tag a friend who…“, „Guess the temperature before the end 🔥“). Wechsle die Art der Frage von Video zu Video. Danach kurz die Quelle („Source: Nature“) und 3 bis 4 Hashtags (einer Nische, einer #naturefacts). Kein „Part 2“.
    - Beispiel: `This shrimp gets hotter than the sun 🦐🔥 Would you go near it? 👇 (Source: Nature) #pistolshrimp #naturefacts #oceanlife`
    - Für Entwürfe (B) als Datum den nächsten Tag 18:00 nehmen.

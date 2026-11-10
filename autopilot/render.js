@@ -36,6 +36,21 @@ function npmFile(rest) { // "<pkg>@<ver>/<file>" oder "@scope/pkg@ver/file"
   const f = path.join(dir, m[2]);
   return fs.existsSync(f) ? f : null;
 }
+
+// TikTok-Sicherheitszone (9:16): rechts liegen Like/Kommentar/Profil, unten Name + Caption.
+// Text und Figuren werden deshalb nach links/oben in den freien Bereich geschoben.
+function safeZone(html) {
+  const R = [
+    ["const capY = tall ? H * .27 : H * .24, actY = tall ? H * .62 : H * .64;", "const capY = tall ? H * .22 : H * .24, actY = tall ? H * .5 : H * .64;"],
+    ["{ mitte: .5, links: .27, rechts: .73, oben: .5, unten: .5 }[a.wo] * W", "{ mitte: .45, links: .24, rechts: .64, oben: .45, unten: .45 }[a.wo] * W"],
+    ["{ oben: -.12, unten: .14 }[a.wo]", "{ oben: -.11, unten: .1 }[a.wo]"],
+    ["const maxW = W * (wide ? .7 : .86), fam", "const maxW = W * (wide ? .7 : .8), fam"],
+    ["Math.min(W - 20 * U - w / 2, b.x", "Math.min(W - 160 * U - w / 2, b.x"],
+    ["const cx = W / 2, cy = H * (tall ? .42 : .4), R0", "const cx = W * .46, cy = H * (tall ? .36 : .4), R0"],
+  ];
+  for (const [a, b] of R) { if (!html.includes(a)) throw new Error("safeZone: Stelle nicht gefunden: " + a.slice(0, 50)); html = html.replace(a, b); }
+  return html;
+}
 const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main/";
 
 (async () => {
@@ -48,7 +63,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
     const url = route.request().url();
     try {
       if (url.startsWith("http://lab.local/")) {
-        if (url === "http://lab.local/" ) return route.fulfill({ body: fs.readFileSync(LAB, "utf8").replace("(async () => {\n  const C = window.claude;", "window.__videoBox = videoBox; window.__normSpec = normSpec; Object.assign(window, { voiceOver, bitmapsOf, makeRenderer, makeMusic, makeSfx, playVoice });\n(async () => {\n  const C = window.claude;"), contentType: "text/html; charset=utf-8" });
+        if (url === "http://lab.local/" ) return route.fulfill({ body: safeZone(fs.readFileSync(LAB, "utf8")).replace("(async () => {\n  const C = window.claude;", "window.__videoBox = videoBox; window.__normSpec = normSpec; Object.assign(window, { voiceOver, bitmapsOf, makeRenderer, makeMusic, makeSfx, playVoice });\n(async () => {\n  const C = window.claude;"), contentType: "text/html; charset=utf-8" });
         return route.fulfill({ status: 404, body: "" });
       }
       let file = null;

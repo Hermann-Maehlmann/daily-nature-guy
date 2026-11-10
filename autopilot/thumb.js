@@ -19,7 +19,7 @@ const bg = "data:image/jpeg;base64," + fs.readFileSync(frame).toString("base64")
   await p.setContent(`<html><body style="margin:0;width:1080px;height:1920px;overflow:hidden;font-family:'Inter Display','Inter',sans-serif">
   <div style="position:absolute;inset:0;background:url(${bg}) center/cover;transform:scale(1.12);transform-origin:50% 45%"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.75) 85%)"></div>
-  <div style="position:absolute;left:0;right:0;bottom:170px;text-align:center">
+  <div style="position:absolute;left:0;right:120px;bottom:560px;text-align:center">
    <div style="display:inline-block;max-width:900px;background:#fff;border:10px solid #000;border-radius:36px;padding:26px 44px;box-shadow:0 18px 0 #000;
     transform:rotate(-4deg);font-weight:900;font-size:112px;line-height:1.0;color:#111;letter-spacing:-2px">${html}</div></div>
   <style>.a{color:${acc};-webkit-text-stroke:6px #000;paint-order:stroke fill}</style></body></html>`);
