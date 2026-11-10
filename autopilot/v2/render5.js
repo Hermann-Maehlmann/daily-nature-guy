@@ -65,7 +65,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
       let acc = 0, n = 0;
       ws.forEach((w, k) => { const a = t0 + dur * .96 * acc / sum; acc += wt[k]; const e = t0 + dur * .96 * acc / sum;
         if (n >= (b.chunk || 3) || (k > 0 && /[.,!?…]$/.test(ws[k - 1]))) { chunk++; n = 0; }
-        words.push({ text: w.replace(/\*/g, "").replace(/[.,]$/, ""), key: /\*/.test(w), t0: a, t1: e, chunk }); n++; });
+        words.push({ text: w.replace(/\*/g, "").replace(/[.,…]+$/, ""), key: /\*/.test(w), t0: a, t1: e, chunk }); n++; });
       chunk++; at = t1;
     }
     const total = at;
