@@ -1,0 +1,25 @@
+{
+ "titel": "The Wasp That Walks A Zombie Roach",
+ "thumbnail": "A roach on a *leash?!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "ROACH ON\nA LEASH",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "sceneFile": "2026-11-11-jewel-wasp-roach-szenen.js",
+ "beats": [
+  { "say": "This wasp walks a cockroach... like a *dog.*", "scene": { "shot": "wHook" }, "sfx": "boom" },
+  { "say": "The roach is way bigger, but it doesn't *fight back.*", "scene": { "shot": "wBigger" }, "sfx": "whoosh" },
+  { "say": "Meet the *emerald jewel wasp.*", "scene": { "shot": "wMeet" } },
+  { "say": "First, it stings the roach's chest, and its front legs go *limp.*", "scene": { "shot": "wSting1" }, "sfx": "whoosh" },
+  { "say": "Then it stings again... right into the *brain.*", "scene": { "shot": "wBrain" }, "sfx": "boom" },
+  { "say": "The venom turns the roach into a *zombie.*", "scene": { "shot": "wZombie" } },
+  { "say": "It could still run, but it no longer *wants to.*", "scene": { "shot": "wNoWill" } },
+  { "say": "The wasp grabs one antenna and leads it home like a *leash.*", "scene": { "shot": "wLeash" }, "sfx": "whoosh" },
+  { "say": "In a dark burrow, it glues one *egg* onto the roach's leg.", "scene": { "shot": "wEgg" } },
+  { "say": "And the larva eats the roach alive... from the *inside.*", "scene": { "shot": "wLarva" }, "sfx": "squish" },
+  { "say": "So if you ever see a roach walking calmly, remember...", "scene": { "shot": "wLoop" } }
+ ]
+}
