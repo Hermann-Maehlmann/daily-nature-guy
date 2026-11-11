@@ -1,0 +1,25 @@
+{
+ "titel": "The Bird That Keeps Its Tongue On Its Head",
+ "thumbnail": "Tongue on its *head*?!",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "ITS TONGUE\nWRAPS ITS SKULL",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "sceneFile": "2026-11-11-woodpecker-tongue-szenen.js",
+ "beats": [
+  { "say": "This bird keeps its tongue... on top of its *head.*", "scene": { "shot": "wHook" }, "sfx": "boom" },
+  { "say": "Not in its mouth. It's wrapped *around its skull!*", "scene": { "shot": "wWrap" }, "sfx": "whoosh" },
+  { "say": "Meet the *woodpecker.*", "scene": { "shot": "wMeet" } },
+  { "say": "Its tongue can be *three times* longer than its beak.", "scene": { "shot": "wLength" } },
+  { "say": "Pulled back in, it slides through a sheath under the *skin*...", "scene": { "shot": "wSheath" }, "sfx": "whoosh" },
+  { "say": "over its head, and in some species, right into its *nostril!*", "scene": { "shot": "wNostril" }, "sfx": "boom" },
+  { "say": "When it finds bugs hiding in a tree, it drills a *hole.*", "scene": { "shot": "wDrill" } },
+  { "say": "Then it shoots that tongue deep into the *tunnels.*", "scene": { "shot": "wTunnel" }, "sfx": "whoosh" },
+  { "say": "The tip is covered in backward *barbs*, like a harpoon.", "scene": { "shot": "wBarbs" } },
+  { "say": "One quick pull, and the grub is *dinner.*", "scene": { "shot": "wGrub" }, "sfx": "squish" },
+  { "say": "So next time you hear tapping in the woods, remember...", "scene": { "shot": "wLoop" } }
+ ]
+}
