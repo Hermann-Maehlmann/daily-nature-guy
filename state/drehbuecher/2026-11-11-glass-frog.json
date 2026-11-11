@@ -1,0 +1,25 @@
+{
+ "titel": "The Frog That Hides Its Blood",
+ "thumbnail": "A *see-through* frog?!",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "ITS BLOOD\nVANISHES",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "sceneFile": "2026-11-11-glass-frog-szenen.js",
+ "beats": [
+  { "say": "This frog can make its blood... *vanish.*", "scene": { "shot": "gHook" }, "sfx": "boom" },
+  { "say": "The red disappears, and the frog turns almost *invisible!*", "scene": { "shot": "gInvisible" }, "sfx": "whoosh" },
+  { "say": "Meet the *glass frog*, about the size of a marshmallow.", "scene": { "shot": "gMeet" } },
+  { "say": "From below, you can watch its *heart* beating.", "scene": { "shot": "gHeart" } },
+  { "say": "By day, it sleeps upside down under a *leaf.*", "scene": { "shot": "gSleep" }, "sfx": "whoosh" },
+  { "say": "But bright red blood would give it *away.*", "scene": { "shot": "gGiveAway" } },
+  { "say": "So as it falls asleep, it packs its red blood cells into its *liver.*", "scene": { "shot": "gLiver" }, "sfx": "squish" },
+  { "say": "Almost *ninety percent* of them!", "scene": { "shot": "gNinety" } },
+  { "say": "That makes it up to *three times* more see-through.", "scene": { "shot": "gClear" } },
+  { "say": "And somehow, all that packed blood never *clots.*", "scene": { "shot": "gNoClot" }, "sfx": "boom" },
+  { "say": "So next time you look under a leaf, look closer... because", "scene": { "shot": "gLoop" } }
+ ]
+}
