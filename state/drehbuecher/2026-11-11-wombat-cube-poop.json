@@ -1,0 +1,25 @@
+{
+ "titel": "The Animal That Poops Cubes",
+ "thumbnail": "Cube-shaped *poop*?!",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "IT POOPS\nCUBES",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "sceneFile": "2026-11-11-wombat-cube-poop-szenen.js",
+ "beats": [
+  { "say": "This animal poops... *cubes.*", "scene": { "shot": "wHook" }, "sfx": "boom" },
+  { "say": "Not round. Not lumpy. Perfect little *squares!*", "scene": { "shot": "wShapes" }, "sfx": "whoosh" },
+  { "say": "Meet the *wombat*, a chubby digger from Australia.", "scene": { "shot": "wMeet" } },
+  { "say": "But its bottom is *round*, just like ours.", "scene": { "shot": "wRound" } },
+  { "say": "The secret is hidden in its *gut.*", "scene": { "shot": "wGut" }, "sfx": "whoosh" },
+  { "say": "The gut wall has stiff bands and *stretchy* bands.", "scene": { "shot": "wBands" } },
+  { "say": "Squeeze by squeeze, they press the poop into sharp *corners.*", "scene": { "shot": "wCorners" }, "sfx": "squish" },
+  { "say": "Up to *one hundred* cubes, every single night!", "scene": { "shot": "wHundred" } },
+  { "say": "It leaves them on rocks to mark its *territory.*", "scene": { "shot": "wRock" } },
+  { "say": "Round poop would roll off. Cubes *stay put!*", "scene": { "shot": "wNoRoll" }, "sfx": "boom" },
+  { "say": "So next time you meet a wombat... remember:", "scene": { "shot": "wLoop" } }
+ ]
+}
