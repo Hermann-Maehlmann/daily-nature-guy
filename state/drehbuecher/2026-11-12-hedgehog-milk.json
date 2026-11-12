@@ -1,0 +1,25 @@
+{
+ "titel": "Never Give Hedgehogs Milk",
+ "thumbnail": "Stop the *milk!*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "MILK MAKES\nTHEM SICK",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "2026-11-12-hedgehog-milk-szenen.js",
+ "beats": [
+  { "say": "That saucer of milk you leave out for hedgehogs... makes them *sick.*", "scene": { "shot": "hHook" }, "sfx": "boom" },
+  { "say": "You put it out on a cold night, and feel like a *good neighbour.*", "scene": { "shot": "hGood" }, "sfx": "whoosh" },
+  { "say": "But hedgehogs are *lactose intolerant.*", "scene": { "shot": "hLactose" }, "sfx": "whoosh" },
+  { "say": "Their gut can't break down the *sugar* in milk.", "scene": { "shot": "hGut" } },
+  { "say": "So the milk gives them *diarrhea.*", "scene": { "shot": "hSick" }, "sfx": "squish" },
+  { "say": "And right now, in autumn, they need every bit of *fat.*", "scene": { "shot": "hFat" }, "sfx": "whoosh" },
+  { "say": "An upset stomach drains that energy... right before *hibernation.*", "scene": { "shot": "hDrain" } },
+  { "say": "Bread? Low energy, and almost no *nutrition.*", "scene": { "shot": "hBread" }, "sfx": "whoosh" },
+  { "say": "The RSPCA says it clearly: *never* give hedgehogs milk.", "scene": { "shot": "hQuote" }, "sfx": "whoosh" },
+  { "say": "So what *should* you put out?", "scene": { "shot": "hAsk" }, "sfx": "boom" },
+  { "say": "Meaty cat or dog food. Or crushed *biscuits.*", "scene": { "shot": "hFood" } },
+  { "say": "And a shallow dish of fresh *water.*", "scene": { "shot": "hWater" } },
+  { "say": "Then leave a pile of *leaves* in a quiet corner.", "scene": { "shot": "hLeaves" }, "sfx": "whoosh" },
+  { "say": "Now your garden is a real *hedgehog hotel.*", "scene": { "shot": "hHotel" } },
+  { "say": "So before you reach for the milk... remember:", "scene": { "shot": "hLoop" } }
+ ]
+}
