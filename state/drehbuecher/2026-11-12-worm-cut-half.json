@@ -1,0 +1,26 @@
+{
+ "titel": "Cut A Worm In Half? Not Two Worms",
+ "thumbnail": "Two worms? *Nope.*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "1 WORM\n= 2 WORMS?",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "worm-cut-half-szenen.js",
+ "beats": [
+  { "say": "Cutting a worm in half... does *not* make two worms.", "scene": { "shot": "wHook" }, "sfx": "boom" },
+  { "say": "Maybe you *tried* it as a kid. Or your spade did it *for* you.", "scene": { "shot": "wRudi" }, "sfx": "whoosh" },
+  { "say": "And you thought: no problem. Now there are *two.*", "scene": { "shot": "wTwo" } },
+  { "say": "But a worm has a *front*, and a *back.*", "scene": { "shot": "wAnatomy" }, "sfx": "whoosh" },
+  { "say": "That thick band, the *saddle*, sits close to the head.", "scene": { "shot": "wSaddle" } },
+  { "say": "Up front are its mouth, its tiny brain... and its *five hearts.*", "scene": { "shot": "wOrgans" }, "sfx": "whoosh" },
+  { "say": "Cut it in half, and the tail end can't grow a new *head.*", "scene": { "shot": "wCut" }, "sfx": "boom" },
+  { "say": "It wriggles for a while... and then it *dies.*", "scene": { "shot": "wTail" } },
+  { "say": "The head end *might* survive, if the cut is behind the saddle.", "scene": { "shot": "wHead" }, "sfx": "whoosh" },
+  { "say": "And often, it only grows back a *short*, stunted tail.", "scene": { "shot": "wStunt" } },
+  { "say": "Live Science puts it simply: it will *not* become two new worms.", "scene": { "shot": "wQuote" }, "sfx": "whoosh" },
+  { "say": "And worms are *gold* for your garden. They dig, mix and feed the soil.", "scene": { "shot": "wGold" } },
+  { "say": "So what *should* you do?", "scene": { "shot": "wAsk" }, "sfx": "boom" },
+  { "say": "Dig with a *fork*, not a spade, and go slowly.", "scene": { "shot": "wFork" }, "sfx": "whoosh" },
+  { "say": "Found a worm on top? Put it back on *damp soil*, out of the sun.", "scene": { "shot": "wBack" } },
+  { "say": "So next time your spade hits a worm... remember:", "scene": { "shot": "wLoop" } }
+ ]
+}
