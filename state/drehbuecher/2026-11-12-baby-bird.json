@@ -1,0 +1,25 @@
+{
+ "titel": "Stop Rescuing Baby Birds",
+ "thumbnail": "Don't *rescue* it",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "IT DOESN'T\nNEED YOU",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "baby-bird-szenen.js",
+ "beats": [
+  { "say": "That baby bird on the ground... usually does *not* need rescuing.", "scene": { "shot": "bHook" }, "sfx": "boom" },
+  { "say": "No parents in sight. So you scoop it up, and feel like a *hero.*", "scene": { "shot": "bScoop" }, "sfx": "whoosh" },
+  { "say": "But look closer. It has *feathers.* And it hops.", "scene": { "shot": "bFeathers" } },
+  { "say": "That's a *fledgling.* It left the nest on purpose, before it can fly.", "scene": { "shot": "bStages" }, "sfx": "whoosh" },
+  { "say": "For a few days, up to a week, the ground is its *flight school.*", "scene": { "shot": "bSchool" } },
+  { "say": "And the parents? They're hiding nearby... waiting for *you* to leave.", "scene": { "shot": "bParents" }, "sfx": "whoosh" },
+  { "say": "They still bring it food, again and *again.*", "scene": { "shot": "bFeed" } },
+  { "say": "One bird rescuer said: eighty percent of the babies they get were basically *kidnapped.*", "scene": { "shot": "bQuote" }, "sfx": "whoosh" },
+  { "say": "And that old rule? Touch it, and the mother will *reject* it.", "scene": { "shot": "bRule" } },
+  { "say": "Also a *myth.* Parent birds don't abandon their babies because of your smell.", "scene": { "shot": "bSmell" }, "sfx": "boom" },
+  { "say": "So what *should* you do?", "scene": { "shot": "bAsk" }, "sfx": "boom" },
+  { "say": "Feathers and hopping? Leave it alone, and keep *cats and dogs* away.", "scene": { "shot": "bLeave" }, "sfx": "whoosh" },
+  { "say": "In danger? Move it into a bush *nearby*, so the parents can still hear it.", "scene": { "shot": "bBush" } },
+  { "say": "No feathers at all? That's a nestling. Put it back in the *nest.*", "scene": { "shot": "bNest" }, "sfx": "whoosh" },
+  { "say": "So next time you want to scoop one up... remember:", "scene": { "shot": "bLoop" } }
+ ]
+}
