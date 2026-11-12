@@ -1,0 +1,25 @@
+{
+ "titel": "Stop Feeding Ducks Bread",
+ "thumbnail": "You're doing it *wrong*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "BREAD HURTS\nDUCKS",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "duck-bread-szenen.js",
+ "beats": [
+  { "say": "That bread you feed ducks... is *junk food* for them.", "scene": { "shot": "dHook" }, "sfx": "boom" },
+  { "say": "You toss a slice, the ducks rush over, and you feel like a *hero.*", "scene": { "shot": "dHero" }, "sfx": "whoosh" },
+  { "say": "But bread has almost no *protein*, vitamins or minerals.", "scene": { "shot": "dBars" }, "sfx": "whoosh" },
+  { "say": "It fills their stomach, so they stop looking for *real food.*", "scene": { "shot": "dFull" } },
+  { "say": "Day after day, that leads to *malnutrition.*", "scene": { "shot": "dThin" } },
+  { "say": "In young ducks, it's linked to something called *angel wing.*", "scene": { "shot": "dAngel" }, "sfx": "whoosh" },
+  { "say": "The wing feathers twist outward... and the duck may never *fly.*", "scene": { "shot": "dTwist" } },
+  { "say": "And the bread nobody eats? It *rots* in the water.", "scene": { "shot": "dRot" }, "sfx": "whoosh" },
+  { "say": "That feeds green *algae*, and attracts *rats.*", "scene": { "shot": "dAlgae" } },
+  { "say": "Wildlife experts put it simply: bread is duck *junk food.*", "scene": { "shot": "dQuote" }, "sfx": "whoosh" },
+  { "say": "So what *should* you bring?", "scene": { "shot": "dAsk" }, "sfx": "boom" },
+  { "say": "Oats. Defrosted peas. Sweetcorn. Torn *lettuce.*", "scene": { "shot": "dFood" } },
+  { "say": "Scatter a *small* handful, and stop when they stop eating.", "scene": { "shot": "dScatter" } },
+  { "say": "Now you're *actually* the hero.", "scene": { "shot": "dHero2" }, "sfx": "whoosh" },
+  { "say": "So next time you grab that old bread... remember:", "scene": { "shot": "dLoop" } }
+ ]
+}

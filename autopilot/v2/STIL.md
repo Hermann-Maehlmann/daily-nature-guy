@@ -22,7 +22,7 @@ Vorbilder: `autopilot/v2/szenen/pistolenkrebs.js` (kurzes Beispiel mit eigenen F
   "beats": [ { "say": "This tiny shrimp has a *weapon.*", "scene": { "shot": "krebsHook" } }, ... ] }
 ```
 - `sceneFile` relativ zum Drehbuch. `shot` = Name eines Shots aus der Szenendatei (oder aus anim2d.js).
-- 9–12 Beats, zusammen 20–30 s. Jeder Satz kurz, ein Schlüsselwort in *Sternchen* (gelb im Untertitel).
+- 13–16 Beats, zusammen 35–50 s (Mix-Stil seit 12.11.2026). Jeder Satz kurz, ein Schlüsselwort in *Sternchen* (gelb im Untertitel).
 - Gesprochen wird mit Chatterbox (stimme.sh). `voice`/`speed` gelten nur für den Notfall ohne Chatterbox (Kokoro `bm_george`, `speed` 1.1). Hermann: ruhig erzählen, nicht hetzen. Kein „Follow“-Outro.
 - **Hook (Hermann 10.11.2026, Pflicht):** Der erste Satz ist eine schockierende, kurze Behauptung, die neugierig macht, ohne schon alles zu erklären (z. B. „This fish's tongue... is *alive.*“), nicht „Look at this…“. Erstes Bild schon spannend (Nahaufnahme des Rätsels), `sfx: "boom"` auf Beat 0, `hook`-Text = dieselbe Behauptung in 2–4 Wörtern. Der zweite Satz bricht die Erwartung („That's NOT a tongue. It's a *parasite!*“).
 - **Loop-Ende (Pflicht):** Der letzte Satz ist unvollständig und führt grammatisch direkt in den ersten Satz, z. B. Ende „So if you ever look into a fish's mouth... remember:“ → Anfang „This fish's tongue... is alive.“ Das letzte Bild zeigt dieselbe Einstellung wie das erste Bild, damit der Übergang nahtlos ist.
@@ -62,3 +62,19 @@ Wichtig: Jedes Tier wird für jedes Video neu und genau nach dem echten Tier gez
 - **Bewegung:** nie stillstehen. Kamera fährt in jedem Beat (Zoom oder Schwenk mit `sm`), Figuren haben Nebenbewegung (Fühler, Flossen, Beine). Auftritte mit `easeBack` (leichtes Überschwingen).
 - **Bild erklärt den Satz:** jeder Beat zeigt genau, was gesagt wird (Schnittbild, Vergrößerung, Zahl als `label`).
 - **TikTok-Zonen:** Wichtiges nicht rechts (150 px Buttons) und nicht unten (unteres Viertel = Untertitel + Caption). Hook-Text oben links-mittig.
+
+## Mix-Stil (seit 12.11.2026, von Hermann abgenommen)
+
+Anlass: ein fremdes Erklärvideo mit 1,6 Mio Aufrufen (Hausspinne). Wir behalten unseren Zeichenstil, übernehmen aber die Erzählweise. **Nichts von dort kopieren** (keine Spinnen-Geschichte, keine gleichen Gags, keine Figuren). Vorbild: `autopilot/v2/szenen/mix/duck-bread-szenen.js` + `duck-bread.json` ("Stop Feeding Ducks Bread").
+
+Pflicht-Bausteine in jedem Video:
+1. **Alltagsthema + Irrtum:** Ein Tier, das jeder kennt, und etwas, das viele falsch machen oder glauben. Hook = Irrtum auflösen („That bread you feed ducks... is *junk food* for them.“).
+2. **Du-Ansprache:** Der Zuschauer steckt in der Geschichte („You toss a slice... and you feel like a *hero.*“).
+3. **Menschenfigur Rudi** als Stellvertreter des Zuschauers: eigene Figur (gelbe Regenjacke, rote Mütze, Jeans, große Augen), Funktion `rudi()` aus der Vorbild-Datei kopieren und weiterverwenden. Posen: `arm` 0..1 (werfen/zeigen), 1.5..2 (am Kopf kratzen), `mouth` smile/grin/o/hmm, `hold` bread/seeds/bag (für neue Gegenstände ergänzen). Rudi bleibt immer gleich, damit Zuschauer ihn wiedererkennen. **Tiere werden weiterhin jedes Mal neu und genau gezeichnet.**
+4. **Stempel-Schilder** mit `stamp(text, x, y, p, farbe, drehung)` für kleine Gags und Schlüsselbegriffe („+100 KARMA“, „JUNK FOOD“, „CAN'T FLY“, „DUCK APPROVED“). Pro Video 4–6, kurz (1–3 Wörter).
+5. **Mindestens 2 Infografiken** auf dem dunklen Infografik-Hintergrund `navy(t)` oder im Bild: Balken, Anzeige/Meter, Akku, Querschnitt, Vorher/Nachher, Symbole die nacheinander erscheinen.
+6. **Quellenkarte:** ein Beat mit Karte (Name der Organisation/Uni + kurzes, **echtes** Zitat oder eine echte Zahl aus der Quelle). Nie ein Zitat erfinden.
+7. **Praktischer Tipp** gegen Ende („So what *should* you do?“ + 1–2 Beats Lösung), danach Loop-Satz.
+8. **Viele Schauplätze:** Wechsel zwischen Szene (Park/Haus/Garten), Nahaufnahme, Infografik und Querschnitt; kein Schauplatz länger als 2 Beats am Stück.
+
+Technik-Hinweise: `stamp()` muss `p` auf 1 begrenzen (sonst wird der Text gespiegelt). Texte (`txt`) mindestens 40 px. Nichts unter 0,68 H (Untertitel) und nichts rechts in den TikTok-Buttons.
