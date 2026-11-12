@@ -1,0 +1,25 @@
+{
+ "titel": "Goldfish Don't Forget In 3 Seconds",
+ "thumbnail": "3 seconds? *Nope.*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "3-SECOND\nMEMORY?",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "goldfish-memory-szenen.js",
+ "beats": [
+  { "say": "The three-second goldfish memory? That's a *myth.*", "scene": { "shot": "gHook" }, "sfx": "boom" },
+  { "say": "You've heard it a hundred times. Maybe you even *believed* it.", "scene": { "shot": "gRudi" }, "sfx": "whoosh" },
+  { "say": "It makes a tiny bowl feel *fine.* He'll forget anyway, right?", "scene": { "shot": "gFine" } },
+  { "say": "But scientists have tested goldfish memory for *decades.*", "scene": { "shot": "gLab" }, "sfx": "whoosh" },
+  { "say": "At Plymouth University, goldfish learned to push a *lever* for food.", "scene": { "shot": "gLever" } },
+  { "say": "Then food only came for *one hour* a day... and they learned *when* to push.", "scene": { "shot": "gClock" }, "sfx": "whoosh" },
+  { "say": "Other fish still remembered what they learned *months* later.", "scene": { "shot": "gMonths" } },
+  { "say": "One fish expert says thousands of studies show fish have *excellent* memories.", "scene": { "shot": "gQuote" }, "sfx": "whoosh" },
+  { "say": "And that little bowl? It's a *problem.*", "scene": { "shot": "gSmall" }, "sfx": "boom" },
+  { "say": "Goldfish can live for *twenty years*, and grow longer than your *hand.*", "scene": { "shot": "gGrow" }, "sfx": "whoosh" },
+  { "say": "They make a lot of waste, so a small bowl gets *dirty* fast.", "scene": { "shot": "gDirty" } },
+  { "say": "So what *should* you do?", "scene": { "shot": "gAsk" }, "sfx": "boom" },
+  { "say": "Give them a real tank, at least *fifty litres*, with a filter.", "scene": { "shot": "gTank" }, "sfx": "whoosh" },
+  { "say": "Add plants and hiding spots. They'll *explore*, and remember every corner.", "scene": { "shot": "gExplore" } },
+  { "say": "So next time someone jokes about goldfish... just tell them:", "scene": { "shot": "gLoop" } }
+ ]
+}
