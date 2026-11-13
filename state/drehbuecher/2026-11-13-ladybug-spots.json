@@ -1,0 +1,26 @@
+{
+ "titel": "Ladybug Spots Don't Show Age",
+ "thumbnail": "Count the *spots?*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "SPOTS DON'T\nSHOW AGE",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "ladybug-spots-szenen.js",
+ "beats": [
+  { "say": "A ladybug's spots... don't tell its *age.*", "scene": { "shot": "lbHook" }, "sfx": "boom" },
+  { "say": "You count seven spots... and think: *seven years old.*", "scene": { "shot": "lbCount" } },
+  { "say": "But most ladybugs only live about *one year.*", "scene": { "shot": "lbYears" }, "sfx": "whoosh" },
+  { "say": "It crawls out of its pupa with *no spots* at all.", "scene": { "shot": "lbPupa" } },
+  { "say": "Within about a *day*, its spots appear...", "scene": { "shot": "lbAppear" }, "sfx": "whoosh" },
+  { "say": "...and it keeps that exact number for *life.*", "scene": { "shot": "lbForLife" } },
+  { "say": "Wildlife experts agree: the number never *changes.*", "scene": { "shot": "lbQuote" }, "sfx": "whoosh" },
+  { "say": "So what do the spots really tell you? The *species.*", "scene": { "shot": "lbSpecies" } },
+  { "say": "Britain alone has about *forty-six* kinds of ladybug.", "scene": { "shot": "lb46" }, "sfx": "whoosh" },
+  { "say": "And that bright red? It's a *warning*: I taste awful.", "scene": { "shot": "lbBird" } },
+  { "say": "Grab one, and it leaks *yellow goo* from its knees.", "scene": { "shot": "lbBleed" }, "sfx": "squish" },
+  { "say": "Right now, many ladybugs crawl indoors to *sleep* through winter.", "scene": { "shot": "lbWindow" } },
+  { "say": "So what *should* you do? Don't grab the vacuum.", "scene": { "shot": "lbVacuum" }, "sfx": "boom" },
+  { "say": "Gently carry them to a *log pile* outside.", "scene": { "shot": "lbLogs" }, "sfx": "whoosh" },
+  { "say": "In spring, they'll wake up and eat your *aphids.*", "scene": { "shot": "lbAphids" } },
+  { "say": "So before you start counting spots... remember:", "scene": { "shot": "lbLoop" } }
+ ]
+}
