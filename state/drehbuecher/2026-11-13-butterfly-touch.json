@@ -1,0 +1,25 @@
+{
+ "titel": "Touching Butterflies Won't Kill Them",
+ "thumbnail": "Touch = *death?*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "TOUCH IT...\nIT DIES?",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "butterfly-touch-szenen.js",
+ "beats": [
+  { "say": "Touching a butterfly's wings... won't *kill* it.", "scene": { "shot": "bfHook" }, "sfx": "boom" },
+  { "say": "You catch one, see dust on your fingers... and *panic.*", "scene": { "shot": "bfPanic" } },
+  { "say": "Everyone says: now it can *never fly* again.", "scene": { "shot": "bfMyth" }, "sfx": "whoosh" },
+  { "say": "But that dust isn't dust. It's tiny *scales.*", "scene": { "shot": "bfZoom" }, "sfx": "whoosh" },
+  { "say": "Up to a *million* of them, stacked like roof tiles.", "scene": { "shot": "bfTiles" } },
+  { "say": "Butterflies lose a few scales on *every flight.*", "scene": { "shot": "bfShed" }, "sfx": "whoosh" },
+  { "say": "Scientists even brushed the scales off monarchs... and they still *flew.*", "scene": { "shot": "bfMonarch" } },
+  { "say": "Butterfly experts put it bluntly: the myth is *not true.*", "scene": { "shot": "bfQuote" }, "sfx": "whoosh" },
+  { "say": "Old butterflies flutter around *tattered* and faded... and keep going.", "scene": { "shot": "bfTattered" } },
+  { "say": "Still, scales matter. They make the *colors*...", "scene": { "shot": "bfColors" }, "sfx": "whoosh" },
+  { "say": "...that attract a mate and warn off *birds.*", "scene": { "shot": "bfBird" } },
+  { "say": "The real danger? Pinching the wing tips. They can *snap.*", "scene": { "shot": "bfSnap" }, "sfx": "squish" },
+  { "say": "So what *should* you do? Don't grab it at all.", "scene": { "shot": "bfNoGrab" }, "sfx": "boom" },
+  { "say": "Offer a finger, let it *climb on*, and carry it outside.", "scene": { "shot": "bfFinger" }, "sfx": "whoosh" },
+  { "say": "So next time you see that dust on your fingers... remember:", "scene": { "shot": "bfLoop" } }
+ ]
+}
