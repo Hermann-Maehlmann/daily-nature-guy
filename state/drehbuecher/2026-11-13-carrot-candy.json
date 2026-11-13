@@ -1,0 +1,24 @@
+{
+ "titel": "Carrots Are Candy For Rabbits",
+ "thumbnail": "Stop the *carrots*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "CARROTS ARE\nCANDY",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "carrot-candy-szenen.js",
+ "beats": [
+  { "say": "That carrot you give your bunny... is basically *candy.*", "scene": { "shot": "cHook" }, "sfx": "boom" },
+  { "say": "Carrots are surprisingly full of *sugar.*", "scene": { "shot": "cSugar" }, "sfx": "whoosh" },
+  { "say": "You hold one out... and you feel like the *best owner* ever.", "scene": { "shot": "cHero" } },
+  { "say": "But wild rabbits don't dig up carrots. They eat *grass.*", "scene": { "shot": "cWild" }, "sfx": "whoosh" },
+  { "say": "Grazing for six to eight *hours* a day.", "scene": { "shot": "cHours" } },
+  { "say": "Because a rabbit's teeth *never stop growing.*", "scene": { "shot": "cTeeth" }, "sfx": "whoosh" },
+  { "say": "Chewing tough grass and hay grinds them *down.*", "scene": { "shot": "cGrind" } },
+  { "say": "Too many sweet carrots? Weight gain and *tummy trouble.*", "scene": { "shot": "cGut" }, "sfx": "squish" },
+  { "say": "Even the RSPCA says carrots should *not* be their main food.", "scene": { "shot": "cQuote" }, "sfx": "whoosh" },
+  { "say": "So what *should* you feed your bunny?", "scene": { "shot": "cAsk" }, "sfx": "boom" },
+  { "say": "Hay! A pile as big as your *bunny*, every day.", "scene": { "shot": "cHay" }, "sfx": "whoosh" },
+  { "say": "About eighty-five percent hay and grass, plus leafy *greens.*", "scene": { "shot": "cDiet" } },
+  { "say": "Carrots? Just a tiny treat. Or give them the leafy *tops.*", "scene": { "shot": "cTreat" }, "sfx": "whoosh" },
+  { "say": "So next time you reach for that carrot... remember:", "scene": { "shot": "cLoop" } }
+ ]
+}
