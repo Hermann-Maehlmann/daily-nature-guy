@@ -1,0 +1,25 @@
+{
+ "titel": "Never Swat A Wasp",
+ "thumbnail": "It calls *backup*",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "DON'T SWAT\nTHAT WASP",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "wasp-swat-szenen.js",
+ "beats": [
+  { "say": "Swatting that wasp... is the *worst* thing you can do.", "scene": { "shot": "wHook" }, "sfx": "boom" },
+  { "say": "Not because it stings. Because it calls for *backup.*", "scene": { "shot": "wBackup" }, "sfx": "whoosh" },
+  { "say": "You're eating outside, and a wasp lands on your *lemonade.*", "scene": { "shot": "wPicnic" } },
+  { "say": "So you roll up a newspaper... and *splat.*", "scene": { "shot": "wSplat" }, "sfx": "squish" },
+  { "say": "But a crushed wasp leaks an *alarm chemical* from its venom sac.", "scene": { "shot": "wSac" }, "sfx": "whoosh" },
+  { "say": "To other wasps nearby, that smell means *attack.*", "scene": { "shot": "wSignal" } },
+  { "say": "And the guards come out, looking for a *fight.*", "scene": { "shot": "wSwarm" }, "sfx": "boom" },
+  { "say": "Unlike honeybees, wasps can sting *again and again.*", "scene": { "shot": "wStings" }, "sfx": "whoosh" },
+  { "say": "Wasp expert Peter Landolt says a smashed wasp alerts the *guards.*", "scene": { "shot": "wQuote" }, "sfx": "whoosh" },
+  { "say": "And waving your arms? Wasp eyes are tuned to *sudden movement.*", "scene": { "shot": "wEyes" } },
+  { "say": "Most of the time, it just wants your *sugar.* Not you.", "scene": { "shot": "wSugar" }, "sfx": "whoosh" },
+  { "say": "So what *should* you do?", "scene": { "shot": "wAsk" }, "sfx": "boom" },
+  { "say": "Stay calm, move away *slowly*, and cover your drink.", "scene": { "shot": "wCalm" }, "sfx": "whoosh" },
+  { "say": "Indoors? Trap it under a *glass*, and let it go outside.", "scene": { "shot": "wGlass" } },
+  { "say": "So next time a wasp lands on your lemonade... remember:", "scene": { "shot": "wLoop" } }
+ ]
+}
