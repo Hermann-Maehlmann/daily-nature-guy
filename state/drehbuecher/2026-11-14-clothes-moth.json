@@ -1,0 +1,25 @@
+{
+ "titel": "That Moth Didn't Eat Your Sweater",
+ "thumbnail": "Who *ate* your sweater?",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "THE MOTH\nIS INNOCENT",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "clothes-moth-szenen.js",
+ "beats": [
+  { "say": "That moth in your closet... has never eaten your *sweater.*", "scene": { "shot": "mHook" }, "sfx": "boom" },
+  { "say": "You find a hole, you see a moth, and you *blame* it.", "scene": { "shot": "mBlame" }, "sfx": "whoosh" },
+  { "say": "But adult clothes moths... *never eat.* Not once.", "scene": { "shot": "mNever" }, "sfx": "whoosh" },
+  { "say": "They live on energy they stored as *babies*, for just a few weeks.", "scene": { "shot": "mLife" }, "sfx": "whoosh" },
+  { "say": "The real culprit is the *baby.*", "scene": { "shot": "mBaby" }, "sfx": "boom" },
+  { "say": "A tiny white *caterpillar*, hiding in the folds.", "scene": { "shot": "mLarva" }, "sfx": "whoosh" },
+  { "say": "It eats *keratin*, the protein in wool, silk, fur and feathers.", "scene": { "shot": "mKeratin" }, "sfx": "whoosh" },
+  { "say": "And it loves dirty clothes with sweat and food *stains.*", "scene": { "shot": "mStain" } },
+  { "say": "The Natural History Museum says adults cause *no damage* to fabrics.", "scene": { "shot": "mQuote" }, "sfx": "whoosh" },
+  { "say": "Those moths at your lamp? Usually *other* moths.", "scene": { "shot": "mLamp" }, "sfx": "whoosh" },
+  { "say": "Clothes moths *hate* light. They hide in the dark.", "scene": { "shot": "mHide" } },
+  { "say": "So what *should* you do?", "scene": { "shot": "mAsk" }, "sfx": "boom" },
+  { "say": "Wash clothes before storing them, then seal them *airtight.*", "scene": { "shot": "mBag" }, "sfx": "whoosh" },
+  { "say": "Found larvae? Freeze the item for a *week.*", "scene": { "shot": "mFreeze" }, "sfx": "whoosh" },
+  { "say": "So next time you find a hole and spot a moth... remember:", "scene": { "shot": "mLoop" } }
+ ]
+}
