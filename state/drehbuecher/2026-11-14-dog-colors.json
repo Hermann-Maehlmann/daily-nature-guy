@@ -1,0 +1,26 @@
+{
+ "titel": "Dogs Don't See In Black And White",
+ "thumbnail": "What dogs *really* see",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "NOT BLACK\n& WHITE",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "dog-colors-szenen.js",
+ "beats": [
+  { "say": "Your dog's world... isn't black and *white.*", "scene": { "shot": "dgHook" }, "sfx": "boom" },
+  { "say": "You've heard it a hundred times: dogs only see *gray.*", "scene": { "shot": "dgMyth" }, "sfx": "whoosh" },
+  { "say": "That idea comes from a dog training book from *1937.*", "scene": { "shot": "dgBook" }, "sfx": "whoosh" },
+  { "say": "But in 1989, scientists finally *tested* it.", "scene": { "shot": "dgTest" }, "sfx": "whoosh" },
+  { "say": "Dogs see blue and yellow... just *fine.*", "scene": { "shot": "dgSpectrum" }, "sfx": "whoosh" },
+  { "say": "Your eyes have three kinds of color cones. Your dog's have *two.*", "scene": { "shot": "dgCones" } },
+  { "say": "So red and green... fade into a grayish *brown.*", "scene": { "shot": "dgRedBall" }, "sfx": "whoosh" },
+  { "say": "The American Kennel Club says your lawn probably looks like *dead hay.*", "scene": { "shot": "dgQuote" }, "sfx": "whoosh" },
+  { "say": "Now think about that bright *red* ball you throw.", "scene": { "shot": "dgThrow" }, "sfx": "whoosh" },
+  { "say": "On green grass, it almost *disappears.*", "scene": { "shot": "dgLost" } },
+  { "say": "So your dog runs right past it... and starts *sniffing.*", "scene": { "shot": "dgSniff" }, "sfx": "squish" },
+  { "say": "But dogs see far better than you in *dim light*...", "scene": { "shot": "dgNight" }, "sfx": "whoosh" },
+  { "say": "...and they spot *movement* in a flash.", "scene": { "shot": "dgMotion" } },
+  { "say": "So what *should* you do? Pick toys in blue or yellow.", "scene": { "shot": "dgToys" }, "sfx": "boom" },
+  { "say": "They pop against the grass... and your dog finds them *instantly.*", "scene": { "shot": "dgFetch" }, "sfx": "whoosh" },
+  { "say": "So next time someone tells you dogs see in gray... remember:", "scene": { "shot": "dgLoop" } }
+ ]
+}
