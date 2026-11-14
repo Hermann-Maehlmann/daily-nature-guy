@@ -266,31 +266,34 @@
   "thema": "Regenwurm halbieren (Mix-Stil): ergibt keine zwei Würmer; Kopfende mit Gürtel (Clitellum) kann überleben und oft nur einen kurzen Schwanz nachbilden, wenn hinter dem Gürtel geschnitten; Schwanzende bildet keinen Kopf und stirbt; vorne Mund, Gehirn, fünf Herzen; Tipp: mit Grabegabel statt Spaten langsam graben, Würmer auf feuchte Erde in den Schatten legen",
   "titel": "Cut A Worm In Half? Not Two Worms",
   "status": "oeffentlich",
-  "geplant_fuer": "2026-11-13T12:15:00+01:00",
+  "geplant_fuer": "2026-11-14T11:50:00+01:00",
   "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=653326487391521666",
   "quelle": "Live Science 2013 (Will Two Worms Grow from a Worm Cut in Half?); BBC Science Focus; Iowa DNR 2018",
   "netzwerke": [
    "tiktok",
    "youtube"
-  ]
+  ],
+  "hinweis": "neu eingeplant 14.11. nach Metricool-Upgrade (Limit-Fehler 13.11.)"
  },
  {
   "datum": "2026-11-12T19:35:00+01:00",
   "thema": "Amsel-Ästling am Boden (Mix-Stil): Jungvögel mit Federn, die hüpfen, sind Ästlinge (Fledglings), verlassen das Nest absichtlich vor dem Fliegen, wenige Tage bis eine Woche am Boden, Eltern in der Nähe füttern weiter; Audubon (Melanie Furr): 80 % der eingelieferten Jungvögel 'basically just been kidnapped'; Mythos 'Mutter verstößt angefasstes Küken' falsch (Cornell); Tipp: in Ruhe lassen, Katzen/Hunde fernhalten, bei Gefahr in nahen Busch in Hörweite, nackten Nestling zurück ins Nest",
   "titel": "Stop Rescuing Baby Birds",
   "status": "oeffentlich",
-  "geplant_fuer": "2026-11-13T18:30:00+01:00",
+  "geplant_fuer": "2026-11-14T14:00:00+01:00",
   "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-1289635175014642939",
-  "quelle": "Audubon Magazine 2018; RSPB; Cornell Lab All About Birds"
+  "quelle": "Audubon Magazine 2018; RSPB; Cornell Lab All About Birds",
+  "hinweis": "neu eingeplant 14.11. nach Metricool-Upgrade (Limit-Fehler 13.11.)"
  },
  {
   "datum": "2026-11-13T08:36:00+01:00",
   "thema": "Wespe nicht erschlagen (Mix-Stil): zerdrückte Wespe setzt aus der Giftblase einen Alarmstoff frei, der Wächter am Nest zum Angriff ruft (Peter Landolt, USDA/WSU); Wespen können anders als Honigbienen mehrmals stechen (OSU Extension); Wespenaugen reagieren auf plötzliche Bewegung, Fuchteln macht es schlimmer (BBC Science Focus); meist wollen sie nur Zucker; Tipp: ruhig bleiben, langsam weggehen, Getränk abdecken, drinnen unter Glas fangen und draußen freilassen",
   "titel": "Never Swat A Wasp",
   "status": "oeffentlich",
-  "geplant_fuer": "2026-11-13T20:30:00+01:00",
+  "geplant_fuer": "2026-11-14T18:00:00+01:00",
   "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=2572928630048705112",
-  "quelle": "WSU Insider 2013 (Peter Landolt, USDA), BBC Science Focus, Oklahoma State University Extension EPP-7305"
+  "quelle": "WSU Insider 2013 (Peter Landolt, USDA), BBC Science Focus, Oklahoma State University Extension EPP-7305",
+  "hinweis": "neu eingeplant 14.11. nach Metricool-Upgrade (Limit-Fehler 13.11.)"
  },
  {
   "datum": "2026-11-13T12:32:00+01:00",
@@ -316,18 +319,20 @@
   "datum": "2026-11-13T19:32:00+01:00",
   "thema": "Schmetterlingsflügel anfassen (Mix-Stil): Berühren tötet nicht; 'Staub' sind Schuppen (bis >1 Mio), gehen bei jedem Flug verloren; Monarch-Versuch 2017 ohne Schuppen flog weiter (Physics Today); Lepidopterists' Society 'It is most definitely NOT true'; alte zerfledderte Falter fliegen weiter (WSU); Schuppen machen Farben für Partnerwahl/Feindabwehr; Flügelspitzen können beim Kneifen brechen (Florida Museum); Tipp: nicht greifen, auf Finger klettern lassen und hinaustragen",
   "titel": "Touching Butterflies Won't Kill Them",
-  "status": "entwurf",
-  "geplant_fuer": "2026-11-14T20:00:00+01:00",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-14T20:15:00+01:00",
   "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-8767061194606819704",
-  "quelle": "The Lepidopterists' Society FAQ; Physics Today 2023; Library of Congress; WSU; Florida Museum"
+  "quelle": "The Lepidopterists' Society FAQ; Physics Today 2023; Library of Congress; WSU; Florida Museum",
+  "hinweis": "neu eingeplant 14.11. nach Metricool-Upgrade (Limit-Fehler 13.11.)"
  },
  {
   "datum": "2026-11-14T08:36:00+01:00",
   "thema": "Hunde sehen nicht schwarzweiß (Mix-Stil): Mythos geht auf Will Judy 1937 zurück ('highlights of black and gray'); Neitz 1989 (UC Santa Barbara) zeigte: Hunde sehen Blau und Gelb; 2 statt 3 Zapfenarten; Rot/Grün wirken graubraun; AKC: Rasen sieht aus wie 'a field of dead hay'; rote Bälle verschwinden im Gras, Hund sucht mit der Nase; mehr Stäbchen = besser im Dämmerlicht, Bewegung; Tipp: blaue/gelbe Spielzeuge",
   "titel": "Dogs Don't See In Black And White",
-  "status": "entwurf",
-  "geplant_fuer": "2026-11-15T18:00:00+01:00",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-15T12:00:00+01:00",
   "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=1435471269391647997",
-  "quelle": "American Kennel Club (akc.org, Can Dogs See Color?); Scientific American 2023; VCA"
+  "quelle": "American Kennel Club (akc.org, Can Dogs See Color?); Scientific American 2023; VCA",
+  "hinweis": "neu eingeplant 14.11. nach Metricool-Upgrade (Limit-Fehler 13.11.)"
  }
 ]
