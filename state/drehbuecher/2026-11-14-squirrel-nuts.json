@@ -1,0 +1,25 @@
+{
+ "titel": "Squirrels Don't Forget Their Nuts",
+ "thumbnail": "It *remembers* everything",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "IT DIDN'T\nFORGET",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "squirrel-nuts-szenen.js",
+ "beats": [
+  { "say": "That squirrel in your park... knows exactly where its nuts are *buried.*", "scene": { "shot": "sHook" }, "sfx": "boom" },
+  { "say": "You've heard they *forget* where they hide them.", "scene": { "shot": "sMyth" }, "sfx": "whoosh" },
+  { "say": "But one squirrel can bury up to *3,000* nuts in a single autumn.", "scene": { "shot": "sCount" }, "sfx": "whoosh" },
+  { "say": "And it doesn't drop them *randomly.*", "scene": { "shot": "sBury" }, "sfx": "whoosh" },
+  { "say": "It builds a *mental map*, with trees and bushes as landmarks.", "scene": { "shot": "sMap" }, "sfx": "whoosh" },
+  { "say": "In one field test, grey squirrels dug within *five centimetres* of their nuts... after twenty days.", "scene": { "shot": "sTest" }, "sfx": "boom" },
+  { "say": "Some even sort their nuts by *type.* Walnuts here, almonds there.", "scene": { "shot": "sSort" }, "sfx": "whoosh" },
+  { "say": "And when someone's watching, they *fake* a burial to fool thieves.", "scene": { "shot": "sFake" }, "sfx": "whoosh" },
+  { "say": "One researcher says they're strategizing *quite a lot.*", "scene": { "shot": "sQuote" }, "sfx": "whoosh" },
+  { "say": "Some nuts do stay in the ground... often *abandoned*, not forgotten.", "scene": { "shot": "sLeft" } },
+  { "say": "And those nuts grow into new *trees.*", "scene": { "shot": "sTree" }, "sfx": "whoosh" },
+  { "say": "So what *should* you do?", "scene": { "shot": "sAsk" }, "sfx": "boom" },
+  { "say": "If you feed them, use *unsalted* nuts, like hazelnuts in the shell.", "scene": { "shot": "sFood" }, "sfx": "whoosh" },
+  { "say": "Just a little, every few days, so they keep *foraging.*", "scene": { "shot": "sFeed" }, "sfx": "whoosh" },
+  { "say": "So next time you see a squirrel digging in the grass... remember:", "scene": { "shot": "sLoop" } }
+ ]
+}
