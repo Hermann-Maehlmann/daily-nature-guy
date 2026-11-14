@@ -1,0 +1,25 @@
+{
+ "titel": "A Purring Cat Isn't Always Happy",
+ "thumbnail": "Is your cat *really* happy?",
+ "voice": "bm_george", "speed": 1.1,
+ "hook": "NOT ALWAYS\nHAPPY",
+ "key": "#ffd84d", "capY": 0.75, "musicVol": 0.2, "fg": false,
+ "sceneFile": "cat-purr-szenen.js",
+ "beats": [
+  { "say": "That purring cat on your lap... might *not* be happy.", "scene": { "shot": "cHook" }, "sfx": "boom" },
+  { "say": "You stroke it, it starts to rumble, and you think: it *loves* me.", "scene": { "shot": "cLap" }, "sfx": "whoosh" },
+  { "say": "And most of the time... you're *right.*", "scene": { "shot": "cMeter" }, "sfx": "whoosh" },
+  { "say": "But cats also purr at the *vet*, when they're scared.", "scene": { "shot": "cVet" }, "sfx": "whoosh" },
+  { "say": "They purr when they're *hurt*... or giving birth.", "scene": { "shot": "cHurt" } },
+  { "say": "Experts think the purr may help them *calm* themselves.", "scene": { "shot": "cSoothe" }, "sfx": "whoosh" },
+  { "say": "A purr rumbles at about 25 to 150 *hertz.*", "scene": { "shot": "cHertz" }, "sfx": "whoosh" },
+  { "say": "Similar vibrations are used in medicine to help *bones heal.*", "scene": { "shot": "cBone" } },
+  { "say": "And some purrs... are a *trick.*", "scene": { "shot": "cKitchen" }, "sfx": "boom" },
+  { "say": "When cats want food, they hide a *cry* inside the purr.", "scene": { "shot": "cCry" }, "sfx": "whoosh" },
+  { "say": "In a study, people heard these purrs as more *urgent.*", "scene": { "shot": "cQuote" }, "sfx": "whoosh" },
+  { "say": "So how can you *tell*?", "scene": { "shot": "cAsk" }, "sfx": "boom" },
+  { "say": "Soft eyes, relaxed ears, a slow *blink*: that's a happy purr.", "scene": { "shot": "cHappy" }, "sfx": "whoosh" },
+  { "say": "Flat ears, huge pupils, hiding or not eating? Call the *vet.*", "scene": { "shot": "cWarn" }, "sfx": "whoosh" },
+  { "say": "So next time your cat purrs on your lap... remember:", "scene": { "shot": "cLoop" } }
+ ]
+}
