@@ -1,0 +1,26 @@
+{
+ "titel": "Mice Don't Actually Love Cheese",
+ "thumbnail": "Cheese? *Nope.*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "MICE LOVE\nCHEESE?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "mouse-cheese-szenen.js",
+ "beats": [
+  { "say": "Mice don't actually *love* cheese.", "scene": { "shot": "mHook" }, "sfx": "boom" },
+  { "say": "Rudi thinks they do. So he buys the *stinkiest* cheese in town.", "scene": { "shot": "mBelieve" }, "sfx": "whoosh" },
+  { "say": "He loads a trap with *cheese.* The mouse walks right past it... to the *cookies.*", "scene": { "shot": "mTrapFull" }, "sfx": "whoosh" },
+  { "say": "The trap failed, so Rudi gets a cheese the size of a *sofa.* The mouse? Busy with the *cereal.*", "scene": { "shot": "mGiantFull" }, "sfx": "boom" },
+  { "say": "In the wild, mice mostly eat *grains*, seeds and fruit.", "scene": { "shot": "mDiet" }, "sfx": "whoosh" },
+  { "say": "A Manchester researcher found strong cheese can actually put mice *off.*", "scene": { "shot": "mStudy" }, "sfx": "whoosh" },
+  { "say": "The pest experts' number one bait? *Peanut butter.* Sweet, fatty and smelly.", "scene": { "shot": "mBait" }, "sfx": "boom" },
+  { "say": "So the sofa-sized cheese? A very expensive *mistake.*", "scene": { "shot": "mOverkill" }, "sfx": "boom" },
+  { "say": "Use a pea-sized dab of *peanut butter*, and seal gaps as wide as a *pencil.*", "scene": { "shot": "mTip" }, "sfx": "whoosh" },
+  { "say": "And keep cereal and cookies in *sealed* tins.", "scene": { "shot": "mTins" }, "sfx": "whoosh" },
+  { "say": "So before Rudi buys more cheese... remember:", "scene": { "shot": "mLoop" } }
+ ]
+}
