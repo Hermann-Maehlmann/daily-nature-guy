@@ -1,0 +1,26 @@
+{
+ "titel": "Dogs Don't Age 7 Years Per Year",
+ "thumbnail": "Your dog is a *teenager*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "NOT 7\nYEARS OLD",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "dog-years-szenen.js",
+ "beats": [
+  { "say": "Your one-year-old dog... is *not* seven.", "scene": { "shot": "dHook" }, "sfx": "boom" },
+  { "say": "Rudi thinks one dog year is *seven* of ours. So Max is basically a *little kid.*", "scene": { "shot": "dBelieve" }, "sfx": "whoosh" },
+  { "say": "So Rudi throws him a *kiddie party*, with balloons and a party horn. Max is just... *embarrassed.*", "scene": { "shot": "dPartyFull" }, "sfx": "whoosh" },
+  { "say": "The party flopped, so Rudi reads him a *bedtime story.* Max sneaks out the *dog flap.*", "scene": { "shot": "dNightFull" }, "sfx": "boom" },
+  { "say": "Because at one, a dog is more like *fifteen.* A teenager!", "scene": { "shot": "dTeen" }, "sfx": "boom" },
+  { "say": "By two, it's about *twenty-four.* Then roughly *five* years per birthday.", "scene": { "shot": "dGrow" }, "sfx": "whoosh" },
+  { "say": "Scientists at UC San Diego even checked dog *DNA.* Times seven just doesn't *fit.*", "scene": { "shot": "dDNA" }, "sfx": "whoosh" },
+  { "say": "So that kiddie party? Max was simply too *cool* for it.", "scene": { "shot": "dCool" }, "sfx": "boom" },
+  { "say": "Count *fifteen* for year one, *nine* for year two, then about *five* a year.", "scene": { "shot": "dTip" }, "sfx": "whoosh" },
+  { "say": "And big dogs age even *faster*, so don't skip the yearly *vet check.*", "scene": { "shot": "dVet" }, "sfx": "whoosh" },
+  { "say": "So before Max blows out his next candle... remember:", "scene": { "shot": "dLoop" } }
+ ]
+}

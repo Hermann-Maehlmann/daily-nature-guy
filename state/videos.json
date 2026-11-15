@@ -357,10 +357,11 @@
   "datum": "2026-11-14T19:29:00+01:00",
   "thema": "Eichhörnchen vergessen ihre Nüsse nicht (Mix-Stil): ein Hörnchen vergräbt bis zu 3.000 Nüsse pro Saison (Scientific American); merkt sich Verstecke über eine mentale Karte mit Landmarken; Feldversuch Macdonald 1997: Grauhörnchen gruben nach 20 Tagen in 62,5 % der Versuche innerhalb 5 cm; Fuchshörnchen sortieren nach Nussart (Chunking, Delgado & Jacobs 2017); Schein-Verstecke gegen Diebe (Smithsonian); Zitat Lisa Leaver (Univ. Exeter) 'They're not just burying a bunch of stuff and hoping ... They're strategizing quite a lot'; liegengebliebene Nüsse eher aufgegeben als vergessen (Britannica), werden Bäume; Tipp: nur ungesalzene Nüsse wie Haselnüsse in der Schale, wenig, alle paar Tage (RSPCA, Wildlife Trusts)",
   "titel": "Squirrels Don't Forget Their Nuts",
-  "status": "entwurf",
-  "geplant_fuer": "2026-11-15T18:00:00+01:00",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-15T16:00:00+01:00",
   "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=8106601253591204079",
-  "quelle": "Scientific American 2023 (Do Squirrels Remember Where They Buried Their Nuts?)"
+  "quelle": "Scientific American 2023 (Do Squirrels Remember Where They Buried Their Nuts?)",
+  "notiz": "15.11. 10:23 mit Hermanns Okay vom Entwurf auf öffentlich 16:00 umgestellt"
  },
  {
   "datum": "2026-11-15T08:24:00+01:00",
@@ -370,5 +371,14 @@
   "geplant_fuer": "2026-11-16T10:00:00+01:00",
   "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=1764069629497721515",
   "quelle": "University of Florida IFAS EENY-048; Penn State Extension"
+ },
+ {
+  "datum": "2026-11-15T12:56:00+01:00",
+  "thema": "Hundejahre (Comedy-Story): 1 Hundejahr = 7 Menschenjahre ist ein Mythos; AVMA-Faustregel (via AKC/UC Davis): 1. Jahr ~15, 2. Jahr +9 (~24), danach ~5 pro Jahr; große Hunde altern schneller (Senior ab 5-6); UC San Diego (Ideker, Cell Systems 2020) Epigenetik-Uhr an 104 Labradoren, Zitat 'a nine-month-old dog can have puppies'; Rudi hält einjährigen Max für ein Kleinkind -> Kinderparty (Max: cringe) -> Gute-Nacht-Geschichte (Max schleicht durch die Hundeklappe); Tipp: 15/9/5 rechnen, jährlicher Tierarztcheck",
+  "titel": "Dogs Don't Age 7 Years Per Year",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-16T16:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=8002123953500540087",
+  "quelle": "AVMA/AKC, UC San Diego (Cell Systems 2020)"
  }
 ]
