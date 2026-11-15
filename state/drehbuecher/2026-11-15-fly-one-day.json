@@ -1,0 +1,26 @@
+{
+ "titel": "Flies Don't Live For Just One Day",
+ "thumbnail": "Just *wait* it out?",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WON'T DIE\nTOMORROW",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "fly-one-day-szenen.js",
+ "beats": [
+  { "say": "That fly in your kitchen... won't die *tomorrow.*", "scene": { "shot": "fHook" }, "sfx": "boom" },
+  { "say": "Rudi heard flies only live *one day.* So he just *waits.*", "scene": { "shot": "fBelieve" }, "sfx": "whoosh" },
+  { "say": "He stares at it all *night.* Next morning, it's still *buzzing.*", "scene": { "shot": "fNightFull" }, "sfx": "whoosh" },
+  { "say": "Waiting didn't work, so Rudi left for a whole *week.* He came back to a fly *family.*", "scene": { "shot": "fWeekFull" }, "sfx": "boom" },
+  { "say": "A house fly usually lives about *three weeks.* Some make it to two *months.*", "scene": { "shot": "fLife" }, "sfx": "whoosh" },
+  { "say": "One female can lay up to *five hundred* eggs.", "scene": { "shot": "fEggs" }, "sfx": "whoosh" },
+  { "say": "And they become new flies in just *one week.*", "scene": { "shot": "fCycle" }, "sfx": "whoosh" },
+  { "say": "Oh, and flies can't chew. They spit on your food to *melt it.*", "scene": { "shot": "fSpit" }, "sfx": "squish" },
+  { "say": "So leaving for a week? That gave them a *head start.*", "scene": { "shot": "fStart" }, "sfx": "boom" },
+  { "say": "Cover your food, empty the *bin*, and open a window so it can *leave.*", "scene": { "shot": "fTip" }, "sfx": "whoosh" },
+  { "say": "So next time Rudi wants to wait it out... remember:", "scene": { "shot": "fLoop" } }
+ ]
+}
