@@ -22,7 +22,7 @@ Vorbilder: `autopilot/v2/szenen/pistolenkrebs.js` (kurzes Beispiel mit eigenen F
   "beats": [ { "say": "This tiny shrimp has a *weapon.*", "scene": { "shot": "krebsHook" } }, ... ] }
 ```
 - `sceneFile` relativ zum Drehbuch. `shot` = Name eines Shots aus der Szenendatei (oder aus anim2d.js).
-- 13–16 Beats, zusammen 35–50 s (Mix-Stil seit 12.11.2026). Jeder Satz kurz, ein Schlüsselwort in *Sternchen* (gelb im Untertitel).
+- 10–12 Beats, zusammen 28–36 s (Comedy-Story seit 15.11.2026). Jeder Satz kurz, ein Schlüsselwort in *Sternchen* (gelb im Untertitel).
 - Gesprochen wird mit Chatterbox (stimme.sh). `voice`/`speed` gelten nur für den Notfall ohne Chatterbox (Kokoro `bm_george`, `speed` 1.1). Hermann: ruhig erzählen, nicht hetzen. Kein „Follow“-Outro.
 - **Hook (Hermann 10.11.2026, Pflicht):** Der erste Satz ist eine schockierende, kurze Behauptung, die neugierig macht, ohne schon alles zu erklären (z. B. „This fish's tongue... is *alive.*“), nicht „Look at this…“. Erstes Bild schon spannend (Nahaufnahme des Rätsels), `sfx: "boom"` auf Beat 0, `hook`-Text = dieselbe Behauptung in 2–4 Wörtern. Der zweite Satz bricht die Erwartung („That's NOT a tongue. It's a *parasite!*“).
 - **Loop-Ende (Pflicht):** Der letzte Satz ist unvollständig und führt grammatisch direkt in den ersten Satz, z. B. Ende „So if you ever look into a fish's mouth... remember:“ → Anfang „This fish's tongue... is alive.“ Das letzte Bild zeigt dieselbe Einstellung wie das erste Bild, damit der Übergang nahtlos ist.
@@ -78,3 +78,15 @@ Pflicht-Bausteine in jedem Video:
 8. **Viele Schauplätze:** Wechsel zwischen Szene (Park/Haus/Garten), Nahaufnahme, Infografik und Querschnitt; kein Schauplatz länger als 2 Beats am Stück.
 
 Technik-Hinweise: `stamp()` muss `p` auf 1 begrenzen (sonst wird der Text gespiegelt). Texte (`txt`) mindestens 40 px. Nichts unter 0,68 H (Untertitel) und nichts rechts in den TikTok-Buttons.
+
+## Comedy-Story (seit 15.11.2026, von Hermann abgenommen: „Das ist sehr gut“)
+
+Anlass: Auswertung YouTube (Igel-Video): Hook hält, aber zwischen Sekunde 5 und 12 springt die Hälfte ab, weil es direkt ruhig erklärend wird. Vorbild für den Ton: Kanäle wie „Everyday problems. Ridiculous solutions.“ (nichts kopieren). Hermann: Bindung ans Video ist das Wichtigste, lustig und interessant erklären. Die alte Regel „kein Comedy-Stil“ gilt nicht mehr. Vorbild: `autopilot/v2/szenen/comedy/dog-grass.json` + `dog-grass-szenen.js`.
+
+Aufbau (gilt zusätzlich zum Mix-Stil oben):
+1. **Beat 0 Hook** (Irrtum auflösen), **Beat 1**: Rudi glaubt den Irrtum und reagiert übertrieben (Panik, Sprechblase, Stempel).
+2. **Beats 2–3 Eskalation als Geschichte, genau 2 Stufen:** Rudi versucht eine übertriebene Lösung, das Tier kontert sofort. Erzählt mit Verbindungen statt Schildern, z. B. „So Rudi builds a fence, to keep the dog off the grass. It just eats right through it.“ → „The fence didn't work, so Rudi decided to move to the fortieth floor. But look what grows on the balcony.“ **Keine „Level 1/2/3“-Schilder** (Hermann: wirkt hingeklatscht). Aufbau und Konter in **einem** Satz/Beat (ca. 4–5 s), die Szene wechselt in der Mitte per Schnitt (`split`-Helfer in der Vorbild-Datei). Nicht 3 Stufen (zu lang), nicht ohne sichtbaren Aufbau (zu schnell).
+3. **Danach die Fakten** (2–3 Beats Infografik mit echten Zahlen + Quelle), dann die Pointe, die auf die Eskalation zurückgreift („So the tower? Slightly overkill.“).
+4. **Praktischer Tipp** (1 Beat), **Loop-Satz** über Rudi zurück zum Hook.
+5. Alle 2–3 Sekunden passiert etwas Neues (Schnitt, Stempel, Kamerafahrt). Kein Beat länger als ~4,5 s.
+6. **Kein Like/Follow im Video** (stört die Bindung). Die Aufforderung kommt als erster Kommentar (`firstCommentText`), die Caption endet mit einer Frage.
