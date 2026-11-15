@@ -8,14 +8,14 @@ Dieses Repo gehört zu Hermanns KI-Labor. Eine geplante Aufgabe startet 4× am T
 - Es wird **öffentlich** auf TikTok eingeplant (voll automatisch), **wenn es die Qualitätsprüfung besteht** (Schritt 4).
 - Besteht es nach 3 Verbesserungsrunden nicht, kommt es nur als **Entwurf** in Metricool (`draft: true`) und die Zusammenfassung sagt warum.
 
-Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Posts in 24 Stunden** (TikTok sperrt ab ca. 15, und viele KI-Posts wirken schnell wie Spam).
+Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Posts pro Kalendertag (Europe/Berlin)**, Hermann 15.11.2026 (TikTok sperrt ab ca. 15, und viele KI-Posts wirken schnell wie Spam).
 
 ## Ablauf
 
 1. **Vorbereiten**
    - `git pull` (Repo ist `Hermann-Maehlmann/daily-nature-guy`, für Push mit `add_repo` und `access: "push"` anhängen).
    - Git-Name setzen: `git config user.name "KI-Labor Autopilot"` und `git config user.email autopilot@users.noreply.github.com`.
-   - `state/videos.json` lesen: Liste aller bisherigen Videos (Thema, Titel, Datum, öffentlich/Entwurf). Prüfen, wie viele öffentliche Posts in den letzten 24 h eingeplant wurden. Sind es schon 4 oder mehr, wird das Video nur Entwurf.
+   - `state/videos.json` lesen: Liste aller bisherigen Videos (Thema, Titel, Datum, öffentlich/Entwurf). Prüfen, welche festen Sendezeiten (Schritt 6) heute und morgen schon belegt sind. Ist bis einschließlich morgen kein Slot mehr frei, wird das Video nur Entwurf.
 
    - **Gesundheitscheck:** Mit `getScheduledPosts` (gestern bis morgen) und `state/videos.json` prüfen, ob die öffentlichen Posts früherer Läufe wirklich rausgegangen sind. Steht ein Post, dessen Zeit vorbei ist, noch auf PENDING oder auf ERROR/FAILED, oder schlägt ein Connector (Metricool, Parallel Search, GitHub) fehl, beginnt die Zusammenfassung am Ende mit **„⚠️ Hermann, bitte kümmern:“** und sagt in einem Satz, was kaputt ist und was er tun muss (z. B. TikTok in Metricool neu verbinden). Dann nichts Neues öffentlich einplanen, solange TikTok-Posts scheitern.
 
@@ -50,7 +50,7 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
 6. **In Metricool einplanen** (Metricool-Connector)
    - `getBrandSettings`: die Marke mit TikTok (blogId 7900279, Zeitzone daraus, meist Europe/Berlin).
    - **Feste Sendezeiten (Hermann 15.11.2026):** Öffentliche Videos gehen nur zu diesen 4 Uhrzeiten raus (Europe/Berlin, jeden Tag gleich, auch am Wochenende): **10:00, 16:00, 18:00, 21:00**. Grundlage: Metricool-Bestzeiten TikTok (Spitzen 10, 12, 18 Uhr) und YouTube (Spitze 14–17 Uhr) plus englischsprachiges Publikum (21:00 Berlin = 20:00 UK / 15:00 New York, 16:00 = 10:00 New York, 18:00 = 17:00 UK Feierabend / 12:00 New York Mittag).
-   - Zeit wählen: den **frühesten freien festen Slot**, der mindestens 20 Min nach jetzt liegt. Belegt ist ein Slot, wenn `getScheduledPosts` dort schon einen öffentlichen Post (draft false) zeigt. Dabei weiter höchstens 4 öffentliche Posts in 24 Stunden; ältere Posts außerhalb der festen Zeiten (vor dem 16.11.2026 eingeplant) zählen mit, werden aber **nie verschoben**. Ist ein Slot verpasst (Lauf fehlgeschlagen), bleibt er leer, nicht nachholen. Keine Zeiten zwischen den Slots und kein `getBestTimeToPostByNetwork` mehr für die Uhrzeit.
+   - Zeit wählen: den **frühesten freien festen Slot**, der mindestens 20 Min nach jetzt liegt. Belegt ist ein Slot, wenn `getScheduledPosts` dort schon einen öffentlichen Post (draft false) zeigt. Dabei höchstens 4 öffentliche Posts pro Kalendertag; ältere Posts außerhalb der festen Zeiten (vor dem 16.11.2026 eingeplant) zählen für ihren Tag mit, werden aber **nie verschoben**. Ist ein Slot verpasst (Lauf fehlgeschlagen), bleibt er leer, nicht nachholen. Keine Zeiten zwischen den Slots und kein `getBestTimeToPostByNetwork` mehr für die Uhrzeit.
    - Normaler Tagesablauf: Lauf 08:13 → 10:00, Lauf 12:13 → 16:00, Lauf 14:13 → 18:00, Lauf 19:13 → 21:00 desselben Tages. Ist das Video erst später fertig, nimmt es den nächsten freien Slot (auch am Folgetag).
    - `createScheduledPost` mit `info`:
      `{"text": <Caption>, "providers":[{"network":"tiktok"}], "media":[<Video-URL>], "publicationDate":{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":<tz>}, "autoPublish": true, "draft": <false wenn Prüfung bestanden, sonst true>, "tiktokData":{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":true,"title":<Titel>}, "firstCommentText":"", "descendants":[], "shortener":false, "smartLinkData":{"ids":[]}, "hasNotReadNotes":false, "mediaAltText":[]}`
