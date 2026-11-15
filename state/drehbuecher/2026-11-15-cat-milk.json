@@ -1,0 +1,26 @@
+{
+ "titel": "Your Cat Shouldn't Drink Milk",
+ "thumbnail": "Milk? *Bad* idea.",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "CATS LOVE\nMILK?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "cat-milk-szenen.js",
+ "beats": [
+  { "say": "Your cat loves milk. Its tummy *doesn't.*", "scene": { "shot": "kHook" }, "sfx": "boom" },
+  { "say": "Rudi thinks every cat needs milk. So he pours a big *saucer.*", "scene": { "shot": "kPour" }, "sfx": "whoosh" },
+  { "say": "Kitty loves it, so Rudi buys a whole *crate.* A few hours later... the litter box is *busy.*", "scene": { "shot": "kCrateFull" }, "sfx": "whoosh" },
+  { "say": "Rudi blames the store milk, so he brings home a *cow.* Same milk. Same *tummy ache.*", "scene": { "shot": "kCowFull" }, "sfx": "boom" },
+  { "say": "Kittens make an enzyme, *lactase*, to digest their mom's milk.", "scene": { "shot": "kKitten" }, "sfx": "whoosh" },
+  { "say": "But after weaning, most cats make far *less* of it.", "scene": { "shot": "kBars" }, "sfx": "whoosh" },
+  { "say": "So the milk sugar ferments in the gut. Gas, cramps... *diarrhea.*", "scene": { "shot": "kGut" }, "sfx": "squish" },
+  { "say": "Vets at the PDSA say one saucer is like you eating a whole *pizza.*", "scene": { "shot": "kPizza" }, "sfx": "whoosh" },
+  { "say": "So the cow? *Udderly* pointless.", "scene": { "shot": "kUdder" }, "sfx": "boom" },
+  { "say": "Give your cat fresh *water.* Cat milk? Only as a rare *treat.*", "scene": { "shot": "kTip" }, "sfx": "whoosh" },
+  { "say": "So before Rudi pours another saucer... remember:", "scene": { "shot": "kLoop" } }
+ ]
+}
