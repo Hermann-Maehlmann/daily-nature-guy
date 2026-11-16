@@ -20,8 +20,9 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
    - **Gesundheitscheck:** Mit `getScheduledPosts` (gestern bis morgen) und `state/videos.json` prüfen, ob die öffentlichen Posts früherer Läufe wirklich rausgegangen sind. Steht ein Post, dessen Zeit vorbei ist, noch auf PENDING oder auf ERROR/FAILED, oder schlägt ein Connector (Metricool, Parallel Search, GitHub) fehl, beginnt die Zusammenfassung am Ende mit **„⚠️ Hermann, bitte kümmern:“** und sagt in einem Satz, was kaputt ist und was er tun muss (z. B. TikTok in Metricool neu verbinden). Dann nichts Neues öffentlich einplanen, solange TikTok-Posts scheitern.
 
 2. **Thema wählen** (nie ein Thema aus `state/videos.json` wiederholen, Tierart frei wählen)
+   - **Zuerst Statistik-Check (Hermann 16.11.2026):** Teil A in `STATISTIK.md` ausführen. Er bestimmt die Kategorie (die mit den meisten Aufrufen) und den Winkel nach dem Vorbild der besten Videos und gilt vor den Beispielen unten. Die `lernregeln` in `state/statistik.json` sind Pflicht.
    - **Seit 12.11.2026 (Hermann, „Mix-Stil“):** bevorzugt **Alltagstiere, die jeder kennt** (Haus, Garten, Park, Stadt, Haustiere, Küche: Spinnen, Enten, Tauben, Wespen, Igel, Katzen, Hunde, Goldfische, Ameisen, Schnecken …) mit einem **verbreiteten Irrtum oder Fehler**, den die Zuschauer selbst machen („Du trägst Spinnen raus? Falsch.“, „Brot für Enten ist Junkfood“). Der Zuschauer soll denken „Das mache ich auch!“ und kommentieren/teilen. Am Ende ein **praktischer Tipp**, was man stattdessen tun soll.
-   - Höchstens 1 von 4 Videos darf noch ein exotisches Wow-Thema sein (Tiefsee, Parasiten, Rekorde), aber auch dann mit Du-Bezug („Wenn du ins Meer gehst …“).
+   - Exotische Wow-Themen (Tiefsee, Parasiten, Rekorde) nur, wenn der Statistik-Check es erlaubt. Stand 16.11.2026: nein, 0 von 11 kamen über ~750 Aufrufe hinaus, Alltagsthemen bis 4.600.
    - Fakten mit Parallel Search (`web_search`) gegenprüfen. Nur, was eine seriöse Quelle (Uni, Museum, Fachartikel, National Geographic, BBC Earth …) belegt. Eine Quelle für die Caption merken.
 
 3. **Drehbuch + Animation bauen** – **fester Stil seit 10.11.2026: gezeichneter Erklärfilm, Anleitung in `autopilot/v2/STIL.md` genau lesen.**
@@ -60,9 +61,10 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
    - Beispiel: `This shrimp gets hotter than the sun 🦐🔥 Would you go near it? 👇 (Source: Nature) #pistolshrimp #naturefacts #oceanlife`
    - Für einen Entwurf als Datum den nächsten Tag 13:00 nehmen (keine feste Sendezeit, damit Entwürfe im Kalender nicht mit öffentlichen Slots verwechselt werden).
    - Metricool kopiert das Video beim Einplanen sofort auf eigene Server (`media` in der Antwort zeigt dann static.metricool.com). Danach `autopilot/host.sh clear`, damit die Videos nicht öffentlich im Repo liegen bleiben.
+   - **YouTube-Titel und Tags (Hermann 16.11.2026):** `youtubeData.title` und `tags` nach `STATISTIK.md` Teil C bilden: Titel als Suchfrage mit dem Schlüsselwort vorn („Can Dogs See Color? 🐶 #shorts“), Tags als echte Suchbegriffe. Das gilt vor dem Titel-Muster oben.
 
 7. **Buch führen**
-   - Pro Video einen Eintrag an `state/videos.json` anhängen: `{"datum", "thema", "titel", "status": "oeffentlich"|"entwurf", "geplant_fuer", "plannerUrl", "quelle"}`.
+   - Pro Video einen Eintrag an `state/videos.json` anhängen: `{"datum", "thema", "titel", "status": "oeffentlich"|"entwurf", "geplant_fuer", "plannerUrl", "quelle", "kategorie": "haustier"|"garten"|"haus-kueche"|"exotisch", "format": "comedy"|"mix", "dauer_s", "youtube_titel"}` (Kategorien in `STATISTIK.md`; ohne `kategorie` kann die Statistik das Video nicht zuordnen).
    - Drehbuch-JSON und Szenendatei nach `state/drehbuecher/<datum>-<slug>.json` bzw. `<datum>-<slug>-szenen.js` kopieren (bewährte Figuren können später wiederverwendet werden) (Videos selbst nicht committen).
    - Commit „Autopilot: <titel>“ und push auf `main`.
 
