@@ -1,0 +1,27 @@
+{
+ "titel": "Bats Aren't Actually Blind",
+ "thumbnail": "Blind as a *bat?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "BATS ARE\nBLIND?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "bat-blind-szenen.js",
+ "beats": [
+  { "say": "That bat in your garden is *not* blind. It can see you.", "scene": { "shot": "bHook" }, "sfx": "boom" },
+  { "say": "But Rudi felt sorry for the poor, *blind* little bat.", "scene": { "shot": "bSad" }, "sfx": "whoosh" },
+  { "say": "So he made it tiny *glasses.* The bat caught a moth in the dark. Without them.", "scene": { "shot": "bGlassFull" }, "sfx": "whoosh" },
+  { "say": "So Rudi got it a *guide dog.* The bat just flew circles around it.", "scene": { "shot": "bDog" }, "sfx": "boom" },
+  { "say": "Here's the thing: every bat species can *see.*", "scene": { "shot": "bSee" }, "sfx": "whoosh" },
+  { "say": "Their eyes are packed with night vision cells. Up to *five times* more than yours.", "scene": { "shot": "bRods" }, "sfx": "whoosh" },
+  { "say": "And in the dark, they *shout,* and listen for the echo.", "scene": { "shot": "bEcho" }, "sfx": "squish" },
+  { "say": "Bat Conservation International puts it simply: bats are *not* blind.", "scene": { "shot": "bSource" }, "sfx": "whoosh" },
+  { "say": "A pipistrelle fits in a *matchbox,* and can eat three thousand insects in one night.", "scene": { "shot": "bMatch" }, "sfx": "whoosh" },
+  { "say": "So the guide dog? Now *unemployed.*", "scene": { "shot": "bJobless" }, "sfx": "boom" },
+  { "say": "Want to help? Hang a *bat box,* and never touch a bat with bare hands.", "scene": { "shot": "bTip" }, "sfx": "whoosh" },
+  { "say": "So next time someone says blind as a bat, just remember...", "scene": { "shot": "bLoop" } }
+ ]
+}
