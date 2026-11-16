@@ -28,6 +28,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
       if (url === "http://lab.local/anim2d.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "anim2d.js")) });
       if (url === "http://lab.local/figuren.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "figuren.js")) });
       if (url === "http://lab.local/scene.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.resolve(path.dirname(specFile), spec.sceneFile)) });
+      if (url === "http://lab.local/kit3d.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "kit3d.js")) });
       if (url === "http://lab.local/anim3d.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "anim3d.js")) });
       if (url === "http://lab.local/stage3.js") return route.fulfill({ contentType: "text/javascript", body: fs.readFileSync(path.join(HERE, "stage3.js")) });
       if (url.startsWith("http://lab.local/media/")) return route.fulfill({ contentType: "image/jpeg", body: fs.readFileSync(path.join(MEDIA, decodeURIComponent(url.slice(23)))) });

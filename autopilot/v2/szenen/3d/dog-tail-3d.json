@@ -1,0 +1,85 @@
+{
+ "titel": "A Wagging Tail Doesn't Mean Happy",
+ "thumbnail": "Is your dog *happy?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY WAG\n≠ HAPPY?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "dog-tail-3d-szenen.js",
+ "beats": [
+  {
+   "say": "Why does a wagging tail... *not* mean your dog is happy?",
+   "scene": {
+    "shot": "tHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Rudi doesn't know that. He sees a wag... and goes in for a *hug.*",
+   "scene": {
+    "shot": "tHug"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "The dog growls. So Rudi builds a *wag-o-meter.* It says: super happy. The dog still *growls.*",
+   "scene": {
+    "shot": "tMeter"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "The meter didn't help, so now Rudi says hi... in a full suit of *armor.*",
+   "scene": {
+    "shot": "tArmor"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Here's the truth. A wag just means your dog feels *something.* Happy, nervous... or *angry.*",
+   "scene": {
+    "shot": "tTruth"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Scientists in Italy found: dogs wag more to the *right* when relaxed... and to the *left* when stressed.",
+   "scene": {
+    "shot": "tSides"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And a stiff tail, held *high*, wagging fast? That can mean: *back off.*",
+   "scene": {
+    "shot": "tHigh"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So the armor? Maybe slightly *overkill.*",
+   "scene": {
+    "shot": "tOverkill"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Here's what to do: look at the *whole* dog. Loose, wiggly body? Go ahead.",
+   "scene": {
+    "shot": "tWiggle"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Stiff and frozen? Give it *space.* And if your friends ever ask you...",
+   "scene": {
+    "shot": "tLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

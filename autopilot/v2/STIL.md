@@ -1,5 +1,7 @@
 # Fester Videostil „Daily Nature Guy“ (seit 10.11.2026, von Hermann bestätigt)
 
+> **⚠️ Seit 16.11.2026 (Hermann): alle Videos in 3D.** Der 2D-Zeichenstil unten (kshape, reef, Figuren-Bibliothek) gilt nicht mehr für neue Videos. Neue Videos werden mit dem 3D-Baukasten gebaut, siehe Abschnitt **„3D-Look“** ganz unten. Weiter gültig bleiben: Drehbuch-Format, Hook-Regeln (jetzt als „Why …?“-Frage), Loop-Ende, Mix-Stil-Bausteine, Comedy-Story-Aufbau, TikTok-Zonen.
+
 Gezeichneter Wissenschafts-Erklärfilm, angelehnt an den Look bekannter Erklärkanäle (flache Vektorformen, leuchtende Farben, ruhige Kamera).
 **Nie** fremde Figuren, Logos, Musik oder Szenen kopieren (z. B. keine Kurzgesagt-Vögel) – nur die Machart, eigene Figuren.
 
@@ -24,7 +26,8 @@ Vorbilder: `autopilot/v2/szenen/pistolenkrebs.js` (kurzes Beispiel mit eigenen F
 - `sceneFile` relativ zum Drehbuch. `shot` = Name eines Shots aus der Szenendatei (oder aus anim2d.js).
 - 10–12 Beats, zusammen 28–36 s (Comedy-Story seit 15.11.2026). Jeder Satz kurz, ein Schlüsselwort in *Sternchen* (gelb im Untertitel).
 - Gesprochen wird mit Chatterbox (stimme.sh). `voice`/`speed` gelten nur für den Notfall ohne Chatterbox (Kokoro `bm_george`, `speed` 1.1). Hermann: ruhig erzählen, nicht hetzen. Kein „Follow“-Outro.
-- **Hook (Hermann 10.11.2026, Pflicht):** Der erste Satz ist eine schockierende, kurze Behauptung, die neugierig macht, ohne schon alles zu erklären (z. B. „This fish's tongue... is *alive.*“), nicht „Look at this…“. Erstes Bild schon spannend (Nahaufnahme des Rätsels), `sfx: "boom"` auf Beat 0, `hook`-Text = dieselbe Behauptung in 2–4 Wörtern. Der zweite Satz bricht die Erwartung („That's NOT a tongue. It's a *parasite!*“).
+- **Why-Hook (Hermann 16.11.2026, Pflicht):** Der erste Satz ist **immer eine Frage, die mit „Why“ beginnt**, und löst den Irrtum als Rätsel auf (z. B. „Why does a wagging tail... *not* mean your dog is happy?“, „Why should you never give your cat milk?“). `hook`-Text = Kurzform mit WHY (z. B. „WHY WAG\n≠ HAPPY?“). Der Loop-Satz am Ende führt in diese Frage hinein („And if your friends ever ask you...“ → „Why does…?“).
+- **Hook (Hermann 10.11.2026, Pflicht, ergänzt durch die Why-Regel oben):** Der erste Satz ist eine schockierende, kurze Behauptung, die neugierig macht, ohne schon alles zu erklären (z. B. „This fish's tongue... is *alive.*“), nicht „Look at this…“. Erstes Bild schon spannend (Nahaufnahme des Rätsels), `sfx: "boom"` auf Beat 0, `hook`-Text = dieselbe Behauptung in 2–4 Wörtern. Der zweite Satz bricht die Erwartung („That's NOT a tongue. It's a *parasite!*“).
 - **Loop-Ende (Pflicht):** Der letzte Satz ist unvollständig und führt grammatisch direkt in den ersten Satz, z. B. Ende „So if you ever look into a fish's mouth... remember:“ → Anfang „This fish's tongue... is alive.“ Das letzte Bild zeigt dieselbe Einstellung wie das erste Bild, damit der Übergang nahtlos ist.
 - `hook`: 2 Zeilen Großtext im ersten Bild. Optional pro Beat `sfx`: `soft` (Standard), `whoosh`, `boom`, `squish`.
 - Für Landtiere: `"fg": false` (kein Riff-Vordergrund) und eigener Hintergrund, siehe unten.
@@ -90,3 +93,22 @@ Aufbau (gilt zusätzlich zum Mix-Stil oben):
 4. **Praktischer Tipp** (1 Beat), **Loop-Satz** über Rudi zurück zum Hook.
 5. Alle 2–3 Sekunden passiert etwas Neues (Schnitt, Stempel, Kamerafahrt). Kein Beat länger als ~4,5 s.
 6. **Kein Like/Follow im Video** (stört die Bindung). Die Aufforderung kommt als erster Kommentar (`firstCommentText`), die Caption endet mit einer Frage.
+
+## 3D-Look (seit 16.11.2026, Hermann: „komplett alle Videos auf 3D Animation umstellen“)
+
+Erstes 3D-Video und **Vorbild**: `autopilot/v2/szenen/3d/dog-tail-3d.json` + `dog-tail-3d-szenen.js` („Why A Wagging Tail Doesn't Mean Happy“, 16.11.2026). Eigener Look, **keine Kopie** eines bekannten Studios oder einer Serie: weiche, runde Spielzeug-/Knetfiguren aus einfachen Grundkörpern, warmes Sonnenlicht mit weichen Schatten, kühles Kantenlicht von hinten, satte Farben, Garten-Diorama oder dunkelblaues Infografik-Studio.
+
+Technik: `autopilot/v2/kit3d.js` (three.js r128, läuft in render5.js mit). Die Szenendatei lädt ihn in der ersten Zeile (aus dem Vorbild kopieren) und bekommt `window.K3`:
+- **Welten:** `begin("yard")` (Garten: Gras, Weg, Hundehütte, Baum, Zaun, Blumen) oder `begin("studio")` (Marineblau mit Korallen-Sockel, für Infografiken). Neue Welten (Küche, Wohnzimmer, Teich …) in der Szenendatei mit `K3.onBuild` bauen und Sichtbarkeit selbst schalten.
+- **Bauteile:** `M(farbe, {roughness, metalness, emissive})` Material (sRGB-Farben werden richtig umgerechnet), `sph(mat, x,y,z, sx,sy,sz)` Kugel/Ellipsoid, `mesh(geo, mat, …)`, `limb(r, länge, mat)` Bein/Arm mit Gelenk oben, `canvasTex(w,h,zeichne)` Textur mit Text (Schilder, Skalen, Kacheln), `SPH/CYL/BOX` Grundkörper.
+- **Figuren:** in `K3.onBuild(() => { tier = actor(makeTier()); })` bauen. `actor()` meldet die Figur an, `begin()` blendet alle aus, `place(fig, x, z, drehung)` zeigt sie. Blickrichtung +x, Boden y = 0, Hund ~1,2 hoch, Rudi ~2,1.
+- **Rudi in 3D:** `K3.rudi` + `poseRudi(K3.rudi, t, {arms:[l,r], spread, walk, wave, mouth:"o"|"smile", lean, nod, tilt, armor})`. Gelbe Regenjacke, rote Mütze mit Bommel, Jeans, große Augen. Rudi bleibt immer so; neue Requisiten (Schaufel, Leiter, Rüstung …) als eigene Teile dazubauen.
+- **Kamera:** `view(px,py,pz, zielX,zielY,zielZ, fov, t)` dann `draw()` (rendert 3D und kopiert es ins Bild). Abstände werden mit `K3.zoom` (1.9) gestreckt, weil das Hochformat schmal ist. Für eine Draufsicht `K3.camera.up.set(0,0,-1)` und `K3.zoom = 1`, danach zurücksetzen.
+- **2D-Overlays nach `draw()`:** `stamp()`, `card()`, `txt()` wie im Comedy-Stil (Quellenkarte, Stempel-Gags). Untertitel/Hook macht die Engine.
+
+Regeln für 3D-Figuren (Stil-Checkliste, ersetzt kshape-Regeln):
+- **Tiere genau und neu:** jedes Tier aus Grundkörpern nach dem echten Tier (Körperform, richtige Beinzahl, typische Merkmale wie Ohren, Schwanz, Fell-Abzeichen). Große Augen mit Glanzpunkt (kleine weiße `emissive`-Kugel), blinzeln, atmen. Ausdruck über Augenbrauen, Ohren, Mund.
+- **Licht/Farbe:** nichts selbst aufhellen, Belichtung kommt vom Baukasten. Höchstens 5–6 Hauptfarben. Glänzend nur bei Metall/Wasser (`metalness`, kleine `roughness`).
+- **Kamera fährt in jedem Beat**, Figuren nie ganz still (Wedeln, Wippen, Kopf). Figuren ganz im Bild, nichts angeschnitten außer bei Absicht (Nahaufnahme).
+- **TikTok-Zonen:** Die Kamera schiebt das Motiv schon leicht nach oben links. Figuren im Bereich 15–68 % der Höhe halten, Stempel oben links-mittig.
+- **Vorschau zuerst:** Die Vorschau dauert ca. 15 s. Der Vollrender dauert in 3D ca. **12–15 Min** (statt 3–10 in 2D), deshalb erst rendern, wenn die Vorschau stimmt. Schatten und Kantenlicht nicht abschalten (sie machen den Look); wenn es zu langsam wird, eher Kugel-Segmente sparen.

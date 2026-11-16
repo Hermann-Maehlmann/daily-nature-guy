@@ -80,3 +80,9 @@ Stand 16.11.2026: YouTube-Zahlen gibt es erst für 3 Shorts (Enten 1.276, Goldfi
 3. **Länge:** YouTube zählt, wie viel Prozent gesehen werden, und Wiederholungen. Videos über 36 s fallen dort stärker ab als auf TikTok. Die Comedy-Story mit 28 bis 36 s passt; länger nicht.
 4. **Sendezeit:** bleibt gleich wie TikTok (feste Slots). Die zwei Shorts am Vormittag hatten je ~1.280 Aufrufe, der am Abend 74. Das ist noch zu wenig für eine Regel; der Wochenbericht schaut weiter auf „Nach Sendezeit“ bei YouTube und schlägt eine Änderung vor, sobald es mindestens 3 Videos pro Zeitfenster gibt.
 5. Im Wochenbericht hat YouTube immer eine eigene Zeile und den Vergleich „dasselbe Video auf beiden Plattformen“ (druckt `stats.py`).
+
+## D. A/B-Test 3D-Look (seit 16.11.2026)
+
+Hermann 16.11.2026: Test, ob 3D-Animation (three.js, Spielzeug-/Knet-Look, Rudi in 3D) besser läuft als der flache 2D-Stil. Erstes 3D-Video: „A Wagging Tail Doesn't Mean Happy“ (Hund, Kategorie `haustier`, Comedy-Story, 16.11.2026 21:30 Berlin, Extra-Slot außerhalb der festen Zeiten). In `state/videos.json` haben 3D-Videos `"look": "3d"`, alle anderen gelten als `"2d"`.
+
+Im Wochenbericht eine Zeile **„🧊 3D vs. 2D“**: Aufrufe, Likes, Shares und YouTube-Ø-Sehdauer der 3D-Videos gegen den Median der 2D-Videos derselben Kategorie (`haustier`/`garten`/`haus-kueche`) aus den letzten 14 Tagen. Erst ab 3 3D-Videos von einem Muster sprechen. Achtung: Ab 16.11.2026 beginnt jedes Video mit einer „Why …?“-Frage, das ist eine zweite Änderung gleichzeitig; im Bericht erwähnen, dass beides zusammen getestet wird.
