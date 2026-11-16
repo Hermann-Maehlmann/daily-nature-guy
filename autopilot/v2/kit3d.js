@@ -97,19 +97,23 @@
     const eyes = []; for (const s of [-1, 1]) { const e = new T.Group(); e.position.set(.25, .06, s * .11); head.add(e); e.add(sph(eyeW, 0, 0, 0, .085, .1, .085)); e.add(sph(pupil, .06, 0, 0, .048)); e.add(sph(M(0xffffff, { emissive: 0xffffff }), .1, .03, -.01 * s, .014)); eyes.push(e); }
     const smile = mesh(new T.TorusGeometry(.08, .016, 8, 24, PI), M(0x6a2a20), .27, -.13, 0); smile.rotation.set(0, PI / 2, PI); head.add(smile);
     const oMouth = sph(M(0x5a1a22), .28, -.14, 0, .03, .05, .045); head.add(oMouth);
-    const hat = new T.Group(); head.add(hat);
-    hat.add(mesh(new T.SphereGeometry(.325, 40, 20, 0, 2 * PI, 0, PI / 2), red, 0, .05, 0, 1, 1.05, 1));
-    const band = mesh(new T.TorusGeometry(.32, .05, 12, 40), red, 0, .06, 0); band.rotation.x = PI / 2; hat.add(band);
-    hat.add(sph(M(0xffffff, { roughness: .9 }), 0, .4, 0, .08));
+    // Mütze sitzt OBERHALB der Augen (Augen-Oberkante y ≈ .16, Mützenrand ab y ≈ .17), Hermann 16.11.2026
+    const hat = new T.Group(); hat.position.y = .22; head.add(hat);
+    hat.add(mesh(new T.SphereGeometry(.315, 40, 20, 0, 2 * PI, 0, PI / 2), red, 0, 0, 0, 1, .9, 1));
+    const band = mesh(new T.TorusGeometry(.305, .045, 12, 40), red, 0, 0, 0); band.rotation.x = PI / 2; hat.add(band);
+    hat.add(sph(M(0xffffff, { roughness: .9 }), 0, .32, 0, .08));
     // Rüstung
     const armor = new T.Group(); body.add(armor);
     armor.add(mesh(new T.CylinderGeometry(.31, .4, .82, 40), metal, 0, 1.02, 0));
     armor.add(sph(metal, 0, 1.4, 0, .33, .16, .35));
     for (const s of [-1, 1]) { armor.add(sph(metal, 0, 1.4, s * .34, .14)); }
     const helmet = new T.Group(); head.add(helmet);
-    helmet.add(sph(metal, 0, .02, 0, .36, .37, .36));
-    helmet.add(mesh(BOX, M(0x111318, { roughness: .3 }), .33, .06, 0, .08, .05, .34));
-    const plume = sph(M(0xe23b3b), -.05, .42, 0, .1, .2, .05); helmet.add(plume);
+    // Offener Ritterhelm: Kuppel über der Stirn + Wangenschutz an den Seiten, Gesicht und Augen bleiben frei (kein Visier!)
+    helmet.add(mesh(new T.SphereGeometry(.34, 40, 20, 0, 2 * PI, 0, PI / 2), metal, 0, .2, 0, 1, .95, 1));
+    const rim = mesh(new T.TorusGeometry(.33, .035, 12, 40), metal, 0, .2, 0); rim.rotation.x = PI / 2; helmet.add(rim);
+    for (const s of [-1, 1]) helmet.add(sph(metal, -.1, .0, s * .27, .12, .2, .07));
+    helmet.add(sph(metal, -.2, .02, 0, .14, .24, .26));
+    const plume = sph(M(0xe23b3b), -.05, .62, 0, .1, .2, .05); helmet.add(plume);
     const armM = [];
     return { root, body, legs, arms, head, eyes, smile, oMouth, hat, armor, helmet, coat, shoulders, yel, metal, jeans };
   }
