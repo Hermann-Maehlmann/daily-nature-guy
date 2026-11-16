@@ -2,9 +2,9 @@
 (function () {
   const { g, W, H, clamp, lerp, sm, easeBack } = window.KZ;
   if (!window.K3) { const x = new XMLHttpRequest(); x.open("GET", "http://lab.local/kit3d.js", false); x.send(); (0, eval)(x.responseText); } // 3D-Baukasten
-  const { T, PI, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, poseRudi, view, draw, begin, place, actor } = window.K3;
+  const { T, PI, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, poseRudi, view, draw, begin, place, actor, frameOn } = window.K3;
   let dog, rudi, meter, tiles, arrows;
-  K3.onBuild(() => { rudi = K3.rudi; dog = actor(makeDog()); meter = actor(makeMeter()); tiles = actor(makeTiles()); arrows = actor(makeArrows()); });
+  K3.onBuild(() => { rudi = K3.rudi; dog = actor(makeDog(), "Hund"); meter = actor(makeMeter(), "Wag-o-Meter"); tiles = actor(makeTiles(), "Kacheln"); arrows = actor(makeArrows(), "Pfeile"); tiles.noCheck = arrows.noCheck = true; });
   // ---------- Hund (eigener Entwurf: goldbrauner Mischling, weiße Brust, Schlappohren) ----------
   function makeDog() {
     const coat = M(0xe39a4b), white = M(0xfbf1e2), dark = M(0x2a1c16, { roughness: .3 }), ear = M(0xb5662c), eyeW = M(0xffffff, { roughness: .15 }), pupil = M(0x161018, { roughness: .1 });
@@ -99,38 +99,38 @@
   // 0 Hook: Nahaufnahme, Schwanz wedelt, Blick misstrauisch
   KZ.shot("tHook", (lt, d, t) => { begin("yard"); const k = sm(lt / d);
     place(dog, 0, 0, -.55); poseDog(dog, t, { wag: .55, wf: 2.6, up: .6, angry: .55 + .2 * sm((lt - d * .5) / .4), browsAlways: true });
-    view(lerp(1.6, 1.25, k), lerp(1.25, 1.1, k), lerp(3.4, 2.8, k), lerp(-.05, .05, k), .8, 0, 34, t); draw(); });
+    frameOn([dog], { az: lerp(.55, .45, k), el: .12, fill: lerp(.82, .92, k), t }); draw(); });
   // 1 Rudi rennt mit offenen Armen zum Hund
   KZ.shot("tHug", (lt, d, t) => { begin("yard"); const k = sm(lt / d), run = sm((lt - d * .25) / (d * .6));
-    place(dog, .9, 0, PI + .35); poseDog(dog, t, { wag: .5, wf: 2.4, up: .7, angry: sm((lt - d * .55) / .3) * .8, browsAlways: true, earsBack: sm((lt - d * .6) / .3) * .6 });
-    place(rudi, lerp(-2.4, -.6, run), lerp(.6, .2, run), -.15); poseRudi(rudi, t, { walk: run > 0 && run < 1 ? 1 : 0, arms: [lerp(.2, 1.4, run), lerp(.2, 1.4, run)], spread: lerp(.1, .9, run), mouth: run > .3 ? "smile" : "smile", wide: true });
-    view(lerp(.6, .1, k), 1.35, lerp(6.4, 5.6, k), lerp(-.4, .1, k), .9, 0, 34, t); draw();
+    place(dog, 1.15, 0, PI + .35); poseDog(dog, t, { wag: .5, wf: 2.4, up: .7, angry: sm((lt - d * .55) / .3) * .8, browsAlways: true, earsBack: sm((lt - d * .6) / .3) * .6 });
+    place(rudi, lerp(-1.7, -.5, run), lerp(.6, .2, run), -.15); poseRudi(rudi, t, { walk: run > 0 && run < 1 ? 1 : 0, arms: [lerp(.2, 1.4, run), lerp(.2, 1.4, run)], spread: lerp(.1, .9, run), mouth: run > .3 ? "smile" : "smile", wide: true });
+    frameOn([rudi, dog], { az: lerp(.55, .45, k), el: .14, fill: lerp(.8, .88, k), t }); draw();
     if (lt > d * .4) stamp("HUG TIME!", W * .33, H * .2, (lt - d * .4) / .3, "#ff5d8f", -.08); });
   // 2 Wag-o-Meter: Nadel auf SUPER HAPPY, Hund knurrt trotzdem (Schnitt in der Mitte)
   KZ.shot("tMeter", (lt, d, t) => { begin("yard"); const half = lt > d * .55;
-    place(dog, 1.1, 0, PI + .3); place(meter, .05, .55, .25);
+    place(dog, 1.35, 0, PI + .3); place(meter, -.05, .6, .25);
     const need = sm((lt - d * .15) / (d * .3)); meter.needle.rotation.z = lerp(1.3, -1.2, need) + Math.sin(t * 30) * .04 * need; meter.bulb.material.emissiveIntensity = .4 + .6 * (Math.sin(t * 12) > 0 ? 1 : 0);
     poseDog(dog, t, { wag: .6, wf: 3, up: .75, angry: .9, browsAlways: true, growl: half ? 1 : .4, earsBack: .5, lower: .5 });
     place(rudi, -1.1, .3, -.35); poseRudi(rudi, t, { arms: [.4, half ? .2 : 1.2], spread: .15, mouth: half ? "o" : "smile", lean: half ? .12 : 0 });
-    if (!half) { const k = sm(lt / (d * .55)); view(lerp(.4, .2, k), 1.2, lerp(4.4, 3.8, k), .1, .75, .2, 34, t); }
-    else { const k = sm((lt - d * .55) / (d * .45)); view(lerp(1.9, 1.6, k), 1.15, lerp(3.0, 2.6, k), .55, .8, .3, 30, t); }
+    if (!half) { const k = sm(lt / (d * .55)); frameOn([rudi, meter, dog], { az: lerp(.5, .42, k), el: .12, fill: lerp(.82, .9, k), t }); }
+    else { rudi.root.visible = false; const k = sm((lt - d * .55) / (d * .45)); frameOn([meter, dog], { az: lerp(.45, .35, k), el: .1, fill: lerp(.85, .92, k), t }); }
     draw();
     if (!half && lt > d * .3) stamp("SUPER HAPPY", W * .42, H * .17, (lt - d * .3) / .3, "#36b37e", -.06);
     if (half) stamp("GRRR...", W * .3, H * .2, (lt - d * .58) / .25, "#e5484d", .07); });
   // 3 Ritterrüstung: Rudi klappert heran, winkt
   KZ.shot("tArmor", (lt, d, t) => { begin("yard"); const k = sm(lt / d), go = sm(lt / (d * .6));
     place(dog, 1.1, 0, PI + .3); poseDog(dog, t, { wag: .4, wf: 2, up: .55, tilt: sm((lt - d * .5) / .4) * .35, angry: .2, browsAlways: true });
-    place(rudi, lerp(-1.6, -.4, go), .3, -.45); poseRudi(rudi, t, { armor: true, walk: go < 1 ? .7 : 0, arms: [.2, go >= 1 ? 2.6 : .6], wave: go >= 1, spread: .1 });
+    place(rudi, lerp(-1.6, -.4, go), .3, -.45); poseRudi(rudi, t, { armor: true, walk: go < 1 ? .7 : 0, arms: [.2, go >= 1 ? 2.1 : .6], wave: go >= 1, spread: .1 });
     rudi.root.rotation.z = Math.sin(t * 16) * .02 * (go < 1);
-    view(lerp(.0, .3, k), 1.3, lerp(5, 4.4, k), lerp(-.3, .2, k), .95, 0, 34, t); draw();
+    frameOn([rudi, dog], { az: lerp(.4, .55, k), el: .14, fill: lerp(.8, .88, k), t }); draw();
     if (lt > d * .55) stamp("CLANK CLANK", W * .34, H * .19, (lt - d * .55) / .3, "#6b7a90", -.07); });
   // 4 Wahrheit: Hund auf Sockel, drei Kacheln
   KZ.shot("tTruth", (lt, d, t) => { begin("studio"); const k = sm(lt / d);
     place(dog, 0, 0, -.5); poseDog(dog, t, { wag: .55, wf: 2.4, up: .55 });
     tiles.root.visible = true; tiles.root.position.set(0, 0, 0);
     const ts = [.32, .55, .78];
-    tiles.list.forEach((tl, i) => { const p = clamp((lt / d - ts[i]) / .12, 0, 1), e = easeBack(p); tl.visible = p > 0; tl.position.set((i - 1) * .9, 2.25 + (i === 1 ? .4 : 0) + Math.sin(t * 2 + i) * .04, .2); tl.scale.setScalar(Math.max(.001, e) * .62); tl.rotation.y = (1 - p) * 1.5; tl.rotation.z = (i - 1) * -.06; });
-    view(lerp(.25, -.1, k), 1.7, lerp(6.4, 5.8, k), .15, 1.45, 0, 34, t); draw();
+    tiles.list.forEach((tl, i) => { const p = clamp((lt / d - ts[i]) / .12, 0, 1), e = easeBack(p); tl.visible = p > 0; tl.position.set((i - 1) * 1.1, 2.25 + (i === 1 ? .45 : 0) + Math.sin(t * 2 + i) * .04, .2); tl.scale.setScalar(Math.max(.001, e) * .56); tl.rotation.y = (1 - p) * 1.5; tl.rotation.z = (i - 1) * -.06; });
+    frameOn([dog, K3.studio.children[0]], { az: lerp(.06, -.04, k), el: .16, fill: lerp(.85, .9, k), dy: .55, t }); draw();
     if (lt < d * .32) stamp("EXCITED", W * .44, H * .2, lt / .3, "#7a5cff", -.05); });
   // 5 Studie: Draufsicht, rechts = entspannt, links = gestresst
   KZ.shot("tSides", (lt, d, t) => { begin("studio"); const ph = lt / d, right = ph < .5, k = sm(ph);
@@ -139,26 +139,26 @@
     arrows.root.visible = true; arrows.root.position.set(0, .8, .9); arrows.root.rotation.y = PI / 2;
     arrows.list[0].visible = right; arrows.list[1].visible = !right;
     arrows.list.forEach((a) => a.scale.setScalar(.8 + .1 * Math.sin(t * 6)));
-    camera.up.set(0, 0, -1); K3.zoom = 1; view(0, 9.5 - k * 1.2, .7, 0, 0, .6, 34, t); K3.zoom = 1.9; camera.up.set(0, 1, 0); draw();
+    camera.up.set(0, 0, -1); K3.zoom = 1; view(0, 9.5 - k * 1.2, .7, 0, 0, .6, 34, t); K3.zoom = 2.2; camera.up.set(0, 1, 0); draw();
     if (right) stamp("RELAXED", W * .3, H * .1, (lt - .2) / .3, "#36b37e", .05); else stamp("STRESSED", W * .3, H * .1, (lt - d * .5) / .3, "#e5484d", -.05);
     const cp = sm((lt - d * .1) / .3); if (card(W * .42, H * .62, 760, 150, cp, null)) { txt("Quaranta et al., Current Biology, 2007", W * .42, H * .62, 36, "#1d2250", { a: clamp(cp, 0, 1) }); } });
   // 6 Steifer, hoher, schneller Schwanz
   KZ.shot("tHigh", (lt, d, t) => { begin("studio"); const k = sm(lt / d);
     place(dog, 0, 0, -.35); poseDog(dog, t, { wag: .12, wf: 7, up: 1, stiff: true, angry: 1, growl: sm((lt - d * .5) / .3), frozen: true, browsAlways: true, earsBack: .2 });
-    view(lerp(.4, .9, k), 1.2, lerp(4.4, 3.4, k), -.2, 1.0, 0, 32, t); draw();
+    frameOn([dog], { az: lerp(.35, .5, k), el: .1, fill: lerp(.8, .9, k), t }); draw();
     if (lt > d * .55) stamp("BACK OFF", W * .4, H * .18, (lt - d * .55) / .3, "#e5484d", -.07);
     const cp = sm((lt - .1) / .3); if (lt < d * .55 && card(W * .42, H * .63, 640, 120, cp)) txt("Source: AKC, VCA Hospitals", W * .42, H * .63, 36, "#1d2250", { a: clamp(cp, 0, 1) }); });
   // 7 Pointe: Rüstung, Hund sitzt entspannt
   KZ.shot("tOverkill", (lt, d, t) => { begin("yard"); const k = sm(lt / d);
     place(dog, .9, -.2, PI + .5); poseDog(dog, t, { wag: .6, wf: 2.2, up: .5, wiggle: .6, tongue: true });
     place(rudi, -.6, .2, -.5); poseRudi(rudi, t, { armor: true, arms: [.3, .3], spread: .15, nod: Math.sin(t * 3) * .05 });
-    view(lerp(-.4, .2, k), 1.4, lerp(5.6, 4.8, k), 0, .9, 0, 34, t); draw();
+    frameOn([rudi, dog], { az: lerp(-.45, -.35, k), el: .14, fill: lerp(.8, .88, k), t }); draw();
     if (lt > d * .35) stamp("OVERKILL", W * .38, H * .19, (lt - d * .35) / .3, "#7a5cff", .06); });
   // 8 Tipp: lockerer, wackelnder Körper -> GO AHEAD
   KZ.shot("tWiggle", (lt, d, t) => { begin("yard"); const k = sm(lt / d);
     place(dog, .8, 0, PI + .35); poseDog(dog, t, { wag: .9, wf: 2.6, up: .45, wiggle: 1.4, tongue: true, tilt: Math.sin(t * 2) * .1 });
     place(rudi, -.75, .4, -.45); poseRudi(rudi, t, { arms: [.2, sm((lt - d * .5) / .4) * .9], spread: .1, mouth: "smile" });
-    view(lerp(.6, .2, k), 1.25, lerp(5.2, 4.6, k), -.05, .9, 0, 34, t); draw();
+    frameOn([rudi, dog], { az: lerp(.55, .45, k), el: .14, fill: lerp(.8, .88, k), t }); draw();
     if (lt < d * .45) stamp("WHOLE DOG", W * .4, H * .18, lt / .3, "#2f6fd0", -.06);
     else stamp("GO AHEAD", W * .4, H * .18, (lt - d * .45) / .3, "#36b37e", -.06); });
   // 9 Steif + starr -> SPACE, dann zurück zur Hook-Einstellung (Loop)
@@ -166,11 +166,11 @@
     if (ph < .6) { const k = sm(ph / .6);
       place(dog, .9, 0, PI + .3); poseDog(dog, t, { wag: .1, wf: 6, up: .9, stiff: true, frozen: true, angry: .8, browsAlways: true });
       place(rudi, lerp(-.5, -1.1, sm(ph / .4)), .4, -.45); poseRudi(rudi, t, { walk: ph < .4 ? -.6 : 0, arms: [.5, .5], spread: .3, mouth: "o" });
-      view(.1, 1.3, lerp(4.8, 5.3, k), -.15, .9, 0, 34, t); draw();
+      frameOn([rudi, dog], { az: .5, el: .14, fill: lerp(.88, .8, k), t }); draw();
       stamp("GIVE SPACE", W * .4, H * .18, (lt - .2) / .3, "#f5a623", .06);
     } else { const k = sm((ph - .6) / .4); // läuft in die Hook-Einstellung hinein
       place(dog, 0, 0, -.55); poseDog(dog, t, { wag: .55, wf: 2.6, up: .6, angry: .55, browsAlways: true });
-      view(lerp(2.2, 1.6, k), lerp(1.4, 1.25, k), lerp(4.2, 3.4, k), -.05, .8, 0, 34, t); draw(); } });
+      frameOn([dog], { az: lerp(.65, .55, k), el: .12, fill: lerp(.7, .82, k), t }); draw(); } });
 
   window.__dogTail3d = true;
 })();

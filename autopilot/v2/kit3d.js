@@ -28,7 +28,7 @@
   R3.shadowMap.enabled = true; R3.shadowMap.type = T.PCFSoftShadowMap;
   const scene = new T.Scene();
   const camera = new T.PerspectiveCamera(32, W / H, .1, 120);
-  camera.setViewOffset(W, H, 70, H * .07, W, H); // Motiv etwas nach oben-links (TikTok-Buttons rechts, Untertitel unten)
+  camera.setViewOffset(W, H, 0, H * .04, W, H); // Motiv waagrecht MITTIG (Hermann 16.11.2026: Bild war zu weit links), leicht nach oben wegen Untertitel
 
   const hemi = new T.HemisphereLight(0xcfe8ff, 0xe9b98a, .75); scene.add(hemi);
   const key = new T.DirectionalLight(0xfff0d8, 1.7); key.position.set(4, 7, 5); key.castShadow = true;
@@ -77,7 +77,7 @@
     const pedestal = mesh(new T.CylinderGeometry(1.5, 1.6, .3, 64), M(0xff6f61, { roughness: .35 }), 0, -.15, 0); studio.add(pedestal);
     const floorS = new T.Mesh(new T.CircleGeometry(30, 64), M(0x1a1f55, { roughness: .6 })); floorS.rotation.x = -PI / 2; floorS.position.y = -.3; floorS.receiveShadow = true; studio.add(floorS);
     for (let i = 0; i < 40; i++) { const a = i * 1.7, r = 4 + (i % 7) * 1.3; studio.add(sph(M(0xffffff, { emissive: 0x8fa0ff, emissiveIntensity: .6 }), Math.cos(a) * r, 1 + (i % 5) * 1.1, Math.sin(a) * r - 4, .04 + (i % 3) * .02)); }
-    rudi = actor(makeRudi());
+    rudi = actor(makeRudi(), "Rudi");
     builders.forEach((f) => f());
   }
 
@@ -134,18 +134,50 @@
 
   // ---------- Kamera + Bild ----------
   function world(which) { const y = which === "yard"; yard.visible = y; studio.visible = !y; scene.background = y ? skyTex : navyTex; scene.fog = y ? new T.Fog(0xcfe9ff, 14, 40) : new T.Fog(0x141a4a, 10, 34); hemi.intensity = y ? .75 : .55; }
-  function actor(o) { actors.push(o); scene.add(o.root); return o; }
+  function actor(o, name) { o.name = name || o.name || "figur" + actors.length; actors.push(o); scene.add(o.root); return o; }
+  // ---------- Automatische Prüfung (Hermann 16.11.2026: Figuren überlappten, Bild zu weit links) ----------
+  // Bei jedem draw(): Stecken zwei sichtbare Figuren ineinander oder ist eine Figur seitlich angeschnitten,
+  // erscheint in der Konsole von render5.js eine Zeile "[page] [3D-Check] ...". Jede solche Zeile muss vor dem Rendern behoben werden.
+  // Sichere Zone für TikTok UND YouTube Shorts (1080×1920): rechts ~190 px Buttons, unten ~420 px Titel/Caption, oben ~150 px
+  const SAFE = { l: 40, r: W - 190 };
+  const _bx = new T.Box3(), _v = new T.Vector3(); const warned = new Set();
+  function boxOf(root) { const b = new T.Box3(); root.updateMatrixWorld(true);
+    root.traverseVisible((m) => { if (!m.isMesh) return; if (!m.geometry.boundingBox) m.geometry.computeBoundingBox(); _bx.copy(m.geometry.boundingBox).applyMatrix4(m.matrixWorld); b.union(_bx); }); return b; }
+  function shrink(b, f) { const c = b.getCenter(new T.Vector3()), sz = b.getSize(new T.Vector3()).multiplyScalar(f / 2); return new T.Box3(c.clone().sub(sz), c.clone().add(sz)); }
+  function warn(msg) { const k = msg + "@" + Math.floor(KZ.t); if (warned.has(k)) return; warned.add(k); console.error("[3D-Check] t=" + KZ.t.toFixed(1) + "s " + msg); }
+  function check() {
+    const vis = actors.filter((a) => a.root.visible && !a.noCheck), bs = vis.map((a) => boxOf(a.root));
+    for (let i = 0; i < vis.length; i++) for (let j = i + 1; j < vis.length; j++) if (shrink(bs[i], .8).intersectsBox(shrink(bs[j], .8))) warn("Überlappung: " + vis[i].name + " steckt in " + vis[j].name);
+    camera.updateMatrixWorld(); vis.forEach((a, i) => { const b = bs[i]; let x0 = 1e9, x1 = -1e9;
+      for (let k = 0; k < 8; k++) { _v.set(k & 1 ? b.max.x : b.min.x, k & 2 ? b.max.y : b.min.y, k & 4 ? b.max.z : b.min.z).project(camera); if (_v.z > 1) continue; const x = (_v.x + 1) / 2 * W; x0 = Math.min(x0, x); x1 = Math.max(x1, x); }
+      if (x1 - x0 < W * .8 && (x0 < SAFE.l || x1 > SAFE.r)) warn("außerhalb der sicheren Zone: " + a.name + " ragt " + (x0 < SAFE.l ? "links aus dem Bild" : "rechts in die TikTok/YouTube-Buttons") + " (x " + Math.round(x0) + "–" + Math.round(x1) + ", erlaubt " + SAFE.l + "–" + SAFE.r + ")"); });
+  }
   function hideAll() { actors.forEach((a) => a.root.visible = false); }
-  let ZK = 1.9; // Hochformat ist schmal: alle Kamera-Abstände werden mit ZK gestreckt (1.9 = Figuren ganz im Bild)
+  let ZK = 2.2; // Hochformat ist schmal: alle Kamera-Abstände werden mit ZK gestreckt (1.9 = Figuren ganz im Bild)
   function view(px, py, pz, tx, ty, tz, fov, t) {
     const Z = ZK; px = tx + (px - tx) * Z; py = ty + (py - ty) * Z; pz = tz + (pz - tz) * Z;
     const f = .06; camera.position.set(px + Math.sin(t * .7) * f, py + Math.cos(t * .55) * f, pz); camera.fov = fov || 32; camera.updateProjectionMatrix(); camera.lookAt(tx, ty, tz);
   }
-  function draw() { key.target.position.set(0, 0, 0); R3.render(scene, camera); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; g.drawImage(cv3, 0, 0); }
+  // Auto-Kamera: frameOn([figuren], {az, el, fill, fov, dy, t}) setzt die Kamera so, dass alle genannten Figuren zusammen
+  // waagrecht mittig in der sicheren Zone stehen (TikTok + YouTube Shorts) und nicht angeschnitten sind.
+  // az = Blickwinkel um die Hochachse (0 = Kamera vorn bei +z, positiv = von rechts/+x), el = Höhe (rad), fill = Anteil der sicheren Breite (.6–.9).
+  // Für Kamerafahrten az/fill mit lerp über den Beat ändern (fill größer = näher dran).
+  function frameOn(list, o) { o = o || {}; const az = o.az ?? .15, el = o.el ?? .14, fill = o.fill ?? .8, fov = o.fov || 32, t = o.t || 0;
+    const b = new T.Box3(); list.forEach((a) => b.union(boxOf(a.root || a)));
+    const c = b.getCenter(new T.Vector3()); const Rv = new T.Vector3(Math.cos(az), 0, -Math.sin(az)); let r0 = 1e9, r1 = -1e9;
+    for (let k = 0; k < 8; k++) { _v.set(k & 1 ? b.max.x : b.min.x, k & 2 ? b.max.y : b.min.y, k & 4 ? b.max.z : b.min.z); const d = _v.clone().sub(c).dot(Rv); r0 = Math.min(r0, d); r1 = Math.max(r1, d); }
+    const wid = r1 - r0, hgt = b.max.y - b.min.y, vf = fov * PI / 360, hf = Math.atan(Math.tan(vf) * W / H), safeW = (SAFE.r - SAFE.l) / W;
+    const dist = Math.max(wid / 2 / Math.tan(hf) / (safeW * fill), hgt / 2 / Math.tan(vf) / .6) + (b.max.z - b.min.z) * .3;
+    const tg = c.clone().add(Rv.clone().multiplyScalar((r0 + r1) / 2)); tg.y += (o.dy || 0);
+    // Motiv halb zwischen Bildmitte (540) und Mitte der sicheren Zone (465) setzen: wirkt mittig und bleibt frei von den Buttons
+    const shiftPx = (W / 2 - (SAFE.l + SAFE.r) / 2) * .5, worldPerPx = 2 * dist * Math.tan(hf) / W; tg.add(Rv.clone().multiplyScalar(shiftPx * worldPerPx));
+    const f = .05 * dist / 5; camera.position.set(tg.x + Math.sin(az) * Math.cos(el) * dist + Math.sin(t * .7) * f, tg.y + Math.sin(el) * dist + Math.cos(t * .55) * f, tg.z + Math.cos(az) * Math.cos(el) * dist);
+    camera.fov = fov; camera.updateProjectionMatrix(); camera.lookAt(tg); }
+  function draw() { key.target.position.set(0, 0, 0); check(); R3.render(scene, camera); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; g.drawImage(cv3, 0, 0); }
   function begin(which) { if (!built) build(); hideAll(); world(which); }
   const place = (o, x, z, ry) => { o.root.visible = true; o.root.position.set(x, 0, z); o.root.rotation.y = ry || 0; };
 
-  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, poseRudi, makeRudi, view, draw, begin, place, actor,
+  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn,
     onBuild(f) { builders.push(f); }, get rudi() { return rudi; }, get yard() { return yard; }, get studio() { return studio; },
     get zoom() { return ZK; }, set zoom(z) { ZK = z; } };
 })();

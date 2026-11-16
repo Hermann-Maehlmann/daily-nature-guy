@@ -39,6 +39,7 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
      2. Runde: 3D-Stil-Checkliste aus STIL.md (Tier genau aus Grundkörpern, große Augen mit Glanzpunkt, satte Farben, Figuren ganz im Bild, nichts leer oder abgeschnitten, nichts in TikTok-Zonen).
      3. Runde: Bewegung und Wirkung (Kamera fährt in jedem Beat, Figuren lebendig, starker erster Beat). Letzte Fehler beheben.
      **Gründlich prüfen (Hermann 16.11.2026, nach Rudis verdeckten Augen im ersten 3D-Video):** Jedes Bild einzeln und in voller Größe ansehen, nicht nur als kleine Übersicht. Bei jeder Figur fragen: Sind Gesicht und Augen frei? Steckt ein Teil sichtbar in einem anderen (Arm im Körper, Mütze im Gesicht, Figur in der Wand)? Gibt es schwarze Balken, Flecken, leere Flächen oder Teile, die aus dem Bild ragen? Ein solcher Fehler ist immer ein klarer Fehler.
+     **3D-Check (Pflicht):** Die Vorschau-Ausgabe von render5.js darf **keine** Zeile `[3D-Check]` mehr enthalten (Figuren ineinander oder außerhalb der sicheren Zone von TikTok/YouTube). Für diese Prüfung eine Vorschau mit einem Bild pro halbe Sekunde über das ganze Video machen (`PREVIEW=$(python3 -c "print(','.join(str(x/2) for x in range(1, <2×Dauer>)))")`), Meldungen beheben, wiederholen. Zusätzlich auf dieser Bilderreihe prüfen: Motiv waagrecht mittig, nicht zu klein, nichts schwebt durch etwas anderes.
      Bestanden nur, wenn nach Runde 3 kein Bild mehr einen klaren Fehler hat. Sonst wird das Video Entwurf.
    - Rendern: `node autopilot/v2/render5.js out/<slug>-cb.json out/<slug>.mp4` (30 fps Bild für Bild, in 3D ca. 12–15 Min; im Hintergrund starten und die Wartezeit für Caption und Thumbnail-Text nutzen).
    - Flüssigkeit prüfen: `ffmpeg -i out/<slug>.mp4 -vf mpdecimate -loglevel debug -f null - 2>&1 | grep -c "drop pts"` muss unter 100 liegen (sonst nicht posten, Fehler melden).
@@ -47,7 +48,7 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
 
    - **Thumbnail:** `node autopilot/thumb.js out/<slug>.mp4 out/<slug>.json out/<slug>.jpg` (Hook-Bild plus Cover-Text-Sticker, 1080×1920). Ansehen: Figur sichtbar, Text lesbar, nichts abgeschnitten.
    - **Cover ins Video:** `bash autopilot/cover.sh out/<slug>.mp4 out/<slug>.jpg` setzt das Thumbnail als erstes Bild (0,1 s) ins Video. Hermanns Konto übernimmt `videoThumbnailUrl` nicht, TikTok nimmt das erste Bild als Cover. Deshalb ist dieser Schritt Pflicht.
-   - **TikTok-Layout:** rechts ca. 150 px Buttons, unten ca. 360 px Name/Caption, oben 120 px. Im Kontrollbild prüfen, dass nichts Wichtiges dort liegt.
+   - **Layout für TikTok und YouTube Shorts:** rechts ca. 190 px Buttons, unten ca. 420 px Name/Titel/Caption, oben 150 px. Motiv waagrecht mittig. Im Kontrollbild prüfen, dass nichts Wichtiges dort liegt.
 
 5. **Ablegen**: `autopilot/host.sh upload out/<slug>.mp4` legt das Video (mit eingebautem Cover) auf den Branch `videos` und gibt je eine öffentliche URL aus (raw.githubusercontent.com). Die Meldung „push negotiation failed“ ist harmlos.
 
