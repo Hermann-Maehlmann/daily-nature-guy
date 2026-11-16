@@ -3,7 +3,7 @@
 Seit 16.11.2026 (Hermann): Der Autopilot lernt aus den echten Zahlen. Zwei Teile:
 
 - **A. Statistik-Check in jedem Lauf** (AUTOPILOT.md Schritt 2): Thema und Format nach dem wählen, was bisher am besten lief.
-- **B. Wochenbericht jeden Montag**: kurzer deutscher Bericht für Hermann, aktualisiert `state/statistik.json`.
+- **B. Wochenbericht jeden Sonntagabend**: kurzer deutscher Bericht für Hermann, aktualisiert `state/statistik.json`.
 
 ## Datenquellen (Metricool, Marke 7900279, Zeitzone Europe/Berlin)
 
@@ -44,9 +44,9 @@ Läuft am Anfang von AUTOPILOT.md Schritt 2, dauert 1 bis 2 Minuten. Scheitert M
 5. **Share-Test fürs Thema:** Würde jemand das Video einer bestimmten Person schicken („Schick das deiner Freundin mit dem Kaninchen“)? Wenn nicht, anderes Thema. Shares sind das stärkste Signal (Möhre: 14 Shares → 4.533 Aufrufe; fast alle anderen 0).
 6. In die Zusammenfassung am Ende eine Zeile: `Statistik: <Kategorie> gewählt (Median <x> vs. gesamt <y>), Vorbild: <Gewinner>`.
 
-## B. Wochenbericht (montags)
+## B. Wochenbericht (sonntags, kurz vor 20 Uhr)
 
-Eigene geplante Aufgabe (nicht im normalen Autopilot-Lauf). Ablauf:
+Eigene geplante Aufgabe „Wochenbericht Daily Nature Guy“ (sonntags 19:47 Berlin, Hermann 16.11.2026), nicht im normalen Autopilot-Lauf. YouTube-Zahlen reichen dann wegen der Verzögerung nur bis etwa Donnerstag; das im Bericht nicht als Einbruch werten. Ablauf:
 
 1. `git pull`, Git-Name wie in AUTOPILOT.md.
 2. Zahlen holen wie oben, dazu Follower (`TKEV07`, `TKEV08`) und YouTube-Abos/Quellen (`YTEV01`, `YTEV05`, `YTTS01`, `YTTS02`) für die letzten 7 Tage. Dann `python3 autopilot/stats.py --tiktok out/tk.json --youtube out/yt.json --schreiben`.
