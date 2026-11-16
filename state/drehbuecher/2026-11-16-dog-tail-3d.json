@@ -1,0 +1,96 @@
+{
+ "titel": "A Wagging Tail Doesn't Mean Happy",
+ "thumbnail": "Is your dog *happy?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY WAG\n\u2260 HAPPY?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "dog-tail-3d-szenen.js",
+ "beats": [
+  {
+   "say": "Why does a wagging tail... *not* mean your dog is happy?",
+   "scene": {
+    "shot": "tHook"
+   },
+   "sfx": "boom",
+   "wav": "vo_dog-tail-3d_00.wav"
+  },
+  {
+   "say": "Rudi doesn't know that. He sees a wag... and goes in for a *hug.*",
+   "scene": {
+    "shot": "tHug"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_dog-tail-3d_01.wav"
+  },
+  {
+   "say": "The dog growls. So Rudi builds a *wag-o-meter.* It says: super happy. The dog still *growls.*",
+   "scene": {
+    "shot": "tMeter"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_dog-tail-3d_02.wav"
+  },
+  {
+   "say": "The meter didn't help, so now Rudi says hi... in a full suit of *armor.*",
+   "scene": {
+    "shot": "tArmor"
+   },
+   "sfx": "boom",
+   "wav": "vo_dog-tail-3d_03.wav"
+  },
+  {
+   "say": "Here's the truth. A wag just means your dog feels *something.* Happy, nervous... or *angry.*",
+   "scene": {
+    "shot": "tTruth"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_dog-tail-3d_04.wav"
+  },
+  {
+   "say": "Scientists in Italy found: dogs wag more to the *right* when relaxed... and to the *left* when stressed.",
+   "scene": {
+    "shot": "tSides"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_dog-tail-3d_05.wav"
+  },
+  {
+   "say": "And a stiff tail, held *high*, wagging fast? That can mean: *back off.*",
+   "scene": {
+    "shot": "tHigh"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_dog-tail-3d_06.wav"
+  },
+  {
+   "say": "So the armor? Maybe slightly *overkill.*",
+   "scene": {
+    "shot": "tOverkill"
+   },
+   "sfx": "soft",
+   "wav": "vo_dog-tail-3d_07.wav"
+  },
+  {
+   "say": "Here's what to do: look at the *whole* dog. Loose, wiggly body? Go ahead.",
+   "scene": {
+    "shot": "tWiggle"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_dog-tail-3d_08.wav"
+  },
+  {
+   "say": "Stiff and frozen? Give it *space.* And if your friends ever ask you...",
+   "scene": {
+    "shot": "tLoop"
+   },
+   "sfx": "soft",
+   "wav": "vo_dog-tail-3d_09.wav"
+  }
+ ],
+ "pitch": 1
+}
