@@ -1,0 +1,98 @@
+{
+ "titel": "A Dry Dog Nose Doesn't Mean Sick",
+ "thumbnail": "Is Max *sick?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "DRY NOSE\n= SICK?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "dog-nose-szenen.js",
+ "beats": [
+  {
+   "say": "Your dog's dry nose... does *not* mean it's sick.",
+   "scene": {
+    "shot": "nHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Rudi touched Max's nose after a nap. Bone dry! Rudi *panicked.*",
+   "scene": {
+    "shot": "nPanic"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So he bought a *humidifier.* Then five more. The living room became a *rainforest.*",
+   "scene": {
+    "shot": "nRain"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "He sprayed Max's nose every *five minutes.* Max moved into the *doghouse.*",
+   "scene": {
+    "shot": "nSprayFull"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "But here's the thing: a dog's nose goes wet and dry *all day long.*",
+   "scene": {
+    "shot": "nDay"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "After a nap, by the heater, or out in the wind, it simply *dries out.*",
+   "scene": {
+    "shot": "nCauses"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Vets at the University of Melbourne say a dry nose actually means *nothing.*",
+   "scene": {
+    "shot": "nSource"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "The wet part just helps smells stick, like *glue.*",
+   "scene": {
+    "shot": "nGlue"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "So check what matters: is he *eating,* playing, and acting *normal?*",
+   "scene": {
+    "shot": "nCheck"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "See a vet if the nose is *cracked, crusty* or runny, or he acts *sick.*",
+   "scene": {
+    "shot": "nVet"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the rainforest? Rudi's *houseplants* have never been happier.",
+   "scene": {
+    "shot": "nPlants"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "So next time you feel that dry little nose... remember:",
+   "scene": {
+    "shot": "nLoop"
+   }
+  }
+ ]
+}
