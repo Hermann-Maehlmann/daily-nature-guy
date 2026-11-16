@@ -1,0 +1,26 @@
+{
+ "titel": "Earwigs Don't Crawl Into Your Ears",
+ "thumbnail": "Earwig in your *ear?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "EARWIGS IN\nYOUR EARS?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "earwig-ears-szenen.js",
+ "beats": [
+  { "say": "Earwigs do *not* crawl into your ears to lay eggs.", "scene": { "shot": "eHook" }, "sfx": "boom" },
+  { "say": "But Rudi heard they burrow into your *brain.* He hasn't slept since.", "scene": { "shot": "ePanic" }, "sfx": "whoosh" },
+  { "say": "So Rudi sleeps in giant *earmuffs.* The earwig doesn't care. It's outside, eating *flowers.*", "scene": { "shot": "eMuffFull" }, "sfx": "whoosh" },
+  { "say": "Earmuffs felt risky, so Rudi got a *space helmet.* The earwig? Busy eating *aphids.*", "scene": { "shot": "eHelmFull" }, "sfx": "boom" },
+  { "say": "The name comes from an old European *superstition.*", "scene": { "shot": "eName" }, "sfx": "whoosh" },
+  { "say": "Virginia Tech says it plainly: this belief is totally *unfounded.*", "scene": { "shot": "eSource" }, "sfx": "whoosh" },
+  { "say": "And those *pincers?* Too weak to really hurt you.", "scene": { "shot": "ePincers" }, "sfx": "squish" },
+  { "say": "Earwig moms are rare among insects. She guards up to *fifty* eggs, and licks them clean.", "scene": { "shot": "eMom" }, "sfx": "whoosh" },
+  { "say": "So the space helmet? Slightly *overkill.*", "scene": { "shot": "eOverkill" }, "sfx": "boom" },
+  { "say": "Tip: hang a flower pot with *straw* upside down. Earwigs move in, and you can move them out.", "scene": { "shot": "eTip" }, "sfx": "whoosh" },
+  { "say": "So tonight, Rudi can finally sleep... because", "scene": { "shot": "eLoop" } }
+ ]
+}
