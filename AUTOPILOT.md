@@ -8,14 +8,14 @@ Dieses Repo gehört zu Hermanns KI-Labor. Eine geplante Aufgabe startet 4× am T
 - Es wird **öffentlich** auf TikTok eingeplant (voll automatisch), **wenn es die Qualitätsprüfung besteht** (Schritt 4).
 - Besteht es nach 3 Verbesserungsrunden nicht, kommt es nur als **Entwurf** in Metricool (`draft: true`) und die Zusammenfassung sagt warum.
 
-Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Posts in 24 Stunden** (TikTok sperrt ab ca. 15, und viele KI-Posts wirken schnell wie Spam).
+Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Posts pro Kalendertag (Europe/Berlin)**, Hermann 15.11.2026 (TikTok sperrt ab ca. 15, und viele KI-Posts wirken schnell wie Spam).
 
 ## Ablauf
 
 1. **Vorbereiten**
    - `git pull` (Repo ist `Hermann-Maehlmann/daily-nature-guy`, für Push mit `add_repo` und `access: "push"` anhängen).
    - Git-Name setzen: `git config user.name "KI-Labor Autopilot"` und `git config user.email autopilot@users.noreply.github.com`.
-   - `state/videos.json` lesen: Liste aller bisherigen Videos (Thema, Titel, Datum, öffentlich/Entwurf). Prüfen, wie viele öffentliche Posts in den letzten 24 h eingeplant wurden. Sind es schon 4 oder mehr, wird das Video nur Entwurf.
+   - `state/videos.json` lesen: Liste aller bisherigen Videos (Thema, Titel, Datum, öffentlich/Entwurf). Prüfen, welche festen Sendezeiten (Schritt 6) heute und morgen schon belegt sind. Ist bis einschließlich morgen kein Slot mehr frei, wird das Video nur Entwurf.
 
    - **Gesundheitscheck:** Mit `getScheduledPosts` (gestern bis morgen) und `state/videos.json` prüfen, ob die öffentlichen Posts früherer Läufe wirklich rausgegangen sind. Steht ein Post, dessen Zeit vorbei ist, noch auf PENDING oder auf ERROR/FAILED, oder schlägt ein Connector (Metricool, Parallel Search, GitHub) fehl, beginnt die Zusammenfassung am Ende mit **„⚠️ Hermann, bitte kümmern:“** und sagt in einem Satz, was kaputt ist und was er tun muss (z. B. TikTok in Metricool neu verbinden). Dann nichts Neues öffentlich einplanen, solange TikTok-Posts scheitern.
 
@@ -49,14 +49,16 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
 
 6. **In Metricool einplanen** (Metricool-Connector)
    - `getBrandSettings`: die Marke mit TikTok (blogId 7900279, Zeitzone daraus, meist Europe/Berlin).
-   - Zeit: mit `getBestTimeToPostByNetwork` (tiktok) den besten Slot in den nächsten 6 Stunden wählen, frühestens 20 Min ab jetzt, mindestens 2 Stunden Abstand zum letzten öffentlichen Post aus `state/videos.json`.
+   - **Feste Sendezeiten (Hermann 15.11.2026):** Öffentliche Videos gehen nur zu diesen 4 Uhrzeiten raus (Europe/Berlin, jeden Tag gleich, auch am Wochenende): **10:00, 16:00, 18:00, 21:00**. Grundlage: Metricool-Bestzeiten TikTok (Spitzen 10, 12, 18 Uhr) und YouTube (Spitze 14–17 Uhr) plus englischsprachiges Publikum (21:00 Berlin = 20:00 UK / 15:00 New York, 16:00 = 10:00 New York, 18:00 = 17:00 UK Feierabend / 12:00 New York Mittag).
+   - Zeit wählen: den **frühesten freien festen Slot**, der mindestens 20 Min nach jetzt liegt. Belegt ist ein Slot, wenn `getScheduledPosts` dort schon einen öffentlichen Post (draft false) zeigt. Dabei höchstens 4 öffentliche Posts pro Kalendertag; ältere Posts außerhalb der festen Zeiten (vor dem 16.11.2026 eingeplant) zählen für ihren Tag mit, werden aber **nie verschoben**. Ist ein Slot verpasst (Lauf fehlgeschlagen), bleibt er leer, nicht nachholen. Keine Zeiten zwischen den Slots und kein `getBestTimeToPostByNetwork` mehr für die Uhrzeit.
+   - Normaler Tagesablauf: Lauf 08:13 → 10:00, Lauf 12:13 → 16:00, Lauf 14:13 → 18:00, Lauf 19:13 → 21:00 desselben Tages. Ist das Video erst später fertig, nimmt es den nächsten freien Slot (auch am Folgetag).
    - `createScheduledPost` mit `info`:
      `{"text": <Caption>, "providers":[{"network":"tiktok"}], "media":[<Video-URL>], "publicationDate":{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":<tz>}, "autoPublish": true, "draft": <false wenn Prüfung bestanden, sonst true>, "tiktokData":{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":false,"title":<Titel>}, "firstCommentText":"Follow for a new animal myth every day 🐾", "descendants":[], "shortener":false, "smartLinkData":{"ids":[]}, "hasNotReadNotes":false, "mediaAltText":[]}`
    - **KI-Label aus (Hermann 15.11.2026):** `isAigc` bleibt `false`. TikTok verlangt das Label nur bei realistisch aussehenden KI-Szenen/Personen oder nachgemachten Stimmen echter Menschen; gezeichneter Cartoon-Stil und generische TTS-Stimme sind ausgenommen. Nicht wieder einschalten, solange Stil und Stimme so bleiben.
    - **YouTube Shorts (Hermann 12.11.2026):** Dieselbe Marke hat auch YouTube verbunden. Jedes Video, das öffentlich auf TikTok geht, kommt im selben `createScheduledPost` zur selben Zeit auch als Short: `"providers":[{"network":"tiktok"},{"network":"youtube"}]` plus `"youtubeData":{"title":<Titel> + " #shorts" (max. 100 Zeichen), "type":"short", "privacy":"public", "tags":[3-5 Stichworte], "category":"PETS_ANIMALS", "madeForKids":false, "isAiGeneratedContent":false}`. Ist das Video nur Entwurf, gilt das auch für YouTube. Scheitert YouTube (Fehler oder Status ERROR), TikTok trotzdem einplanen und „⚠️ Hermann, bitte kümmern: YouTube-Upload ging nicht“ melden.
    - Caption (Englisch, kurz: höchstens 150 Zeichen ohne Hashtags, Hermanns Wunsch vom 10.11.2026): 1 knackiger Hook-Satz plus 1 Frage oder Aufforderung an die Zuschauer, die zum Kommentieren einlädt (z. B. „Would you survive this? 👇“, „Which animal should be next?“, „Tag a friend who…“, „Guess the temperature before the end 🔥“). Wechsle die Art der Frage von Video zu Video. Danach kurz die Quelle („Source: Nature“) und 3 bis 4 Hashtags (einer Nische, einer #naturefacts). Kein „Part 2“.
    - Beispiel: `This shrimp gets hotter than the sun 🦐🔥 Would you go near it? 👇 (Source: Nature) #pistolshrimp #naturefacts #oceanlife`
-   - Für einen Entwurf als Datum den nächsten Tag 18:00 nehmen.
+   - Für einen Entwurf als Datum den nächsten Tag 13:00 nehmen (keine feste Sendezeit, damit Entwürfe im Kalender nicht mit öffentlichen Slots verwechselt werden).
    - Metricool kopiert das Video beim Einplanen sofort auf eigene Server (`media` in der Antwort zeigt dann static.metricool.com). Danach `autopilot/host.sh clear`, damit die Videos nicht öffentlich im Repo liegen bleiben.
 
 7. **Buch führen**
