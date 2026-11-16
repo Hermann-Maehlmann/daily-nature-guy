@@ -1,0 +1,91 @@
+{
+ "titel": "Your Dog Eating Grass Isn't Sick",
+ "thumbnail": "Is your dog *sick?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "EATS GRASS\n= SICK?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "dog-grass-szenen.js",
+ "beats": [
+  {
+   "say": "Your dog eating grass... is *not* sick.",
+   "scene": {
+    "shot": "gHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Rudi doesn't believe that. Rudi *panics.*",
+   "scene": {
+    "shot": "gPanic"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So Rudi builds a *fence*, to keep the dog off the grass. It just eats right *through* it.",
+   "scene": {
+    "shot": "gFenceFull"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "The fence didn't work, so Rudi decided to move to the *fortieth floor.* But look what grows on the *balcony.*",
+   "scene": {
+    "shot": "gTowerFull"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Meanwhile, UC Davis asked over *fifteen hundred* dog owners.",
+   "scene": {
+    "shot": "gSurvey"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Only about *one in ten* dogs looked sick before grazing.",
+   "scene": {
+    "shot": "gTen"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Another study counted *374* grass snacks... and just *two* vomits.",
+   "scene": {
+    "shot": "gCount"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Most dogs eat grass because they simply *like* it.",
+   "scene": {
+    "shot": "gYum"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "So the tower? Slightly *overkill.*",
+   "scene": {
+    "shot": "gOverkill"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Just skip *sprayed* lawns, and call the vet if it suddenly eats *loads.*",
+   "scene": {
+    "shot": "gTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So next time Rudi screams at the lawn... remember:",
+   "scene": {
+    "shot": "gLoop"
+   }
+  }
+ ]
+}
