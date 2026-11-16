@@ -1,0 +1,27 @@
+{
+ "titel": "Toads Don't Give You Warts",
+ "thumbnail": "Toad warts? *Myth.*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "TOADS GIVE\nYOU WARTS?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "toad-warts-szenen.js",
+ "beats": [
+  { "say": "Touching a toad... will *not* give you warts.", "scene": { "shot": "tHook" }, "sfx": "boom" },
+  { "say": "Rudi doesn't believe that. He finds one in his garden... and *panics.*", "scene": { "shot": "tPanic" }, "sfx": "whoosh" },
+  { "say": "So Rudi grabs *oven mitts* to carry it out. It hops straight into his *boot.*", "scene": { "shot": "tMittFull" }, "sfx": "whoosh" },
+  { "say": "The mitts didn't work, so Rudi digs a *moat* around the house. Toads love *water.*", "scene": { "shot": "tMoatFull" }, "sfx": "boom" },
+  { "say": "Here's the truth: warts come from a human *virus.* Toads don't carry it.", "scene": { "shot": "tVirus" }, "sfx": "whoosh" },
+  { "say": "Those bumps aren't warts. They're *glands.*", "scene": { "shot": "tGlands" }, "sfx": "whoosh" },
+  { "say": "The big ones behind the eyes ooze *poison.* Dogs that bite a toad start to *foam.*", "scene": { "shot": "tPoisonFull" }, "sfx": "squish" },
+  { "say": "The Burke Museum says it plainly: no amphibian gives you *warts.*", "scene": { "shot": "tSource" }, "sfx": "whoosh" },
+  { "say": "And one toad can eat up to *ten thousand* bugs in a summer.", "scene": { "shot": "tBugs" }, "sfx": "whoosh" },
+  { "say": "So Rudi's moat? It's now a toad *pool party.*", "scene": { "shot": "tParty" }, "sfx": "boom" },
+  { "say": "Leave toads be. Wash your hands if you touch one, and keep your *dog* away.", "scene": { "shot": "tTip" }, "sfx": "whoosh" },
+  { "say": "So the next time Rudi spots a toad... remember:", "scene": { "shot": "tLoop" } }
+ ]
+}
