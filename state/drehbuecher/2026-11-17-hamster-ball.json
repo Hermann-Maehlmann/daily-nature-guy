@@ -1,0 +1,104 @@
+{
+ "titel": "Why Your Hamster Hates Its Ball",
+ "thumbnail": "Ditch the *ball*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY HATE\nTHE BALL?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-17-hamster-ball-szenen.js",
+ "beats": [
+  {
+   "say": "Why does your hamster hate... that cute plastic *ball?*",
+   "scene": {
+    "shot": "hHook"
+   },
+   "sfx": "boom",
+   "wav": "vo_hamster-ball_00.wav"
+  },
+  {
+   "say": "Hamsters are nearly *blind.* They feel their way with nose and whiskers.",
+   "scene": {
+    "shot": "hBlind"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_hamster-ball_01.wav"
+  },
+  {
+   "say": "So Rudi pads the room with *pillows.* The hamster just freezes.",
+   "scene": {
+    "shot": "hPillows"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_hamster-ball_02.wav"
+  },
+  {
+   "say": "The pillows didn't work. So Rudi tries a *giant ball* himself. Bonk.",
+   "scene": {
+    "shot": "hGiant"
+   },
+   "sfx": "boom",
+   "wav": "vo_hamster-ball_03.wav"
+  },
+  {
+   "say": "Inside, there's no water, no hiding spot... and *no exit.*",
+   "scene": {
+    "shot": "hNoExit"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_hamster-ball_04.wav"
+  },
+  {
+   "say": "Wild hamsters run up to *five miles* a night. Their own way.",
+   "scene": {
+    "shot": "hMiles"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_hamster-ball_05.wav"
+  },
+  {
+   "say": "That's why the RSPCA does *not recommend* hamster balls.",
+   "scene": {
+    "shot": "hSource"
+   },
+   "sfx": "soft",
+   "wav": "vo_hamster-ball_06.wav"
+  },
+  {
+   "say": "So the giant ball? Slightly *overkill.*",
+   "scene": {
+    "shot": "hOverkill"
+   },
+   "sfx": "soft",
+   "wav": "vo_hamster-ball_07.wav"
+  },
+  {
+   "say": "Get a big solid *wheel* instead. It can hop off anytime.",
+   "scene": {
+    "shot": "hWheel"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_hamster-ball_08.wav"
+  },
+  {
+   "say": "And the old ball? Lid off, and it's a cozy *bed.*",
+   "scene": {
+    "shot": "hBed"
+   },
+   "sfx": "soft",
+   "wav": "vo_hamster-ball_09.wav"
+  },
+  {
+   "say": "And if your friend's hamster keeps rolling into walls, just ask...",
+   "scene": {
+    "shot": "hLoop"
+   },
+   "sfx": "soft",
+   "wav": "vo_hamster-ball_10.wav"
+  }
+ ],
+ "pitch": 1
+}
