@@ -1,0 +1,95 @@
+{
+ "titel": "Why Fat Ball Nets Hurt Garden Birds",
+ "thumbnail": "Cut the *net!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY IS THIS\nNET A TRAP?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-17-fatball-nets-szenen.js",
+ "beats": [
+  {
+   "say": "Why can that little green *net*... hurt the birds you feed?",
+   "scene": {
+    "shot": "fHook"
+   },
+   "sfx": "boom",
+   "wav": "vo_fatball-nets_00.wav"
+  },
+  {
+   "say": "Rudi hangs a fat ball in its handy *net.* A blue tit lands... and its foot gets stuck.",
+   "scene": {
+    "shot": "fHang"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_fatball-nets_01.wav"
+  },
+  {
+   "say": "Rudi frees it... then hangs *fifty more.* Now he's the local bird rescue.",
+   "scene": {
+    "shot": "fFifty"
+   },
+   "sfx": "boom",
+   "wav": "vo_fatball-nets_02.wav"
+  },
+  {
+   "say": "The RSPB says: never use *mesh bags.* They can trap feet, and even break legs.",
+   "scene": {
+    "shot": "fRspb"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_fatball-nets_03.wav"
+  },
+  {
+   "say": "Woodpeckers have *barbed* tongues, so they can get stuck by the beak.",
+   "scene": {
+    "shot": "fPecker"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_fatball-nets_04.wav"
+  },
+  {
+   "say": "And birds really need that fat. A blue tit can lose *five percent* of its weight in one cold night.",
+   "scene": {
+    "shot": "fWeight"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_fatball-nets_05.wav"
+  },
+  {
+   "say": "So fifty nets? Fifty *traps.*",
+   "scene": {
+    "shot": "fOverkill"
+   },
+   "sfx": "soft",
+   "wav": "vo_fatball-nets_06.wav"
+  },
+  {
+   "say": "Just cut the net off... and use a metal *feeder* instead.",
+   "scene": {
+    "shot": "fTip"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_fatball-nets_07.wav"
+  },
+  {
+   "say": "The birds still get the fat, and *nobody* gets stuck.",
+   "scene": {
+    "shot": "fHappy"
+   },
+   "sfx": "soft",
+   "wav": "vo_fatball-nets_08.wav"
+  },
+  {
+   "say": "And if your neighbour still hangs nets, just ask them...",
+   "scene": {
+    "shot": "fLoop"
+   },
+   "sfx": "soft",
+   "wav": "vo_fatball-nets_09.wav"
+  }
+ ]
+}
