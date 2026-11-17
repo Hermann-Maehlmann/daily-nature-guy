@@ -1,0 +1,25 @@
+{
+ "titel": "Why Your Cat Walks Away When You Stare",
+ "thumbnail": "Stop *staring!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY DOES IT\nWALK AWAY?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-17-cat-stare-szenen.js",
+ "beats": [
+  { "say": "Why does your cat walk away... when you *stare* at it with love?", "scene": { "shot": "cHook" }, "sfx": "boom" },
+  { "say": "Because to a cat, a long stare isn't love. It's a *threat.*", "scene": { "shot": "cThreat" }, "sfx": "whoosh" },
+  { "say": "So Rudi tries harder, with a *huge* smile. The cat hides behind the sofa.", "scene": { "shot": "cSmile" }, "sfx": "whoosh" },
+  { "say": "The smile didn't work, so Rudi builds a *tuna tower.* The cat eats the tuna... and leaves.", "scene": { "shot": "cTuna" }, "sfx": "boom" },
+  { "say": "Scientists found what actually works: the *slow blink.*", "scene": { "shot": "cBlink" }, "sfx": "whoosh" },
+  { "say": "At the University of Sussex, owners slow-blinked at *21* cats. And the cats blinked back.", "scene": { "shot": "cStudy" }, "sfx": "whoosh" },
+  { "say": "Then strangers tried it. Cats were *more likely* to walk up to them.", "scene": { "shot": "cStranger" }, "sfx": "whoosh" },
+  { "say": "So the tuna tower? Slightly *overkill.*", "scene": { "shot": "cOverkill" }, "sfx": "soft" },
+  { "say": "Here's the trick: narrow your eyes like a relaxed smile, then close them for *two seconds.*", "scene": { "shot": "cTip" }, "sfx": "whoosh" },
+  { "say": "And if your friend says their cat hates them, just ask...", "scene": { "shot": "cLoop" }, "sfx": "soft" }
+ ]
+}
