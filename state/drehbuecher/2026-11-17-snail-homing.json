@@ -1,0 +1,85 @@
+{
+ "titel": "Why Your Snails Keep Coming Back",
+ "thumbnail": "It came *BACK?!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY ARE THEY\nBACK?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-17-snail-homing-szenen.js",
+ "beats": [
+  {
+   "say": "Why do the snails you throw over the fence... keep *coming back?*",
+   "scene": {
+    "shot": "sHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Rudi thinks it's a *new* snail every night. So he paints a dot on its shell.",
+   "scene": {
+    "shot": "sDot"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Then he throws it over the fence. Next morning? *Same* dot. Same lettuce.",
+   "scene": {
+    "shot": "sToss"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "The fence didn't work, so Rudi builds a *giant wall.* The snail just climbs right over it.",
+   "scene": {
+    "shot": "sWall"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Because garden snails have a *homing* instinct. They can find their way back from ten metres.",
+   "scene": {
+    "shot": "sHome"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "A physicist in London threw four hundred snails over his garden wall. One came back *seventeen* times.",
+   "scene": {
+    "shot": "sStudy"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "But carry them *twenty metres* away... and almost none come back.",
+   "scene": {
+    "shot": "sTwenty"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So the giant wall? Slightly *overkill.*",
+   "scene": {
+    "shot": "sOverkill"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Here's the trick: carry them twenty metres to a wild patch. Just *not* into your neighbour's garden.",
+   "scene": {
+    "shot": "sTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And next time a snail is back on your lettuce, and you wonder...",
+   "scene": {
+    "shot": "sLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}
