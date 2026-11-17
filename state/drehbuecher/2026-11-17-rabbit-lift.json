@@ -1,0 +1,93 @@
+{
+ "titel": "Why Your Bunny Hates Being Picked Up",
+ "thumbnail": "Stop *lifting* it!",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY DOES IT\nKICK & RUN?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-17-rabbit-lift-szenen.js",
+ "beats": [
+  {
+   "say": "Why does your bunny kick and run... every time you *pick it up?*",
+   "scene": {
+    "shot": "rHook"
+   },
+   "sfx": "boom",
+   "wav": "vo_rabbit-lift_00.wav"
+  },
+  {
+   "say": "Because to a rabbit, being lifted feels like one thing: a *hawk* grabbing it.",
+   "scene": {
+    "shot": "rHawk"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_rabbit-lift_01.wav"
+  },
+  {
+   "say": "So Rudi lifts it super gently, on a fluffy *pillow.* The bunny launches off like a rocket.",
+   "scene": {
+    "shot": "rPillow"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_rabbit-lift_02.wav"
+  },
+  {
+   "say": "The pillow didn't work. So Rudi builds a *bunny lift.* The bunny hides in a box.",
+   "scene": {
+    "shot": "rLift"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Rabbits are prey animals. Up in the air, they *can't run.*",
+   "scene": {
+    "shot": "rPrey"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_rabbit-lift_04.wav"
+  },
+  {
+   "say": "Bunnies that get picked up a lot... come to their owners *less.*",
+   "scene": {
+    "shot": "rBars"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_rabbit-lift_05.wav"
+  },
+  {
+   "say": "And that viral trick, bunny on its back? It's not relaxed. It's *playing dead.*",
+   "scene": {
+    "shot": "rTrance"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So the bunny lift? Slightly *overkill.*",
+   "scene": {
+    "shot": "rOverkill"
+   },
+   "sfx": "soft",
+   "wav": "vo_rabbit-lift_07.wav"
+  },
+  {
+   "say": "Instead, sit on the floor... and let your bunny come to *you.*",
+   "scene": {
+    "shot": "rTip"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_rabbit-lift_08.wav"
+  },
+  {
+   "say": "And if your friend says their bunny hates cuddles, just ask...",
+   "scene": {
+    "shot": "rLoop"
+   },
+   "sfx": "soft",
+   "wav": "vo_rabbit-lift_09.wav"
+  }
+ ]
+}
