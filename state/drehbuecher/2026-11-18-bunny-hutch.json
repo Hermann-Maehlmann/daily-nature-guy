@@ -1,0 +1,104 @@
+{
+ "titel": "Why Your Bunny's Hutch Is Too Small",
+ "thumbnail": "Your bunny needs *space*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY IS IT\nTOO SMALL?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-18-bunny-hutch-szenen.js",
+ "beats": [
+  {
+   "say": "Why is that cute bunny hutch... way too *small?*",
+   "scene": {
+    "shot": "hHook"
+   },
+   "sfx": "boom",
+   "wav": "vo_bunny-hutch_00.wav"
+  },
+  {
+   "say": "Rudi's bunny looks *bored.* So Rudi wants a fancier hutch!",
+   "scene": {
+    "shot": "hBored"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-hutch_01.wav"
+  },
+  {
+   "say": "So Rudi buys one with a *second floor.* The bunny just sits upstairs. Still bored.",
+   "scene": {
+    "shot": "hTwo"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-hutch_02.wav"
+  },
+  {
+   "say": "Next, Rudi builds a *luxury* hutch, with a tiny TV. The bunny stands up... *bonk.*",
+   "scene": {
+    "shot": "hLux"
+   },
+   "sfx": "boom",
+   "wav": "vo_bunny-hutch_03.wav"
+  },
+  {
+   "say": "Rabbits don't need luxury. They need *space.*",
+   "scene": {
+    "shot": "hSpace"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-hutch_04.wav"
+  },
+  {
+   "say": "Experts say at least three by two *meters,* and one meter high, for two rabbits.",
+   "scene": {
+    "shot": "hSize"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-hutch_05.wav"
+  },
+  {
+   "say": "And that second floor? It doesn't *count.*",
+   "scene": {
+    "shot": "hFloor"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-hutch_06.wav"
+  },
+  {
+   "say": "Without room to stand up tall, a rabbit's *spine* can bend.",
+   "scene": {
+    "shot": "hSpine"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-hutch_07.wav"
+  },
+  {
+   "say": "So the tiny TV? Slightly *overkill.*",
+   "scene": {
+    "shot": "hTV"
+   },
+   "sfx": "soft",
+   "wav": "vo_bunny-hutch_08.wav"
+  },
+  {
+   "say": "Instead, make the hutch the *bedroom,* with a big run, open all day.",
+   "scene": {
+    "shot": "hTip"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-hutch_09.wav"
+  },
+  {
+   "say": "And if your friend says their bunny looks bored, just ask...",
+   "scene": {
+    "shot": "hLoop"
+   },
+   "sfx": "soft",
+   "wav": "vo_bunny-hutch_10.wav"
+  }
+ ],
+ "pitch": 1
+}
