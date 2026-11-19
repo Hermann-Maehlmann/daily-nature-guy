@@ -93,7 +93,7 @@ Aufbau (gilt zusätzlich zum Mix-Stil oben):
 3. **Danach die Fakten** (2–3 Beats Infografik mit echten Zahlen + Quelle), dann die Pointe, die auf die Eskalation zurückgreift („So the tower? Slightly overkill.“).
 4. **Praktischer Tipp** (1 Beat), **Loop-Satz** über Rudi zurück zum Hook.
 5. Alle 2–3 Sekunden passiert etwas Neues (Schnitt, Stempel, Kamerafahrt). Kein Beat länger als ~4,5 s.
-6. **Kein Like/Follow im Video** (stört die Bindung). Die Aufforderung kommt als erster Kommentar (`firstCommentText`), die Caption endet mit einer Frage.
+6. **Kein Like/Follow im Video** (stört die Bindung). Der erste Kommentar (`firstCommentText`) ist eine Frage an die Zuschauer, die Caption endet mit einer anderen Frage (siehe AUTOPILOT.md).
 
 ## 3D-Look (seit 16.11.2026, Hermann: „komplett alle Videos auf 3D Animation umstellen“)
 
