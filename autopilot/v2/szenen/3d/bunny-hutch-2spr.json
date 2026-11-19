@@ -1,0 +1,106 @@
+{
+ "titel": "Why Your Bunny's Hutch Is Too Small",
+ "thumbnail": "Your bunny needs *space*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY IS IT\nTOO SMALL?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "bunny-hutch-2spr-szenen.js",
+ "titel_de": "Warum dein Kaninchenstall zu klein ist",
+ "thumbnail_de": "Dein Stall ist zu *klein*",
+ "hook_de": "WARUM ZU\nKLEIN?",
+ "beats": [
+  {
+   "say": "Why is that cute bunny hutch... way too *small?*",
+   "scene": {
+    "shot": "hHook"
+   },
+   "sfx": "boom",
+   "say_de": "Warum ist der Stall von deinem Kaninchen viel zu *klein?* Ja, genau deiner, du Pfeife!"
+  },
+  {
+   "say": "Rudi's bunny looks *bored.* So Rudi wants a fancier hutch!",
+   "scene": {
+    "shot": "hBored"
+   },
+   "sfx": "whoosh",
+   "say_de": "Rudis Kaninchen ist gelangweilt. Also will Rudi einen *schickeren* Stall!"
+  },
+  {
+   "say": "So Rudi buys one with a *second floor.* The bunny just sits upstairs. Still bored.",
+   "scene": {
+    "shot": "hTwo"
+   },
+   "sfx": "whoosh",
+   "say_de": "Erst einen mit *zweiter Etage.* Das Kaninchen sitzt oben. Immer noch gelangweilt."
+  },
+  {
+   "say": "Next, Rudi builds a *luxury* hutch, with a tiny TV. The bunny stands up... *bonk.*",
+   "scene": {
+    "shot": "hLux"
+   },
+   "sfx": "boom",
+   "say_de": "Dann einen *Luxus*-Stall mit Fernseher. Das Kaninchen richtet sich auf... *bonk!*"
+  },
+  {
+   "say": "Rabbits don't need luxury. They need *space.*",
+   "scene": {
+    "shot": "hSpace"
+   },
+   "sfx": "whoosh",
+   "say_de": "Kaninchen brauchen keinen Luxus. Sie brauchen *Platz!*"
+  },
+  {
+   "say": "Experts say at least three by two *meters,* and one meter high, for two rabbits.",
+   "scene": {
+    "shot": "hSize"
+   },
+   "sfx": "whoosh",
+   "say_de": "Experten sagen: drei mal zwei *Meter*, einen Meter hoch, für zwei Kaninchen."
+  },
+  {
+   "say": "And that second floor? It doesn't *count.*",
+   "scene": {
+    "shot": "hFloor"
+   },
+   "sfx": "whoosh",
+   "say_de": "Und die zweite Etage? Die *zählt nicht.*"
+  },
+  {
+   "say": "Without room to stand up tall, a rabbit's *spine* can bend.",
+   "scene": {
+    "shot": "hSpine"
+   },
+   "sfx": "whoosh",
+   "say_de": "Und das Krasseste? Ohne Platz zum Aufrichten kann sich die *Wirbelsäule* verbiegen."
+  },
+  {
+   "say": "So the tiny TV? Slightly *overkill.*",
+   "scene": {
+    "shot": "hTV"
+   },
+   "sfx": "soft",
+   "say_de": "Und der Fernseher? Digga, Rudi... das ist ein *Knast* mit Kabelfernsehen!"
+  },
+  {
+   "say": "Instead, make the hutch the *bedroom,* with a big run, open all day.",
+   "scene": {
+    "shot": "hTip"
+   },
+   "sfx": "whoosh",
+   "say_de": "Mach den Stall lieber zum *Schlafzimmer*, mit großem Auslauf, den ganzen Tag offen."
+  },
+  {
+   "say": "And if your friend says their bunny looks bored, just ask...",
+   "scene": {
+    "shot": "hLoop"
+   },
+   "sfx": "soft",
+   "say_de": "Und wenn dein Kumpel sagt, sein Kaninchen ist gelangweilt, frag ihn..."
+  }
+ ]
+}
