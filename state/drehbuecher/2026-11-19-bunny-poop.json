@@ -1,0 +1,26 @@
+{
+ "titel": "Why You Shouldn't Stop Your Bunny Eating Its Poop",
+ "thumbnail": "Gross... or *genius?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY EAT\nITS POOP?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-19-bunny-poop-szenen.js",
+ "beats": [
+  { "say": "Why should you never stop your bunny... from eating its own *poop?*", "scene": { "shot": "pHook" }, "sfx": "boom" },
+  { "say": "Rudi catches his bunny doing it. And he totally *panics.*", "scene": { "shot": "pPanic" }, "sfx": "whoosh" },
+  { "say": "So he sweeps up every dropping. The bunny just eats them straight from its *bottom.*", "scene": { "shot": "pSweep" }, "sfx": "boom" },
+  { "say": "So Rudi gives it a giant *cone.* Now the bunny can't reach. And it's starving.", "scene": { "shot": "pCone" }, "sfx": "whoosh" },
+  { "say": "Those aren't normal droppings. They're soft *night droppings,* like tiny grapes.", "scene": { "shot": "pTwo" }, "sfx": "whoosh" },
+  { "say": "Rabbits digest their food *twice.* Gut bacteria fill round two with vitamins.", "scene": { "shot": "pTwice" }, "sfx": "whoosh" },
+  { "say": "Those little grapes are almost one third *protein.*", "scene": { "shot": "pProtein" }, "sfx": "whoosh" },
+  { "say": "Without them, a bunny can become *malnourished.*", "scene": { "shot": "pWeak" }, "sfx": "soft" },
+  { "say": "So the cone? Slightly *overkill.*", "scene": { "shot": "pOver" }, "sfx": "soft" },
+  { "say": "Just let it happen. But if you keep finding soft clusters on the floor, give more *hay,* and ask a vet.", "scene": { "shot": "pTip" }, "sfx": "whoosh" },
+  { "say": "So next time your bunny snacks from behind... ask yourself:", "scene": { "shot": "pLoop" }, "sfx": "soft" }
+ ]
+}

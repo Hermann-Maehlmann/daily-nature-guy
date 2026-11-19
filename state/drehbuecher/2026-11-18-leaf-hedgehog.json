@@ -1,0 +1,96 @@
+{
+ "titel": "Why Raking Every Leaf Hurts Hedgehogs",
+ "thumbnail": "Leave the *leaves!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY ARE YOUR\nLEAVES A HOME?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-18-leaf-hedgehog-szenen.js",
+ "beats": [
+  {
+   "say": "Why is raking up *every* leaf in autumn... bad news for hedgehogs?",
+   "scene": {
+    "shot": "lHook"
+   },
+   "sfx": "boom",
+   "wav": "vo_leaf-hedgehog_00.wav"
+  },
+  {
+   "say": "Rudi loves a *tidy* garden. He rakes up every leaf... and a sleepy hedgehog rolls out.",
+   "scene": {
+    "shot": "lRake"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_leaf-hedgehog_01.wav"
+  },
+  {
+   "say": "Still too messy, so Rudi *vacuums* the whole lawn. Now the hedgehog has... one leaf left.",
+   "scene": {
+    "shot": "lVac"
+   },
+   "sfx": "boom",
+   "wav": "vo_leaf-hedgehog_02.wav"
+  },
+  {
+   "say": "Here's the thing: hedgehogs *hibernate*, from about November to March.",
+   "scene": {
+    "shot": "lCal"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_leaf-hedgehog_03.wav"
+  },
+  {
+   "say": "And their winter nest is built from *dead leaves*, tucked under hedges and brambles.",
+   "scene": {
+    "shot": "lNest"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_leaf-hedgehog_04.wav"
+  },
+  {
+   "say": "In there, they live off their fat. About *thirty percent* of their body weight.",
+   "scene": {
+    "shot": "lFat"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_leaf-hedgehog_05.wav"
+  },
+  {
+   "say": "Wake one up, and it burns *energy* it needs to make it to spring.",
+   "scene": {
+    "shot": "lWake"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_leaf-hedgehog_06.wav"
+  },
+  {
+   "say": "So that spotless lawn? It's an *eviction* notice.",
+   "scene": {
+    "shot": "lEvict"
+   },
+   "sfx": "soft",
+   "wav": "vo_leaf-hedgehog_07.wav"
+  },
+  {
+   "say": "Just rake your leaves into a *pile* under a hedge... and leave it there till spring.",
+   "scene": {
+    "shot": "lTip"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_leaf-hedgehog_08.wav"
+  },
+  {
+   "say": "And if your neighbour still rakes up every single leaf, just ask them...",
+   "scene": {
+    "shot": "lLoop"
+   },
+   "sfx": "soft",
+   "wav": "vo_leaf-hedgehog_09.wav"
+  }
+ ],
+ "pitch": 1
+}

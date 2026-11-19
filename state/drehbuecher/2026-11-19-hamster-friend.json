@@ -1,0 +1,28 @@
+{
+ "titel": "Why Your Hamster Doesn't Want A Friend",
+ "thumbnail": "Lonely? *Nope.*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NO\nFRIEND?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-19-hamster-friend-szenen.js",
+ "beats": [
+  { "say": "Why does your hamster... *not* want a friend?", "scene": { "shot": "fHook" }, "sfx": "boom" },
+  { "say": "Rudi thinks his hamster looks *lonely.* So he brings home a buddy.", "scene": { "shot": "fLonely" }, "sfx": "whoosh" },
+  { "say": "By morning? A full-on *fight.*", "scene": { "shot": "fFight" }, "sfx": "boom" },
+  { "say": "So Rudi buys a *mansion.* Two floors, two wheels. They fight over one.", "scene": { "shot": "fMansion" }, "sfx": "whoosh" },
+  { "say": "The mansion didn't work. So Rudi throws a friendship *party.* They fight over the cake.", "scene": { "shot": "fParty" }, "sfx": "boom" },
+  { "say": "Here's the thing. Syrian hamsters are *loners.*", "scene": { "shot": "fLoner" }, "sfx": "whoosh" },
+  { "say": "Scientists dug up wild burrows in Syria. Each had just *one* adult.", "scene": { "shot": "fBurrow" }, "sfx": "whoosh" },
+  { "say": "Their tunnels run up to *nine metres.* All for one hamster.", "scene": { "shot": "fTunnel" }, "sfx": "whoosh" },
+  { "say": "The RSPCA says they should *always* live on their own.", "scene": { "shot": "fSource" }, "sfx": "soft" },
+  { "say": "So the party? Slightly *overkill.*", "scene": { "shot": "fOverkill" }, "sfx": "soft" },
+  { "say": "Give one hamster a big cage, deep bedding, and *you* as its friend.", "scene": { "shot": "fTip" }, "sfx": "whoosh" },
+  { "say": "And if someone says your hamster looks lonely, just ask...", "scene": { "shot": "fLoop" }, "sfx": "soft" }
+ ],
+ "pitch": 1
+}

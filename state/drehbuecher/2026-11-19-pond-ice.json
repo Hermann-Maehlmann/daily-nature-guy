@@ -1,0 +1,85 @@
+{
+ "titel": "Why You Should Never Smash Your Pond Ice",
+ "thumbnail": "Stop *smashing* it!",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NOT\nSMASH IT?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-19-pond-ice-szenen.js",
+ "beats": [
+  {
+   "say": "Why should you never smash the ice... on your *pond?*",
+   "scene": {
+    "shot": "pHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "It's freezing, and Rudi panics. His *frogs* are stuck under the ice!",
+   "scene": {
+    "shot": "pPanic"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So Rudi grabs a *hammer.* Down below, the frogs see stars.",
+   "scene": {
+    "shot": "pHammer"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "It freezes again, so Rudi brings a *jackhammer.* Now the pond has a hole.",
+   "scene": {
+    "shot": "pDrill"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Some frogs *sleep* on the pond floor all winter. They breathe through their skin.",
+   "scene": {
+    "shot": "pSleep"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Smashing the ice sends *shock waves* through the water. That can kill them.",
+   "scene": {
+    "shot": "pShock"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "The real danger? Rotting leaves make *toxic gas*, trapped under the ice.",
+   "scene": {
+    "shot": "pGas"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So the jackhammer? Slightly *overkill.*",
+   "scene": {
+    "shot": "pOver"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Instead, set a pan of *hot water* on the ice, and let it melt a hole.",
+   "scene": {
+    "shot": "pTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So before you grab that hammer this winter... ask yourself:",
+   "scene": {
+    "shot": "pLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

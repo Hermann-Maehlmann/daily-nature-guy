@@ -1,0 +1,104 @@
+{
+ "titel": "Why Your Bunny Shouldn't Live With A Guinea Pig",
+ "thumbnail": "Worst pet *roommates*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NOT\nROOMMATES?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-18-bunny-guineapig-szenen.js",
+ "beats": [
+  {
+   "say": "Why should your bunny never live... with a *guinea pig?*",
+   "scene": {
+    "shot": "gHook"
+   },
+   "sfx": "boom",
+   "wav": "vo_bunny-guineapig_00.wav"
+  },
+  {
+   "say": "Rudi's bunny looks *lonely.* So Rudi buys it a tiny friend!",
+   "scene": {
+    "shot": "gLonely"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-guineapig_01.wav"
+  },
+  {
+   "say": "They don't get along, so Rudi buys a *bigger* hutch. The bunny zooms, and kicks its roommate.",
+   "scene": {
+    "shot": "gBig"
+   },
+   "sfx": "boom",
+   "wav": "vo_bunny-guineapig_02.wav"
+  },
+  {
+   "say": "Next, Rudi becomes the *referee.* The guinea pig just... sneezes.",
+   "scene": {
+    "shot": "gRef"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-guineapig_03.wav"
+  },
+  {
+   "say": "Rabbits and guinea pigs don't *speak* the same language.",
+   "scene": {
+    "shot": "gLang"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-guineapig_04.wav"
+  },
+  {
+   "say": "And a rabbit's strong back legs can easily *hurt* a guinea pig.",
+   "scene": {
+    "shot": "gKick"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-guineapig_05.wav"
+  },
+  {
+   "say": "Rabbits can also carry a *germ.* It's the top cause of breathing illness in guinea pigs.",
+   "scene": {
+    "shot": "gGerm"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-guineapig_06.wav"
+  },
+  {
+   "say": "And guinea pigs can't make their own *vitamin C.* Rabbits can.",
+   "scene": {
+    "shot": "gVitC"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-guineapig_07.wav"
+  },
+  {
+   "say": "So the referee whistle? Slightly *overkill.*",
+   "scene": {
+    "shot": "gOver"
+   },
+   "sfx": "soft",
+   "wav": "vo_bunny-guineapig_08.wav"
+  },
+  {
+   "say": "Instead, a bunny needs a *bunny* friend. And a guinea pig needs a guinea pig.",
+   "scene": {
+    "shot": "gTip"
+   },
+   "sfx": "whoosh",
+   "wav": "vo_bunny-guineapig_09.wav"
+  },
+  {
+   "say": "So before you buy your bunny a tiny friend... ask yourself:",
+   "scene": {
+    "shot": "gLoop"
+   },
+   "sfx": "soft",
+   "wav": "vo_bunny-guineapig_10.wav"
+  }
+ ],
+ "pitch": 1
+}

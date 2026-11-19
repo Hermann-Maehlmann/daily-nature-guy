@@ -1,0 +1,25 @@
+{
+ "titel": "Why You Should Never Bathe Your Bunny",
+ "thumbnail": "Bath time *disaster*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NO\nBATH?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-18-bunny-bath-szenen.js",
+ "beats": [
+  { "say": "Why should you never give your bunny... a *bath?*", "scene": { "shot": "bHook" }, "sfx": "boom" },
+  { "say": "Rudi's bunny got a bit *dirty.* So Rudi runs it a bubble bath!", "scene": { "shot": "bDirty" }, "sfx": "whoosh" },
+  { "say": "The bunny panics, so Rudi adds a *rubber duck.* It just kicks water everywhere.", "scene": { "shot": "bDuck" }, "sfx": "boom" },
+  { "say": "Now it's soaked, so Rudi grabs a *leaf blower.* Meet the dandelion bunny.", "scene": { "shot": "bBlow" }, "sfx": "whoosh" },
+  { "say": "Rabbits *clean* themselves, like cats. They almost never need a bath.", "scene": { "shot": "bGroom" }, "sfx": "whoosh" },
+  { "say": "In water, rabbits *panic.* They can kick so hard, they break their own spine.", "scene": { "shot": "bPanic" }, "sfx": "whoosh" },
+  { "say": "And wet fur takes ages to dry. A damp bunny can get *hypothermia.*", "scene": { "shot": "bCold" }, "sfx": "whoosh" },
+  { "say": "So the leaf blower? Slightly *overkill.*", "scene": { "shot": "bOver" }, "sfx": "soft" },
+  { "say": "Instead, *brush* your bunny. And if its bum gets dirty, use a damp cloth, and see a vet.", "scene": { "shot": "bTip" }, "sfx": "whoosh" },
+  { "say": "So before you fill that tub for your bunny... ask yourself:", "scene": { "shot": "bLoop" }, "sfx": "soft" }
+ ]
+}
