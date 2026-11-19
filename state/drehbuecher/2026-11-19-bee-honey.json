@@ -1,0 +1,25 @@
+{
+ "titel": "Why You Should Never Give A Tired Bee Honey",
+ "thumbnail": "Never give *honey!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NO\nHONEY?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-19-bee-honey-szenen.js",
+ "beats": [
+  { "say": "Why should you never give a tired bee... *honey?*", "scene": { "shot": "bHook" }, "sfx": "boom" },
+  { "say": "Rudi finds a bumblebee that can't fly. And he goes full *rescue mode.*", "scene": { "shot": "bFind" }, "sfx": "whoosh" },
+  { "say": "So he pours it a whole jar of *honey.* Now the bee is sticky... and sick.", "scene": { "shot": "bHoney" }, "sfx": "squish" },
+  { "say": "So Rudi opens a honey *bar* for every bee in town. Now they're all getting ill.", "scene": { "shot": "bBar" }, "sfx": "boom" },
+  { "say": "Honey can carry *germs* that make bumblebees sick.", "scene": { "shot": "bGerms" }, "sfx": "whoosh" },
+  { "say": "And most tired bees aren't dying. They're just *resting.*", "scene": { "shot": "bRest" }, "sfx": "soft" },
+  { "say": "So give it time. Check back in about *forty-five minutes.*", "scene": { "shot": "bWait" }, "sfx": "whoosh" },
+  { "say": "So the honey bar? Slightly *overkill.*", "scene": { "shot": "bOver" }, "sfx": "soft" },
+  { "say": "Still stuck? Move it onto a *flower.* No flowers? One drop of sugar water on a spoon.", "scene": { "shot": "bTip" }, "sfx": "whoosh" },
+  { "say": "So next time you find a tired bee... ask yourself:", "scene": { "shot": "bLoop" }, "sfx": "soft" }
+ ]
+}
