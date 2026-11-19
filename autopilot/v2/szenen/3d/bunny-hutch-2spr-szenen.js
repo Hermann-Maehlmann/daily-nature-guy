@@ -1,4 +1,4 @@
-// 3D-Szene "Warum dein Kaninchenstall zu klein ist" (18.11.2026, erstes DEUTSCHES Video mit Roast-Zeilen; Szenen wie bunny-hutch vom 18.11., Texte übersetzt).
+// 3D-Szene "Why Your Bunny's Hutch Is Too Small" / "Warum dein Kaninchenstall zu klein ist" (18.11.2026). ZWEISPRACHIGES Vorbild (19.11.2026): alle Bildtexte als L("EN", "DE"). Hauskaninchen (wildfarben, aus dem Kaninchen-Video vom 17.11.),
 // kleiner Holzstall, Stall mit 2. Etage, Luxus-Stall (Fernseher, Kronleuchter), großer Auslauf mit Gitterzaun, Studio-Infografiken (3x2x1 m Fläche,
 // 2. Etage zählt nicht, krumme Wirbelsäule). Quellen: RWAF (Minimum Space Requirements, A Hutch Is Not Enough), RSPCA, PDSA.
 (function () {
@@ -117,7 +117,7 @@
     const plate = mesh(BOX, M(0x2a8f63), 0, .03, 0, 3, .06, 2); root.add(plate);
     const top = new T.Mesh(new T.PlaneGeometry(3, 2), new T.MeshStandardMaterial({ map: gt, roughness: .7 })); top.rotation.x = -PI / 2; top.position.y = .062; top.receiveShadow = true; root.add(top);
     const small = mesh(BOX, M(0xc98b4f, { roughness: .7 }), -1.5 + .75, .1, -1 + .32, 1.5, .08, .64); root.add(small); // Stall-Grundfläche
-    const sl = tile("STALL", "#8a5a33", 110); sl.scale.setScalar(.38); sl.rotation.x = -PI / 2; sl.position.set(-.75, .16, -.68); root.add(sl);
+    const sl = tile(L("HUTCH", "STALL"), "#8a5a33", 110); sl.scale.setScalar(.38); sl.rotation.x = -PI / 2; sl.position.set(-.75, .16, -.68); root.add(sl);
     const pole = new T.Group(); pole.position.set(1.5, 0, -1); root.add(pole); pole.add(mesh(CYL, M(0xffd23f, { roughness: .4 }), 0, .5, 0, .04, 1, .04));
     for (let i = 0; i <= 4; i++) pole.add(mesh(BOX, M(0xffffff), 0, i * .25, 0, .12, .015, .012));
     const t1 = tile("1 m", "#ff9f1c", 130); t1.scale.setScalar(.36); t1.position.set(0, 1.18, 0); pole.add(t1);
@@ -162,14 +162,14 @@
     bunAt(bun, HX - .06, SIT, HZ, 0); bun.noCheck = true; poseBunny(bun, t, { ears: 1.22, stand: st, wide: ph > .45, sc: .9, nod: ph > .5 ? -.1 : 0 });
     const hp = headTop(bun); bonk(hp.x, FLOOR + IN - .06, hp.z + .05, (ph - .48) * 5, t);
     frameOn([FR(HX - .62, FLOOR - .3, -.35, HX + .62, FLOOR + IN + .1, .38)], { az: lerp(.4, .3, ph), el: .05, fill: lerp(.98, 1.06, ph), t }); draw();
-    if (ph > .45) stamp("ZU KLEIN", W * .42, H * .64, (ph - .45) * d / .3, "#e5484d", -.06); });
+    if (ph > .45) stamp(L("TOO SMALL", "ZU KLEIN"), W * .42, H * .64, (ph - .45) * d / .3, "#e5484d", -.06); });
   // 1 Rudi neben dem Stall, Kaninchen gelangweilt; Rudi hat eine Idee
   KZ.shot("hBored", (lt, d, t) => { inYard(); const ph = lt / d;
     place(hutch, HX, HZ, 0); bunAt(bun, HX - .06, SIT, HZ, 0); bun.noCheck = true; poseBunny(bun, t, { ears: 1.22, lid: .55, sad: true, nod: -.1, sc: .9 });
     place(rudi, HX - 1.42, HZ + .45, -.5); const idea = ph > .45;
     poseRudi(rudi, t, idea ? { arms: [.2, 2.6 + Math.sin(t * 8) * .1], spread: .1, mouth: "o", wide: true } : { arms: [.15, 1.0], spread: .1, mouth: "smile", tilt: -.08 });
     frameOn([hutch, rudi], { az: lerp(.55, .47, ph), el: .12, fill: lerp(.9, .96, ph), t }); draw();
-    if (!idea) stamp("LANGWEILIG", W * .42, H * .17, (lt - .2) / .3, "#7a5cff", -.06);
+    if (!idea) stamp(L("BORED", "LANGWEILIG"), W * .42, H * .17, (lt - .2) / .3, "#7a5cff", -.06);
     else stamp("UPGRADE!", W * .42, H * .17, (ph - .47) * d / .3, "#ff9f1c", .06); });
   // 2 Stall mit 2. Etage: Rudi präsentiert stolz; Schnitt: Kaninchen sitzt oben, genauso gelangweilt
   KZ.shot("hTwo", (lt, d, t) => { inYard(); const ph = lt / d, half = ph > .5; const L2 = FLOOR + IN + .06;
@@ -177,17 +177,17 @@
     if (!half) { const k = sm(ph / .5); place(rudi, HX - 1.42, HZ + .45, -.5); poseRudi(rudi, t, { arms: [.15, 1.45 + Math.sin(t * 3) * .05], spread: .12, mouth: "smile" });
       poseBunny(bun, t, { ears: 1.22, sc: .9 });
       frameOn([hutch2, rudi], { az: lerp(.5, .44, k), el: .12, fill: lerp(.9, .95, k), t }); draw();
-      stamp("2 ETAGEN!", W * .42, H * .17, (lt - .2) / .3, "#2f6fd0", -.06); }
+      stamp(L("2 FLOORS!", "2 ETAGEN!"), W * .42, H * .17, (lt - .2) / .3, "#2f6fd0", -.06); }
     else { const k = sm((ph - .5) / .5); poseBunny(bun, t, { ears: 1.22, lid: .55, sad: true, nod: -.12, sc: .9 });
       frameOn([FR(HX - .6, L2 - .1, -.35, HX + .6, L2 + IN, .35)], { az: lerp(.3, .22, k), el: .14, fill: lerp(.85, .95, k), t }); draw();
-      stamp("IMMER NOCH ÖDE", W * .42, H * .17, (ph - .52) * d / .3, "#7a5cff", .06); } });
+      stamp(L("STILL BORED", "IMMER NOCH ÖDE"), W * .42, H * .17, (ph - .52) * d / .3, "#7a5cff", .06); } });
   // 3 Luxus-Stall (rosa, Gold, Kronleuchter, Mini-Fernseher); Schnitt: Kaninchen richtet sich auf -> BONK an der Decke
   KZ.shot("hLux", (lt, d, t) => { inYard(); const ph = lt / d, half = ph > .55;
     place(lux, HX, HZ, 0); bunAt(bun, HX - .2, SIT, HZ, 0); bun.noCheck = true;
     if (!half) { const k = sm(ph / .55); place(rudi, HX - 1.42, HZ + .45, -.5); poseRudi(rudi, t, { arms: [1.3 + Math.sin(t * 4) * .1, 1.3 - Math.sin(t * 4) * .1], spread: .3, mouth: "smile" });
       poseBunny(bun, t, { ears: 1.22, sc: .9, look: .3 });
       frameOn([lux, rudi], { az: lerp(.5, .42, k), el: .14, fill: lerp(.9, .96, k), t }); draw();
-      stamp("LUXUS", W * .42, H * .17, (lt - .2) / .3, "#ff5d8f", -.06); }
+      stamp(L("LUXURY", "LUXUS"), W * .42, H * .17, (lt - .2) / .3, "#ff5d8f", -.06); }
     else { const k = (ph - .55) / .45, st = sm(clamp(k / .35, 0, 1)) * .36;
       poseBunny(bun, t, { ears: 1.22, stand: st, wide: k > .35, sc: .9, nod: k > .38 ? -.12 : 0 });
       const hp = headTop(bun); bonk(hp.x, FLOOR + IN - .06, hp.z + .05, (k - .36) * 4, t);
@@ -198,7 +198,7 @@
     const x = lerp(-.7, .4, sm(clamp(ph / .7, 0, 1))), jump = ph > .55 ? Math.sin(clamp((ph - .55) / .35, 0, 1) * PI) : 0, hopP = ph < .55 ? Math.abs(Math.sin(t * 9)) * .12 : 0;
     bunAt(bigBun, x, hopP + jump * .55, .1, jump * 1.2); poseBunny(bigBun, t, { hop: ph < .55 ? Math.abs(Math.sin(t * 9)) : jump, ears: .1, sc: 1.6 }); bigBun.root.rotation.x = jump * .3;
     frameOn([FR(-1.3, 0, -.5, 1.3, 1.4, .5)], { az: lerp(.12, .04, ph), el: .14, fill: .95, t }); draw();
-    stamp(ph < .55 ? "RENNEN" : "SPRUNG!", W * .42, H * .17, ph < .55 ? (lt - .15) / .3 : (ph - .55) * d / .3, ph < .55 ? "#36b37e" : "#ff9f1c", ph < .55 ? -.06 : .06); });
+    stamp(ph < .55 ? L("SPRINT", "RENNEN") : L("JUMP!", "SPRUNG!"), W * .42, H * .17, ph < .55 ? (lt - .15) / .3 : (ph - .55) * d / .3, ph < .55 ? "#36b37e" : "#ff9f1c", ph < .55 ? -.06 : .06); });
   // 5 Studio-Infografik: 3 x 2 m Grundfläche, 1 m hoch, zwei Kaninchen hoppeln, kleiner Stall-Umriss + Quellenkarte
   KZ.shot("hSize", (lt, d, t) => { studio(); const ph = lt / d, k = sm(ph);
     place(area, 0, 0, 0); const a1 = sm(clamp(ph / .25, 0, 1)), a2 = sm(clamp((ph - .3) / .2, 0, 1)), a3 = sm(clamp((ph - .55) / .2, 0, 1));
@@ -207,8 +207,8 @@
     for (const [B, x0, z0, sp] of [[bun, -.75, .35, 1], [bun2, .55, -.3, -1]]) { const u = (t * .35 * sp + (sp > 0 ? 0 : .5)) % 1; const xx = x0 + Math.sin(u * 2 * PI) * .3, zz = z0 + Math.cos(u * 2 * PI) * .2; bunAt(B, xx, .06 + Math.abs(Math.sin(t * 8 + x0)) * .08, zz, -u * 2 * PI * sp - (sp > 0 ? 0 : PI));
       poseBunny(B, t, { hop: Math.abs(Math.sin(t * 8 + x0)), ears: .1, sc: .75 }); }
     frameOn([area], { az: lerp(.35, .25, k), el: lerp(.58, .5, k), fill: lerp(1.08, 1.14, k), dy: -.3, t }); draw();
-    txt("FÜR 2 KANINCHEN", W * .42, H * .2, 66, "#ffffff", { stroke: 10, a: clamp(lt / .3, 0, 1) });
-    const cp = sm((lt - d * .45) / .3); if (card(W * .42, H * .64, 760, 110, cp)) txt("Quelle: RWAF · RSPCA · PDSA", W * .42, H * .64, 34, "#1d2250", { a: clamp(cp, 0, 1) }); });
+    txt(L("FOR 2 RABBITS", "FÜR 2 KANINCHEN"), W * .42, H * .2, 66, "#ffffff", { stroke: 10, a: clamp(lt / .3, 0, 1) });
+    const cp = sm((lt - d * .45) / .3); if (card(W * .42, H * .64, 760, 110, cp)) txt(L("Source: RWAF · RSPCA · PDSA", "Quelle: RWAF · RSPCA · PDSA"), W * .42, H * .64, 34, "#1d2250", { a: clamp(cp, 0, 1) }); });
   // 6 Studio: Stall mit 2 Etagen, obere Etage rot durchgestrichen + RWAF-Zitat
   KZ.shot("hFloor", (lt, d, t) => { studio(); const ph = lt / d, k = sm(ph); const L2 = FLOOR + IN + .06;
     place(hutch2, -.2, 0, 0); hutch2.root.scale.setScalar(1.3); bunAt(bun, -.2 + (-.06) * 1.3, (L2 + .03) * 1.3, 0, 0); bun.noCheck = true; poseBunny(bun, t, { ears: 1.22, sc: .9 * 1.3, lid: .4 });
@@ -218,26 +218,26 @@
     const up = V(-.2 + .0, (L2 + IN / 2) * 1.3, .45).project(K3.camera); hutch2.root.scale.setScalar(1);
     if (x1 > 0) { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.strokeStyle = "#e5484d"; g.lineWidth = 26; g.lineCap = "round"; const cx = (up.x + 1) / 2 * W, cy = (1 - up.y) / 2 * H, r = 130 * easeBack(x1);
       g.beginPath(); g.moveTo(cx - r, cy - r * .6); g.lineTo(cx + r, cy + r * .6); g.moveTo(cx + r, cy - r * .6); g.lineTo(cx - r, cy + r * .6); g.stroke(); g.restore(); }
-    if (ph > .3) stamp("ZÄHLT NICHT", W * .42, H * .14, (ph - .3) * d / .3, "#e5484d", -.05);
+    if (ph > .3) stamp(L("DOESN'T COUNT", "ZÄHLT NICHT"), W * .42, H * .14, (ph - .3) * d / .3, "#e5484d", -.05);
     const cp = sm((lt - d * .45) / .3); if (card(W * .42, H * .63, 880, 210, cp, "Rabbit Welfare Association (RWAF)", "#2f6fd0")) {
-      txt("„Die obere Etage eines Stalls zählt", W * .42, H * .63 + 6, 34, "#1d2250", { a: clamp(cp, 0, 1) });
-      txt("NICHT zur Grundfläche“", W * .42, H * .63 + 52, 34, "#1d2250", { a: clamp(cp, 0, 1) }); } });
+      txt(L("“The upper floor of a two-storey hutch", "„Die obere Etage eines Stalls zählt"), W * .42, H * .63 + 6, 34, "#1d2250", { a: clamp(cp, 0, 1) });
+      txt(L("does NOT count towards the footprint”", "NICHT zur Grundfläche“"), W * .42, H * .63 + 52, 34, "#1d2250", { a: clamp(cp, 0, 1) }); } });
   // 7 Studio: großes Kaninchen unter flachem Deckel, gekrümmte Wirbelsäule leuchtet rot + RWAF-Zitat
   KZ.shot("hSpine", (lt, d, t) => { studio(); const ph = lt / d, k = sm(ph);
     place(lid, 0, 0, 0); bunAt(bigBun, -.1, 0, 0, -.2); bigBun.noCheck = true;
     poseBunny(bigBun, t, { ears: 1.35, sc: 1.6, lid: .35, sad: true, nod: -.18, lean: -.08 });
     const sp = sm(clamp((ph - .15) / .25, 0, 1)); spine.bent.visible = sp > .02; spine.bent.scale.set(1, 1, 1); spine.bent.material.emissiveIntensity = .5 + .5 * Math.abs(Math.sin(t * 5));
     frameOn([lid], { az: lerp(.3, .22, k), el: .16, fill: lerp(.8, .86, k), dy: -.25, t }); draw();
-    if (ph > .2) stamp("KRUMMER RÜCKEN", W * .42, H * .17, (ph - .2) * d / .3, "#e5484d", -.06);
+    if (ph > .2) stamp(L("BENT SPINE", "KRUMMER RÜCKEN"), W * .42, H * .17, (ph - .2) * d / .3, "#e5484d", -.06);
     const cp = sm((lt - d * .4) / .3); if (card(W * .42, H * .63, 880, 210, cp, "RWAF · A Hutch Is Not Enough", "#2f6fd0")) {
-      txt("„Kann es nicht auf den Hinterbeinen stehen,", W * .42, H * .63 + 6, 34, "#1d2250", { a: clamp(cp, 0, 1) });
-      txt("kann sich die Wirbelsäule verformen“", W * .42, H * .63 + 52, 34, "#1d2250", { a: clamp(cp, 0, 1) }); } });
+      txt(L("“If a rabbit can't stand up on its hind", "„Kann es nicht auf den Hinterbeinen stehen,"), W * .42, H * .63 + 6, 34, "#1d2250", { a: clamp(cp, 0, 1) });
+      txt(L("legs, it can deform the spine”", "kann sich die Wirbelsäule verformen“"), W * .42, H * .63 + 52, 34, "#1d2250", { a: clamp(cp, 0, 1) }); } });
   // 8 Pointe: Rudi kratzt sich am Kopf vor dem Luxus-Stall, Kaninchen ignoriert den Fernseher (dreht ihm den Rücken zu)
   KZ.shot("hTV", (lt, d, t) => { inYard(); const ph = lt / d, k = sm(ph);
     place(lux, HX, HZ, 0); bunAt(bun, HX - .2, SIT, HZ + .02, -PI / 2 + .35); bun.noCheck = true; poseBunny(bun, t, { ears: 1.22, lid: .6, sad: true, sc: .9 });
     place(rudi, HX - 1.42, HZ + .45, -.5); poseRudi(rudi, t, { arms: [.2, 2.75], spread: .1, mouth: "o", tilt: -.12 });
     frameOn([lux, rudi], { az: lerp(.5, .44, k), el: .1, fill: lerp(.98, 1.04, k), t }); draw();
-    if (ph > .3) stamp("ZELLE MIT TV", W * .42, H * .17, (ph - .3) * d / .3, "#7a5cff", .06); });
+    if (ph > .3) stamp(L("OVERKILL", "KNAST MIT TV"), W * .42, H * .17, (ph - .3) * d / .3, "#7a5cff", .06); });
   // 9 Tipp: Stall als Schlafzimmer + großer Auslauf mit Gitterzaun, Kaninchen macht Freudensprünge, zweites Kaninchen dabei
   KZ.shot("hTip", (lt, d, t) => { inYard(); const ph = lt / d, k = sm(ph);
     place(hutch, -1.0, -.1, 0); place(run, -1.0 + .4, -.1 - .55, 0);
@@ -245,13 +245,13 @@
     bunAt(bun, bx - .6, jump * .3, bz - .55, -u * 2 * PI - PI / 2); poseBunny(bun, t, { hop: jump, ears: .05, sc: .9 }); bun.root.rotation.x = jump * .25 * Math.sin(t * 2);
     bunAt(bun2, .8, 0, 1.45, -PI / 2 - .6); poseBunny(bun2, t, { ears: .1, sc: .9, nod: Math.sin(t * 3) * .1 });
     frameOn([run], { az: lerp(.42, .32, k), el: lerp(.4, .34, k), fill: lerp(1.08, 1.16, k), t }); draw();
-    if (ph < .45) stamp("SCHLAFZIMMER", W * .42, H * .17, (lt - .2) / .3, "#2f6fd0", -.06);
-    else stamp("AUSLAUF, 24/7", W * .42, H * .17, (ph - .45) * d / .3, "#36b37e", .06); });
+    if (ph < .45) stamp(L("BEDROOM", "SCHLAFZIMMER"), W * .42, H * .17, (lt - .2) / .3, "#2f6fd0", -.06);
+    else stamp(L("BIG RUN, 24/7", "AUSLAUF, 24/7"), W * .42, H * .17, (ph - .45) * d / .3, "#36b37e", .06); });
   // 10 Loop: zurück zur Hook-Einstellung (Kaninchen im kleinen Stall, Ohren am Dach)
   KZ.shot("hLoop", (lt, d, t) => { inYard(); const ph = lt / d;
     place(hutch, HX, HZ, 0); bunAt(bun, HX - .06, SIT, HZ, 0); bun.noCheck = true; poseBunny(bun, t, { ears: 1.22, lid: .3, sc: .9 });
     frameOn([FR(HX - .62, FLOOR - .3, -.35, HX + .62, FLOOR + IN + .1, .38)], { az: lerp(.5, .4, ph), el: .05, fill: lerp(.9, .98, ph), t }); draw();
-    if (ph > .3) stamp("LANGWEILIG?", W * .42, H * .17, (ph - .3) * d / .3, "#7a5cff", -.06); });
+    if (ph > .3) stamp(L("BORED?", "LANGWEILIG?"), W * .42, H * .17, (ph - .3) * d / .3, "#7a5cff", -.06); });
 
   window.__hutch3d = true;
 })();
