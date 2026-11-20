@@ -705,5 +705,28 @@
    "de": 43.5,
    "en": 36.2
   }
+ },
+ {
+  "datum": "2026-11-20T20:53:00+01:00",
+  "thema": "Enten mit Brot füttern (Comedy-Story, 3D, zweisprachig): Brot ist für Enten Junkfood – macht satt, aber kaum Eiweiß/Vitamine/Mineralien (Utrecht University 2021: 'deficient in amino acids, fatty acids and several vitamins and minerals'), Enten suchen dann kein natürliches Futter mehr (Canal & River Trust: Bread 'fills the duck's stomach so that it doesn't forage'), LBV: 'Brot ist kein geeignetes Futter' (zu viel Salz, quillt auf); bei Jungvögeln mit Engelsflügel (Angel Wing) in Verbindung gebracht (Dacorum Council, RI DEM, Weirich 2021); Reste faulen, verbrauchen Sauerstoff, Algen, locken Ratten (LBV, Canal & River Trust; Utrecht: Überschuss ernährt ~153 Ratten pro Gebiet); Rudi wirft Brot (Held) -> ganze Tüte (Enten pappsatt, Rest versinkt) -> Riesenbaguette (Ratten kommen, 'Ratten-Imbiss'); Roast 'Digga, Rudi... Fastfood-Restaurant für Ratten'; Tipp: Haferflocken, aufgetaute Erbsen, Mais, nur eine kleine Handvoll, an Land",
+  "titel": "Why Bread Is Junk Food For Ducks",
+  "titel_de": "Warum dein Brot für Enten Junkfood ist",
+  "youtube_titel": "Can You Feed Ducks Bread? 🦆 #shorts",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-21T16:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-7239770942724945087",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=4639928455873184654",
+  "quelle": "Canal & River Trust, LBV, Utrecht University",
+  "kategorie": "garten",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": {
+   "de": 43.3,
+   "en": 37.3
+  }
  }
 ]

@@ -1,0 +1,29 @@
+{
+ "titel": "Why Bread Is Junk Food For Ducks",
+ "titel_de": "Warum dein Brot für Enten Junkfood ist",
+ "thumbnail": "Duck *junk food*",
+ "thumbnail_de": "Enten-*Junkfood*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NO\nBREAD?",
+ "hook_de": "WARUM KEIN\nBROT?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-20-duck-bread-3d-szenen.js",
+ "beats": [
+  {"say": "Why is the bread you feed ducks... basically *junk food?* Yes, you, you absolute potato.", "say_de": "Warum ist dein Brot für die Enten eigentlich *Junkfood?* Ja, du, du Pfeife!", "scene": {"shot": "bHook"}, "sfx": "boom"},
+  {"say": "Rudi tosses bread into the pond. The ducks go wild. He feels like a *hero.*", "say_de": "Rudi wirft Brot in den Teich. Die Enten flippen aus. Er fühlt sich wie ein *Held.*", "scene": {"shot": "bHero"}, "sfx": "whoosh"},
+  {"say": "So Rudi brings a *whole bag.* The ducks are stuffed, and the rest sinks.", "say_de": "Also bringt Rudi eine *ganze Tüte.* Die Enten sind satt, der Rest versinkt.", "scene": {"shot": "bBag"}, "sfx": "whoosh"},
+  {"say": "Then Rudi hauls in a *giant baguette.* Now even the rats show up.", "say_de": "Dann schleppt Rudi ein *Riesenbaguette* an. Jetzt kommen sogar Ratten.", "scene": {"shot": "bBaguette"}, "sfx": "boom"},
+  {"say": "Bread fills them up, but has almost no *protein* or vitamins.", "say_de": "Brot macht satt, hat aber kaum *Eiweiß* oder Vitamine.", "scene": {"shot": "bBars"}, "sfx": "whoosh"},
+  {"say": "So they stop looking for *real food*, like plants, seeds and bugs.", "say_de": "Also suchen sie kein *echtes Futter* mehr: Pflanzen, Samen, Insekten.", "scene": {"shot": "bReal"}, "sfx": "whoosh"},
+  {"say": "And the craziest part? Young ducks can get *angel wing.* Their wings twist out, and they can't fly.", "say_de": "Und das Krasseste? Bei jungen Enten kann der Flügel *verdreht* wachsen. Dann fliegen sie nicht.", "scene": {"shot": "bAngel"}, "sfx": "boom"},
+  {"say": "Leftover bread *rots* in the water. Algae spread, and the fish run out of oxygen.", "say_de": "Reste *faulen* im Wasser. Algen wuchern, und den Fischen fehlt Sauerstoff.", "scene": {"shot": "bRot"}, "sfx": "whoosh"},
+  {"say": "Rudi... a *baguette?* Bro, you opened a fast food place for rats.", "say_de": "Digga, Rudi... du hast ein *Fastfood*-Restaurant für Ratten eröffnet!", "scene": {"shot": "bPunch"}, "sfx": "soft"},
+  {"say": "Bring oats, thawed peas or sweetcorn instead. A *small* handful, on land.", "say_de": "Nimm lieber Haferflocken, aufgetaute Erbsen oder Mais. Nur eine *kleine* Handvoll.", "scene": {"shot": "bTip"}, "sfx": "whoosh"},
+  {"say": "So next time you grab that old bread for the ducks, ask yourself...", "say_de": "Also, wenn du das nächste Mal altes Brot einpackst, frag dich...", "scene": {"shot": "bLoop"}, "sfx": "soft"}
+ ]
+}
