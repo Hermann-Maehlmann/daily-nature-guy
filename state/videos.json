@@ -638,5 +638,28 @@
   "look": "3d",
   "dauer_s": 29.4,
   "youtube_titel": "Can You Give Bees Honey? 🐝 #shorts"
+ },
+ {
+  "datum": "2026-11-20T09:46:00+01:00",
+  "thema": "Meerschweinchen nie allein halten (Comedy-Story, 3D, zweisprachig): RSPCA 'Guinea pigs get lonely and shouldn't be kept alone', in der Natur Gruppen von 5-10 (RSPCA), allein Verhaltensstörungen möglich ('can develop abnormal behaviour and may suffer', RSPCA); Schweiz: Tierschutzverordnung seit 2008, Meerschweinchen mind. zu zweit (swissinfo 2019, BLV), Miet-Meerschweinchen von Priska Küng (SPIEGEL/ABC 2011); Rudi: 'Ich reiche doch' -> Spiegel (keine Antwort) -> Meerschweinchen-Kostüm (es versteckt sich); Tipp: mind. zwei, zwei Weibchen oder kastriertes Männchen mit Weibchen",
+  "titel": "Why Your Guinea Pig Should Never Live Alone",
+  "titel_de": "Warum dein Meerschweinchen nie allein leben darf",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-20T18:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-7192247981264712344",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-2541312249326843707",
+  "quelle": "RSPCA; Schweizer Tierschutzverordnung (swissinfo)",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": {
+   "de": 40.0,
+   "en": 34.5
+  },
+  "youtube_titel": "Can Guinea Pigs Live Alone? 🐹 #shorts"
  }
 ]

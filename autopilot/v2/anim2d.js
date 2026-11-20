@@ -269,9 +269,12 @@
     if (cur < 0) return;
     const chunk = words[cur].chunk, list = words.filter((w) => w.chunk === chunk);
     g.setTransform(1, 0, 0, 1, 0, 0);
-    const fs = 88; g.font = '800 ' + fs + 'px "Montserrat"'; g.textBaseline = "middle"; g.textAlign = "left"; g.lineJoin = "round";
+    let fs = 88; g.font = '800 ' + fs + 'px "Montserrat"'; g.textBaseline = "middle"; g.textAlign = "left"; g.lineJoin = "round";
+    const maxW = W - 80 - 190;
+    // Lange deutsche Wörter (z. B. MEERSCHWEINCHEN-KOSTÜM) passen sonst nicht ins Bild: Schrift für diesen Abschnitt verkleinern (20.11.2026)
+    const widest = Math.max(...list.map((w) => g.measureText(w.text.toUpperCase()).width)); if (widest > maxW) { fs = Math.floor(fs * maxW / widest); g.font = '800 ' + fs + 'px "Montserrat"'; }
     const parts = list.map((w) => ({ w, txt: w.text.toUpperCase(), wd: g.measureText(w.text.toUpperCase()).width }));
-    const gap = 24, maxW = W - 80 - 190; const lines = [[]]; let lw = 0;
+    const gap = 24; const lines = [[]]; let lw = 0;
     for (const p of parts) { if (lw + p.wd > maxW && lines[lines.length - 1].length) { lines.push([]); lw = 0; } lines[lines.length - 1].push(p); lw += p.wd + gap; }
     const cy = H * st.y, lh = fs * 1.15;
     lines.forEach((ln, li) => { const tw = ln.reduce((s, p) => s + p.wd, 0) + gap * (ln.length - 1); let x = 80 + (maxW - tw) / 2; const y = cy + (li - (lines.length - 1) / 2) * lh;

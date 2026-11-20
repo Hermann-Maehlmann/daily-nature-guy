@@ -1,0 +1,28 @@
+{
+ "titel": "Why Your Guinea Pig Should Never Live Alone",
+ "titel_de": "Warum dein Meerschweinchen nie allein leben darf",
+ "thumbnail": "One is *lonely*",
+ "thumbnail_de": "Eins ist *einsam*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NEVER\nALONE?",
+ "hook_de": "WARUM NIE\nALLEIN?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "guinea-pig-alone-szenen.js",
+ "beats": [
+  {"say": "Why should your guinea pig *never* live alone? Yes, yours, you absolute potato.", "say_de": "Warum darf dein Meerschweinchen *nie* allein leben? Ja, genau deins, du Pfeife!", "scene": {"shot": "aHook"}, "sfx": "boom"},
+  {"say": "Rudi's guinea pig squeaks all day. But Rudi says: *I'm* enough!", "say_de": "Rudis Meerschweinchen quiekt den ganzen Tag. Rudi sagt: *Ich* reiche doch!", "scene": {"shot": "aRudi"}, "sfx": "whoosh"},
+  {"say": "So Rudi adds a *mirror.* The guinea pig squeaks at it... no answer.", "say_de": "Also stellt Rudi einen *Spiegel* rein. Es quiekt ihn an... keine Antwort.", "scene": {"shot": "aMirror"}, "sfx": "whoosh"},
+  {"say": "Next, Rudi wears a guinea pig *costume* and squeaks himself. It hides.", "say_de": "Dann quiekt Rudi selbst, im Meerschweinchen-*Kostüm.* Es versteckt sich.", "scene": {"shot": "aSuit"}, "sfx": "boom"},
+  {"say": "Guinea pigs are *herd* animals. In the wild, they live in groups of five to ten.", "say_de": "Meerschweinchen sind *Herdentiere.* In der Natur leben sie in Gruppen von fünf bis zehn.", "scene": {"shot": "aHerd"}, "sfx": "whoosh"},
+  {"say": "Alone, they get *lonely,* and can develop strange behaviour.", "say_de": "Allein werden sie *einsam,* und können Verhaltensstörungen bekommen.", "scene": {"shot": "aLonely"}, "sfx": "whoosh"},
+  {"say": "And the craziest part? In Switzerland, keeping just one is *illegal.* People even *rent* a buddy!", "say_de": "Und das Krasseste? In der Schweiz ist ein einzelnes *verboten.* Man kann sogar eins *mieten!*", "scene": {"shot": "aSwiss"}, "sfx": "boom"},
+  {"say": "So the costume? Rudi... you are *not* a guinea pig.", "say_de": "Und das Kostüm? Digga, Rudi... du bist *kein* Meerschweinchen.", "scene": {"shot": "aPunch"}, "sfx": "soft"},
+  {"say": "Get at least *two.* Two females, or a neutered male with a female.", "say_de": "Hol mindestens *zwei.* Zwei Weibchen, oder ein kastriertes Männchen mit Weibchen.", "scene": {"shot": "aTip"}, "sfx": "whoosh"},
+  {"say": "And if your friend says one guinea pig is enough, just ask...", "say_de": "Und wenn dein Kumpel sagt, eins reicht doch, frag ihn...", "scene": {"shot": "aLoop"}, "sfx": "soft"}
+ ]
+}
