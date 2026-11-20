@@ -1,0 +1,29 @@
+{
+ "titel": "Why Your Goldfish Bowl Is A Tiny Prison",
+ "titel_de": "Warum dein Goldfischglas ein Knast ist",
+ "thumbnail": "Bowl = *prison*",
+ "thumbnail_de": "Glas = *Knast*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY A\nPRISON?",
+ "hook_de": "WARUM\nKNAST?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "goldfish-bowl-szenen.js",
+ "beats": [
+  {"say": "Why is your goldfish bowl a tiny *prison?* Yes, yours, you absolute potato.", "say_de": "Warum ist dein Goldfischglas ein *Knast?* Ja, genau deins, du Pfeife!", "scene": {"shot": "fHook"}, "sfx": "boom"},
+  {"say": "Rudi buys a goldfish and a cute little *bowl.* Perfect, right?", "say_de": "Rudi kauft einen Goldfisch und ein süßes *Glas.* Perfekt, oder?", "scene": {"shot": "fRudi"}, "sfx": "whoosh"},
+  {"say": "But the fish keeps gasping at the *surface.*", "say_de": "Doch der Fisch schnappt ständig an der *Oberfläche.*", "scene": {"shot": "fGasp"}, "sfx": "whoosh"},
+  {"say": "So Rudi gives it a tiny *snorkel.*", "say_de": "Also gibt Rudi ihm einen winzigen *Schnorchel.*", "scene": {"shot": "fSnorkel"}, "sfx": "boom"},
+  {"say": "Then the fish grows... and grows. Rudi: it was supposed to stay *small!*", "say_de": "Dann wächst der Fisch... und wächst. Rudi: Der sollte doch *klein* bleiben!", "scene": {"shot": "fGrow"}, "sfx": "boom"},
+  {"say": "Goldfish can grow over *thirty centimetres,* and live up to twenty-five years.", "say_de": "Goldfische werden über *dreißig Zentimeter* lang und bis zu fünfundzwanzig Jahre alt.", "scene": {"shot": "fSize"}, "sfx": "whoosh"},
+  {"say": "A bowl has no filter, too little *oxygen,* and the temperature swings fast.", "say_de": "Im Glas gibt's keinen Filter, zu wenig *Sauerstoff,* und die Temperatur schwankt.", "scene": {"shot": "fWhy"}, "sfx": "whoosh"},
+  {"say": "And the craziest part? One goldfish needs at least *sixty litres.* Your bowl? Maybe ten.", "say_de": "Und das Krasseste? Ein Goldfisch braucht mindestens *sechzig Liter.* Dein Glas? Vielleicht zehn.", "scene": {"shot": "fLitres"}, "sfx": "boom"},
+  {"say": "And the snorkel? Rudi... fish have *gills,* buddy.", "say_de": "Und der Schnorchel? Digga, Rudi... Fische haben *Kiemen.*", "scene": {"shot": "fPunch"}, "sfx": "soft"},
+  {"say": "Get a long tank with a *filter* and plants, or a garden pond.", "say_de": "Hol ein langes Becken mit *Filter* und Pflanzen, oder einen Gartenteich.", "scene": {"shot": "fTip"}, "sfx": "whoosh"},
+  {"say": "And if your friend just bought a goldfish bowl, ask them...", "say_de": "Und wenn dein Kumpel gerade ein Goldfischglas gekauft hat, frag ihn...", "scene": {"shot": "fLoop"}, "sfx": "soft"}
+ ]
+}
