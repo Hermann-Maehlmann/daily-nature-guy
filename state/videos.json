@@ -682,5 +682,28 @@
   },
   "dauer_s": 45.4,
   "dauer_en_s": 36.2
+ },
+ {
+  "datum": "2026-11-20T16:19:00+01:00",
+  "thema": "Schuldblick beim Hund (Comedy-Story, 3D, zweisprachig): Der 'schuldige Blick' zeigt kein schlechtes Gewissen, sondern ist eine Reaktion auf das Verhalten des Besitzers (Horowitz 2009, Behavioural Processes, Barnard College, 14 Hunde): Hunde, die das verbotene Leckerli gefressen hatten, zeigten nicht mehr Schuldblick als die, die es nicht gefressen hatten; deutlich mehr bei Schimpfen, am stärksten bei unschuldigen, aber ausgeschimpften Hunden; Zitat 'a response to owner cues'; Schuldblick = Beschwichtigung/Angst (AKC, VCA); nachträgliches Schimpfen wirkt nicht (VCA, AKC); Rudi hält Standpauke (Tag 2: nächstes Kissen) -> stellt Hund vor Gericht als Richter mit Perücke (Hund frisst das Beweisstück); Tipp: ruhig aufräumen, Kauspielzeug geben",
+  "titel": "Why Your Dog's Guilty Look Isn't Guilt",
+  "titel_de": "Warum der Schuldblick deines Hundes täuscht",
+  "youtube_titel": "Do Dogs Feel Guilty? 🐶 #shorts",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-21T10:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-5250212817192204762",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=4220132949241512451",
+  "quelle": "Horowitz 2009, Behavioural Processes (Barnard College); AKC; VCA",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": {
+   "de": 43.5,
+   "en": 36.2
+  }
  }
 ]

@@ -1,0 +1,28 @@
+{
+ "titel": "Why Your Dog's Guilty Look Isn't Guilt",
+ "titel_de": "Warum der Schuldblick deines Hundes täuscht",
+ "thumbnail": "Not *guilty*",
+ "thumbnail_de": "Gar nicht *schuldig*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY THE\nGUILTY LOOK?",
+ "hook_de": "WARUM DER\nSCHULDBLICK?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "guilty-dog-szenen.js",
+ "beats": [
+  {"say": "Why is your dog's guilty look... *not* guilt at all? Yes, you got fooled, you absolute potato.", "say_de": "Warum ist der Schuldblick deines Hundes gar *kein* schlechtes Gewissen? Ja, du, du Pfeife!", "scene": {"shot": "gHook"}, "sfx": "boom"},
+  {"say": "Rudi comes home. The pillow is *destroyed.* The dog looks away... guilty!", "say_de": "Rudi kommt heim. Das Kissen ist *zerfetzt.* Der Hund schaut weg... schuldig!", "scene": {"shot": "gRudi"}, "sfx": "whoosh"},
+  {"say": "So Rudi gives a *ten-minute* lecture. Next day... another pillow.", "say_de": "Also hält Rudi eine *lange* Standpauke. Am nächsten Tag... noch ein Kissen.", "scene": {"shot": "gLecture"}, "sfx": "whoosh"},
+  {"say": "So Rudi puts the dog on *trial.* The dog eats the evidence.", "say_de": "Dann stellt Rudi den Hund vor *Gericht.* Der Hund frisst das Beweisstück.", "scene": {"shot": "gTrial"}, "sfx": "boom"},
+  {"say": "In a study, owners told their dogs: *don't* eat the treat. Then they left the room.", "say_de": "In einer Studie sagten Besitzer: Leckerli *nicht* fressen! Dann gingen sie raus.", "scene": {"shot": "gStudy"}, "sfx": "whoosh"},
+  {"say": "Ate it or not, the guilty look showed up mainly when owners *scolded.*", "say_de": "Gefressen oder nicht: Der Schuldblick kam vor allem, wenn *geschimpft* wurde.", "scene": {"shot": "gBars"}, "sfx": "whoosh"},
+  {"say": "And the craziest part? *Innocent* dogs that got scolded looked the *most* guilty.", "say_de": "Und das Krasseste? *Unschuldige* Hunde, die geschimpft wurden, sahen am schuldigsten aus.", "scene": {"shot": "gCrazy"}, "sfx": "boom"},
+  {"say": "That look just means: please don't be *mad.* Rudi... a courtroom? Really?", "say_de": "Der Blick heißt nur: Bitte nicht *sauer* sein. Digga, Rudi... ein Gericht?!", "scene": {"shot": "gPunch"}, "sfx": "soft"},
+  {"say": "Scolding later doesn't work. Clean up calmly, and give a *chew toy* instead.", "say_de": "Schimpfen danach bringt nichts. Ruhig aufräumen und lieber ein *Kauspielzeug* geben.", "scene": {"shot": "gTip"}, "sfx": "whoosh"},
+  {"say": "So next time your dog gives you that look, ask yourself...", "say_de": "Also, wenn dein Hund dich das nächste Mal so anguckt, frag dich...", "scene": {"shot": "gLoop"}, "sfx": "soft"}
+ ]
+}
