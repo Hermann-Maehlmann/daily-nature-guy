@@ -775,5 +775,29 @@
    "en": 35.4
   },
   "opener_stil": "horror-trailer"
+ },
+ {
+  "datum": "2026-11-21T16:36:00+01:00",
+  "thema": "Vogelhäuschen als Keimschleuder (Comedy-Story, 3D, zweisprachig, Opener-Stil nachrichten): im klassischen Futterhäuschen sitzen die Vögel direkt im Futter und verunreinigen es mit Kot (LBV), Krankheiten wie Salmonellose und Trichomonaden übertragen sich dort besonders schnell (LBV); 2009 starben schätzungsweise 70.000-80.000 Grünfinken an Trichomonaden, Ansteckung an Futter-/Wasserstellen (NABU/LBV); NABU/LBV empfehlen Futtersäulen/Silos, klassisches Futterhaus täglich ausfegen und regelmäßig heiß auswaschen; Rudi baut Luxus-Villa (Meisen landen im Futter, kacken rein) -> Mini-Vogelklos (benutzt keiner) -> schrubbt stündlich (Platsch); Pointe 'Fünf-Sterne-Restaurant mit Klo im Teller'; Tipp: Futtersäule, altes Häuschen täglich ausfegen",
+  "titel": "Why Your Bird Feeder Is A Germ Bomb",
+  "titel_de": "Warum dein Vogelhäuschen eine Keimschleuder ist",
+  "youtube_titel": "Is Your Bird Feeder Making Birds Sick? 🐦 #shorts",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-22T10:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-2052510325942435663",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=9122304369850208164",
+  "quelle": "LBV, NABU",
+  "kategorie": "garten",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": {
+   "de": 41.2,
+   "en": 35.6
+  },
+  "opener_stil": "nachrichten"
  }
 ]

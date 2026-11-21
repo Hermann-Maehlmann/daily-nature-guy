@@ -1,0 +1,30 @@
+{
+ "titel": "Why Your Bird Feeder Is A Germ Bomb",
+ "titel_de": "Warum dein Vogelhäuschen eine Keimschleuder ist",
+ "thumbnail": "The *poop* buffet",
+ "thumbnail_de": "Das *Kot-Buffet*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY A\nGERM BOMB?",
+ "hook_de": "WARUM\nKEIM-ALARM?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "nachrichten",
+ "sceneFile": "2026-11-21-bird-feeder-szenen.js",
+ "beats": [
+  {"say": "Why is that cute bird feeder... a *germ bomb?* Breaking news from Rudi's garden!", "say_de": "Warum ist dein Vogelhäuschen eine *Keimschleuder?* Eilmeldung aus Rudis Garten!", "scene": {"shot": "vHook"}, "sfx": "boom"},
+  {"say": "Rudi builds the birds a luxury house. They land... right *in* the food.", "say_de": "Rudi baut den Meisen ein Luxus-Haus. Sie landen... mitten im *Futter.*", "scene": {"shot": "vBuild"}, "sfx": "whoosh"},
+  {"say": "They eat, they stomp around. And they poop right *in* it.", "say_de": "Sie fressen, sie trampeln. Und sie kacken direkt *rein.*", "scene": {"shot": "vPoop"}, "sfx": "squish"},
+  {"say": "So Rudi sets up tiny bird *toilets.* Nobody uses them.", "say_de": "Also stellt Rudi kleine *Vogelklos* auf. Benutzt keiner.", "scene": {"shot": "vToilet"}, "sfx": "whoosh"},
+  {"say": "So Rudi scrubs it every hour. Spotless... *splat.*", "say_de": "Also schrubbt Rudi jede Stunde. Kaum sauber... *Platsch.*", "scene": {"shot": "vScrub"}, "sfx": "squish"},
+  {"say": "Because droppings carry germs like *salmonella.* And they jump from bird to bird.", "say_de": "Denn im Kot stecken Keime wie *Salmonellen.* Und die springen von Vogel zu Vogel.", "scene": {"shot": "vGerms"}, "sfx": "whoosh"},
+  {"say": "And the craziest part? In 2009, a feeder disease killed about *70,000* greenfinches in Germany.", "sprich": "And the craziest part? In two thousand nine, a feeder disease killed about seventy thousand greenfinches in Germany.", "say_de": "Und das Krasseste? 2009 starben rund *70.000* Grünfinken an einer Futterplatz-Seuche.", "sprich_de": "Und das Krasseste? Zweitausendneun starben rund siebzigtausend Grünfinken an einer Futterplatz-Seuche.", "scene": {"shot": "vFinch"}, "sfx": "boom"},
+  {"say": "Rudi built a five-star restaurant... with the toilet *on the plate.*", "say_de": "Rudi... du hast ein Fünf-Sterne-Restaurant gebaut. Mit Klo im *Teller.*", "scene": {"shot": "vPunch"}, "sfx": "soft"},
+  {"say": "Better: a hanging *tube feeder.* Nobody sits in the food.", "say_de": "Besser: eine *Futtersäule.* Da sitzt keiner im Futter.", "scene": {"shot": "vTip"}, "sfx": "whoosh"},
+  {"say": "Keeping the old one? Sweep it out *every day.*", "say_de": "Und das alte Häuschen? Jeden Tag *ausfegen.*", "scene": {"shot": "vSweep"}, "sfx": "whoosh"},
+  {"say": "So when your neighbor shows off his cute bird feeder, ask him...", "say_de": "Und wenn dein Nachbar stolz sein Vogelhäuschen zeigt, frag ihn...", "scene": {"shot": "vLoop"}, "sfx": "soft"}
+ ]
+}
