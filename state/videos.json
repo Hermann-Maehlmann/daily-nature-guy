@@ -799,5 +799,29 @@
    "en": 35.6
   },
   "opener_stil": "nachrichten"
+ },
+ {
+  "datum": "2026-11-21T21:02:00+01:00",
+  "thema": "Katzen-Wassernapf neben dem Futter (Comedy-Story, 3D, zweisprachig, Opener-Stil gameshow): Katzen trinken nicht gern direkt neben dem Futter (iCatCare 'Away from the food bowl: cats prefer not to drink next to their food', 'Avoid double bowls'); Vorfahren (Afrikanische Wildkatzen) fressen und trinken an verschiedenen Orten, damit Beutereste das Wasser nicht verunreinigen (Cats Protection); viele Katzen trinken zu wenig (VCA), mehr Trinken hilft bei Nieren/Blase (iCatCare); 4-kg-Katze ca. 200 ml/Tag (Cats Protection); Spielshow 'Was will die Katze?': Rudi stellt Wasser neben Futter (Katze trinkt aus der Blumenvase) -> goldener Doppelnapf (Katze trinkt aus Rudis Glas) -> Näpfe getrennt, Hauptpreis; Tipp: Wasser weg von Futter und Katzenklo, breite Schale, randvoll",
+  "titel": "Why Your Cat Won't Drink From Her Water Bowl",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-22T16:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=9028827825434805309",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=7012491111924910570",
+  "quelle": "International Cat Care, Cats Protection",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "titel_de": "Warum deine Katze nicht aus ihrem Napf trinkt",
+  "dauer_s": {
+   "de": 43.0,
+   "en": 33.6
+  },
+  "youtube_titel": "Why Won't My Cat Drink From Her Water Bowl? 🐱 #shorts",
+  "opener_stil": "gameshow"
  }
 ]
