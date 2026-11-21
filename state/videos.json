@@ -728,5 +728,28 @@
    "de": 43.3,
    "en": 37.3
   }
+ },
+ {
+  "datum": "2026-11-21T10:23:00+01:00",
+  "thema": "Hamster-Laufrad zu klein (Comedy-Story, 3D, zweisprachig): PDSA 'At least 30cm (12″) for Syrian Hamsters', zu kleine Räder 'forcing the hamster to run with a curve in their back which can cause long-term pain'; Blue Cross: mit dem Käfig gelieferte Räder oft zu klein; TVT: mind. 30 cm für Goldhamster; PetMD: bis zu 5 Meilen (8 km) pro Nacht; Reebs & St-Onge 2005 (Laboratory Animals, Univ. Moncton): Hamster wählen 35 cm statt 23 cm, mit nur dem 23-cm-Rad liefen sie halb so viel; Rudi kauft Starter-Set mit Mini-Rad (Hamster rennt wie eine Banane) -> quetscht sich selbst in ein Mini-Rad (Rücken knackt) -> Riesenrad (Hamster kriegt es nicht gedreht); Roast 'Digga, Rudi... statt ein Lineal zu nehmen'; Tipp: geschlossenes Rad ab 30 cm, Rücken gerade",
+  "titel": "Why Your Hamster's Wheel Is Wrecking Its Back",
+  "titel_de": "Warum das Laufrad deinem Hamster schadet",
+  "youtube_titel": "Is My Hamster Wheel Too Small? 🐹 #shorts",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-21T18:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=5984851394613169249",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-5722235966033215125",
+  "quelle": "PDSA, TVT, Univ. Moncton 2005",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": {
+   "de": 43.6,
+   "en": 37.5
+  }
  }
 ]

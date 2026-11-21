@@ -1,0 +1,29 @@
+{
+ "titel": "Why Your Hamster's Wheel Is Wrecking Its Back",
+ "titel_de": "Warum das Laufrad deinem Hamster schadet",
+ "thumbnail": "Wheel *too small?*",
+ "thumbnail_de": "Rad zu *klein?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY BAD\nWHEEL?",
+ "hook_de": "WARUM\nDAS RAD?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "sceneFile": "2026-11-21-hamster-wheel-szenen.js",
+ "beats": [
+  {"say": "Why is your hamster's wheel... secretly wrecking its *back?* Yes, yours, you absolute potato.", "say_de": "Warum macht das Laufrad deinem Hamster den *Rücken* kaputt? Ja, deins, du Pfeife!", "scene": {"shot": "wHook"}, "sfx": "boom"},
+  {"say": "Rudi buys the starter cage. Wheel included! His hamster runs... like a *banana.*", "say_de": "Rudi kauft das Starter-Set. Laufrad inklusive! Sein Hamster rennt... wie eine *Banane.*", "scene": {"shot": "wSet"}, "sfx": "whoosh"},
+  {"say": "Rudi doesn't get it, so he squeezes into a tiny wheel himself. *Crack,* goes his back.", "say_de": "Rudi checkt's nicht und quetscht sich selbst in ein Mini-Rad. *Knack,* macht sein Rücken.", "scene": {"shot": "wRudi"}, "sfx": "boom"},
+  {"say": "So Rudi buys the *biggest* wheel ever. Now the hamster can't even turn it.", "say_de": "Also kauft Rudi das *größte* Rad der Welt. Jetzt kriegt der Hamster es nicht mal gedreht.", "scene": {"shot": "wGiant"}, "sfx": "whoosh"},
+  {"say": "In a wheel that's too small, the back bends. Over time, that can cause *long-term pain.*", "say_de": "Im zu kleinen Rad krümmt sich der Rücken. Auf Dauer kann das *Schmerzen* machen.", "scene": {"shot": "wSpine"}, "sfx": "whoosh"},
+  {"say": "Experts say a Syrian hamster needs at least *thirty centimeters* across.", "say_de": "Experten sagen: Goldhamster brauchen mindestens *30 Zentimeter* Durchmesser.", "sprich_de": "Experten sagen: Goldhamster brauchen mindestens dreißig Zentimeter Durchmesser.", "scene": {"shot": "wSize"}, "sfx": "whoosh"},
+  {"say": "And the craziest part? A hamster can run up to *five miles* in one night.", "say_de": "Und das Krasseste? Ein Hamster rennt bis zu *acht Kilometer* in einer Nacht.", "scene": {"shot": "wNight"}, "sfx": "boom"},
+  {"say": "In a test, hamsters picked the *bigger* wheel. With only the small one, they ran half as much.", "say_de": "Im Test wählten Hamster das *größere* Rad. Mit nur dem kleinen liefen sie halb so viel.", "scene": {"shot": "wChoice"}, "sfx": "whoosh"},
+  {"say": "Rudi... you broke your own back to test it? Bro, a *ruler* would've done.", "say_de": "Digga, Rudi... du renkst dir den Rücken aus, statt ein *Lineal* zu nehmen?", "scene": {"shot": "wPunch"}, "sfx": "soft"},
+  {"say": "Get a solid wheel, at least thirty centimeters. The back has to stay *straight.*", "say_de": "Hol ein geschlossenes Rad, mindestens 30 Zentimeter. Der Rücken muss *gerade* bleiben.", "sprich_de": "Hol ein geschlossenes Rad, mindestens dreißig Zentimeter. Der Rücken muss gerade bleiben.", "scene": {"shot": "wTip"}, "sfx": "whoosh"},
+  {"say": "So before your hamster hops in tonight, ask yourself...", "say_de": "Also, bevor dein Hamster heute Nacht losrennt, frag dich...", "scene": {"shot": "wLoop"}, "sfx": "soft"}
+ ]
+}
