@@ -54,7 +54,7 @@
   function bloom() {
     if (!bloom.c) { bloom.c = document.createElement("canvas"); bloom.c.width = W / 4; bloom.c.height = H / 4; bloom.x = bloom.c.getContext("2d"); }
     const x = bloom.x; x.filter = "none"; x.clearRect(0, 0, W / 4, H / 4); x.filter = "brightness(1.4) contrast(1.6) blur(6px)"; x.drawImage(out, 0, 0, W / 4, H / 4);
-    g.setTransform(1, 0, 0, 1, 0, 0); g.save(); g.globalCompositeOperation = "screen"; g.globalAlpha = .2; g.imageSmoothingQuality = "high"; g.drawImage(bloom.c, 0, 0, W, H); g.restore();
+    g.setTransform(1, 0, 0, 1, 0, 0); g.save(); g.globalCompositeOperation = "screen"; g.globalAlpha = KZ.bloomAmt ?? .2; g.imageSmoothingQuality = "high"; g.drawImage(bloom.c, 0, 0, W, H); g.restore();
   }
 
   // ---------------- Licht-Technik wie in gezeichneten Erklärfilmen ----------------
