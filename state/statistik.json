@@ -1,302 +1,317 @@
 {
- "_info": "Wird vom Wochenbericht (STATISTIK.md) aktualisiert und von jedem Autopilot-Lauf in Schritt 2 gelesen. kategorien_alt ordnet Videos von vor dem 16.11.2026 zu; neue Videos tragen kategorie/format selbst in state/videos.json.",
- "kategorien_alt": {
-  "Shrimp Hotter Than The Sun": {
-   "kategorie": "exotisch",
-   "format": "fakt"
+  "_info": "Wird vom Wochenbericht (STATISTIK.md) aktualisiert und von jedem Autopilot-Lauf in Schritt 2 gelesen. kategorien_alt ordnet Videos von vor dem 16.11.2026 zu; neue Videos tragen kategorie/format selbst in state/videos.json.",
+  "kategorien_alt": {
+    "Shrimp Hotter Than The Sun": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Beetle With A Boiling Butt": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "Slime That Chokes Sharks": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Fungus That Makes Zombies": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "Three Hearts, Blue Blood": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "Water Bears Survived Space": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "Lizard Shoots Blood From Eyes": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Axolotl Regrows Its Body": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Frog That Freezes Solid": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Jellyfish That Never Dies": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Baby Bird Assassin": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Platypus Glows In The Dark": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Fish That Spits Snipes": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Bird That Sounds Like A Chainsaw": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Fish That Lives In A Butt": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Eel That Jumps To Shock You": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Shrimp That Punches Like A Bullet": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Owl That Turns Its Head Around": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Beetle That Reads The Stars": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "Why Sea Otters Hold Hands": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "This Fish's Tongue Is Alive": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Animal That Poops Cubes": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Frog That Hides Its Blood": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Wasp That Walks A Zombie Roach": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "The Bird That Keeps Its Tongue On Its Head": {
+      "kategorie": "exotisch",
+      "format": "fakt"
+    },
+    "Never Give Hedgehogs Milk": {
+      "kategorie": "garten",
+      "format": "mix"
+    },
+    "Goldfish Don't Forget In 3 Seconds": {
+      "kategorie": "haustier",
+      "format": "mix"
+    },
+    "Cut A Worm In Half? Not Two Worms": {
+      "kategorie": "garten",
+      "format": "mix"
+    },
+    "Stop Rescuing Baby Birds": {
+      "kategorie": "garten",
+      "format": "mix"
+    },
+    "Never Swat A Wasp": {
+      "kategorie": "garten",
+      "format": "mix"
+    },
+    "Carrots Are Candy For Rabbits": {
+      "kategorie": "haustier",
+      "format": "mix"
+    },
+    "Ladybug Spots Don't Show Age": {
+      "kategorie": "garten",
+      "format": "mix"
+    },
+    "Touching Butterflies Won't Kill Them": {
+      "kategorie": "garten",
+      "format": "mix"
+    },
+    "Dogs Don't See In Black And White": {
+      "kategorie": "haustier",
+      "format": "mix"
+    },
+    "A Purring Cat Isn't Always Happy": {
+      "kategorie": "haustier",
+      "format": "mix"
+    },
+    "That Moth Didn't Eat Your Sweater": {
+      "kategorie": "haus-kueche",
+      "format": "mix"
+    },
+    "Squirrels Don't Forget Their Nuts": {
+      "kategorie": "garten",
+      "format": "mix"
+    },
+    "Flies Don't Live For Just One Day": {
+      "kategorie": "haus-kueche",
+      "format": "comedy"
+    },
+    "Dogs Don't Age 7 Years Per Year": {
+      "kategorie": "haustier",
+      "format": "comedy"
+    },
+    "Mice Don't Actually Love Cheese": {
+      "kategorie": "haus-kueche",
+      "format": "comedy"
+    },
+    "Your Cat Shouldn't Drink Milk": {
+      "kategorie": "haustier",
+      "format": "comedy"
+    },
+    "Toads Don't Give You Warts": {
+      "kategorie": "garten",
+      "format": "comedy"
+    },
+    "Earwigs Don't Crawl Into Your Ears": {
+      "kategorie": "garten",
+      "format": "comedy"
+    },
+    "Bats Aren't Actually Blind": {
+      "kategorie": "garten",
+      "format": "comedy"
+    },
+    "Stop Feeding Ducks Bread": {
+      "kategorie": "garten",
+      "format": "mix"
+    }
   },
-  "The Beetle With A Boiling Butt": {
-   "kategorie": "exotisch",
-   "format": "fakt"
+  "auswertung": {
+    "stand": "2026-11-22T18:48+00:00",
+    "tiktok_median": 806.0,
+    "youtube_median": 1231.0,
+    "tiktok_kategorien": [
+      {
+        "kategorie": "haustier",
+        "videos": 19,
+        "median": 856.0
+      },
+      {
+        "kategorie": "garten",
+        "videos": 14,
+        "median": 825.0
+      },
+      {
+        "kategorie": "haus-kueche",
+        "videos": 3,
+        "median": 815.0
+      },
+      {
+        "kategorie": "exotisch",
+        "videos": 11,
+        "median": 762.0
+      }
+    ],
+    "tiktok_formate": [
+      {
+        "format": "mix",
+        "videos": 12,
+        "median": 881.0
+      },
+      {
+        "format": "comedy",
+        "videos": 24,
+        "median": 827.0
+      },
+      {
+        "format": "fakt",
+        "videos": 11,
+        "median": 762.0
+      }
+    ],
+    "youtube_kategorien": [
+      {
+        "kategorie": "haustier",
+        "videos": 6,
+        "median": 1354.0
+      },
+      {
+        "kategorie": "garten",
+        "videos": 9,
+        "median": 1207.0
+      },
+      {
+        "kategorie": "haus-kueche",
+        "videos": 3,
+        "median": 19.0
+      }
+    ],
+    "tiktok_top": [
+      {
+        "titel": "Why Your Bunny Hates Being Picked Up",
+        "views": 4835.0,
+        "kategorie": "haustier"
+      },
+      {
+        "titel": "Cut A Worm In Half? Not Two Worms",
+        "views": 4664.0,
+        "kategorie": "garten"
+      },
+      {
+        "titel": "Carrots Are Candy For Rabbits",
+        "views": 4658.0,
+        "kategorie": "haustier"
+      },
+      {
+        "titel": "Why Your Hamster Hates Its Ball",
+        "views": 4354.0,
+        "kategorie": "haustier"
+      },
+      {
+        "titel": "Why You Should Never Smash Your Pond Ice",
+        "views": 2322.0,
+        "kategorie": "garten"
+      }
+    ],
+    "tiktok_flop": [
+      {
+        "titel": "Why Your Bunny Shouldn't Live With A Guinea Pig",
+        "views": 662.0,
+        "kategorie": "haustier"
+      },
+      {
+        "titel": "Why You Should Never Give A Tired Bee Honey",
+        "views": 671.0,
+        "kategorie": "garten"
+      },
+      {
+        "titel": "Why Your Hamster's Wheel Is Wrecking Its Back",
+        "views": 671.0,
+        "kategorie": "haustier"
+      }
+    ]
   },
-  "Slime That Chokes Sharks": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Fungus That Makes Zombies": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "Three Hearts, Blue Blood": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "Water Bears Survived Space": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "Lizard Shoots Blood From Eyes": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Axolotl Regrows Its Body": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Frog That Freezes Solid": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Jellyfish That Never Dies": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Baby Bird Assassin": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Platypus Glows In The Dark": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Fish That Spits Snipes": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Bird That Sounds Like A Chainsaw": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Fish That Lives In A Butt": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Eel That Jumps To Shock You": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Shrimp That Punches Like A Bullet": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Owl That Turns Its Head Around": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Beetle That Reads The Stars": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "Why Sea Otters Hold Hands": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "This Fish's Tongue Is Alive": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Animal That Poops Cubes": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Frog That Hides Its Blood": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Wasp That Walks A Zombie Roach": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "The Bird That Keeps Its Tongue On Its Head": {
-   "kategorie": "exotisch",
-   "format": "fakt"
-  },
-  "Never Give Hedgehogs Milk": {
-   "kategorie": "garten",
-   "format": "mix"
-  },
-  "Goldfish Don't Forget In 3 Seconds": {
-   "kategorie": "haustier",
-   "format": "mix"
-  },
-  "Cut A Worm In Half? Not Two Worms": {
-   "kategorie": "garten",
-   "format": "mix"
-  },
-  "Stop Rescuing Baby Birds": {
-   "kategorie": "garten",
-   "format": "mix"
-  },
-  "Never Swat A Wasp": {
-   "kategorie": "garten",
-   "format": "mix"
-  },
-  "Carrots Are Candy For Rabbits": {
-   "kategorie": "haustier",
-   "format": "mix"
-  },
-  "Ladybug Spots Don't Show Age": {
-   "kategorie": "garten",
-   "format": "mix"
-  },
-  "Touching Butterflies Won't Kill Them": {
-   "kategorie": "garten",
-   "format": "mix"
-  },
-  "Dogs Don't See In Black And White": {
-   "kategorie": "haustier",
-   "format": "mix"
-  },
-  "A Purring Cat Isn't Always Happy": {
-   "kategorie": "haustier",
-   "format": "mix"
-  },
-  "That Moth Didn't Eat Your Sweater": {
-   "kategorie": "haus-kueche",
-   "format": "mix"
-  },
-  "Squirrels Don't Forget Their Nuts": {
-   "kategorie": "garten",
-   "format": "mix"
-  },
-  "Flies Don't Live For Just One Day": {
-   "kategorie": "haus-kueche",
-   "format": "comedy"
-  },
-  "Dogs Don't Age 7 Years Per Year": {
-   "kategorie": "haustier",
-   "format": "comedy"
-  },
-  "Mice Don't Actually Love Cheese": {
-   "kategorie": "haus-kueche",
-   "format": "comedy"
-  },
-  "Your Cat Shouldn't Drink Milk": {
-   "kategorie": "haustier",
-   "format": "comedy"
-  },
-  "Toads Don't Give You Warts": {
-   "kategorie": "garten",
-   "format": "comedy"
-  },
-  "Earwigs Don't Crawl Into Your Ears": {
-   "kategorie": "garten",
-   "format": "comedy"
-  },
-  "Bats Aren't Actually Blind": {
-   "kategorie": "garten",
-   "format": "comedy"
-  },
-  "Stop Feeding Ducks Bread": {
-   "kategorie": "garten",
-   "format": "mix"
-  }
- },
- "auswertung": {
-  "stand": "2026-11-16T18:15+00:00",
-  "tiktok_median": 790.0,
-  "youtube_median": 1276.0,
-  "tiktok_kategorien": [
-   {
-    "kategorie": "haustier",
-    "videos": 4,
-    "median": 1272.5
-   },
-   {
-    "kategorie": "garten",
-    "videos": 7,
-    "median": 858.0
-   },
-   {
-    "kategorie": "exotisch",
-    "videos": 11,
-    "median": 762.0
-   }
-  ],
-  "tiktok_formate": [
-   {
-    "format": "mix",
-    "videos": 11,
-    "median": 868.0
-   },
-   {
-    "format": "fakt",
-    "videos": 11,
-    "median": 762.0
-   }
-  ],
-  "youtube_kategorien": [
-   {
-    "kategorie": "haustier",
-    "videos": 1,
-    "median": 1277.0
-   },
-   {
-    "kategorie": "garten",
-    "videos": 2,
-    "median": 675.0
-   }
-  ],
-  "tiktok_top": [
-   {
-    "titel": "Cut A Worm In Half? Not Two Worms",
-    "views": 4633.0,
-    "kategorie": "garten"
-   },
-   {
-    "titel": "Carrots Are Candy For Rabbits",
-    "views": 4533.0,
-    "kategorie": "haustier"
-   },
-   {
-    "titel": "Dogs Don't See In Black And White",
-    "views": 1677.0,
-    "kategorie": "haustier"
-   },
-   {
-    "titel": "Never Swat A Wasp",
-    "views": 1577.0,
-    "kategorie": "garten"
-   },
-   {
-    "titel": "Stop Rescuing Baby Birds",
-    "views": 1430.0,
-    "kategorie": "garten"
-   }
-  ],
-  "tiktok_flop": [
-   {
-    "titel": "The Frog That Freezes Solid",
-    "views": 729.0,
-    "kategorie": "exotisch"
-   },
-   {
-    "titel": "The Animal That Poops Cubes",
-    "views": 731.0,
-    "kategorie": "exotisch"
-   },
-   {
-    "titel": "Water Bears Survived Space",
-    "views": 737.0,
-    "kategorie": "exotisch"
-   }
+  "lernregeln": [
+    {
+      "regel": "Nur Alltagsthemen mit dem Winkel 'Das machst DU mit deinem Tier/Garten falsch', als 'Why ...?'/'Warum ...?'-Frage. haustier vor garten vor haus-kueche, keine exotischen Themen.",
+      "beleg": "KW47: alle 5 Videos über 2.000 (Kaninchen hochheben 4835, Hamsterball 4354, Teich-Eis 2322, Kaninchen baden 2278, Stall 2022) haben diesen Winkel. Exotisch weiter 0 von 11, Median 762.",
+      "seit": "2026-11-16"
+    },
+    {
+      "regel": "Kaninchen und Hamster zuerst wählen (höchstens 1 Video pro Tier am Tag, Thema nie wiederholen).",
+      "beleg": "Kaninchen: 4 von 6 Videos über 2.000 (4835, 4658, 2278, 2022), Hamster: Ball 4354. Katze/Hund im 3D-Stil nur 686-839.",
+      "seit": "2026-11-22"
+    },
+    {
+      "regel": "Mindestens jede zweite Caption bittet ums Teilen an eine bestimmte Person ('Schick das jemandem, der ...').",
+      "beleg": "Die zwei Videos mit den meisten Shares (Hochheben 25, Baden 16) hatten beide 'Send this to the friend who ...' und liefen ~3-6x Median. Kommentare bleiben selten (meist 0-2).",
+      "seit": "2026-11-16"
+    },
+    {
+      "regel": "Länge höchstens 35 s (DE und EN), Rudis Geschichte direkt nach dem Hook, Rate-Frage bei 5-9 s.",
+      "beleg": "YouTube Ø gesehen 12 s von ~34 s (35 %). Alle 6 deutschen TikToks (40-45 s) bei 671-779; englische 3D-Videos mit 32-36 s brachen 5 von 15 Mal aus. Sprache wird ~29.11. neu bewertet (Hinweis, noch keine Regel).",
+      "seit": "2026-11-22"
+    },
+    {
+      "regel": "YouTube: Titel als Suchfrage, höchstens 3 Shorts pro Tag (10/16/18 Uhr), 21-Uhr-Video nur TikTok.",
+      "beleg": "Shorts nach ~20 Uhr: 9 von 9 bei 10-93 Aufrufen, davor 838-2.550. YouTube-Suche brachte 971 Aufrufe (Vorwoche 69).",
+      "seit": "2026-11-22"
+    }
   ]
- },
- "lernregeln": [
-  {
-   "regel": "Nur Alltagsthemen, die der Zuschauer selbst erlebt: haustier vor garten vor haus-kueche. Keine exotischen Themen.",
-   "beleg": "Alltag: 5 von 11 Videos über 1.400 Aufrufe (Wurm 4633, Möhre 4533). Exotisch: 0 von 11, Median 762.",
-   "seit": "2026-11-16"
-  },
-  {
-   "regel": "Winkel: 'Etwas, das DU mit deinem Tier/Garten machst, ist falsch' – nicht 'Wusstest du, dass Tier X ...'.",
-   "beleg": "Alle 5 Gewinner haben diesen Winkel (Möhre, Wurm, Wespe, Jungvogel, Hund schwarz-weiß).",
-   "seit": "2026-11-16"
-  },
-  {
-   "regel": "Jedes zweite Video: Caption-Aufforderung zum Teilen statt Frage, an eine bestimmte Person ('Send this to someone with a rabbit 🐰').",
-   "beleg": "Fragen bringen kaum Kommentare (23 von 28 Videos 0 Kommentare). Möhre hatte 14 Shares und lief 6x besser als der Median.",
-   "seit": "2026-11-16"
-  },
-  {
-   "regel": "Länge 28-36 s, direkt nach dem Hook beginnt Rudis Geschichte (Sekunde 3-12 entscheidet).",
-   "beleg": "YouTube Ø Sehdauer 6-22 s bei 37-44 s Länge; Abbruch laut Studio zwischen 0:05 und 0:12.",
-   "seit": "2026-11-16"
-  },
-  {
-   "regel": "YouTube-Titel als Suchfrage mit Schlüsselwort vorn (STATISTIK.md Teil C).",
-   "beleg": "YouTube-Suche brachte 69 Aufrufe ohne jede Optimierung, TikTok-Suche praktisch null.",
-   "seit": "2026-11-16"
-  }
- ]
 }
