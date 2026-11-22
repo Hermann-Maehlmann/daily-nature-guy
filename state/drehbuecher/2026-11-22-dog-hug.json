@@ -1,0 +1,109 @@
+{
+ "titel": "Why Your Dog Secretly Hates Your Hugs",
+ "titel_de": "Warum dein Hund deine Umarmungen hasst",
+ "thumbnail": "Hug = *stress?*",
+ "thumbnail_de": "Kuscheln = *Stress?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nNO HUGS?",
+ "hook_de": "WARUM\nKEIN KUSCHELN?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "ueberwachungskamera",
+ "rate_frage": {
+  "frage": "Wie viele umarmte Hunde zeigen Stress? / How many hugged dogs show stress?",
+  "optionen": [
+   "8 von 10 / 8 out of 10",
+   "Jeder 2. / 1 out of 2",
+   "1 von 10 / 1 out of 10"
+  ],
+  "richtig": 0
+ },
+ "sceneFile": "2026-11-22-dog-hug-szenen.js",
+ "beats": [
+  {
+   "say": "Why does your dog secretly hate your *hugs?*",
+   "say_de": "Warum hasst dein Hund eigentlich deine *Umarmungen?*",
+   "scene": {
+    "shot": "hHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Security camera, 6:03 PM. Rudi approaches... with *open arms.*",
+   "sprich": "Security camera, six oh three P M. Rudi approaches... with open arms.",
+   "say_de": "Überwachungskamera. Rudi nähert sich mit *offenen Armen.*",
+   "scene": {
+    "shot": "hCam"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Take a guess: how many hugged dogs show *stress?* A, B or C? Comment below.",
+   "say_de": "Rate mal: Wie viele umarmte Hunde haben *Stress?* A, B oder C?",
+   "scene": {
+    "shot": "hQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Max freezes. Rudi thinks: more love! So he builds a *hugging machine.*",
+   "say_de": "Max erstarrt. Rudi baut: eine *Kuschelmaschine.*",
+   "scene": {
+    "shot": "hMachine"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Max hides behind the sofa. Rudi follows... in a *teddy suit.*",
+   "say_de": "Max flieht. Rudi folgt im *Teddykostüm.*",
+   "scene": {
+    "shot": "hTeddy"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "To a dog, a hug isn't cuddling. It means: *trapped.*",
+   "say_de": "Für Hunde ist Umarmen kein Kuscheln. Es heißt: *gefangen.*",
+   "scene": {
+    "shot": "hTrapped"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "The warning signs: lip licking, yawning, the *whites* of the eyes.",
+   "say_de": "Die Warnzeichen: Lippen lecken, Gähnen, das *Weiße* im Auge.",
+   "scene": {
+    "shot": "hSigns"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? In eight out of ten hug photos, the dog shows *stress.*",
+   "say_de": "Und jetzt kommt's: Auf acht von zehn Kuschelfotos zeigen Hunde *Stress.*",
+   "scene": {
+    "shot": "hCrazy"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "So let him come to you, and gently scratch his *shoulders.*",
+   "say_de": "Lass ihn kommen. Kraul ihm die *Schulter.*",
+   "scene": {
+    "shot": "hTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So next time your buddy squeezes his dog, just ask him...",
+   "say_de": "Und wenn dein Kumpel seinen Hund wieder zerdrückt, frag ihn mal...",
+   "scene": {
+    "shot": "hLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

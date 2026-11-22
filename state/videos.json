@@ -895,5 +895,36 @@
    "de": 42.0,
    "en": 38.3
   }
+ },
+ {
+  "datum": "2026-11-22T20:21:00+01:00",
+  "thema": "Hunde mögen keine Umarmungen (Comedy-Story, 3D, zweisprachig, Opener-Stil ueberwachungskamera): Umarmung schränkt Bewegung ein und wirkt bedrohlich, viele Hunde tolerieren sie nur (AKC); Coren: in 250 Fotos zeigten 81 % der umarmten Hunde Stress-Signale (AKC); Signale Lippen lecken, Gähnen, Weißes im Auge (Wal-Auge), Kopf weg, Ohren zurück (AKC); Rate-Frage 'Wie viele umarmte Hunde haben Stress?' (8 von 10 richtig); Überwachungskamera 18:03 Rudi mit offenen Armen -> Kuschelmaschine (Kuschel-O-Mat) -> Hund flieht hinters Sofa, Rudi im Teddykostüm; Tipp: Hund von selbst kommen lassen, sanft an der Schulter kraulen (RSPCA Australia)",
+  "titel": "Why Your Dog Secretly Hates Your Hugs",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-23T16:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-2804164336067130754",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-7982628746349887130",
+  "quelle": "AKC (Coren, 250 Fotos, 81 %), RSPCA Australia",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "titel_de": "Warum dein Hund deine Umarmungen hasst",
+  "dauer_s": 33.7,
+  "dauer_en_s": 33.3,
+  "youtube_titel": "Do Dogs Like Hugs? 🐶 #shorts",
+  "opener_stil": "ueberwachungskamera",
+  "rate_frage": {
+   "frage": "Wie viele umarmte Hunde haben Stress?",
+   "optionen": [
+    "8 von 10",
+    "Jeder 2.",
+    "1 von 10"
+   ],
+   "richtig": 0
+  }
  }
 ]
