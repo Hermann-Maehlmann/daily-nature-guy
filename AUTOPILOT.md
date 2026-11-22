@@ -83,6 +83,7 @@ Ergibt bis zu 4 öffentliche Posts pro Tag. **Niemals mehr als 4 öffentliche Po
    - Kontrollbild: `ffmpeg -i out/<slug>.mp4 -vf "select='eq(n\,30)+eq(n\,300)+eq(n\,600)',scale=270:-1,tile=3x1" -frames:v 1 out/<slug>.png` ansehen. Leer oder kaputt → nicht posten, Fehler melden.
 
    - **Thumbnail:** `node autopilot/thumb.js out/<slug>.mp4 out/<slug>.json out/<slug>.jpg` (Hook-Bild plus Cover-Text-Sticker, 1080×1920). Ansehen: Figur sichtbar, Text lesbar, nichts abgeschnitten.
+   - **Abo-Schild, nur englische YouTube-Fassung (Hermann 22.11.2026, Pflicht):** Vor dem Cover `python3 autopilot/abo_schild.py out/<slug>-en.mp4`. Das setzt das Serien-Badge „RUDI GETS IT WRONG“ oben links (ab 3 s) und in den letzten 1,6 s das Schild „▶ SUBSCRIBE · Rudi messes up again tomorrow“ ein, ohne Stimme (Loop bleibt). Danach ein Bild aus den letzten 0,5 s ansehen: Schild verdeckt nichts Wichtiges (Hook-Text, Stempel). Die deutsche TikTok-Fassung bekommt **kein** Schild. Hintergrund: 34 Abos aus ~25.000 YouTube-Aufrufen; Zuschauer brauchen einen Grund, wiederzukommen (Serie).
    - **Cover ins Video:** `bash autopilot/cover.sh out/<slug>.mp4 out/<slug>.jpg` setzt das Thumbnail als erstes Bild (0,1 s) ins Video. Hermanns Konto übernimmt `videoThumbnailUrl` nicht, TikTok nimmt das erste Bild als Cover. Deshalb ist dieser Schritt Pflicht.
    - **Layout für TikTok und YouTube Shorts:** rechts ca. 190 px Buttons, unten ca. 420 px Name/Titel/Caption, oben 150 px. Motiv waagrecht mittig. Im Kontrollbild prüfen, dass nichts Wichtiges dort liegt.
 

@@ -19,6 +19,22 @@
     g.fillStyle = "rgba(0,0,0,.35)"; g.beginPath(); g.roundRect(-w / 2 + 10, -h / 2 + 12, w, h, 30); g.fill(); g.fillStyle = "#f7f4ec"; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 30); g.fill();
     if (head) { g.fillStyle = col || "#2f6fd0"; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, 100, [30, 30, 0, 0]); g.fill(); g.fillStyle = "#fff"; g.font = '900 44px "Montserrat"'; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(head, 0, -h / 2 + 52); }
     g.restore(); return true; }
+  // Karte MIT Text (Hermann 22.11.2026: Texte saßen nicht mittig im weißen Feld). Zeilen werden im weißen Bereich unter dem Kopf
+  // senkrecht und waagrecht zentriert, Schrift schrumpft automatisch auf die Kartenbreite, Text skaliert beim Einploppen mit.
+  // infoCard(x, y, w, h, p, head, col, ["Zeile 1", "Zeile 2"], size=36)  -> h darf zu klein sein, wird bei Bedarf vergrößert.
+  // Karte bleibt ganz im Bild und frei von den TikTok/YouTube-Buttons rechts (w max. W-214, x wird begrenzt).
+  function infoCard(x, y, w, h, p, head, col, lines, size) { lines = [].concat(lines || []); size = size || 36; w = Math.min(w, W - 214); x = clamp(x, w / 2 + 24, W - 190 - w / 2); const k = easeBack(clamp(p, 0, 1)); if (k <= 0) return false;
+    g.save(); g.setTransform(1, 0, 0, 1, 0, 0); let fs = size; g.font = `800 ${fs}px "Montserrat"`;
+    const maxW = w - 70, widest = () => Math.max(1, ...lines.map((l) => g.measureText(l).width));
+    while (fs > 22 && widest() > maxW) { fs -= 1; g.font = `800 ${fs}px "Montserrat"`; }
+    const lh = fs * 1.32, top = head ? 100 : 0, need = top + lines.length * lh + 56; h = Math.max(h, need);
+    g.translate(x, y); g.scale(k, k);
+    g.fillStyle = "rgba(0,0,0,.35)"; g.beginPath(); g.roundRect(-w / 2 + 10, -h / 2 + 12, w, h, 30); g.fill(); g.fillStyle = "#f7f4ec"; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 30); g.fill();
+    if (head) { g.fillStyle = col || "#2f6fd0"; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, 100, [30, 30, 0, 0]); g.fill(); g.fillStyle = "#fff"; let hs = 44; g.font = `900 ${hs}px "Montserrat"`;
+      while (hs > 26 && g.measureText(head).width > maxW) { hs -= 1; g.font = `900 ${hs}px "Montserrat"`; } g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(head, 0, -h / 2 + 52); }
+    g.globalAlpha = clamp(p * 2, 0, 1); g.fillStyle = "#1d2250"; g.font = `800 ${fs}px "Montserrat"`; g.textAlign = "center"; g.textBaseline = "middle";
+    const mid = -h / 2 + top + (h - top) / 2; lines.forEach((l, i) => g.fillText(l, 0, mid + (i - (lines.length - 1) / 2) * lh + fs * .06));
+    g.restore(); return true; }
 
   // ---------- three.js Grundgerüst ----------
   const cv3 = document.createElement("canvas"); cv3.width = W; cv3.height = H;
@@ -177,7 +193,7 @@
   function begin(which) { if (!built) build(); hideAll(); world(which); }
   const place = (o, x, z, ry) => { o.root.visible = true; o.root.position.set(x, 0, z); o.root.rotation.y = ry || 0; };
 
-  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn,
+  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, infoCard, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn,
     onBuild(f) { builders.push(f); }, get rudi() { return rudi; }, get yard() { return yard; }, get studio() { return studio; },
     get zoom() { return ZK; }, set zoom(z) { ZK = z; } };
 })();
