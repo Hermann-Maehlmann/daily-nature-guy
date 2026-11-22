@@ -847,5 +847,29 @@
    "de": 42.6,
    "en": 35.5
   }
+ },
+ {
+  "datum": "2026-11-22T14:30:00+01:00",
+  "thema": "Insektenhotel aus dem Baumarkt bleibt leer (Comedy-Story, 3D, zweisprachig, Opener-Stil hotelbewertung): Tannen-/Fichtenzapfen, Stroh, Lochziegel sind völlig sinnlos ('Keine Wildbiene möchte dort ein Ei legen', NABU Aachen); Bohrungen ins Stirnholz reißen, Bienen reißen sich daran die Flügel ein (NABU Aachen, NABU BW); Nisthilfen 'regelmäßig säubern' = 'Die sicherste Insekten-Vernichtungs-Methode ohne Chemie-Einsatz!' (NABU Aachen), in zugemauerten Röhrchen überwintert der Nachwuchs; Ein-Stern-Bewertung von Frau Mauerbiene -> Rudi bohrt in Baumscheibe (Holz reißt, Flügel kaputt) -> putzt im Herbst alles raus (Babys rausgeworfen); Tipp: Hartholz seitlich bohren 3-9 mm, 10 cm tief, glatt, hinten zu, sonnig, Blumen, im Winter in Ruhe lassen (NABU BW, NABU)",
+  "titel": "Why Your Bee Hotel Is A Ghost House",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-22T21:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=7307957124376184921",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-2791061325548402094",
+  "quelle": "NABU Aachen, NABU Baden-Württemberg",
+  "kategorie": "garten",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "titel_de": "Warum dein Insektenhotel ein Geisterhaus ist",
+  "dauer_s": {
+   "de": 43.5,
+   "en": 35.8
+  },
+  "youtube_titel": "Why Is My Bee Hotel Empty? 🐝 #shorts",
+  "opener_stil": "hotelbewertung"
  }
 ]
