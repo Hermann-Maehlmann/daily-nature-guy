@@ -871,5 +871,29 @@
   },
   "youtube_titel": "Why Is My Bee Hotel Empty? 🐝 #shorts",
   "opener_stil": "hotelbewertung"
+ },
+ {
+  "datum": "2026-11-22T16:01:00+01:00",
+  "thema": "Igel nicht mit Mehlwürmern füttern (Comedy-Story, 3D): Mehlwürmer haben viel Phosphor und wenig Kalzium -> Kalzium-Phosphor-Ungleichgewicht, metabolische Knochenkrankheit, Igel können nicht mehr laufen (Cornwall Wildlife Trust 'contain a lot of phosphorus, which can lead to metabolic bone disease'); Igel fressen sie suchtartig und lassen anderes Futter stehen, besuchen nachts viele Gärten, 'nur ein paar als Leckerli' summiert sich (Wildlife Online); Woodland Trust: Vogelfutter inkl. Mehlwürmer meiden; Opener Selbsthilfegruppe 'Anonyme Wurmfresser' -> Rudis Schale Würmer -> Wurm-Automat 24/7 -> Wurm-Bar; Tipp: Katzenfutter mit Fleisch + flache Schale Wasser, nie Milch (RSPCA)",
+  "titel": "Why Mealworms Are Bad For Hedgehogs",
+  "titel_de": "Warum Mehlwürmer deinem Igel schaden",
+  "youtube_titel": "Can Hedgehogs Eat Mealworms? 🦔 #shorts",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-23T10:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=6804641510953402655",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-3562469426364134406",
+  "quelle": "Cornwall Wildlife Trust, Woodland Trust, RSPCA",
+  "kategorie": "garten",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "opener_stil": "selbsthilfegruppe",
+  "dauer_s": {
+   "de": 42.0,
+   "en": 38.3
+  }
  }
 ]

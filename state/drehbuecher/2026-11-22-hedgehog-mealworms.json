@@ -1,0 +1,107 @@
+{
+ "titel": "Why Mealworms Are Bad For Hedgehogs",
+ "titel_de": "Warum Mehlwürmer deinem Igel schaden",
+ "thumbnail": "Hedgehog *junk food?*",
+ "thumbnail_de": "Igel-*Junkfood?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nMEALWORMS?",
+ "hook_de": "WARUM\nMEHLWÜRMER?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "selbsthilfegruppe",
+ "sceneFile": "2026-11-22-hedgehog-mealworms-szenen.js",
+ "beats": [
+  {
+   "say": "Why are mealworms actually *bad* for hedgehogs?",
+   "say_de": "Warum sind Mehlwürmer für Igel eigentlich *schlecht?*",
+   "scene": {
+    "shot": "mHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Support group, night one. The hedgehog stands up: Hi. I'm hooked on *mealworms.*",
+   "say_de": "Selbsthilfegruppe, Abend eins. Der Igel steht auf: Hallo. Ich bin *mehlwurmsüchtig.*",
+   "scene": {
+    "shot": "mGroup"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "It all started with Rudi. One bowl of mealworms. Gone in *seconds.*",
+   "say_de": "Angefangen hat alles bei Rudi. Eine Schale Mehlwürmer. In *Sekunden* weg.",
+   "scene": {
+    "shot": "mBowl"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "Now it won't touch anything else. So Rudi builds a mealworm *vending machine.*",
+   "say_de": "Jetzt frisst er nichts anderes mehr. Also baut Rudi einen *Wurm-Automaten.*",
+   "scene": {
+    "shot": "mVend"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "The problem: mealworms are packed with phosphorus, but barely any *calcium.*",
+   "say_de": "Das Problem: Mehlwürmer haben viel Phosphor, aber kaum *Kalzium.*",
+   "scene": {
+    "shot": "mBars"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "That throws off the balance in its body. Its *bones* get weak.",
+   "say_de": "Das bringt den Körper durcheinander. Die *Knochen* werden schwach.",
+   "scene": {
+    "shot": "mBones"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? Some hedgehogs end up unable to *walk.*",
+   "say_de": "Und jetzt kommt's: Manche Igel können am Ende nicht mehr *laufen.*",
+   "scene": {
+    "shot": "mWobble"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Just a few as a treat? A hedgehog visits lots of gardens every night. And everyone gives *a few.*",
+   "say_de": "Nur ein paar als Leckerli? Ein Igel besucht nachts viele Gärten. Und jeder gibt *ein paar.*",
+   "scene": {
+    "shot": "mGardens"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Rudi wanted to hand out a treat... and opened a *worm bar.*",
+   "say_de": "Rudi wollte ein Leckerli verteilen... und hat eine *Wurm-Bar* eröffnet.",
+   "scene": {
+    "shot": "mPunch"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Put out meaty cat food instead, and a shallow dish of *water.*",
+   "say_de": "Stell lieber Katzenfutter mit Fleisch raus und eine flache Schale *Wasser.*",
+   "scene": {
+    "shot": "mTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So next time your neighbor puts out mealworms, just ask...",
+   "say_de": "Und wenn dein Nachbar wieder Würmer rausstellt, frag ihn mal...",
+   "scene": {
+    "shot": "mLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}
