@@ -93,6 +93,7 @@ Aufbau (gilt zusätzlich zum Mix-Stil oben):
 3. **Danach die Fakten** (2–3 Beats Infografik mit echten Zahlen + Quelle), dann die Pointe, die auf die Eskalation zurückgreift („So the tower? Slightly overkill.“).
 4. **Praktischer Tipp** (1 Beat), **Loop-Satz** über Rudi zurück zum Hook.
 5. Alle 2–3 Sekunden passiert etwas Neues (Schnitt, Stempel, Kamerafahrt). Kein Beat länger als ~4,5 s.
+5b. **Rate-Frage nach ca. 5–9 s (Hermann 22.11.2026):** Mitten in der Eskalation (Beat 1 oder 2) fragt der Erzähler kurz „Rate mal: … A, B oder C?“ und `quizTiles()` zeigt die Antworten über der Szene. Aufgelöst wird bei den Fakten mit `quizTiles(…, { reveal, correct })`. Details in AUTOPILOT.md „❓ Rate-Frage“.
 6. **Kein Like/Follow im Video** (stört die Bindung). Der erste Kommentar (`firstCommentText`) ist eine Frage an die Zuschauer, die Caption endet mit einer anderen Frage (siehe AUTOPILOT.md).
 
 ## 3D-Look (seit 16.11.2026, Hermann: „komplett alle Videos auf 3D Animation umstellen“)
@@ -108,6 +109,7 @@ Technik: `autopilot/v2/kit3d.js` (three.js r128, läuft in render5.js mit). Die 
 - **Automatischer 3D-Check:** Jede Figur mit Namen anmelden (`actor(makeTier(), "Hund")`). Bei jedem Bild meldet der Baukasten in der Konsole `[3D-Check] … Überlappung …` (zwei Figuren stecken ineinander) oder `… außerhalb der sicheren Zone …` (ragt aus dem Bild oder in die Buttons). Requisiten, die bewusst schweben (Kacheln, Pfeile), mit `noCheck = true` ausnehmen.
 - **Kamera von Hand (nur Sonderfälle wie Draufsicht):** `view(px,py,pz, zielX,zielY,zielZ, fov, t)` dann `draw()` (rendert 3D und kopiert es ins Bild). Abstände werden mit `K3.zoom` (1.9) gestreckt, weil das Hochformat schmal ist. Für eine Draufsicht `K3.camera.up.set(0,0,-1)` und `K3.zoom = 1`, danach zurücksetzen.
 - **2D-Overlays nach `draw()`:** `stamp()`, `card()`, `txt()` wie im Comedy-Stil (Quellenkarte, Stempel-Gags). Untertitel/Hook macht die Engine.
+- **Rate-Frage-Kacheln mit `quizTiles(x, y, ["1 km", "5 km", "9 km"], p, { reveal, correct })`:** ploppen nacheinander auf (p 0→1 über ca. 0,6 s), Schrift passt sich an, Karte bleibt im sicheren Bereich. y zwischen H*.42 und H*.58, damit sie weder Stempel oben noch Untertitel unten verdecken.
 - **Karten mit Text immer mit `infoCard()` (Hermann 22.11.2026):** `infoCard(x, y, w, h, p, kopf, farbe, ["Zeile 1", "Zeile 2"], 36)` zentriert die Zeilen senkrecht und waagrecht im weißen Feld unter dem Kopf, verkleinert die Schrift, wenn eine Zeile zu breit ist, vergrößert die Karte, wenn zu viele Zeilen drin sind, und lässt den Text beim Einploppen mitwachsen. **Nie mehr `card()` + einzelne `txt()`-Zeilen mit geschätzten y-Abständen** (Text klebte am Kopf oder hing schief im weißen Feld). Höchstens 3 Zeilen, Zitat-Anführungszeichen gehören in die Zeilen. In der Vorschau prüfen: Abstand oben und unten im weißen Feld gleich, Text nirgends am Rand.
 
 Regeln für 3D-Figuren (Stil-Checkliste, ersetzt kshape-Regeln):

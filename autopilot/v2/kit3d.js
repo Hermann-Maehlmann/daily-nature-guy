@@ -36,6 +36,23 @@
     const mid = -h / 2 + top + (h - top) / 2; lines.forEach((l, i) => g.fillText(l, 0, mid + (i - (lines.length - 1) / 2) * lh + fs * .06));
     g.restore(); return true; }
 
+  // Rate-Frage (Hermann 22.11.2026: Frage ins Video für mehr Kommentare). 2–3 Antwort-Kacheln untereinander, ploppen nacheinander auf.
+  // quizTiles(x, y, ["1 km", "5 km", "9 km"], p, { reveal: 0..1, correct: 2 })  -> reveal > 0: richtige Kachel wird grün mit Haken, die anderen verblassen.
+  function quizTiles(x, y, opts, p, o) { o = o || {}; const n = opts.length, rh = 112, gap = 22, w = Math.min(o.w || 640, W - 260); x = clamp(x, w / 2 + 24, W - 190 - w / 2);
+    const rv = clamp(o.reveal || 0, 0, 1); let fs = 44; g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.font = `900 ${fs}px "Montserrat"`;
+    while (fs > 26 && Math.max(...opts.map((t) => g.measureText(t).width)) > w - 270) { fs -= 1; g.font = `900 ${fs}px "Montserrat"`; }
+    opts.forEach((t, i) => { const k = easeBack(clamp(p * n - i * .6, 0, 1)); if (k <= 0) return; const yy = y + (i - (n - 1) / 2) * (rh + gap), ok = i === o.correct;
+      g.save(); g.translate(x, yy); g.scale(k, k); g.globalAlpha = rv > 0 && !ok ? 1 - .55 * rv : 1;
+      g.fillStyle = "rgba(0,0,0,.35)"; g.beginPath(); g.roundRect(-w / 2 + 8, -rh / 2 + 10, w, rh, 56); g.fill();
+      g.fillStyle = rv > 0 && ok ? `rgb(${Math.round(247 - 193 * rv)},${Math.round(244 - 65 * rv)},${Math.round(236 - 110 * rv)})` : "#f7f4ec"; g.beginPath(); g.roundRect(-w / 2, -rh / 2, w, rh, 56); g.fill();
+      g.fillStyle = ["#2f6fd0", "#e5484d", "#7a5cff", "#f0a020"][i % 4]; g.beginPath(); g.arc(-w / 2 + 58, 0, 40, 0, Math.PI * 2); g.fill();
+      g.fillStyle = "#fff"; g.font = '900 44px "Montserrat"'; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("ABCD"[i], -w / 2 + 58, 3);
+      g.fillStyle = rv > .5 && ok ? "#fff" : "#1d2250"; g.font = `900 ${fs}px "Montserrat"`; g.fillText(t, 4, 3);
+      if (rv > 0 && ok) { g.strokeStyle = "#fff"; g.lineWidth = 14; g.lineCap = "round"; g.lineJoin = "round"; const s2 = easeBack(rv);
+        g.beginPath(); g.moveTo(w / 2 - 92, 2); g.lineTo(w / 2 - 70 , 24 * s2); g.lineTo(w / 2 - 36, -26 * s2); g.stroke(); }
+      g.restore(); });
+    g.restore(); return true; }
+
   // ---------- three.js Grundgerüst ----------
   const cv3 = document.createElement("canvas"); cv3.width = W; cv3.height = H;
   const R3 = new T.WebGLRenderer({ canvas: cv3, antialias: true, preserveDrawingBuffer: true });
@@ -193,7 +210,7 @@
   function begin(which) { if (!built) build(); hideAll(); world(which); }
   const place = (o, x, z, ry) => { o.root.visible = true; o.root.position.set(x, 0, z); o.root.rotation.y = ry || 0; };
 
-  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, infoCard, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn,
+  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, infoCard, quizTiles, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn,
     onBuild(f) { builders.push(f); }, get rudi() { return rudi; }, get yard() { return yard; }, get studio() { return studio; },
     get zoom() { return ZK; }, set zoom(z) { ZK = z; } };
 })();
