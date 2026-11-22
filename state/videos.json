@@ -823,5 +823,29 @@
   },
   "youtube_titel": "Why Won't My Cat Drink From Her Water Bowl? 🐱 #shorts",
   "opener_stil": "gameshow"
+ },
+ {
+  "datum": "2026-11-22T10:40:00+01:00",
+  "thema": "Hamsterwatte ist eine Falle (Comedy-Story, 3D, zweisprachig, Opener-Stil wetterbericht): flauschige Nestwatte (Watte, Kapok, Bambusflausch) trennt sich in dünne Fäden, die kaum reißen; Hamster verheddern sich, Fäden schnüren Beinchen ab bis zum Durchblutungsverlust, Amputation oder Einschläfern (RSPCA 'loss of circulation in tangled limbs resulting in amputation'); gefressen lebensgefährlicher Darmverschluss, oft als 'hamstersicher' verkauft (PDSA 'often marketed as safe for hamsters'); Woodgreen: Backentaschen-Vorfall; Wetterbericht 'Hamsterkäfig: 100 % Schnee' -> Rudi glaubt, Hamster friert, kippt Kuschelwatte rein (Backen voll) -> Faden am Bein, Rudis Lösung Schneekanone (Watteberg); Pointe 'Kuschelnest... Schneekugel'; Tipp: einfaches unparfümiertes Klopapier und Heu, tiefe Einstreu 25 cm (PDSA)",
+  "titel": "Why Fluffy Hamster Bedding Is A Trap",
+  "titel_de": "Warum Hamsterwatte eine Falle ist",
+  "youtube_titel": "Is Fluffy Bedding Safe For Hamsters? 🐹 #shorts",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-22T18:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=7729572003706521400",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-358872890370471010",
+  "quelle": "RSPCA, PDSA",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "opener_stil": "wetterbericht",
+  "dauer_s": {
+   "de": 42.6,
+   "en": 35.5
+  }
  }
 ]

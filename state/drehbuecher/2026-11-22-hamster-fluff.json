@@ -1,0 +1,30 @@
+{
+ "titel": "Why Fluffy Hamster Bedding Is A Trap",
+ "titel_de": "Warum Hamsterwatte eine Falle ist",
+ "thumbnail": "Cozy... or *deadly?*",
+ "thumbnail_de": "Kuschelig... oder *gefährlich?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY A\nTRAP?",
+ "hook_de": "WARUM\nFALLE?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "wetterbericht",
+ "sceneFile": "2026-11-22-hamster-fluff-szenen.js",
+ "beats": [
+  {"say": "Why is that fluffy hamster bedding... actually a *trap?*", "say_de": "Warum ist flauschige Hamsterwatte eigentlich eine *Falle?*", "scene": {"shot": "fHook"}, "sfx": "boom"},
+  {"say": "And now, the weather in Rudi's hamster cage: one hundred percent *snow.*", "say_de": "Und jetzt das Wetter im Hamsterkäfig: hundert Prozent *Schneefall.*", "scene": {"shot": "fWeather"}, "sfx": "whoosh"},
+  {"say": "Rudi thinks his hamster is *freezing.* So, fluffy bedding! The hamster stuffs its cheeks.", "say_de": "Rudi glaubt, sein Hamster *friert.* Also Kuschelwatte! Der stopft sich die Backen voll.", "scene": {"shot": "fCheeks"}, "sfx": "squish"},
+  {"say": "Next morning, a thread is wrapped around its *leg.* Rudi's fix? More fluff. With a *snow cannon.*", "say_de": "Am Morgen hängt ein Faden am *Bein.* Rudis Lösung? Mehr Watte. Mit der *Schneekanone.*", "scene": {"shot": "fCannon"}, "sfx": "boom"},
+  {"say": "These fibers barely tear. They wrap around tiny legs and cut off the *blood.*", "say_de": "Die Fasern reißen kaum. Sie wickeln sich um Beinchen und schnüren das *Blut* ab.", "scene": {"shot": "fLeg"}, "sfx": "whoosh"},
+  {"say": "And the craziest part? The RSPCA warns it can end in *amputation.*", "say_de": "Und jetzt kommt's: Tierschützer warnen, das kann mit einer *Amputation* enden.", "sprich": "And the craziest part? The R S P C A warns it can end in amputation.", "scene": {"shot": "fAmp"}, "sfx": "boom"},
+  {"say": "And if it's swallowed, it can block the gut. That's *life-threatening.*", "say_de": "Und gefressen kann sie den Darm verstopfen. Das ist *lebensgefährlich.*", "scene": {"shot": "fGut"}, "sfx": "whoosh"},
+  {"say": "The wild part? Some bags even say *hamster-safe.*", "say_de": "Das Absurde? Auf manchen Tüten steht sogar *hamstersicher.*", "scene": {"shot": "fBag"}, "sfx": "boom"},
+  {"say": "Rudi wanted a cozy nest... and built a *snow globe.*", "say_de": "Rudi wollte ein Kuschelnest... und hat eine *Schneekugel* gebaut.", "scene": {"shot": "fPunch"}, "sfx": "soft"},
+  {"say": "Use plain toilet paper and hay. Your hamster rips it up and builds its own *nest.*", "say_de": "Nimm einfaches Klopapier und Heu. Dein Hamster zupft sich sein *Nest* selbst.", "scene": {"shot": "fTip"}, "sfx": "whoosh"},
+  {"say": "So before you buy that fluffy stuff, ask yourself...", "say_de": "Also, bevor du das Flauschzeug kaufst, frag dich...", "scene": {"shot": "fLoop"}, "sfx": "soft"}
+ ]
+}
