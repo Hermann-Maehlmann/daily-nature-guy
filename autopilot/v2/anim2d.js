@@ -54,7 +54,7 @@
   function bloom() {
     if (!bloom.c) { bloom.c = document.createElement("canvas"); bloom.c.width = W / 4; bloom.c.height = H / 4; bloom.x = bloom.c.getContext("2d"); }
     const x = bloom.x; x.filter = "none"; x.clearRect(0, 0, W / 4, H / 4); x.filter = "brightness(1.4) contrast(1.6) blur(6px)"; x.drawImage(out, 0, 0, W / 4, H / 4);
-    g.setTransform(1, 0, 0, 1, 0, 0); g.save(); g.globalCompositeOperation = "screen"; g.globalAlpha = KZ.bloomAmt ?? .2; g.imageSmoothingQuality = "high"; g.drawImage(bloom.c, 0, 0, W, H); g.restore();
+    g.setTransform(1, 0, 0, 1, 0, 0); g.save(); g.globalCompositeOperation = "screen"; g.globalAlpha = window.KZ.bloomAmt ?? .2; g.imageSmoothingQuality = "high"; g.drawImage(bloom.c, 0, 0, W, H); g.restore();
   }
 
   // ---------------- Licht-Technik wie in gezeichneten Erklärfilmen ----------------
@@ -296,7 +296,15 @@
     function frame(t) {
       let bi = beats.findIndex((b) => t < b.t1); if (bi < 0) bi = beats.length - 1; TT = t;
       const b = beats[bi]; g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none";
-      const fn = SHOTS[spec.beats[bi].scene.shot]; if (!fn) throw new Error("Shot fehlt: " + spec.beats[bi].scene.shot); fn(t - b.t0, b.t1 - b.t0, t);
+      const fn = SHOTS[spec.beats[bi].scene.shot]; if (!fn) throw new Error("Shot fehlt: " + spec.beats[bi].scene.shot);
+      // Bewegungsunschärfe (3D-Look v3, Hermann 23.11.2026: "flüssiger"): mehrere Zwischenbilder innerhalb einer halben Bilddauer
+      // mitteln, wie bei einer echten Kamera mit Verschlusszeit. Nie über einen Schnitt hinweg (Zwischenzeiten bleiben im Beat).
+      const nSub = spec.mblur ?? (window.K3 && window.K3.look >= 2 ? 2 : 1);
+      if (nSub > 1) { // Vor-Zwischenbilder rechnen nur das 3D-Bild (kit3d.draw merkt es sich), Texte/Stempel kommen nur aus dem letzten Bild -> bleiben scharf
+        window.__MB = { n: nSub, k: 0 }; for (let k = 0; k < nSub - 1; k++) { const tk = Math.max(b.t0, t - (nSub - 1 - k) / (nSub - 1) * (.5 / 30)); TT = tk; window.__MB.k = k;
+          g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; fn(tk - b.t0, b.t1 - b.t0, tk); }
+        window.__MB.k = nSub - 1; TT = t; g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; fn(t - b.t0, b.t1 - b.t0, t); window.__MB = null; }
+      else fn(t - b.t0, b.t1 - b.t0, t);
       if (!spec.beats[bi].scene.noFg && spec.fg !== false) foreground(t, t * 30);
       bloom(); grain();
       g.setTransform(1, 0, 0, 1, 0, 0);

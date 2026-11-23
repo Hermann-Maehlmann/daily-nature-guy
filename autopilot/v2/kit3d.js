@@ -65,67 +65,20 @@
 
   const hemi = new T.HemisphereLight(0xcfe8ff, 0xe9b98a, .75); scene.add(hemi);
   const key = new T.DirectionalLight(0xfff0d8, 1.7); key.position.set(4, 7, 5); key.castShadow = true;
-  key.shadow.mapSize.set(2048, 2048); Object.assign(key.shadow.camera, { left: -5, right: 5, top: 5, bottom: -5, near: .5, far: 40 }); key.shadow.radius = 4; key.shadow.bias = -.0004; key.shadow.normalBias = .02;
+  key.shadow.mapSize.set(2048, 2048); Object.assign(key.shadow.camera, { left: -5, right: 5, top: 5, bottom: -5, near: .5, far: 30 }); key.shadow.radius = 4; key.shadow.bias = -.0006;
   scene.add(key); scene.add(key.target);
   const rimL = new T.DirectionalLight(0xa8d4ff, .9); rimL.position.set(-4, 4, -5); scene.add(rimL);
   const fill = new T.PointLight(0xffc89a, .35, 20); fill.position.set(2, 2, 6); scene.add(fill);
 
-  // ---------- Look v2 (Hermann 22.11.2026: "Animation nochmal besser hinbekommen") ----------
-  // Vorher wirkte alles blass und flach (Plastik ohne Glanz, Figuren schwebten, Hintergrund genauso scharf wie das Motiv).
-  // 1) Studio-Umgebungslicht (PMREM): weiche Glanzlichter und Reflexe auf allen Materialien, Formen wirken rund.
-  // 2) Licht: weniger flaches Himmelslicht, kräftigeres Hauptlicht mit Schatten, die der Kamera folgen (schärfer).
-  // 3) Kontaktschatten: weicher dunkler Fleck unter jeder Figur, die auf dem Boden steht (keine schwebenden Figuren mehr).
-  // 4) Tiefenschärfe wie bei einer echten Kamera (Motiv scharf, Hintergrund/Vordergrund weich) + leichte Farbkorrektur.
-  // Ein-/Ausschalten nur zum Vergleich: K3.look = 1 (alt) / 2 (neu, Standard). Szenen müssen nichts ändern.
-  let LOOK = window.K3_LOOK || 2;
-  const envTex = (() => { const s = new T.Scene(), geo = new T.SphereGeometry(10, 32, 16), cols = [], p = geo.attributes.position;
-    for (let i = 0; i < p.count; i++) { const y = p.getY(i) / 10, c = new T.Color(0x8a7a6c).lerp(new T.Color(0xe8f2ff), (y + 1) / 2); cols.push(c.r, c.g, c.b); }
-    geo.setAttribute("color", new T.Float32BufferAttribute(cols, 3)); s.add(new T.Mesh(geo, new T.MeshBasicMaterial({ vertexColors: true, side: T.BackSide })));
-    const panel = (x, y, z, w, h, v) => { const m = new T.Mesh(new T.PlaneGeometry(w, h), new T.MeshBasicMaterial({ color: new T.Color(v, v, v * .96), side: T.DoubleSide })); m.position.set(x, y, z); m.lookAt(0, 0, 0); s.add(m); };
-    panel(4, 7, 5, 5, 5, 3.2); panel(-6, 3, -5, 3, 6, 1.4); panel(0, 9, 0, 8, 8, 1.1); panel(6, 1, 2, 2, 5, .9);
-    const pm = new T.PMREMGenerator(R3); const t = pm.fromScene(s, .02).texture; pm.dispose(); return t; })();
-  const ENV_I = .42;
-  // Kontaktschatten (weicher Fleck unter Figuren am Boden)
-  const blobTex = (() => { const c = document.createElement("canvas"); c.width = c.height = 128; const x = c.getContext("2d"), r = x.createRadialGradient(64, 64, 0, 64, 64, 64);
-    r.addColorStop(0, "rgba(0,0,0,1)"); r.addColorStop(.45, "rgba(0,0,0,.55)"); r.addColorStop(1, "rgba(0,0,0,0)"); x.fillStyle = r; x.fillRect(0, 0, 128, 128); return new T.CanvasTexture(c); })();
-  const blobMat = new T.MeshBasicMaterial({ map: blobTex, transparent: true, opacity: .42, depthWrite: false, color: 0x2a1a30, fog: false });
-  const blobs = []; function blobAt(i) { if (!blobs[i]) { const m = new T.Mesh(new T.PlaneGeometry(1, 1), blobMat); m.rotation.x = -PI / 2; m.renderOrder = -1; scene.add(m); blobs[i] = m; } return blobs[i]; }
-  // Tiefenschärfe: Tiefe in eigenen Puffer, dann Weichzeichnen je nach Abstand zur Schärfe-Ebene (Kamera-Ziel)
-  const rtD = new T.WebGLRenderTarget(W, H, { minFilter: T.NearestFilter, magFilter: T.NearestFilter, stencilBuffer: true });
-  const depthMat = new T.MeshDepthMaterial({ depthPacking: T.RGBADepthPacking });
-  const rtC = new T.WebGLMultisampleRenderTarget(W, H, { encoding: T.sRGBEncoding, stencilBuffer: true /* 24-Bit-Tiefe, sonst Flimmern an Kanten */ }); rtC.samples = 4; const colTex = rtC.texture;
-  const dofMat = new T.ShaderMaterial({ toneMapped: false, depthTest: false, depthWrite: false,
-    uniforms: { tC: { value: colTex }, tD: { value: rtD.texture }, focus: { value: 10 }, k: { value: 16 }, maxR: { value: 12 }, near: { value: .1 }, far: { value: 120 }, px: { value: new T.Vector2(1 / W, 1 / H) }, sat: { value: 1.14 }, con: { value: 1.08 }, aoR: { value: 16 }, aoS: { value: .45 } },
-    vertexShader: "varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }",
-    defines: { DOF_N: 16, AO_N: 10 },
-    fragmentShader: `#include <packing>
-      uniform sampler2D tC, tD; uniform float focus, k, maxR, near, far, sat, con, aoR, aoS; uniform vec2 px; varying vec2 vUv;
-      float dist(vec2 uv) { float d = unpackRGBAToDepth(texture2D(tD, uv)); if (d > .9999) return 1e4; return (near * far) / (far - d * (far - near)); }
-      float coc(float z) { return clamp((abs(1. - focus / z) - .15) * k, 0., maxR); /* ±15 % um die Schärfe-Ebene bleibt scharf */ }
-      void main() {
-        float z0 = dist(vUv), c0 = coc(z0); vec3 acc = texture2D(tC, vUv).rgb; float wsum = 1.;
-        if (c0 > .7) { for (int i = 1; i < DOF_N; i++) { float fi = float(i), r = sqrt(fi / float(DOF_N)) * c0, a = fi * 2.39996;
-            vec2 o = vec2(cos(a), sin(a)) * r * px; float zs = dist(vUv + o), cs = coc(zs);
-            float w = zs < z0 - .2 ? clamp(cs / max(r, .5), 0., 1.) : 1.; // scharfes Motiv nicht in den Hintergrund verschmieren
-            acc += texture2D(tC, vUv + o).rgb * w; wsum += w; } }
-        vec3 c = acc / wsum;
-        // Umgebungsverdeckung (weiche Abdunklung in Ecken, Falten, unter Figuren)
-        if (z0 < 24.) { float occ = 0., R = aoR / z0 * 10.; for (int i = 0; i < AO_N; i++) { float fi = float(i) + .5, a = fi * 2.39996 + z0 * 7.;
-            vec2 o = vec2(cos(a), sin(a)) * R * sqrt(fi / float(AO_N)) * px; float dz = z0 - dist(vUv + o);
-            occ += clamp((dz - .02) / .15, 0., 1.) * (1. - smoothstep(.2, .45, dz)); }
-          c *= 1. - aoS * occ / float(AO_N) * (1. - smoothstep(14., 24., z0)); }
-        c = (c - .5) * con + .5; float l = dot(c, vec3(.2126, .7152, .0722)); c = mix(vec3(l), c, sat);
-        gl_FragColor = vec4(clamp(c, 0., 1.), 1.); }` });
-  const dofQuad = new T.Mesh(new T.PlaneGeometry(2, 2), dofMat); dofQuad.frustumCulled = false; const dofScene = new T.Scene(); dofScene.add(dofQuad); const dofCam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-  const camTarget = new T.Vector3(0, 1, 0);
-
   function canvasTex(w, h, draw) { const c = document.createElement("canvas"); c.width = w; c.height = h; draw(c.getContext("2d"), w, h); const t = new T.CanvasTexture(c); t.encoding = T.sRGBEncoding; t.anisotropy = 4; return t; }
-  // ---------- Abgerundete Kanten (Look v2) ----------
-  // Echte Spielzeuge/Knetfiguren haben keine messerscharfen Kanten. Jede Box bekommt eine kleine Rundung, die das Licht fängt
-  // (heller Saum an den Kanten = sofort hochwertiger). mesh(BOX, ...) rundet passend zur Skalierung, new T.BoxGeometry(w, h, d) ebenso.
+  // ---------- Look v3 (Hermann 23.11.2026: "nicht mehr Details, einfach etwas besser aussehen, flüssiger, Basics wie Augen") ----------
+  // Bewusst schlicht: gleiche Figuren und Farben wie bisher, nur sauberer: Augen schauen zusammen in eine Richtung, Kanten leicht gerundet,
+  // weicher Bodenschatten unter Figuren, klarere Farben, Bewegungsunschärfe (anim2d.js). Kein Weichzeichner, keine Extra-Deko.
+  // Nur zum Vergleich: LOOK=1 node autopilot/v2/render5.js ... rendert den alten Look.
+  const LOOK = window.K3_LOOK || 2;
   const _Box = T.BoxGeometry, rbCache = new Map();
   function roundBox(w, h, d, sx, sy, sz) { sx = Math.abs(sx || 1); sy = Math.abs(sy || 1); sz = Math.abs(sz || 1);
-    const dims = [w, h, d], sc = [sx, sy, sz], world = dims.map((v, i) => v * sc[i]), r = Math.min(.07, Math.min(...world) * .16);
+    const dims = [w, h, d], sc = [sx, sy, sz], world = dims.map((v, i) => v * sc[i]), r = Math.min(.05, Math.min(...world) * .12);
     const key = [w, h, d, sx, sy, sz].map((v) => v.toFixed(3)).join(); if (rbCache.has(key)) return rbCache.get(key);
     const N = 8, geo = new _Box(w, h, d, N, N, N); if (!(r > 1e-4)) { rbCache.set(key, geo); return geo; }
     const rl = dims.map((v, i) => Math.min(r / sc[i], v * .45)), prof = [0, .3, .7, 1];
@@ -137,7 +90,22 @@
       P.setXYZ(j, v[0], v[1], v[2]); const nx = o[0] * sx, ny = o[1] * sy, nz = o[2] * sz, nl = Math.hypot(nx, ny, nz) || 1; Nn.setXYZ(j, nx / nl, ny / nl, nz / nl); }
     rbCache.set(key, geo); return geo; }
   if (LOOK >= 2) { T.BoxGeometry = function (w, h, d) { return roundBox(w ?? 1, h ?? 1, d ?? 1); }; T.BoxGeometry.prototype = _Box.prototype; }
-  const M = (col, o) => { const m = new T.MeshStandardMaterial(Object.assign({ color: col, roughness: .55, metalness: 0 }, o || {})); m.color.convertSRGBToLinear(); if (m.emissive) m.emissive.convertSRGBToLinear(); return m; };
+  // weicher Kontaktschatten unter Figuren am Boden (figur.noBlob = true schaltet ihn ab)
+  const blobTex = (() => { const c = document.createElement("canvas"); c.width = c.height = 128; const x = c.getContext("2d"), r = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+    r.addColorStop(0, "rgba(0,0,0,1)"); r.addColorStop(.5, "rgba(0,0,0,.45)"); r.addColorStop(1, "rgba(0,0,0,0)"); x.fillStyle = r; x.fillRect(0, 0, 128, 128); return new T.CanvasTexture(c); })();
+  const blobMat = new T.MeshBasicMaterial({ map: blobTex, transparent: true, opacity: .3, depthWrite: false, color: 0x2a1a30, fog: false });
+  const blobs = []; function blobAt(i) { if (!blobs[i]) { const m = new T.Mesh(new T.PlaneGeometry(1, 1), blobMat); m.rotation.x = -PI / 2; m.renderOrder = -1; scene.add(m); blobs[i] = m; } return blobs[i]; }
+  // Look v3 (Hermann 23.11.2026: "darf nicht so nach KI aussehen"): matte Knet-Oberfläche statt glattem Plastik.
+  // Etwas rauer und eine ganz feine, unregelmäßige Oberflächenstruktur (wie von Hand geknetet). Glänzend bleiben nur Augen, Metall, Wasser
+  // (alles, was mit roughness < .3 angelegt wird) und Flächen mit eigener Textur.
+  const clayTex = LOOK >= 2 ? (() => { const c = document.createElement("canvas"); c.width = c.height = 256; const x = c.getContext("2d"); x.fillStyle = "#808080"; x.fillRect(0, 0, 256, 256);
+    let sd = 7; const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+    for (let i = 0; i < 700; i++) { const r = 3 + rnd() * 14, X = rnd() * 256, Y = rnd() * 256, v = rnd() > .5 ? 255 : 0; for (const [dx, dy] of [[0, 0], [256, 0], [-256, 0], [0, 256], [0, -256]]) {
+      const gr = x.createRadialGradient(X + dx, Y + dy, 0, X + dx, Y + dy, r); gr.addColorStop(0, `rgba(${v},${v},${v},.10)`); gr.addColorStop(1, `rgba(${v},${v},${v},0)`); x.fillStyle = gr; x.fillRect(X + dx - r, Y + dy - r, 2 * r, 2 * r); } }
+    const t = new T.CanvasTexture(c); t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(2, 2); return t; })() : null;
+  const M = (col, o) => { o = o || {}; const clay = LOOK >= 2 && !o.map && (o.roughness ?? .55) >= .3 && !(o.metalness > .3);
+    const m = new T.MeshStandardMaterial(Object.assign({ color: col, roughness: .55, metalness: 0 }, o, clay ? { roughness: Math.min(.92, (o.roughness ?? .55) + .15), bumpMap: clayTex, bumpScale: .006 } : {}));
+    m.color.convertSRGBToLinear(); if (m.emissive) m.emissive.convertSRGBToLinear(); return m; };
   function mesh(geo, mat, x, y, z, sx, sy, sz) { if (geo === BOX && LOOK >= 2) geo = roundBox(1, 1, 1, sx ?? 1, sy ?? sx ?? 1, sz ?? sx ?? 1); const m = new T.Mesh(geo, mat); m.position.set(x || 0, y || 0, z || 0); m.scale.set(sx ?? 1, sy ?? sx ?? 1, sz ?? sx ?? 1); m.castShadow = true; m.receiveShadow = true; return m; }
   const SPH = new T.SphereGeometry(1, 48, 32), CYL = new T.CylinderGeometry(1, 1, 1, 32), BOX = new _Box(1, 1, 1);
   const sph = (mat, x, y, z, sx, sy, sz) => mesh(SPH, mat, x, y, z, sx, sy, sz);
@@ -171,20 +139,10 @@
     yard.add(mesh(BOX, M(0xfff8ee), 0, .85, -6.05, 16, .1, .05)); yard.add(mesh(BOX, M(0xfff8ee), 0, .4, -6.05, 16, .1, .05));
     const fc = [0xff6b8a, 0xffd23f, 0xffffff, 0xb08cff];
     for (let i = 0; i < 26; i++) { const a = i * 2.4, r = 3 + (i % 5) * .7; const x = Math.cos(a) * r, z = Math.sin(a) * r - 2.5; if (z > 0 && Math.abs(x) < 2.5) continue; yard.add(sph(M(fc[i % 4]), x, .09, z, .09)); }
-    // Look v2: Tiefe im Hintergrund (sanfte Hügel, Baumgruppen, Wolken) statt leerer Horizont; wird von Nebel + Tiefenschärfe weich
-    if (LOOK >= 2) { const far = new T.Group(); yard.add(far); const hillM = [M(0x8fcf6a, { roughness: 1 }), M(0x7cc160, { roughness: 1 }), M(0x9ad87a, { roughness: 1 })];
-      for (let i = 0; i < 9; i++) { const a = -PI / 2 + (i - 4) * .32, r = 26 + (i % 3) * 3; far.add(sph(hillM[i % 3], Math.cos(a) * r, -1.2, Math.sin(a) * r, 6 + (i % 4) * 1.6, 3 + (i % 3) * .9, 5)); }
-      for (let i = 0; i < 14; i++) { const a = -PI / 2 + (i - 7) * .17, r = 30 + (i % 4) * 2, x = Math.cos(a) * r, z = Math.sin(a) * r;
-        const tr = .75 + (i % 3) * .2; far.add(mesh(CYL, M(0x7a5236), x, .6 * tr, z, .12 * tr, 1.2 * tr, .12 * tr)); far.add(sph(M([0x3f9a44, 0x4fae4a, 0x5d9e3e][i % 3]), x, 1.6 * tr, z, .8 * tr, 1 * tr, .8 * tr)); }
-      const cloudM = M(0xffffff, { roughness: 1, emissive: 0xffffff, emissiveIntensity: .25 });
-      for (const [x, y, z] of [[-12, 11, -32], [9, 13, -34], [22, 10, -26], [-24, 12, -24]]) { const c = new T.Group(); c.position.set(x, y, z); far.add(c);
-        for (const [dx, dy, s2] of [[0, 0, 2.2], [2, -.4, 1.6], [-2.1, -.5, 1.5], [.9, .9, 1.4]]) c.add(sph(cloudM, dx, dy, 0, s2, s2 * .75, s2 * .6)); }
-      far.traverse((o) => { if (o.isMesh) o.castShadow = false; }); }
     // Studio (Infografiken)
     studio = new T.Group(); scene.add(studio);
     const pedestal = mesh(new T.CylinderGeometry(1.5, 1.6, .3, 64), M(0xff6f61, { roughness: .35 }), 0, -.15, 0); studio.add(pedestal);
-    const spotTex = canvasTex(512, 512, (c, w, h) => { const r = c.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, w / 2); r.addColorStop(0, LOOK >= 2 ? "#4a55b8" : "#1a1f55"); r.addColorStop(.35, LOOK >= 2 ? "#262c78" : "#1a1f55"); r.addColorStop(1, "#141849"); c.fillStyle = r; c.fillRect(0, 0, w, h); });
-    const floorS = new T.Mesh(new T.CircleGeometry(30, 64), M(0xffffff, { roughness: .45, map: spotTex })); floorS.rotation.x = -PI / 2; floorS.position.y = -.3; floorS.receiveShadow = true; studio.add(floorS);
+    const floorS = new T.Mesh(new T.CircleGeometry(30, 64), M(0x1a1f55, { roughness: .6 })); floorS.rotation.x = -PI / 2; floorS.position.y = -.3; floorS.receiveShadow = true; studio.add(floorS);
     for (let i = 0; i < 40; i++) { const a = i * 1.7, r = 4 + (i % 7) * 1.3; studio.add(sph(M(0xffffff, { emissive: 0x8fa0ff, emissiveIntensity: .6 }), Math.cos(a) * r, 1 + (i % 5) * 1.1, Math.sin(a) * r - 4, .04 + (i % 3) * .02)); }
     rudi = actor(makeRudi(), "Rudi");
     builders.forEach((f) => f());
@@ -195,22 +153,22 @@
     const yel = M(0xffc928, { roughness: .4 }), jeans = M(0x3b6db3, { roughness: .8 }), skin = M(0xf3c39d), red = M(0xe23b3b, { roughness: .7 }), shoe = M(0x5a3a2a), eyeW = M(0xffffff, { roughness: .15 }), pupil = M(0x161018, { roughness: .1 });
     const metal = M(0xc5ced8, { metalness: .9, roughness: .28 });
     const root = new T.Group(), body = new T.Group(); root.add(body);
-    const legs = []; for (const s of [-1, 1]) { const l = limb(.1, .62, jeans); l.position.set(0, .7, s * .13); const sh = sph(shoe, .08, -.64, 0, .16, .09, .115); l.add(sh); l.add(mesh(CYL, M(0xf2ece0, { roughness: .8 }), .08, -.715, 0, .16, .03, .115)); body.add(l); legs.push(l); }
-    // Look v2: Mantel als gedrehte Kurve (leicht ausgestellter Saum, runder Bauch, weiche Schultern) statt glattem Kegel
-    const coatPts = [[.0, -.39], [.36, -.39], [.385, -.36], [.37, -.25], [.335, -.05], [.32, .12], [.3, .26], [.26, .33], [.17, .38], [.1, .395], [.0, .4]].map(([r, y]) => new T.Vector2(r, y));
-    const coatG = new T.LatheGeometry(coatPts, 48); const coat = mesh(coatG, yel, 0, 1.02, 0); body.add(coat);
-    const shoulders = sph(yel, 0, 1.36, 0, .27, .1, .29); body.add(shoulders);
-    body.add(mesh(new T.CylinderGeometry(.075, .085, .14, 24), skin, 0, 1.46, 0)); // Hals
+    const legs = []; for (const s of [-1, 1]) { const l = limb(.1, .62, jeans); l.position.set(0, .7, s * .13); const sh = sph(shoe, .07, -.64, 0, .14, .08, .1); l.add(sh); body.add(l); legs.push(l); }
+    const coatG = new T.CylinderGeometry(.27, .37, .78, 40); const coat = mesh(coatG, yel, 0, 1.02, 0); body.add(coat);
+    const shoulders = sph(yel, 0, 1.38, 0, .29, .14, .31); body.add(shoulders);
     for (let i = 0; i < 3; i++) body.add(sph(M(0x2b62c9), .3 - i * .012, 1.25 - i * .18, 0, .03));
-    // Look v2: Ärmel mit leicht ausgestelltem Bündchen statt Rohr
-    const sleeveG = new T.LatheGeometry([[0, -.585], [.06, -.585], [.085, -.585], [.094, -.56], [.088, -.5], [.078, -.3], [.08, -.08], [.07, .02], [0, .02]].map(([r, y]) => new T.Vector2(r, y)), 32);
-    const arms = []; for (const s of [-1, 1]) { const a = limb(.075, .56, yel); a.geometry = sleeveG; a.position.set(0, 1.36, s * .33); const hand = sph(skin, 0, -.63, 0, .1, .095, .085); hand.add(sph(skin, .55, .25, -s * .55, .38, .5, .38)); /* Fäustling mit Daumen, Hand bleibt letztes Kind des Arms */ a.add(hand); body.add(a); arms.push(a); }
+    const arms = []; for (const s of [-1, 1]) { const a = limb(.075, .56, yel); a.position.set(0, 1.36, s * .33); const hand = sph(skin, 0, -.62, 0, .085); a.add(hand); body.add(a); arms.push(a); }
     const head = new T.Group(); head.position.set(0, 1.74, 0); body.add(head);
     head.add(sph(skin, 0, 0, 0, .31));
     head.add(sph(skin, .29, -.02, 0, .06, .055, .06));
-    // Look v2: Ohren und rosige Wangen
-    for (const s of [-1, 1]) { head.add(sph(skin, -.02, -.01, s * .3, .05, .075, .04)); head.add(sph(M(0xff8f8f, { roughness: .9, transparent: true, opacity: .55 }), .245, -.1, s * .17, .03, .045, .06)); }
-    const eyes = []; for (const s of [-1, 1]) { const e = new T.Group(); e.position.set(.25, .06, s * .11); head.add(e); e.add(sph(eyeW, 0, 0, 0, .085, .1, .085)); e.add(sph(pupil, .06, 0, 0, .048)); e.add(sph(M(0xffffff, { emissive: 0xffffff }), .1, .03, -.01 * s, .014)); eyes.push(e); }
+    const eyes = []; for (const s of [-1, 1]) { const e = new T.Group(); e.position.set(.25, .06, s * .11); head.add(e);
+      if (LOOK < 2) { e.add(sph(eyeW, 0, 0, 0, .085, .1, .085)); e.add(sph(pupil, .06, 0, 0, .048)); e.add(sph(M(0xffffff, { emissive: 0xffffff }), .1, .03, -.01 * s, .014)); }
+      else { // Look v3: Auge sitzt flacher im Gesicht, Pupille als Scheibe vorn auf dem Augapfel, beide Pupillen schauen leicht zur Mitte (kein Silberblick),
+        // Glanzpunkt bei beiden Augen auf derselben Seite (oben, zum Licht)
+        e.position.set(.232, .06, s * .112); e.rotation.y = s * .32; // Auge folgt der Kopfrundung
+        e.add(sph(eyeW, 0, 0, 0, .07, .1, .082)); const pv = new T.Group(); pv.rotation.y = -s * .2; e.add(pv); // Pupille zur Nase gedreht
+        pv.add(sph(pupil, .05, 0, 0, .03, .06, .054)); pv.add(sph(M(0xffffff, { emissive: 0xffffff }), .074, .026, .016, .012, .016, .016)); }
+      eyes.push(e); }
     const smile = mesh(new T.TorusGeometry(.08, .016, 8, 24, PI), M(0x6a2a20), .27, -.13, 0); smile.rotation.set(0, PI / 2, PI); head.add(smile);
     const oMouth = sph(M(0x5a1a22), .28, -.14, 0, .03, .05, .045); head.add(oMouth);
     // Mütze sitzt OBERHALB der Augen (Augen-Oberkante y ≈ .16, Mützenrand ab y ≈ .17), Hermann 16.11.2026
@@ -267,13 +225,13 @@
     camera.updateMatrixWorld(); vis.forEach((a, i) => { const b = bs[i]; let x0 = 1e9, x1 = -1e9;
       for (let k = 0; k < 8; k++) { _v.set(k & 1 ? b.max.x : b.min.x, k & 2 ? b.max.y : b.min.y, k & 4 ? b.max.z : b.min.z).project(camera); if (_v.z > 1) continue; const x = (_v.x + 1) / 2 * W; x0 = Math.min(x0, x); x1 = Math.max(x1, x); }
       if (x1 - x0 < W * .8 && (x0 < SAFE.l || x1 > SAFE.r)) warn("außerhalb der sicheren Zone: " + a.name + " ragt " + (x0 < SAFE.l ? "links aus dem Bild" : "rechts in die TikTok/YouTube-Buttons") + " (x " + Math.round(x0) + "–" + Math.round(x1) + ", erlaubt " + SAFE.l + "–" + SAFE.r + ")"); });
-    return { boxes };
+    return boxes;
   }
   function hideAll() { actors.forEach((a) => a.root.visible = false); }
   let ZK = 2.2; // Hochformat ist schmal: alle Kamera-Abstände werden mit ZK gestreckt (1.9 = Figuren ganz im Bild)
   function view(px, py, pz, tx, ty, tz, fov, t) {
     const Z = ZK; px = tx + (px - tx) * Z; py = ty + (py - ty) * Z; pz = tz + (pz - tz) * Z;
-    const f = .06; camera.position.set(px + Math.sin(t * .7) * f, py + Math.cos(t * .55) * f, pz); camera.fov = fov || 32; camera.updateProjectionMatrix(); camera.lookAt(tx, ty, tz); camTarget.set(tx, ty, tz);
+    const f = .06; camera.position.set(px + Math.sin(t * .7) * f, py + Math.cos(t * .55) * f, pz); camera.fov = fov || 32; camera.updateProjectionMatrix(); camera.lookAt(tx, ty, tz);
   }
   // Auto-Kamera: frameOn([figuren], {az, el, fill, fov, dy, t}) setzt die Kamera so, dass alle genannten Figuren zusammen
   // waagrecht mittig in der sicheren Zone stehen (TikTok + YouTube Shorts) und nicht angeschnitten sind.
@@ -289,38 +247,31 @@
     // Motiv halb zwischen Bildmitte (540) und Mitte der sicheren Zone (465) setzen: wirkt mittig und bleibt frei von den Buttons
     const shiftPx = (W / 2 - (SAFE.l + SAFE.r) / 2) * .5, worldPerPx = 2 * dist * Math.tan(hf) / W; tg.add(Rv.clone().multiplyScalar(shiftPx * worldPerPx));
     const f = .05 * dist / 5; camera.position.set(tg.x + Math.sin(az) * Math.cos(el) * dist + Math.sin(t * .7) * f, tg.y + Math.sin(el) * dist + Math.cos(t * .55) * f, tg.z + Math.cos(az) * Math.cos(el) * dist);
-    camera.fov = fov; camera.updateProjectionMatrix(); camera.lookAt(tg); camTarget.copy(tg); }
-  const _ctr = new T.Vector3(), _sz = new T.Vector3(), KEYDIR = new T.Vector3(4, 7, 5).normalize();
-  function draw() {
-    const bs = check();
-    window.KZ.bloomAmt = LOOK < 2 ? .2 : .07; // Look v2: weniger milchiger Schleier
-    if (LOOK < 2) { blobs.forEach((b) => b.visible = false); key.target.position.set(0, 0, 0); key.position.set(4, 7, 5); Object.assign(key.shadow.camera, { left: -5, right: 5, top: 5, bottom: -5 }); key.shadow.camera.updateProjectionMatrix();
-      scene.environment = null; R3.render(scene, camera); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; g.drawImage(cv3, 0, 0); return; }
-    // Licht folgt dem Motiv: Schattenkarte um das Kamera-Ziel, Größe nach Kamera-Abstand -> schärfere Schatten
-    const focus = Math.max(1, camera.position.distanceTo(camTarget)), half = clamp(focus * .55, 4, 14);
-    key.target.position.set(camTarget.x, 0, camTarget.z); key.position.copy(key.target.position).addScaledVector(KEYDIR, 16);
-    Object.assign(key.shadow.camera, { left: -half, right: half, top: half, bottom: -half }); key.shadow.camera.updateProjectionMatrix();
-    // Kontaktschatten unter Figuren, die auf dem Boden stehen
-    let nb = 0; actors.forEach((a, i) => { if (!a.root.visible || a.noBlob) return; const b = bs.boxes.get(a); if (!b || b.isEmpty()) return; if (b.min.y > .25 || b.min.y < -.35) return;
-      b.getCenter(_ctr); b.getSize(_sz); const m = blobAt(nb++); m.visible = true; m.position.set(_ctr.x, Math.max(b.min.y, 0) + .012, _ctr.z); m.scale.set(_sz.x * 1.25 + .2, _sz.z * 1.25 + .2, 1); });
+    camera.fov = fov; camera.updateProjectionMatrix(); camera.lookAt(tg); }
+  const _ctr = new T.Vector3(), _sz = new T.Vector3();
+  function draw() { key.target.position.set(0, 0, 0); const boxes = check(); let nb = 0;
+    if (LOOK >= 2) { window.KZ.bloomAmt = .12; actors.forEach((a) => { if (!a.root.visible || a.noBlob) return; const b = boxes.get(a); if (!b || b.isEmpty() || b.min.y > .2 || b.min.y < -.35) return;
+      b.getCenter(_ctr); b.getSize(_sz); const m = blobAt(nb++); m.visible = true; m.position.set(_ctr.x, Math.max(b.min.y, 0) + .012, _ctr.z); m.scale.set(_sz.x * 1.15 + .15, _sz.z * 1.15 + .15, 1); }); }
     for (let i = nb; i < blobs.length; i++) blobs[i].visible = false;
-    // Licht-Mischung: Umgebung statt flachem Himmelslicht (Szenen setzen hemi.intensity weiter wie gewohnt)
-    const hemiI = hemi.intensity, keyI = key.intensity, rimI = rimL.intensity; hemi.intensity = hemiI * .45; key.intensity = keyI * 1.15; rimL.intensity = rimI * 1.7; // kräftiges Kantenlicht: Figuren lösen sich vom Hintergrund scene.environment = envTex;
-    scene.traverseVisible((o) => { const m = o.material; if (m && m.isMeshStandardMaterial && m.userData.envSet !== ENV_I) { m.envMapIntensity = ENV_I; m.userData.envSet = ENV_I; m.needsUpdate = true; } });
-    R3.setRenderTarget(rtC); R3.render(scene, camera);
-    // Tiefe (ohne Hintergrund, ohne Schatten neu zu rechnen)
-    const bg = scene.background, fog = scene.fog, sa = R3.shadowMap.autoUpdate, cc = R3.getClearColor(new T.Color()), ca = R3.getClearAlpha(); const bv = blobs.map((b) => b.visible);
-    scene.background = null; scene.fog = null; scene.overrideMaterial = depthMat; R3.shadowMap.autoUpdate = false; blobs.forEach((b) => b.visible = false);
-    R3.setRenderTarget(rtD); R3.setClearColor(0xffffff, 1); R3.clear(); R3.render(scene, camera); R3.setRenderTarget(null);
-    scene.background = bg; scene.fog = fog; scene.overrideMaterial = null; R3.shadowMap.autoUpdate = sa; R3.setClearColor(cc, ca); blobs.forEach((b, i) => b.visible = bv[i]);
-    hemi.intensity = hemiI; key.intensity = keyI; rimL.intensity = rimI;
-    Object.assign(dofMat.uniforms.focus, { value: focus }); dofMat.uniforms.near.value = camera.near; dofMat.uniforms.far.value = camera.far;
-    R3.render(dofScene, dofCam);
-    g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; g.drawImage(cv3, 0, 0); }
+    R3.render(scene, camera); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = LOOK >= 2 ? "contrast(1.06) saturate(1.1)" : "none";
+    const mb = window.__MB; if (mb) { // Bewegungsunschärfe nur fürs 3D-Bild: Zwischenbilder mitteln, 2D-Texte danach bleiben scharf
+      if (!draw.acc) { draw.acc = document.createElement("canvas"); draw.acc.width = W; draw.acc.height = H; draw.ax = draw.acc.getContext("2d"); }
+      const ax = draw.ax; ax.globalAlpha = 1 / (mb.k + 1); ax.drawImage(cv3, 0, 0); if (mb.k === mb.n - 1) g.drawImage(draw.acc, 0, 0); }
+    else g.drawImage(cv3, 0, 0); g.filter = "none"; }
   function begin(which) { if (!built) build(); hideAll(); world(which); }
+  // Augen-Baustein für Tiere (Look v3, Hermann 23.11.2026: "die Basics müssen stimmen, wie Augen"):
+  // eye(r) -> Gruppe mit Augapfel, Pupille (Scheibe, ca. 55 % des Augapfels) und Glanzpunkt oben. Blickrichtung lokal +x.
+  // aimEyes([auge1, auge2], punkt) dreht die Pupillen beider Augen auf denselben Punkt (z. B. K3.camera.position = schaut in die Kamera,
+  // oder die Welt-Position des anderen Tiers). So schielt nichts und beide Augen schauen immer gemeinsam.
+  function eye(r, o) { o = o || {}; const e = new T.Group(), pv = new T.Group(); e.add(sph(o.white || M(0xffffff, { roughness: .15 }), 0, 0, 0, r * .9, r, r)); e.add(pv);
+    pv.add(sph(o.pupil || M(0x161018, { roughness: .1 }), r * .62, 0, 0, r * .4, r * .58, r * .55)); pv.add(sph(M(0xffffff, { emissive: 0xffffff }), r * .9, r * .28, r * .18, r * .13, r * .17, r * .17));
+    e.userData.pv = pv; return e; }
+  const _q = new T.Vector3(), _m4 = new T.Matrix4();
+  function aimEyes(list, target, max) { max = max ?? .5; list.forEach((e) => { const pv = e.userData.pv; if (!pv) return; e.updateMatrixWorld(true); _q.copy(target); e.worldToLocal(_q);
+    const yaw = clamp(Math.atan2(-_q.z, _q.x), -max, max), pitch = clamp(Math.atan2(_q.y, Math.hypot(_q.x, _q.z)), -max * .7, max * .7); pv.rotation.set(0, yaw, pitch); }); }
   const place = (o, x, z, ry) => { o.root.visible = true; o.root.position.set(x, 0, z); o.root.rotation.y = ry || 0; };
 
-  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, infoCard, quizTiles, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn,
+  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, infoCard, quizTiles, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn, eye, aimEyes,
     onBuild(f) { builders.push(f); }, get rudi() { return rudi; }, get yard() { return yard; }, get studio() { return studio; },
-    get zoom() { return ZK; }, set zoom(z) { ZK = z; }, get look() { return LOOK; }, set look(v) { LOOK = v; }, dof: dofMat.uniforms };
+    get zoom() { return ZK; }, set zoom(z) { ZK = z; }, look: LOOK };
 })();
