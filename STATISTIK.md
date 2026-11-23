@@ -62,6 +62,7 @@ YouTube: <Aufrufe> Aufrufe aus <n> Shorts (Median <x>), Ø gesehen <s> s von <l�
 🏆 Top 3: <Titel – Aufrufe – warum vermutlich>
 👎 Flop 3: <Titel – Aufrufe – warum vermutlich>
 📺 YouTube vs. TikTok: <1–2 Sätze, was dort anders läuft>
+🫳 Weggewischt: <YouTube-Median % (Ziel < 20 %), bester und schlechtester Einstieg>
 💡 Gelernt: <2–3 Punkte>
 ➡️ Nächste Woche ändert der Autopilot: <1–2 konkrete Dinge, schon in lernregeln eingetragen>
 🚀 Promote-Kandidat: <Video ≥ 3× Median ohne Werbung, oder „keiner“>
@@ -69,7 +70,8 @@ YouTube: <Aufrufe> Aufrufe aus <n> Shorts (Median <x>), Ø gesehen <s> s von <l�
 
 7. Liegt ein Video über dem 3-fachen Median, als Promote-Kandidat nennen (Hermann entscheidet selbst in der TikTok-App, Ziel „Follower“, 5 bis 10 €). Der Autopilot startet nie selbst Werbung.
 8. Fehlen Zahlen (Connector kaputt), beginnt der Bericht mit „⚠️ Hermann, bitte kümmern:“.
-9. Bindungskurve: Einmal im Monat Hermann bitten, für das beste und das schlechteste Video einen Screenshot der Bindungskurve aus TikTok Studio zu schicken, weil Metricool sie nicht liefert.
+9. **Wegwischen (seit 23.11.2026, Pflicht):** Zeile `🫳 Weggewischt: YouTube Median <x> % aus <n> Shorts (Ziel < 20 %), bester/schlechtester Einstieg` aus der Tabelle „Wegwischen“ von `stats.py`. Am Ende des Berichts Hermann bitten, für die 3 neuesten Shorts den Wert „Angesehen vs. weggewischt“ zu schicken (siehe Teil E). Noch keine Werte → nur die Bitte.
+10. Bindungskurve: Einmal im Monat Hermann bitten, für das beste und das schlechteste Video einen Screenshot der Bindungskurve aus TikTok Studio zu schicken, weil Metricool sie nicht liefert.
 
 ## C. YouTube Shorts (eigene Regeln seit 16.11.2026)
 
@@ -86,3 +88,15 @@ Stand 16.11.2026: YouTube-Zahlen gibt es erst für 3 Shorts (Enten 1.276, Goldfi
 Hermann 16.11.2026: Test, ob 3D-Animation (three.js, Spielzeug-/Knet-Look, Rudi in 3D) besser läuft als der flache 2D-Stil. Erstes 3D-Video: „A Wagging Tail Doesn't Mean Happy“ (Hund, Kategorie `haustier`, Comedy-Story, 16.11.2026 21:30 Berlin, Extra-Slot außerhalb der festen Zeiten). In `state/videos.json` haben 3D-Videos `"look": "3d"`, alle anderen gelten als `"2d"`.
 
 Im Wochenbericht eine Zeile **„🧊 3D vs. 2D“**: Aufrufe, Likes, Shares und YouTube-Ø-Sehdauer der 3D-Videos gegen den Median der 2D-Videos derselben Kategorie (`haustier`/`garten`/`haus-kueche`) aus den letzten 14 Tagen. Erst ab 3 3D-Videos von einem Muster sprechen. Achtung: Ab 16.11.2026 beginnt jedes Video mit einer „Why …?“-Frage, das ist eine zweite Änderung gleichzeitig; im Bericht erwähnen, dass beides zusammen getestet wird.
+
+## E. Wegwisch-Quote pro Video (seit 23.11.2026)
+
+Hermann 23.11.2026 („Wir müssen viral gehen“): Der Worm-Short hatte 75 % Ø Bindung, aber 28,3 % wischten im ersten Moment weg und er blieb bei ~2.000 Aufrufen. Die erste Sekunde ist deshalb jetzt Pflicht-Regel (AUTOPILOT.md „⚡ ERSTE SEKUNDE“), und wir messen, ob es wirkt. **Ziel: unter 20 % weggewischt.**
+
+- **Metricool liefert diese Zahl nicht** (geprüft 23.11.2026: weder YouTube `YTVP*` noch TikTok `TKPO*` haben „swiped away“; TikTok-Bindung `TKPO13–15` ist leer). Sie steht nur in **YouTube Studio** (Short → Analytics → „Angesehen vs. weggewischt“) und in **TikTok Studio** (Zuschauerbindung bei 1–2 s).
+- Werte kommen deshalb **von Hermann** (Screenshot oder Zahl). Jede Sitzung, die so einen Wert bekommt, trägt ihn in `state/swipe.json` ein und pusht auf `main`:
+  `{"titel": "<titel aus videos.json oder YouTube-Titel ohne #shorts>", "plattform": "youtube"|"tiktok", "angesehen_prozent": 71.7, "stand": "JJJJ-MM-TT", "quelle": "..."}`
+  Bei TikTok als `angesehen_prozent` den Bindungswert bei 2 s nehmen.
+- `stats.py` druckt dazu die Tabelle „Wegwischen in der ersten Sekunde“ mit Opener-Stil und der gemessenen Bewegung in Sekunde 1 (`erste_sekunde` aus `state/videos.json`) und speichert mit `--schreiben` den YouTube-Median als `youtube_weggewischt_median`. Ab 5 Werten im Wochenbericht prüfen, welche Opener-Stile und wie viel Bewegung unter 20 % bleiben, und das als Lernregel eintragen.
+- Bis genug Werte da sind, ist die YouTube-Spalte „Ø Sek. (%)“ der automatische Ersatz: Ø Sehdauer im Verhältnis zur Länge.
+- Ausgangswert: Worm-Short 28,3 % (12./14.11.2026, alter 2D-Stil).

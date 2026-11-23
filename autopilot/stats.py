@@ -11,7 +11,8 @@ out/yt.json = Antwort mit
 
 Ordnet jede Zeile einem Eintrag aus state/videos.json zu (TikTok ueber die
 Sendezeit, YouTube ueber den Titel), gruppiert nach Kategorie, Format und
-Uhrzeit und druckt eine Markdown-Auswertung. Mit --schreiben wird das
+Uhrzeit und druckt eine Markdown-Auswertung. Dazu die Wegwisch-Quote aus
+state/swipe.json (von Hand aus YouTube/TikTok Studio, Metricool hat sie nicht). Mit --schreiben wird das
 Ergebnis in state/statistik.json unter "auswertung" gespeichert, damit jeder
 Autopilot-Lauf es bei der Themenwahl lesen kann.
 """
@@ -82,7 +83,8 @@ def zuordnen_youtube(rows, videos, karte):
     out = []
     for r in rows:
         titel = r[1].replace("#shorts", "").strip()
-        v = next((v for v in videos if titel.startswith(v["titel"])), None)
+        v = next((v for v in videos if titel.startswith(v["titel"]) or
+                  (v.get("youtube_titel") or "").replace("#shorts", "").strip() == titel), None)
         if v is None:  # Video nicht vom Autopiloten (z. B. Enten-Brot von Hand gepostet)
             v = next(({"titel": k} for k in karte if titel.startswith(k)), None)
         out.append({
@@ -90,6 +92,39 @@ def zuordnen_youtube(rows, videos, karte):
             "views": num(r[2]), "avd": num(r[3]), "likes": num(r[4]), "comments": num(r[5]), "shares": num(r[6]),
         })
     return out
+
+
+def swipe_laden(videos):
+    """state/swipe.json: von Hand eingetragene Werte "Angesehen vs. weggewischt" (YouTube Studio)
+    bzw. Zuschauer nach 1-2 s (TikTok Studio). Metricool liefert diese Zahl nicht."""
+    pfad = ROOT / "state/swipe.json"
+    if not pfad.exists():
+        return []
+    out = []
+    for z in json.loads(pfad.read_text()):
+        v = next((v for v in videos if z["titel"].startswith(v["titel"]) or
+                  (v.get("youtube_titel") or "").startswith(z["titel"])), None)
+        out.append({**z, "video": v, "weg": round(100 - z["angesehen_prozent"], 1)})
+    return out
+
+
+def swipe_tabelle(eintraege):
+    print("\n### Wegwischen in der ersten Sekunde (Ziel: unter 20 %)\n")
+    if not eintraege:
+        print("(noch keine Werte in state/swipe.json; Hermann um Screenshots „Angesehen vs. weggewischt“ bitten)")
+        return None
+    print("| Video | Plattform | Weggewischt | Opener-Stil | Bewegung Sek. 1 | Stand |")
+    print("|---|---|---|---|---|---|")
+    for e in sorted(eintraege, key=lambda e: e["weg"]):
+        v = e["video"] or {}
+        bew = (v.get("erste_sekunde") or {}).get("bewegung", "–")
+        print(f"| {e['titel'][:40]} | {e['plattform']} | {e['weg']:.1f} % | {v.get('opener_stil', '–')} | {bew} | {e.get('stand', '')} |")
+    yt = [e["weg"] for e in eintraege if e["plattform"] == "youtube"]
+    if yt:
+        med = statistics.median(yt)
+        print(f"\nYouTube weggewischt: Median {med:.1f} % aus {len(yt)} Shorts · unter 20 %: {sum(x < 20 for x in yt)}")
+        return med
+    return None
 
 
 def gruppen(eintraege, schluessel):
@@ -111,7 +146,8 @@ def tabelle(titel, eintraege, extra):
     for e in sorted(eintraege, key=lambda e: -e["views"]):
         z = f"| {e['titel'][:40]} | {e['kat']} | {e['views']:.0f} | {e['views'] / med if med else 0:.1f} | {e['likes']:.0f} | {e['comments']:.0f} | {e['shares']:.0f} |"
         if extra:
-            z += f" {e['avd']:.0f} |"
+            d = (e["video"] or {}).get("dauer_en_s") or (e["video"] or {}).get("dauer_s")
+            z += f" {e['avd']:.0f}" + (f" ({100 * e['avd'] / d:.0f} %)" if d else "") + " |"
         print(z)
     for name, k in (("Kategorie", lambda e: e["kat"]), ("Format", lambda e: e["fmt"]), ("Sendezeit", lambda e: slot(e["zeit"]))):
         print(f"\nNach {name}: " + " · ".join(f"{a} {m:.0f} ({n} Videos)" for a, n, m in gruppen(eintraege, k)))
@@ -149,6 +185,9 @@ def main():
     if tk_jung:
         print("\nNoch zu jung fuer TikTok-Wertung: " + ", ".join(f"{e['titel']} ({e['views']:.0f})" for e in tk_jung))
 
+    swipe = swipe_laden(videos)
+    swipe_med = swipe_tabelle(swipe)
+
     vergleich = []
     for e in yt_fertig:
         t = next((x for x in tk_fertig if x["titel"] == e["titel"]), None)
@@ -166,6 +205,7 @@ def main():
             "stand": jetzt.isoformat(timespec="minutes"),
             "tiktok_median": tk_med,
             "youtube_median": yt_med,
+            "youtube_weggewischt_median": swipe_med,
             "tiktok_kategorien": [{"kategorie": k, "videos": n, "median": m} for k, n, m in gruppen(tk_fertig, lambda e: e["kat"])],
             "tiktok_formate": [{"format": k, "videos": n, "median": m} for k, n, m in gruppen(tk_fertig, lambda e: e["fmt"])],
             "youtube_kategorien": [{"kategorie": k, "videos": n, "median": m} for k, n, m in gruppen(yt_fertig, lambda e: e["kat"])],
