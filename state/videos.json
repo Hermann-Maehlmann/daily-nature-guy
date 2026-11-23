@@ -998,5 +998,36 @@
    ],
    "richtig": 0
   }
+ },
+ {
+  "datum": "2026-11-23T21:16:00+01:00",
+  "thema": "Kaninchen-Trinkflasche statt Schale (Comedy-Story, 3D Look v3, zweisprachig, Opener nachrichten): RWAF 'Bowls are better than bottles as lapping from a bowl is more natural', Röhrchen verstopft und friert im Winter ein; Uni Zürich (Tschudin 2011): Kaninchen bevorzugen offene Schalen, auch wenn sie Nippeltränken gewohnt sind; aus der Flasche 3-4x so lange für dieselbe Menge. Eilmeldung Durststreik -> Riesenflasche (1 Tropfen) -> Flasche gefriert, Rudi föhnt. Rate-Frage 'Wie viel länger dauert die Flasche?' richtig A 3-4x. Tipp: schwere Keramikschale, täglich frisch, Flasche nur Reserve.",
+  "titel": "Why Your Bunny Secretly Hates Its Water Bottle",
+  "titel_de": "Warum dein Kaninchen seine Trinkflasche hasst",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-24T16:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=6879970931756582823",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=410803331844949777",
+  "quelle": "RWAF, Uni Zürich (Tschudin et al. 2011)",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": 33.6,
+  "dauer_en_s": 30.8,
+  "youtube_titel": "Water Bottle Or Bowl For Rabbits? 🐰 #shorts",
+  "opener_stil": "nachrichten",
+  "rate_frage": {
+   "frage": "Wie viel länger dauert Trinken aus der Flasche? / How much longer does drinking from a bottle take?",
+   "optionen": [
+    "3–4× so lang / 3–4× longer",
+    "Gleich lang / Same time",
+    "Doppelt so lang / Twice as long"
+   ],
+   "richtig": 0
+  }
  }
 ]
