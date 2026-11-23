@@ -225,8 +225,45 @@
     camera.updateMatrixWorld(); vis.forEach((a, i) => { const b = bs[i]; let x0 = 1e9, x1 = -1e9;
       for (let k = 0; k < 8; k++) { _v.set(k & 1 ? b.max.x : b.min.x, k & 2 ? b.max.y : b.min.y, k & 4 ? b.max.z : b.min.z).project(camera); if (_v.z > 1) continue; const x = (_v.x + 1) / 2 * W; x0 = Math.min(x0, x); x1 = Math.max(x1, x); }
       if (x1 - x0 < W * .8 && (x0 < SAFE.l || x1 > SAFE.r)) warn("außerhalb der sicheren Zone: " + a.name + " ragt " + (x0 < SAFE.l ? "links aus dem Bild" : "rechts in die TikTok/YouTube-Buttons") + " (x " + Math.round(x0) + "–" + Math.round(x1) + ", erlaubt " + SAFE.l + "–" + SAFE.r + ")"); });
+    all.forEach((a) => { if (!a.noEyeCheck) eyeCheck(a); });
     return boxes;
   }
+  // ---------- Augen-Check (Hermann 23.11.2026: "da hat der Hund einfach keine Augen") ----------
+  // Ursache damals: Beim "Wal-Auge" wurde die Pupille nach hinten in den Augapfel geschoben -> sie steckte komplett drin, das Auge war nur noch weiß.
+  // Erkennt Augen automatisch: weiße Kugel + dunkle Kugel (Pupille) in derselben Gruppe. Meldet
+  //  a) "Pupille steckt im Augapfel": keine Stelle der Pupille ragt aus dem Weiß -> leeres weißes Auge (immer ein Fehler),
+  //  b) "keine sichtbaren Augen": alle Augen, die zur Kamera zeigen, sind vom eigenen Körper verdeckt (Auge im Kopf versenkt).
+  // Pupillen deshalb immer DREHEN (wie aimEyes), nie in den Augapfel hinein verschieben. Absichtlich ohne Augen: actor.noEyeCheck = true.
+  const _ray = new T.Raycaster(), _a = new T.Vector3(), _b = new T.Vector3(), _cp = new T.Vector3(), _inv = new T.Matrix4();
+  const visUp = (o, root) => { for (; o; o = o.parent) { if (!o.visible) return false; if (o === root) return true; } return true; };
+  const lum = (c) => (c.r + c.g + c.b) / 3;
+  const isSph = (m) => m.isMesh && m.geometry && m.geometry.type === "SphereGeometry" && (m.geometry.parameters.thetaLength ?? PI) >= PI - 1e-3 && (m.geometry.parameters.phiLength ?? 2 * PI) >= 2 * PI - 1e-3;
+  const glow = (m) => m.material.emissive && lum(m.material.emissive) * (m.material.emissiveIntensity ?? 1) > .3;
+  function findEyes(root) { const out = [], done = new Set();
+    root.traverseVisible((e) => { const pv = e.userData.pv; if (!pv || !e.children[0] || !pv.children[0]) return; // K3.eye()-Augen (auch dunkle Tieraugen)
+      out.push({ white: e.children[0], pupil: pv.children[0] }); done.add(e.children[0]); });
+    root.traverseVisible((w) => { if (done.has(w) || !isSph(w) || !w.material || !w.material.color || glow(w) || lum(w.material.color) < .9 || !w.parent) return;
+      w.getWorldPosition(_a); const rw = w.geometry.parameters.radius * w.getWorldScale(_b).x; let best = null, bd = 1e9;
+      w.parent.traverseVisible((p) => { if (p === w || !isSph(p) || !p.material || !p.material.color || glow(p) || lum(p.material.color) > .2) return;
+        const d = p.getWorldPosition(_b).distanceTo(_a); const rp = p.geometry.parameters.radius * p.getWorldScale(_cp).x;
+        if (rp < rw * 1.05 && d < rw * 1.3 && d < bd) { bd = d; best = p; } });
+      if (best) out.push({ white: w, pupil: best }); });
+    return out; }
+  function pupilOut(e) { // wie weit ragt die Pupille aus dem Augapfel (1 = genau auf der Oberfläche)
+    const pos = e.pupil.geometry.attributes.position, r = e.white.geometry.parameters.radius; _inv.copy(e.white.matrixWorld).invert(); let mx = 0;
+    for (let i = 0; i < pos.count; i += 3) { _b.fromBufferAttribute(pos, i).applyMatrix4(e.pupil.matrixWorld).applyMatrix4(_inv); mx = Math.max(mx, _b.length() / r); }
+    return mx; }
+  function eyeCheck(a) { a.root.updateMatrixWorld(true); const eyes = findEyes(a.root); if (!eyes.length) return;
+    camera.updateMatrixWorld(); let facing = 0, seen = 0;
+    eyes.forEach((e, i) => {
+      if (pupilOut(e) < 1.03) warn("Pupille steckt im Augapfel: " + a.name + " Auge " + (i + 1) + " ist nur weiß (Pupille drehen statt nach innen schieben)");
+      e.white.getWorldPosition(_a); e.pupil.getWorldPosition(_b); const dir = _b.clone().sub(_a); if (dir.lengthSq() < 1e-10) return; dir.normalize();
+      const rw = e.white.geometry.parameters.radius * e.white.getWorldScale(_cp).x; const tip = _a.clone().addScaledVector(dir, rw * 1.02);
+      const toCam = camera.position.clone().sub(tip); if (dir.dot(toCam.clone().normalize()) < .35) return; facing++;
+      _ray.set(camera.position, tip.clone().sub(camera.position).normalize()); _ray.far = toCam.length() + rw;
+      const hit = _ray.intersectObject(a.root, true).find((h) => visUp(h.object, a.root));
+      if (!hit || hit.object === e.pupil || hit.object.parent === e.pupil.parent || hit.distance > toCam.length() - rw * .5) seen++; });
+    if (facing > 0 && seen === 0) warn("keine sichtbaren Augen: " + a.name + " schaut zur Kamera, aber die Augen stecken im Kopf/Körper"); }
   function hideAll() { actors.forEach((a) => a.root.visible = false); }
   let ZK = 2.2; // Hochformat ist schmal: alle Kamera-Abstände werden mit ZK gestreckt (1.9 = Figuren ganz im Bild)
   function view(px, py, pz, tx, ty, tz, fov, t) {

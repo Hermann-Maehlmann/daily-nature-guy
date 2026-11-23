@@ -65,7 +65,9 @@
     D.brows.forEach((b, i) => { const s = i ? 1 : -1; b.rotation.x = s * gu * .45; b.position.y = .16 + gu * .012; b.visible = gu > .2; });
     const blink = gu > .3 || o.whale ? 1 : (Math.sin(t * 2.1 + 1) > .985 ? .15 : 1); const wide = o.whale ? 1.25 : (o.wide ? 1.15 : 1);
     D.eyes.forEach((e) => e.scale.set(wide, blink * wide * (1 - yawn * .55), wide));
-    const sd = o.side ?? 0, wh = o.whale || 0; D.pupils.forEach((p) => { p.position.set(-wh * .045, -gu * .01, sd * .035); p.scale.setScalar(1 - wh * .12); });
+    // Pupillen DREHEN (bleiben auf dem Augapfel). Fix 23.11.2026: vorher wurden sie beim Wal-Auge nach hinten in den Augapfel geschoben -> Augen nur weiß.
+    const sd = o.side ?? 0, wh = o.whale || 0, yaw = clamp(sd * .6 + wh * .35 * (sd < 0 ? -1 : 1), -.95, .95);
+    D.pupils.forEach((p) => { p.position.set(0, 0, 0); p.rotation.set(0, -yaw, wh * .22 - gu * .12); p.scale.setScalar(1 - wh * .1); });
     D.ears.forEach((e, i) => { const s = i ? 1 : -1; e.rotation.x = s * (.15 + gu * .5 + Math.sin(t * 3 + i) * .03); e.rotation.z = gu * .6; });
     D.mouth.visible = yawn > .05; D.mouth.scale.set(1, 1 + yawn * 3.2, 1);
     D.sadMo.visible = gu > .3 && !o.happy && yawn < .05 && !o.lick; D.happyMo.visible = !!o.happy;
