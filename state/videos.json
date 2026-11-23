@@ -967,5 +967,36 @@
   "dauer_s": 32.2,
   "youtube_titel": null,
   "opener_stil": "tatort"
+ },
+ {
+  "datum": "2026-11-23T16:21:00+01:00",
+  "thema": "Hamster tagsüber nie wecken (Comedy-Story, 3D Look v3, zweisprachig, Opener du-pov): Hamster sollen tagsüber ungestört schlafen, Anfassen beim Ruhen ist Stress (RSPCA); nur wach anfassen, schlafend werden sie Angst haben und beißen (PDSA); Uni Bristol Vet School: Überraschen im Schlaf 'will almost certainly result in you being bitten'; Ultraschall von Fernseher, Bildschirmen, Staubsauger stresst Hamster (RSPCA). Riesenhand reißt Dach ab -> POV Riese Rudi -> Rudi will mittags kuscheln (Biss) -> weckt sanft mit Trompete. Rate-Frage 'Was stresst Hamster mit Tönen, die du nicht hörst?' richtig A Fernseher. Tipp: abends, leise rascheln, Hamster selbst kommen lassen.",
+  "titel": "Why You Should Never Wake Your Hamster",
+  "titel_de": "Warum du deinen Hamster tagsüber nie wecken solltest",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-24T10:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-1877135687080849711",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-1397832720662051154",
+  "quelle": "RSPCA, PDSA, University of Bristol Vet School",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": 33.2,
+  "dauer_en_s": 31.0,
+  "youtube_titel": "Should You Wake Up Your Hamster? 🐹 #shorts",
+  "opener_stil": "du-pov",
+  "rate_frage": {
+   "frage": "Was stresst Hamster mit Tönen, die du nicht hörst?",
+   "optionen": [
+    "Fernseher",
+    "Zimmerpflanze",
+    "Teppich"
+   ],
+   "richtig": 0
+  }
  }
 ]
