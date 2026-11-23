@@ -71,9 +71,43 @@
   const fill = new T.PointLight(0xffc89a, .35, 20); fill.position.set(2, 2, 6); scene.add(fill);
 
   function canvasTex(w, h, draw) { const c = document.createElement("canvas"); c.width = w; c.height = h; draw(c.getContext("2d"), w, h); const t = new T.CanvasTexture(c); t.encoding = T.sRGBEncoding; t.anisotropy = 4; return t; }
-  const M = (col, o) => { const m = new T.MeshStandardMaterial(Object.assign({ color: col, roughness: .55, metalness: 0 }, o || {})); m.color.convertSRGBToLinear(); if (m.emissive) m.emissive.convertSRGBToLinear(); return m; };
-  function mesh(geo, mat, x, y, z, sx, sy, sz) { const m = new T.Mesh(geo, mat); m.position.set(x || 0, y || 0, z || 0); m.scale.set(sx ?? 1, sy ?? sx ?? 1, sz ?? sx ?? 1); m.castShadow = true; m.receiveShadow = true; return m; }
-  const SPH = new T.SphereGeometry(1, 48, 32), CYL = new T.CylinderGeometry(1, 1, 1, 32), BOX = new T.BoxGeometry(1, 1, 1);
+  // ---------- Look v3 (Hermann 23.11.2026: "nicht mehr Details, einfach etwas besser aussehen, flüssiger, Basics wie Augen") ----------
+  // Bewusst schlicht: gleiche Figuren und Farben wie bisher, nur sauberer: Augen schauen zusammen in eine Richtung, Kanten leicht gerundet,
+  // weicher Bodenschatten unter Figuren, klarere Farben, Bewegungsunschärfe (anim2d.js). Kein Weichzeichner, keine Extra-Deko.
+  // Nur zum Vergleich: LOOK=1 node autopilot/v2/render5.js ... rendert den alten Look.
+  const LOOK = window.K3_LOOK || 2;
+  const _Box = T.BoxGeometry, rbCache = new Map();
+  function roundBox(w, h, d, sx, sy, sz) { sx = Math.abs(sx || 1); sy = Math.abs(sy || 1); sz = Math.abs(sz || 1);
+    const dims = [w, h, d], sc = [sx, sy, sz], world = dims.map((v, i) => v * sc[i]), r = Math.min(.05, Math.min(...world) * .12);
+    const key = [w, h, d, sx, sy, sz].map((v) => v.toFixed(3)).join(); if (rbCache.has(key)) return rbCache.get(key);
+    const N = 8, geo = new _Box(w, h, d, N, N, N); if (!(r > 1e-4)) { rbCache.set(key, geo); return geo; }
+    const rl = dims.map((v, i) => Math.min(r / sc[i], v * .45)), prof = [0, .3, .7, 1];
+    const remap = (c, i) => { const L = dims[i], k = Math.round((c / L + .5) * N); const q = k <= 3 ? prof[k] * rl[i] : k >= 5 ? L - prof[N - k] * rl[i] : L / 2; return q - L / 2; };
+    const P = geo.attributes.position, Nn = geo.attributes.normal, v = [0, 0, 0], cl = [0, 0, 0], o = [0, 0, 0];
+    for (let j = 0; j < P.count; j++) { v[0] = remap(P.getX(j), 0); v[1] = remap(P.getY(j), 1); v[2] = remap(P.getZ(j), 2);
+      for (let i = 0; i < 3; i++) { const hl = dims[i] / 2 - rl[i]; cl[i] = Math.max(-hl, Math.min(hl, v[i])); o[i] = (v[i] - cl[i]) * sc[i]; }
+      const ol = Math.hypot(o[0], o[1], o[2]) || 1; for (let i = 0; i < 3; i++) { o[i] /= ol; v[i] = cl[i] + o[i] * r / sc[i]; }
+      P.setXYZ(j, v[0], v[1], v[2]); const nx = o[0] * sx, ny = o[1] * sy, nz = o[2] * sz, nl = Math.hypot(nx, ny, nz) || 1; Nn.setXYZ(j, nx / nl, ny / nl, nz / nl); }
+    rbCache.set(key, geo); return geo; }
+  if (LOOK >= 2) { T.BoxGeometry = function (w, h, d) { return roundBox(w ?? 1, h ?? 1, d ?? 1); }; T.BoxGeometry.prototype = _Box.prototype; }
+  // weicher Kontaktschatten unter Figuren am Boden (figur.noBlob = true schaltet ihn ab)
+  const blobTex = (() => { const c = document.createElement("canvas"); c.width = c.height = 128; const x = c.getContext("2d"), r = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+    r.addColorStop(0, "rgba(0,0,0,1)"); r.addColorStop(.5, "rgba(0,0,0,.45)"); r.addColorStop(1, "rgba(0,0,0,0)"); x.fillStyle = r; x.fillRect(0, 0, 128, 128); return new T.CanvasTexture(c); })();
+  const blobMat = new T.MeshBasicMaterial({ map: blobTex, transparent: true, opacity: .3, depthWrite: false, color: 0x2a1a30, fog: false });
+  const blobs = []; function blobAt(i) { if (!blobs[i]) { const m = new T.Mesh(new T.PlaneGeometry(1, 1), blobMat); m.rotation.x = -PI / 2; m.renderOrder = -1; scene.add(m); blobs[i] = m; } return blobs[i]; }
+  // Look v3 (Hermann 23.11.2026: "darf nicht so nach KI aussehen"): matte Knet-Oberfläche statt glattem Plastik.
+  // Etwas rauer und eine ganz feine, unregelmäßige Oberflächenstruktur (wie von Hand geknetet). Glänzend bleiben nur Augen, Metall, Wasser
+  // (alles, was mit roughness < .3 angelegt wird) und Flächen mit eigener Textur.
+  const clayTex = LOOK >= 2 ? (() => { const c = document.createElement("canvas"); c.width = c.height = 256; const x = c.getContext("2d"); x.fillStyle = "#808080"; x.fillRect(0, 0, 256, 256);
+    let sd = 7; const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+    for (let i = 0; i < 700; i++) { const r = 3 + rnd() * 14, X = rnd() * 256, Y = rnd() * 256, v = rnd() > .5 ? 255 : 0; for (const [dx, dy] of [[0, 0], [256, 0], [-256, 0], [0, 256], [0, -256]]) {
+      const gr = x.createRadialGradient(X + dx, Y + dy, 0, X + dx, Y + dy, r); gr.addColorStop(0, `rgba(${v},${v},${v},.10)`); gr.addColorStop(1, `rgba(${v},${v},${v},0)`); x.fillStyle = gr; x.fillRect(X + dx - r, Y + dy - r, 2 * r, 2 * r); } }
+    const t = new T.CanvasTexture(c); t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(2, 2); return t; })() : null;
+  const M = (col, o) => { o = o || {}; const clay = LOOK >= 2 && !o.map && (o.roughness ?? .55) >= .3 && !(o.metalness > .3);
+    const m = new T.MeshStandardMaterial(Object.assign({ color: col, roughness: .55, metalness: 0 }, o, clay ? { roughness: Math.min(.92, (o.roughness ?? .55) + .15), bumpMap: clayTex, bumpScale: .006 } : {}));
+    m.color.convertSRGBToLinear(); if (m.emissive) m.emissive.convertSRGBToLinear(); return m; };
+  function mesh(geo, mat, x, y, z, sx, sy, sz) { if (geo === BOX && LOOK >= 2) geo = roundBox(1, 1, 1, sx ?? 1, sy ?? sx ?? 1, sz ?? sx ?? 1); const m = new T.Mesh(geo, mat); m.position.set(x || 0, y || 0, z || 0); m.scale.set(sx ?? 1, sy ?? sx ?? 1, sz ?? sx ?? 1); m.castShadow = true; m.receiveShadow = true; return m; }
+  const SPH = new T.SphereGeometry(1, 48, 32), CYL = new T.CylinderGeometry(1, 1, 1, 32), BOX = new _Box(1, 1, 1);
   const sph = (mat, x, y, z, sx, sy, sz) => mesh(SPH, mat, x, y, z, sx, sy, sz);
   function limb(r, len, mat) { const gq = new T.CylinderGeometry(r, r * .9, len, 24); gq.translate(0, -len / 2, 0); const m = mesh(gq, mat); const cap = sph(mat, 0, -len, 0, r * .95); m.add(cap); return m; }
 
@@ -127,7 +161,14 @@
     const head = new T.Group(); head.position.set(0, 1.74, 0); body.add(head);
     head.add(sph(skin, 0, 0, 0, .31));
     head.add(sph(skin, .29, -.02, 0, .06, .055, .06));
-    const eyes = []; for (const s of [-1, 1]) { const e = new T.Group(); e.position.set(.25, .06, s * .11); head.add(e); e.add(sph(eyeW, 0, 0, 0, .085, .1, .085)); e.add(sph(pupil, .06, 0, 0, .048)); e.add(sph(M(0xffffff, { emissive: 0xffffff }), .1, .03, -.01 * s, .014)); eyes.push(e); }
+    const eyes = []; for (const s of [-1, 1]) { const e = new T.Group(); e.position.set(.25, .06, s * .11); head.add(e);
+      if (LOOK < 2) { e.add(sph(eyeW, 0, 0, 0, .085, .1, .085)); e.add(sph(pupil, .06, 0, 0, .048)); e.add(sph(M(0xffffff, { emissive: 0xffffff }), .1, .03, -.01 * s, .014)); }
+      else { // Look v3: Auge sitzt flacher im Gesicht, Pupille als Scheibe vorn auf dem Augapfel, beide Pupillen schauen leicht zur Mitte (kein Silberblick),
+        // Glanzpunkt bei beiden Augen auf derselben Seite (oben, zum Licht)
+        e.position.set(.232, .06, s * .112); e.rotation.y = s * .32; // Auge folgt der Kopfrundung
+        e.add(sph(eyeW, 0, 0, 0, .07, .1, .082)); const pv = new T.Group(); pv.rotation.y = -s * .2; e.add(pv); // Pupille zur Nase gedreht
+        pv.add(sph(pupil, .05, 0, 0, .03, .06, .054)); pv.add(sph(M(0xffffff, { emissive: 0xffffff }), .074, .026, .016, .012, .016, .016)); }
+      eyes.push(e); }
     const smile = mesh(new T.TorusGeometry(.08, .016, 8, 24, PI), M(0x6a2a20), .27, -.13, 0); smile.rotation.set(0, PI / 2, PI); head.add(smile);
     const oMouth = sph(M(0x5a1a22), .28, -.14, 0, .03, .05, .045); head.add(oMouth);
     // Mütze sitzt OBERHALB der Augen (Augen-Oberkante y ≈ .16, Mützenrand ab y ≈ .17), Hermann 16.11.2026
@@ -179,11 +220,12 @@
   function shrink(b, f) { const c = b.getCenter(new T.Vector3()), sz = b.getSize(new T.Vector3()).multiplyScalar(f / 2); return new T.Box3(c.clone().sub(sz), c.clone().add(sz)); }
   function warn(msg) { const k = msg + "@" + Math.floor(KZ.t); if (warned.has(k)) return; warned.add(k); console.error("[3D-Check] t=" + KZ.t.toFixed(1) + "s " + msg); }
   function check() {
-    const vis = actors.filter((a) => a.root.visible && !a.noCheck), bs = vis.map((a) => boxOf(a.root));
+    const all = actors.filter((a) => a.root.visible), boxes = new Map(all.map((a) => [a, boxOf(a.root)])); const vis = all.filter((a) => !a.noCheck), bs = vis.map((a) => boxes.get(a));
     for (let i = 0; i < vis.length; i++) for (let j = i + 1; j < vis.length; j++) if (shrink(bs[i], .8).intersectsBox(shrink(bs[j], .8))) warn("Überlappung: " + vis[i].name + " steckt in " + vis[j].name);
     camera.updateMatrixWorld(); vis.forEach((a, i) => { const b = bs[i]; let x0 = 1e9, x1 = -1e9;
       for (let k = 0; k < 8; k++) { _v.set(k & 1 ? b.max.x : b.min.x, k & 2 ? b.max.y : b.min.y, k & 4 ? b.max.z : b.min.z).project(camera); if (_v.z > 1) continue; const x = (_v.x + 1) / 2 * W; x0 = Math.min(x0, x); x1 = Math.max(x1, x); }
       if (x1 - x0 < W * .8 && (x0 < SAFE.l || x1 > SAFE.r)) warn("außerhalb der sicheren Zone: " + a.name + " ragt " + (x0 < SAFE.l ? "links aus dem Bild" : "rechts in die TikTok/YouTube-Buttons") + " (x " + Math.round(x0) + "–" + Math.round(x1) + ", erlaubt " + SAFE.l + "–" + SAFE.r + ")"); });
+    return boxes;
   }
   function hideAll() { actors.forEach((a) => a.root.visible = false); }
   let ZK = 2.2; // Hochformat ist schmal: alle Kamera-Abstände werden mit ZK gestreckt (1.9 = Figuren ganz im Bild)
@@ -206,11 +248,30 @@
     const shiftPx = (W / 2 - (SAFE.l + SAFE.r) / 2) * .5, worldPerPx = 2 * dist * Math.tan(hf) / W; tg.add(Rv.clone().multiplyScalar(shiftPx * worldPerPx));
     const f = .05 * dist / 5; camera.position.set(tg.x + Math.sin(az) * Math.cos(el) * dist + Math.sin(t * .7) * f, tg.y + Math.sin(el) * dist + Math.cos(t * .55) * f, tg.z + Math.cos(az) * Math.cos(el) * dist);
     camera.fov = fov; camera.updateProjectionMatrix(); camera.lookAt(tg); }
-  function draw() { key.target.position.set(0, 0, 0); check(); R3.render(scene, camera); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; g.drawImage(cv3, 0, 0); }
+  const _ctr = new T.Vector3(), _sz = new T.Vector3();
+  function draw() { key.target.position.set(0, 0, 0); const boxes = check(); let nb = 0;
+    if (LOOK >= 2) { window.KZ.bloomAmt = .12; actors.forEach((a) => { if (!a.root.visible || a.noBlob) return; const b = boxes.get(a); if (!b || b.isEmpty() || b.min.y > .2 || b.min.y < -.35) return;
+      b.getCenter(_ctr); b.getSize(_sz); const m = blobAt(nb++); m.visible = true; m.position.set(_ctr.x, Math.max(b.min.y, 0) + .012, _ctr.z); m.scale.set(_sz.x * 1.15 + .15, _sz.z * 1.15 + .15, 1); }); }
+    for (let i = nb; i < blobs.length; i++) blobs[i].visible = false;
+    R3.render(scene, camera); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = LOOK >= 2 ? "contrast(1.06) saturate(1.1)" : "none";
+    const mb = window.__MB; if (mb) { // Bewegungsunschärfe nur fürs 3D-Bild: Zwischenbilder mitteln, 2D-Texte danach bleiben scharf
+      if (!draw.acc) { draw.acc = document.createElement("canvas"); draw.acc.width = W; draw.acc.height = H; draw.ax = draw.acc.getContext("2d"); }
+      const ax = draw.ax; ax.globalAlpha = 1 / (mb.k + 1); ax.drawImage(cv3, 0, 0); if (mb.k === mb.n - 1) g.drawImage(draw.acc, 0, 0); }
+    else g.drawImage(cv3, 0, 0); g.filter = "none"; }
   function begin(which) { if (!built) build(); hideAll(); world(which); }
+  // Augen-Baustein für Tiere (Look v3, Hermann 23.11.2026: "die Basics müssen stimmen, wie Augen"):
+  // eye(r) -> Gruppe mit Augapfel, Pupille (Scheibe, ca. 55 % des Augapfels) und Glanzpunkt oben. Blickrichtung lokal +x.
+  // aimEyes([auge1, auge2], punkt) dreht die Pupillen beider Augen auf denselben Punkt (z. B. K3.camera.position = schaut in die Kamera,
+  // oder die Welt-Position des anderen Tiers). So schielt nichts und beide Augen schauen immer gemeinsam.
+  function eye(r, o) { o = o || {}; const e = new T.Group(), pv = new T.Group(); e.add(sph(o.white || M(0xffffff, { roughness: .15 }), 0, 0, 0, r * .9, r, r)); e.add(pv);
+    pv.add(sph(o.pupil || M(0x161018, { roughness: .1 }), r * .62, 0, 0, r * .4, r * .58, r * .55)); pv.add(sph(M(0xffffff, { emissive: 0xffffff }), r * .9, r * .28, r * .18, r * .13, r * .17, r * .17));
+    e.userData.pv = pv; return e; }
+  const _q = new T.Vector3(), _m4 = new T.Matrix4();
+  function aimEyes(list, target, max) { max = max ?? .5; list.forEach((e) => { const pv = e.userData.pv; if (!pv) return; e.updateMatrixWorld(true); _q.copy(target); e.worldToLocal(_q);
+    const yaw = clamp(Math.atan2(-_q.z, _q.x), -max, max), pitch = clamp(Math.atan2(_q.y, Math.hypot(_q.x, _q.z)), -max * .7, max * .7); pv.rotation.set(0, yaw, pitch); }); }
   const place = (o, x, z, ry) => { o.root.visible = true; o.root.position.set(x, 0, z); o.root.rotation.y = ry || 0; };
 
-  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, infoCard, quizTiles, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn,
+  window.K3 = { T, PI, scene, camera, R3, key, hemi, M, mesh, sph, limb, canvasTex, SPH, CYL, BOX, txt, stamp, card, infoCard, quizTiles, poseRudi, makeRudi, view, draw, begin, place, actor, frameOn, eye, aimEyes,
     onBuild(f) { builders.push(f); }, get rudi() { return rudi; }, get yard() { return yard; }, get studio() { return studio; },
-    get zoom() { return ZK; }, set zoom(z) { ZK = z; } };
+    get zoom() { return ZK; }, set zoom(z) { ZK = z; }, look: LOOK };
 })();
