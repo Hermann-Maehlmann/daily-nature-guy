@@ -1101,5 +1101,36 @@
   },
   "dauer_s": 34.6,
   "youtube_titel": "Should You Walk Your Rabbit On A Leash? 🐰 #shorts"
+ },
+ {
+  "datum": "2026-11-24T21:20:00+01:00",
+  "thema": "Tiefsee-Anglerfisch: Zwerg-Männchen beißt sich am Weibchen fest und verschmilzt (gemeinsamer Blutkreislauf, Augen/Flossen/Organe schrumpfen); Weibchen bis >60x länger und ~500.000x schwerer (Ceratias holboelli); Grund: in der Tiefsee treffen sich Weibchen und Männchen sonst nur selten (UW News 2020, Pietsch; Isakov 2022; Swann et al. 2020 Science/MPI Freiburg). Rudi taucht als Moderator von 'Tiefsee-Dating' (Safari/Expedition-Format), sucht den Bräutigam mit Taschenlampe, der klebt am Bauch",
+  "titel": "Why Does A Male Anglerfish Fuse With His Mate?",
+  "titel_de": "Warum der Anglerfisch-Mann mit seiner Frau verschmilzt",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-25T16:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-2770634428801200429",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=4062593506298619",
+  "quelle": "University of Washington News 2020 (Pietsch), MPI Freiburg / Science 2020",
+  "kategorie": "exotisch",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": 32.8,
+  "dauer_en_s": 32.0,
+  "youtube_titel": "Why Do Male Anglerfish Fuse With Females? 🐟 #shorts",
+  "opener_stil": "dating-show",
+  "rate_frage": {
+   "frage": "Wie viel schwerer ist sie als ihr Mann?",
+   "optionen": [
+    "500.000-mal",
+    "1.000-mal",
+    "10-mal"
+   ],
+   "richtig": 0
+  }
  }
 ]
