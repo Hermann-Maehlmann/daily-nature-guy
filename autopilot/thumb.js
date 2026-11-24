@@ -11,13 +11,15 @@ const raw = (spec.thumbnail || spec.titel || "").toUpperCase();
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const html = esc(raw).replace(/\*([^*]+)\*/g, '<span class="a">$1</span>');
 const frame = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "th-")), "f.jpg");
-const at = Math.min(1.2, (spec.szenen && spec.szenen[0] && spec.szenen[0].dauer) || 1.2);
+// Seit 23.11.2026 (Erste-Sekunde-Regel): Hintergrund = das echte erste Bild (0,15 s), nicht 1,2 s. Sonst springt das Video
+// nach dem 0,1-s-Cover sichtbar zurück (Cover-Sprung 43-69 bei allen alten Videos). Ausnahme nur per "thumb_at" im Drehbuch.
+const at = spec.thumb_at ?? 0.15;
 cp.execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-ss", String(at), "-i", mp4, "-frames:v", "1", "-q:v", "2", frame]);
 const bg = "data:image/jpeg;base64," + fs.readFileSync(frame).toString("base64");
 (async () => {
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   await p.setContent(`<html><body style="margin:0;width:1080px;height:1920px;overflow:hidden;font-family:'Inter Display','Inter',sans-serif">
-  <div style="position:absolute;inset:0;background:url(${bg}) center/cover;transform:scale(1.12);transform-origin:50% 45%"></div>
+  <div style="position:absolute;inset:0;background:url(${bg}) center/cover;transform:none"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.75) 85%)"></div>
   <div style="position:absolute;left:0;right:120px;bottom:560px;text-align:center">
    <div style="display:inline-block;max-width:900px;background:#fff;border:10px solid #000;border-radius:36px;padding:26px 44px;box-shadow:0 18px 0 #000;
