@@ -1053,5 +1053,33 @@
   },
   "youtube_titel": "Should You Cut Back Perennials In Fall? 🐞 #shorts",
   "opener_stil": "kuendigung"
+ },
+ {
+  "datum": "2026-11-24T13:17:00+01:00",
+  "thema": "Meerschweinchen Vitamin C (Comedy-Story, 3D Look v3): kann wie der Mensch kein Vitamin C bilden, Pellets verlieren bis zur Hälfte in 90 Tagen, Vitamin C im Wasser zerfällt in Stunden, Tipp täglich Paprika + frisches Futter. Opener piratenfilm (Logbuch Tag 90, Krümel mit Dreispitz)",
+  "titel": "Why Your Guinea Pig Gets A Pirate Disease",
+  "titel_de": "Warum dein Meerschweinchen Piraten-Krankheit kriegt",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-24T21:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=3530804331580114093",
+  "quelle": "Merck Vet Manual, US National Research Council (NCBI), NC State Vet Hospital, PetMD",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de"
+  },
+  "dauer_s": 32.5,
+  "youtube_titel": null,
+  "opener_stil": "piratenfilm",
+  "rate_frage": {
+   "frage": "Wer kann Vitamin C auch nicht selbst bilden?",
+   "optionen": [
+    "Du",
+    "Dein Hund",
+    "Deine Katze"
+   ],
+   "richtig": 0
+  }
  }
 ]
