@@ -1,0 +1,102 @@
+{
+ "titel": "Why Your Bunny Secretly Hates The Leash",
+ "titel_de": "Warum dein Kaninchen die Leine hasst",
+ "thumbnail": "Bunny on a *leash?!*",
+ "thumbnail_de": "Gassi mit *Kaninchen?!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nLEASH?",
+ "hook_de": "WARUM\nLEINE?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "tierdoku",
+ "erstes_bild": "Kaninchen Hoppel im pinken Geschirr hockt platt wie ein Stein auf dem Rasen, die Leine spannt nach rechts zu Rudis Hand, Hoppel schaut böse in die Kamera, Stempel NÖ! knallt ab Bild 1",
+ "rate_frage": {
+  "frage": "Wann wollen Kaninchen eigentlich rennen? / When do bunnies actually want to run?",
+  "optionen": [
+   "Mittags / At noon",
+   "In der Dämmerung / At dawn and dusk",
+   "Nachts / At midnight"
+  ],
+  "richtig": 1
+ },
+ "sceneFile": "2026-11-24-bunny-leash-szenen.js",
+ "beats": [
+  {
+   "say": "Why does your bunny secretly hate the *leash?*",
+   "say_de": "Warum hasst dein Kaninchen eigentlich die *Leine?*",
+   "scene": {
+    "shot": "lHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Here we observe the wild Rudi. Walking his prey... *on a leash.*",
+   "say_de": "Hier beobachten wir den wilden Rudi. Er führt seine Beute... *Gassi.*",
+   "scene": {
+    "shot": "lDoku"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Quick guess: when do bunnies actually *want* to run? A, B or C?",
+   "say_de": "Tipp mal: Wann wollen Kaninchen eigentlich *rennen?* A, B oder C?",
+   "scene": {
+    "shot": "lQuiz"
+   },
+   "sfx": "soft",
+   "sprich_de": "Tipp mal: Wann wollen Kaninchen eigentlich rennen? A, B, oder C?"
+  },
+  {
+   "say": "Then a dog barks. Hoppel bolts, and *bam:* end of the leash.",
+   "say_de": "Dann bellt ein Hund. Hoppel flitzt los, und *zack:* Leine zu Ende.",
+   "scene": {
+    "shot": "lBark"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "So Rudi turns it into a jog. Hoppel sprints for two seconds... then *parks.*",
+   "say_de": "Also macht Rudi Joggen draus. Hoppel sprintet zwei Sekunden... und *parkt.*",
+   "scene": {
+    "shot": "lJog"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "It's B: at *dawn and dusk.* In short bursts, not long walks.",
+   "say_de": "Richtig ist B: in der *Dämmerung.* Kurze Sprints, keine Spaziergänge.",
+   "scene": {
+    "shot": "lReveal"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the wild part? A scared bunny needs to *hide.* The leash blocks exactly that.",
+   "say_de": "Jetzt kommt's: Kaninchen mit Angst wollen sich *verstecken.* Die Leine verhindert das.",
+   "scene": {
+    "shot": "lHide"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "The fix: a big safe run, open *all day.* Hoppel runs whenever he wants.",
+   "say_de": "Der Tipp: Großes Gehege, *immer* offen. Dann rennt Hoppel, wann er will.",
+   "scene": {
+    "shot": "lTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So hang up that harness, and ask yourself...",
+   "say_de": "Also häng das Geschirr an den Nagel, und frag dich...",
+   "scene": {
+    "shot": "lLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}
