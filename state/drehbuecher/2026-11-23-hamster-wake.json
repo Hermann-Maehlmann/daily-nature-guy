@@ -1,0 +1,109 @@
+{
+ "titel": "Why You Should Never Wake Your Hamster",
+ "titel_de": "Warum du deinen Hamster tagsüber nie wecken solltest",
+ "thumbnail": "Wake him? *Ouch.*",
+ "thumbnail_de": "Wecken? *Autsch.*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY NEVER\nWAKE HIM?",
+ "hook_de": "WARUM NIE\nWECKEN?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "du-pov",
+ "erstes_bild": "Riesige Hand reißt das Dach vom Hamsterhaus, Goldhamster schreckt im Nest hoch (Mund auf, Augen weit), Holzspäne fliegen, Stempel MITTAGS?! knallt sofort",
+ "rate_frage": {
+  "frage": "Was stresst deinen Hamster, obwohl du nichts hörst? / What stresses your hamster with a sound you can't hear?",
+  "optionen": [
+   "Fernseher / TV",
+   "Zimmerpflanze / Houseplant",
+   "Teppich / Rug"
+  ],
+  "richtig": 0
+ },
+ "sceneFile": "2026-11-23-hamster-wake-szenen.js",
+ "beats": [
+  {
+   "say": "Why should you *never* wake your hamster during the day?",
+   "say_de": "Warum solltest du deinen Hamster tagsüber *nie* wecken?",
+   "scene": {
+    "shot": "wHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Imagine: a giant rips off your *roof.* At noon.",
+   "say_de": "Stell dir vor: Ein Riese reißt mittags dein *Dach* ab.",
+   "scene": {
+    "shot": "wPov"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Quick guess: what stresses hamsters with a sound you can't even hear? A, B or C?",
+   "say_de": "Rate mal: Was stresst Hamster, obwohl du nichts hörst? A, B oder C?",
+   "scene": {
+    "shot": "wQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Rudi wants a cuddle at lunchtime. The hamster? *Bites.*",
+   "say_de": "Rudi will mittags *kuscheln.* Der Hamster beißt zu.",
+   "scene": {
+    "shot": "wBite"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "So Rudi wakes him up gently. With a *trumpet.*",
+   "say_de": "Also weckt Rudi ihn sanft. Mit einer *Trompete.*",
+   "scene": {
+    "shot": "wTrumpet"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "But hamsters are night animals. By day, they need their *sleep.*",
+   "say_de": "Hamster sind nachtaktiv. Tagsüber brauchen sie *Ruhe.*",
+   "scene": {
+    "shot": "wClock"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Vets say: startle one awake, and you'll almost certainly get *bitten.*",
+   "say_de": "Tierärzte sagen: Wer ihn erschreckt, wird fast sicher *gebissen.*",
+   "scene": {
+    "shot": "wVet"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? Even your *TV* can stress them. Ultrasound!",
+   "say_de": "Jetzt kommt's: Sogar dein *Fernseher* stresst ihn. Ultraschall!",
+   "scene": {
+    "shot": "wTV"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "So wait until evening, rustle softly, and let him come to *you.*",
+   "say_de": "Warte bis abends. Raschel leise und lass ihn *selbst* kommen.",
+   "scene": {
+    "shot": "wTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So if your friend ever wants to play with their hamster at noon, ask them...",
+   "say_de": "Und will dein Kumpel mittags mit seinem Hamster spielen, frag ihn...",
+   "scene": {
+    "shot": "wLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

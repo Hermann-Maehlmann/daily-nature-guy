@@ -1,0 +1,111 @@
+{
+ "titel": "Why You're Evicting Ladybugs Every Fall",
+ "titel_de": "Warum du im Herbst Marienkäfer rauswirfst",
+ "thumbnail": "Cut it? *Don't!*",
+ "thumbnail_de": "Abschneiden? *Nein!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY EVICT\nLADYBUGS?",
+ "hook_de": "WARUM\nRAUSWERFEN?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "kuendigung",
+ "erstes_bild": "Marienkäfer Lotti steht mit Mini-Koffer vor einem frisch abgeschnittenen Stängel-Stumpf, Herbstlaub fliegt, roter Stempel GEKÜNDIGT! knallt sofort",
+ "rate_frage": {
+  "frage": "Wie viele Insektenlarven fand eine Studie in einem einzigen Halm? / How many insect larvae did a study find in one single stem?",
+  "optionen": [
+   "Etwa 12 / About 12",
+   "Über 120 / Over 120",
+   "Keine / None"
+  ],
+  "richtig": 1
+ },
+ "sceneFile": "2026-11-24-garden-stems-szenen.js",
+ "beats": [
+  {
+   "say": "Why are you kicking *ladybugs* out every fall?",
+   "say_de": "Warum wirfst du jeden Herbst *Marienkäfer* raus?",
+   "scene": {
+    "shot": "sHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Eviction notice. Effective immediately. Signed: landlord *Rudi.*",
+   "say_de": "Fristlose Kündigung. Unterschrieben: Vermieter *Rudi.*",
+   "scene": {
+    "shot": "sNotice"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Rudi likes it tidy. Hedge trimmer, and every stem is *gone.*",
+   "say_de": "Rudi mag's ordentlich. Heckenschere, alles *kahl.*",
+   "scene": {
+    "shot": "sCut"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "Quick guess: how many larvae live in *one* stem? A, B or C?",
+   "say_de": "Rate mal: Wie viele Larven wohnen in *einem* Halm? A, B oder C?",
+   "scene": {
+    "shot": "sQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "The goldfinch wants seeds. So Rudi brings... *plastic flowers.*",
+   "say_de": "Der Stieglitz sucht Samen. Rudi bringt... *Plastikblumen.*",
+   "scene": {
+    "shot": "sPlastic"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Here's the crazy part: one study found over *120 larvae* in a single stem.",
+   "say_de": "Jetzt kommt's: Eine Studie fand über *120 Larven* in einem Halm.",
+   "scene": {
+    "shot": "sLarvae"
+   },
+   "sfx": "boom",
+   "sprich_de": "Jetzt kommt's: Eine Studie fand über hundertzwanzig Larven in einem Halm."
+  },
+  {
+   "say": "Ladybugs and wild bees sleep through winter in *hollow stems.*",
+   "say_de": "Marienkäfer und Wildbienen überwintern in *hohlen Stängeln.*",
+   "scene": {
+    "shot": "sSleep"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And those dry seed heads? *Winter food* for goldfinches.",
+   "say_de": "Und die Samen? *Winterfutter* für den Stieglitz.",
+   "scene": {
+    "shot": "sSeeds"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Rudi, it's a garden, not an *operating room.* Leave the stems until *spring.*",
+   "say_de": "Rudi, das ist ein Garten, kein *OP-Saal.* Stängel bis zum *Frühling* stehen lassen.",
+   "scene": {
+    "shot": "sTip"
+   },
+   "sfx": "whoosh",
+   "sprich_de": "Rudi, das ist ein Garten, kein Operationssaal. Stängel bis zum Frühling stehen lassen."
+  },
+  {
+   "say": "So if your neighbor just grabbed the hedge trimmer, ask them...",
+   "say_de": "Und holt dein Nachbar gerade die Heckenschere, frag ihn...",
+   "scene": {
+    "shot": "sLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

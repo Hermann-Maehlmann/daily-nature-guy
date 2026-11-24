@@ -1,0 +1,110 @@
+{
+ "titel": "Why Does A Male Anglerfish Fuse With His Mate?",
+ "titel_de": "Warum der Anglerfisch-Mann mit seiner Frau verschmilzt",
+ "thumbnail": "Married *forever?!*",
+ "thumbnail_de": "Für *immer* verheiratet?!",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nFUSED?",
+ "hook_de": "WARUM\nVERSCHMOLZEN?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "dating-show",
+ "erstes_bild": "Tiefsee: dunkelviolettes Anglerfisch-Weibchen mit leuchtendem Köder und Unterbiss, am Bauch klebt das winzige Männchen und winkt mit dem Schwanz, Stempel FÜR IMMER! knallt ab Bild 1",
+ "rate_frage": {
+  "frage": "Wie viel schwerer ist sie als ihr Mann? / How much heavier is she than her husband?",
+  "optionen": [
+   "500.000-mal / 500,000×",
+   "1.000-mal / 1,000×",
+   "10-mal / 10×"
+  ],
+  "richtig": 0
+ },
+ "sceneFile": "2026-11-24-angler-fuse-szenen.js",
+ "beats": [
+  {
+   "say": "Why does a male anglerfish *fuse* with his mate?",
+   "say_de": "Warum *verschmilzt* der Anglerfisch-Mann mit seiner Frau?",
+   "scene": {
+    "shot": "aHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Welcome to Deep Sea Dating! Tonight's guest: *Mrs. Anglerfish.*",
+   "say_de": "Willkommen bei Tiefsee-Dating! Zu Gast: *Frau Anglerfisch.*",
+   "scene": {
+    "shot": "aShow"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Take a guess: how much *heavier* is she than her husband? A, B or C?",
+   "say_de": "Rate mal: Wie viel *schwerer* ist sie? A, B oder C?",
+   "scene": {
+    "shot": "aQuiz"
+   },
+   "sfx": "soft",
+   "sprich_de": "Rate mal: Wie viel schwerer ist sie? A, B, oder C?"
+  },
+  {
+   "say": "Rudi searches for the groom. With a flashlight. Everywhere. *Nothing.*",
+   "say_de": "Rudi sucht den Bräutigam. Mit Taschenlampe. *Nichts.*",
+   "scene": {
+    "shot": "aSearch"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Then something waves from her belly. *That's* the husband.",
+   "say_de": "Dann winkt was an ihrem Bauch. *Das* ist der Mann.",
+   "scene": {
+    "shot": "aFound"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "It's A: she can be *half a million* times heavier.",
+   "say_de": "Richtig ist A: *fünfhunderttausend* Mal schwerer!",
+   "scene": {
+    "shot": "aReveal"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? He bites on and *grows into* her. They share blood.",
+   "say_de": "Und das Krasseste? Er beißt sich fest und *verwächst.*",
+   "scene": {
+    "shot": "aFuse"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "His eyes and fins waste away. He lives off *her* blood.",
+   "say_de": "Augen und Flossen schrumpfen. Er lebt von *ihrem* Blut.",
+   "scene": {
+    "shot": "aShrink"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Because down there, you almost *never* meet anyone. So he never lets go.",
+   "say_de": "Denn da unten triffst du fast *nie* jemanden. Also lässt er nie los.",
+   "scene": {
+    "shot": "aWhy"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "So if your date is a little clingy, just ask yourself...",
+   "say_de": "Wenn dein Date also klammert, frag dich einfach...",
+   "scene": {
+    "shot": "aLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "titel": "Why Yogurt Drops Are Junk Food For Your Rabbit",
+ "titel_de": "Warum Joghurtdrops Junkfood für dein Kaninchen sind",
+ "thumbnail": "Rabbit *junk food?*",
+ "thumbnail_de": "Kaninchen-*Junkfood?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nJUNK FOOD?",
+ "hook_de": "WARUM\nJUNKFOOD?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "werbespot",
+ "rate_frage": {
+  "frage": "Wie viel Heu braucht ein Kaninchen täglich? / How much hay does a rabbit need every day?",
+  "optionen": [
+   "Eine Handvoll / One handful",
+   "Kaninchengroß / Rabbit-sized",
+   "Eine Tasse / One cup"
+  ],
+  "richtig": 1
+ },
+ "sceneFile": "2026-11-23-bunny-drops-szenen.js",
+ "beats": [
+  {
+   "say": "Why are yogurt drops *junk food* for your rabbit?",
+   "say_de": "Warum sind Joghurtdrops *Junkfood* für dein Kaninchen?",
+   "scene": {
+    "shot": "jHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "New! Crunchy yogurt drops! Now with *extra sugar!*",
+   "say_de": "Neu! Knusper-Joghurtdrops! Jetzt mit *extra Zucker!*",
+   "scene": {
+    "shot": "jAd"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Quick guess: how much hay does a rabbit need *every day?* A, B or C?",
+   "say_de": "Rate mal: Wie viel Heu am *Tag?* A, B oder C?",
+   "scene": {
+    "shot": "jQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Rudi builds a drop machine. Now Hoppel *ignores* the hay.",
+   "say_de": "Rudi baut einen Drops-Automaten. Das Heu? *Ignoriert.*",
+   "scene": {
+    "shot": "jMachine"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Hoppel's teeth start to hurt, so Rudi grabs... a *toothbrush.*",
+   "say_de": "Hoppels Zähne tun weh. Rudi holt... die *Zahnbürste.*",
+   "scene": {
+    "shot": "jBrush"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "But rabbit teeth grow all their life. Only *hay* wears them down.",
+   "say_de": "Kaninchenzähne wachsen lebenslang. Nur *Heu* schleift sie ab.",
+   "scene": {
+    "shot": "jTeeth"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And sugar feeds the wrong gut bacteria. That can turn *deadly.*",
+   "say_de": "Und Zucker füttert falsche Darmbakterien. Das kann *tödlich* enden.",
+   "scene": {
+    "shot": "jGut"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? Every day it needs hay as big as its *whole body.*",
+   "say_de": "Jetzt kommt's: Täglich braucht es Heu, so groß wie es *selbst.*",
+   "scene": {
+    "shot": "jReveal"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "So skip the drops. Give fresh herbs, like parsley or *mint.*",
+   "say_de": "Lieber frische Kräuter: Petersilie oder *Minze.*",
+   "scene": {
+    "shot": "jTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So next time your friend grabs those drops at the pet shop, ask them...",
+   "say_de": "Und greift dein Kumpel im Zooladen zu den Drops, frag ihn...",
+   "scene": {
+    "shot": "jLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

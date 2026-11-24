@@ -289,12 +289,12 @@
   },
   "lernregeln": [
     {
-      "regel": "Nur Alltagsthemen mit dem Winkel 'Das machst DU mit deinem Tier/Garten falsch', als 'Why ...?'/'Warum ...?'-Frage. haustier vor garten vor haus-kueche, keine exotischen Themen.",
-      "beleg": "KW47: alle 5 Videos über 2.000 (Kaninchen hochheben 4835, Hamsterball 4354, Teich-Eis 2322, Kaninchen baden 2278, Stall 2022) haben diesen Winkel. Exotisch weiter 0 von 11, Median 762.",
-      "seit": "2026-11-16"
+      "regel": "Winkel 'Jemand liegt falsch' als 'Why ...?'/'Warum ...?'-Frage: bei Alltagsthemen 'Das machst DU mit deinem Tier/Garten falsch', bei exotischen Themen liegt Rudi auf Safari falsch und bekommt es erklärt. Kategorien nach dem Themen-Mix in AUTOPILOT.md (max. 2 haustier/Tag, mind. 1 exotisch/Tag, Hermann 24.11.2026).",
+      "beleg": "KW47: alle 5 Videos über 2.000 (Kaninchen hochheben 4835, Hamsterball 4354, Teich-Eis 2322, Kaninchen baden 2278, Stall 2022) haben diesen Winkel. Exotisch weiter 0 von 11, Median 762. Exotisch-Sperre am 24.11.2026 von Hermann aufgehoben ('nicht nur immer Haustiere'); die 0 von 11 waren alter 2D-Fakten-Stil, im 3D-Comedy-Format noch ungetestet.",
+      "seit": "2026-11-24"
     },
     {
-      "regel": "Kaninchen und Hamster zuerst wählen (höchstens 1 Video pro Tier am Tag, Thema nie wiederholen).",
+      "regel": "Innerhalb der haustier-Slots Kaninchen und Hamster zuerst wählen (höchstens 1 Video pro Tier am Tag, Thema nie wiederholen).",
       "beleg": "Kaninchen: 4 von 6 Videos über 2.000 (4835, 4658, 2278, 2022), Hamster: Ball 4354. Katze/Hund im 3D-Stil nur 686-839.",
       "seit": "2026-11-22"
     },

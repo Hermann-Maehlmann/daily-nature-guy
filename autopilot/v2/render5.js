@@ -47,6 +47,7 @@ const HF = "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/m
   await page.waitForFunction(() => window.VOICE && window.makeMusic, null, { timeout: 60000 });
   await page.addScriptTag({ url: "http://lab.local/anim2d.js" }); await page.waitForFunction(() => window.__animReady, null, { timeout: 120000 });
   await page.addScriptTag({ url: "http://lab.local/figuren.js" }); await page.waitForFunction(() => window.__figReady, null, { timeout: 60000 });
+  if (process.env.LOOK) await page.evaluate((v) => { window.K3_LOOK = v; }, +process.env.LOOK); // nur zum Vergleich: LOOK=1 = alter 3D-Look
   await page.evaluate((l) => { window.LANG = l; window.L = (en, de) => (l === "de" ? de : en); }, spec.lang || "en"); // Sprache der Fassung: Szenen schreiben Texte als L("EN", "DE")
   if (spec.sceneFile) await page.addScriptTag({ url: "http://lab.local/scene.js" }); // eigene Figuren/Shots des Themas (nutzt window.KZ)
   // Clips in Einzelbilder (1080 hoch, 30 fps) zerlegen

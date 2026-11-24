@@ -1,0 +1,109 @@
+{
+ "titel": "Why You Should Never Bathe Your Hamster",
+ "titel_de": "Warum du deinen Hamster nie baden solltest",
+ "thumbnail": "Bath time = *danger?*",
+ "thumbnail_de": "Baden = *Gefahr?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nNO BATH?",
+ "hook_de": "WARUM\nNIE BADEN?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "tatort",
+ "erstes_bild": "Klitschnasser Goldhamster zittert in einer Schaum-Schüssel, Badeente, Blasen steigen, Stempel NIE! knallt sofort",
+ "rate_frage": {
+  "frage": "Womit baden wilde Hamster? / What do wild hamsters bathe in?",
+  "optionen": [
+   "Pfützen / Puddles",
+   "Sand / Sand",
+   "Morgentau / Morning dew"
+  ],
+  "richtig": 1
+ },
+ "sceneFile": "2026-11-23-hamster-bath-szenen.js",
+ "beats": [
+  {
+   "say": "Why should you *never* give your hamster a bath?",
+   "say_de": "Warum solltest du deinen Hamster *nie* baden?",
+   "scene": {
+    "shot": "hHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Crime scene: the bathroom. The victim? Soaking wet. And *shivering.*",
+   "say_de": "Tatort Badezimmer. Das Opfer: *klitschnass.*",
+   "scene": {
+    "shot": "hCrime"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Take a guess: what do wild hamsters bathe in? A, B or C?",
+   "say_de": "Tipp mal: Worin baden wilde Hamster? A, B oder C?",
+   "scene": {
+    "shot": "hQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Rudi thought his hamster *stank.* So: bubble bath, strawberry scent!",
+   "say_de": "Rudi findet, sein Hamster *stinkt.* Also: Erdbeer-Schaumbad!",
+   "scene": {
+    "shot": "hStink"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "Now it's shivering. Rudi's fix? A hair dryer. On *full blast.*",
+   "say_de": "Er zittert. Rudis Lösung? Föhnen. Auf *Stufe drei.*",
+   "scene": {
+    "shot": "hDryer"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "But wet hamsters lose heat super fast. That can make them *sick.*",
+   "say_de": "Nasse Hamster kühlen rasend schnell aus. Das macht *krank.*",
+   "scene": {
+    "shot": "hCold"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And water strips the protective *oils* from their fur.",
+   "say_de": "Und Wasser wäscht das schützende *Fett* aus dem Fell.",
+   "scene": {
+    "shot": "hOil"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? Wild hamsters bathe in *sand.*",
+   "say_de": "Jetzt kommt's: Wilde Hamster baden in *Sand.*",
+   "scene": {
+    "shot": "hReveal"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "So give yours a dish of chinchilla *sand.* Not dust, that hurts the lungs.",
+   "say_de": "Stell ihm Chinchilla-*Sand* hin. Keinen Staub, der reizt die Lunge.",
+   "scene": {
+    "shot": "hTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So if your friend ever runs a bubble bath for their hamster, ask them...",
+   "say_de": "Und will dein Kumpel seinen Hamster baden, frag ihn...",
+   "scene": {
+    "shot": "hLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

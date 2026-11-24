@@ -1,0 +1,109 @@
+{
+ "titel": "Why Your Bunny Secretly Hates Its Water Bottle",
+ "titel_de": "Warum dein Kaninchen seine Trinkflasche hasst",
+ "thumbnail": "Bottle = *thirst?*",
+ "thumbnail_de": "Flasche = *Durst?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY HATE\nTHE BOTTLE?",
+ "hook_de": "WARUM\nDIE FLASCHE?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "nachrichten",
+ "erstes_bild": "Kaninchen Hoppel reckt den Hals zur vereisten Trinkflasche mit Eiszapfen, leckt am Röhrchen, Schneeflocken fallen, Stempel DURST! knallt sofort",
+ "rate_frage": {
+  "frage": "Wie viel länger dauert Trinken aus der Flasche? / How much longer does drinking from a bottle take?",
+  "optionen": [
+   "3–4× so lang / 3–4× longer",
+   "Gleich lang / Same time",
+   "Doppelt so lang / Twice as long"
+  ],
+  "richtig": 0
+ },
+ "sceneFile": "2026-11-23-bunny-bottle-szenen.js",
+ "beats": [
+  {
+   "say": "Why does your bunny secretly hate its *water bottle?*",
+   "say_de": "Warum hasst dein Kaninchen seine *Trinkflasche?*",
+   "scene": {
+    "shot": "bHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Breaking news: local bunny goes on a *thirst strike!*",
+   "say_de": "Eilmeldung: Kaninchen Hoppel im *Durststreik!*",
+   "scene": {
+    "shot": "bNews"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Take a guess: how much longer does a bottle *take?* A, B or C?",
+   "say_de": "Tipp mal: Wie viel länger dauert die *Flasche?* A, B oder C?",
+   "scene": {
+    "shot": "bQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "So Rudi buys a *giant* bottle. Hoppel licks... and licks... one drop.",
+   "say_de": "Rudi kauft eine *Riesenflasche.* Hoppel leckt und leckt... ein Tropfen.",
+   "scene": {
+    "shot": "bGiant"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "Then winter hits. The bottle? A *popsicle.*",
+   "say_de": "Dann kommt der Frost. Die Flasche? Ein *Eis am Stiel.*",
+   "scene": {
+    "shot": "bFrost"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Rabbits drink with their head *down,* like from a puddle.",
+   "say_de": "Kaninchen trinken mit dem Kopf *unten,* wie aus einer Pfütze.",
+   "scene": {
+    "shot": "bNeck"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? From a bottle it takes *three to four times* longer.",
+   "say_de": "Jetzt kommt's: Aus der Flasche dauert es *drei- bis viermal* so lang.",
+   "scene": {
+    "shot": "bTimer"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "In a Zurich study, rabbits picked the *bowl.* Even bottle-raised ones.",
+   "say_de": "In einer Zürcher Studie wählten Kaninchen die *Schale.* Sogar Flaschen-Kaninchen.",
+   "scene": {
+    "shot": "bStudy"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So get a heavy *ceramic bowl.* Fresh water daily, bottle only as backup.",
+   "say_de": "Also: schwere *Keramikschale,* täglich frisch. Flasche nur als Reserve.",
+   "scene": {
+    "shot": "bTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So if your friend's bunny still has one of those bottles, ask them...",
+   "say_de": "Und hängt bei deinem Kumpel noch so eine Flasche, frag ihn...",
+   "scene": {
+    "shot": "bLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}
