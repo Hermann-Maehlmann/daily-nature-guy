@@ -1251,7 +1251,7 @@
   "datum": "2026-11-25T21:30:00+01:00",
   "thema": "Kaninchen-Müsli ruiniert die Zähne (Zähne wachsen 2-2,5 mm/Woche, selektives Fressen, Studie Uni Edinburgh)",
   "titel": "Why Rabbit Muesli Wrecks Your Bunny's Teeth",
-  "status": "oeffentlich",
+  "status": "entwurf",
   "geplant_fuer": "2026-11-26T16:00:00+01:00",
   "plannerUrl": {
    "tiktok": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=4180027805224750666",
@@ -1278,6 +1278,8 @@
    "still_bilder": 0,
    "ton_start_s": 0.0,
    "bestanden": true
-  }
+  },
+  "tierart": "kaninchen",
+  "notiz": "25.11.2026 22:06 von Hermann gestoppt (zu viele Kaninchen-Videos); TikTok + YouTube in Metricool auf Entwurf gesetzt, 26.11. 16:00 ist wieder frei."
  }
 ]
