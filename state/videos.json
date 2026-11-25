@@ -1213,5 +1213,38 @@
    "ton_start_s": 0.0,
    "bestanden": true
   }
+ },
+ {
+  "datum": "2026-11-25T16:42:00+01:00",
+  "thema": "Zombie-Schnecke: Saugwurm Leucochloridium paradoxum wächst in den Fühlern der Bernsteinschnecke zu gestreiften, pulsierenden Brutschläuchen (bis ~80x/min), die wie Raupen aussehen; bis zu 250 Larven pro Brutschlauch (BBC Wildlife/Discover Wildlife); infizierte Schnecken sitzen 'more exposed, better illuminated, higher in the vegetation' (Wesołowska & Wesołowski 2014, J. of Zoology, Białowieża); Vogel frisst Brutschlauch, Eier im Kot, nächste Schnecke frisst den Kot; kommt auch in Deutschland vor. Rudi auf Expedition hält die Fühler für tanzende Raupen -> Schirm (Schnecke kriecht zurück ins Licht) -> Höhle (klettert aufs Dach, Amsel landet). Opener kinotrailer. Rate-Frage Larven pro Fühler, richtig C 'bis zu 250' (Comedy-Story, 3D Look v3, zweisprachig, exotisch Safari-Format)",
+  "titel": "Why Does This Snail Want To Get Eaten?",
+  "titel_de": "Warum diese Schnecke gefressen werden will",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-26T10:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-2322638578071682992",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=4210065743374336696",
+  "quelle": "Wesołowska & Wesołowski 2014, Journal of Zoology 292:151-155; BBC Wildlife (Discover Wildlife) 2026",
+  "kategorie": "exotisch",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": 32.5,
+  "dauer_en_s": 34.3,
+  "youtube_titel": "What Is The Zombie Snail Parasite? 🐌 #shorts",
+  "opener_stil": "kinotrailer",
+  "erstes_bild": "Nahaufnahme Bernsteinschnecke oben auf einem Schilfblatt, beide Fühler dick grün gestreift und pulsierend, Amsel stürzt von oben ins Bild, schnelle Kamerafahrt, roter Stempel FRISS MICH! ab Bild 1",
+  "erste_sekunde": {
+   "cover": true,
+   "cover_sprung": 12.0,
+   "hell": 189.0,
+   "kontrast": 39.8,
+   "bewegung": 3.82,
+   "still_bilder": 0,
+   "ton_start_s": 0.0,
+   "bestanden": true
+  }
  }
 ]

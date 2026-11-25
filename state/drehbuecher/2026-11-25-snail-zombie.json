@@ -1,0 +1,120 @@
+{
+ "titel": "Why Does This Snail Want To Get Eaten?",
+ "titel_de": "Warum diese Schnecke gefressen werden will",
+ "thumbnail": "*Zombie* snail?!",
+ "thumbnail_de": "*Zombie*-Schnecke?!",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nEAT ME?",
+ "hook_de": "WARUM\nFRISS MICH?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "kinotrailer",
+ "erstes_bild": "Nahaufnahme Bernsteinschnecke oben auf einem Schilfblatt, beide Fühler dick grün gestreift und pulsierend, Amsel stürzt von oben ins Bild, schnelle Kamerafahrt, roter Stempel FRISS MICH! ab Bild 1",
+ "rate_frage": {
+  "frage": "Wie viele Babys stecken in einem Fühler? / How many babies fit in one eye stalk?",
+  "optionen": [
+   "3",
+   "30",
+   "Bis zu 250 / Up to 250"
+  ],
+  "richtig": 2
+ },
+ "sceneFile": "2026-11-25-snail-zombie-szenen.js",
+ "beats": [
+  {
+   "say": "Why does this snail *want* to get eaten?",
+   "say_de": "Warum will diese Schnecke *gefressen* werden?",
+   "scene": {
+    "shot": "sHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Coming soon: *Zombie Snail.* Based on a true story.",
+   "say_de": "Demnächst im Kino: *Zombie-Schnecke.*",
+   "scene": {
+    "shot": "sTrailer"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Rudi, on expedition, spots two *dancing caterpillars.*",
+   "say_de": "Rudi auf Expedition sieht zwei *tanzende Raupen.*",
+   "scene": {
+    "shot": "sRudi"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Take a guess: how many babies fit in *one* eye stalk? A, B or C?",
+   "say_de": "Tipp mal: Wie viele Babys in *einem* Fühler? A, B oder C?",
+   "sprich_de": "Tipp mal: Wie viele Babys in einem Fühler? A, B, oder C?",
+   "scene": {
+    "shot": "sQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Rudi puts up an umbrella. She crawls right back *into the sun.*",
+   "say_de": "Rudi stellt einen Schirm auf. Sie kriecht *zurück ins Licht.*",
+   "scene": {
+    "shot": "sShade"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So he builds her a cave. She climbs *onto the roof.* Hello, blackbird.",
+   "say_de": "Also baut er eine Höhle. Sie klettert *aufs Dach.*",
+   "scene": {
+    "shot": "sCave"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Those aren't caterpillars. It's a *parasite*, pumping in her eyes.",
+   "say_de": "Das sind keine Raupen. Ein *Saugwurm* pumpt in ihren Fühlern.",
+   "scene": {
+    "shot": "sInside"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "It's C: up to *250* larvae in one stalk.",
+   "say_de": "Richtig ist C: bis zu *250* Larven!",
+   "sprich_de": "Richtig ist C: bis zu zweihundertfünfzig Larven!",
+   "sprich": "It's C: up to two hundred fifty larvae in one stalk.",
+   "scene": {
+    "shot": "sReveal"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? It steers the snail *up into the light.*",
+   "say_de": "Und das Krasseste? Er lenkt sie *ins Licht.*",
+   "scene": {
+    "shot": "sSteer"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "The bird eats it, poops out the eggs, and the next snail *eats the poop.*",
+   "say_de": "Vogel frisst ihn, kackt die Eier aus. Nächste Schnecke *frisst sie.*",
+   "scene": {
+    "shot": "sCycle"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "And it lives in Europe too. So if you ever see a snail dancing, ask yourself...",
+   "say_de": "Gibt's auch bei uns. Siehst du also eine tanzende Schnecke, frag dich...",
+   "scene": {
+    "shot": "sLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}
