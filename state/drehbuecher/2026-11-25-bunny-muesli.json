@@ -1,0 +1,103 @@
+{
+ "titel": "Why Rabbit Muesli Wrecks Your Bunny's Teeth",
+ "titel_de": "Warum Müsli die Zähne deines Kaninchens ruiniert",
+ "thumbnail": "Muesli = *dentist?*",
+ "thumbnail_de": "Müsli = *Zahnarzt?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY\nMUESLI?",
+ "hook_de": "WARUM\nMÜSLI?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "kochshow",
+ "erstes_bild": "Kaninchen Hoppel mit riesigen, viel zu langen Schneidezähnen sitzt groß in der Bildmitte, bunte Müsliflocken prasseln von oben auf ihn, schnelle Zoomfahrt, roter Stempel AUA! ab Bild 1",
+ "rate_frage": {
+  "frage": "Wie viel wachsen Kaninchenzähne im Jahr? / How much do bunny teeth grow in a year?",
+  "optionen": [
+   "Über 10 cm / 4+ inches",
+   "1 cm / Half an inch",
+   "2 mm / A tenth of an inch"
+  ],
+  "richtig": 0
+ },
+ "sceneFile": "2026-11-25-bunny-muesli-szenen.js",
+ "beats": [
+  {
+   "say": "Why does rabbit muesli wreck your bunny's *teeth?*",
+   "say_de": "Warum ruiniert Müsli die *Zähne* deines Kaninchens?",
+   "scene": {
+    "shot": "mHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Welcome to Rudi's cooking show! Today: *crunchy rainbow flakes.*",
+   "say_de": "Willkommen bei Rudis Kochshow! Heute: *bunte Flocken.*",
+   "scene": {
+    "shot": "mShow"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Quick guess: how much do bunny teeth grow in a *year?* A, B or C?",
+   "say_de": "Rate mal: Wie viel wachsen Kaninchenzähne im *Jahr?* A, B oder C?",
+   "sprich_de": "Rate mal: Wie viel wachsen Kaninchenzähne im Jahr? A, B, oder C?",
+   "scene": {
+    "shot": "mQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Hoppel eats only the sweet bits. The healthy rest? *Left behind.*",
+   "say_de": "Hoppel frisst nur das Süße. Der Rest? *Liegt da.*",
+   "scene": {
+    "shot": "mPick"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "Weeks later, Rudi spots the teeth... and grabs a *nail file.*",
+   "say_de": "Wochen später sieht Rudi die Zähne... und holt eine *Nagelfeile.*",
+   "scene": {
+    "shot": "mFile"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "It's A: over *four inches* a year! Only chewing keeps them short.",
+   "say_de": "Richtig: über *zehn Zentimeter!* Nur Kauen hält sie kurz.",
+   "scene": {
+    "shot": "mReveal"
+   },
+   "sfx": "whoosh",
+   "sprich_de": "Richtig: über zehn Zentimeter! Nur Kauen hält sie kurz."
+  },
+  {
+   "say": "And the wild part? In an Edinburgh study, over a third of muesli-only bunnies got *bad teeth.*",
+   "say_de": "Jetzt kommt's: Bei reinem Müsli bekam jedes dritte Kaninchen *kranke Zähne.*",
+   "scene": {
+    "shot": "mStudy"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "The fix: hay every day, a pile as big as *Hoppel.* Swap the muesli out slowly.",
+   "say_de": "Der Tipp: Täglich Heu, so viel wie *Hoppel* groß ist.",
+   "scene": {
+    "shot": "mTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So close the cooking show, and ask yourself...",
+   "say_de": "Also: Flocken weg. Und frag dich...",
+   "scene": {
+    "shot": "mLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}

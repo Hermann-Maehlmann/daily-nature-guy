@@ -1246,5 +1246,38 @@
    "ton_start_s": 0.0,
    "bestanden": true
   }
+ },
+ {
+  "datum": "2026-11-25T21:30:00+01:00",
+  "thema": "Kaninchen-Müsli ruiniert die Zähne (Zähne wachsen 2-2,5 mm/Woche, selektives Fressen, Studie Uni Edinburgh)",
+  "titel": "Why Rabbit Muesli Wrecks Your Bunny's Teeth",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-26T16:00:00+01:00",
+  "plannerUrl": {
+   "tiktok": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=4180027805224750666",
+   "youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=3107708353454556158"
+  },
+  "quelle": "PDSA, BVNA (Lord 2022), Uni Edinburgh (Meredith et al.)",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "titel_de": "Warum Müsli die Zähne deines Kaninchens ruiniert",
+  "dauer_s": 30.7,
+  "youtube_titel": "Is Muesli Bad For Rabbits? 🐰 #shorts",
+  "erstes_bild": "Kaninchen Hoppel mit riesigen, viel zu langen Schneidezähnen sitzt groß in der Bildmitte, bunte Müsliflocken prasseln von oben auf ihn, schnelle Zoomfahrt, roter Stempel AUA! ab Bild 1",
+  "erste_sekunde": {
+   "cover": true,
+   "cover_sprung": 0.1,
+   "hell": 99.6,
+   "kontrast": 74.9,
+   "bewegung": 4.88,
+   "still_bilder": 0,
+   "ton_start_s": 0.0,
+   "bestanden": true
+  }
  }
 ]
