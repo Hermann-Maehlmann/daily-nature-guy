@@ -1,3 +1,16 @@
 [
- {"titel": "Cut A Worm In Half? Not Two Worms", "plattform": "youtube", "angesehen_prozent": 71.7, "stand": "2026-11-23", "quelle": "Hermann, YouTube Studio (Ø 0:33 = 75,3 %, Abfall bei ~0:28, ~2.000 Aufrufe)"}
+ {
+  "titel": "Cut A Worm In Half? Not Two Worms",
+  "plattform": "youtube",
+  "angesehen_prozent": 71.7,
+  "stand": "2026-11-23",
+  "quelle": "Hermann, YouTube Studio (Ø 0:33 = 75,3 %, Abfall bei ~0:28, ~2.000 Aufrufe)"
+ },
+ {
+  "titel": "Why Does My Hamster Bite The Cage Bars?",
+  "plattform": "youtube",
+  "angesehen_prozent": 50.5,
+  "stand": "2026-11-25",
+  "quelle": "Hermann, YouTube Studio, ca. 5 h nach Upload (früher Wert, Bindung noch nicht verfügbar)"
+ }
 ]

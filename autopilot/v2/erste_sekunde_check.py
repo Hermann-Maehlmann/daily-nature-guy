@@ -29,6 +29,11 @@ SFX_OK = {"boom", "whoosh", "squish"}
 MAX_WOERTER_FRAGE = 11      # Warum-Frage muss nach ~2,5 s fertig gesprochen sein
 MAX_HOOK_ZEICHEN = 14       # pro Zeile, auf einen Blick lesbar
 MAX_BEAT0_MIN = 3.2         # Beat 0 nicht künstlich in die Länge ziehen
+# Seit 25.11.2026 (Hamster-Gitter 49,5 % weggewischt, YT-Ø-Sehdauer 15 s -> 5-9 s): Die Geschichte
+# muss ab ~3 s laufen. Rudi spätestens in Beat 1, Rate-Frage nicht vor Beat 3.
+RUDI_SPAETESTENS = 1
+QUIZ_FRUEHESTENS = 3
+QUIZ = re.compile(r"\bA,? B,? (oder|or) C\b", re.I)
 
 # Video-Grenzwerte, geeicht am 23.11.2026 an 9 alten Videos: 3D-Videos mit
 # stehendem Tier im 1. Bild hatten 0,44-1,09 (z. B. Hund-Schwanz 0,52, Kaninchenbad 1,09), Teich-Eis mit
@@ -75,6 +80,16 @@ def drehbuch_pruefen(d):
             zeilen = hk.split("\n")
             if len(zeilen) > 2 or any(len(z) > MAX_HOOK_ZEICHEN for z in zeilen):
                 fehler.append(f"[{l}] Hook-Text {hk!r} zu lang: max. 2 Zeilen à {MAX_HOOK_ZEICHEN} Zeichen.")
+    for l in sprachen:
+        key = "say_de" if l == "de" else "say"
+        texte = [(b.get(key) or b.get("say") or "") for b in beats]
+        rudi = next((i for i, t in enumerate(texte) if "rudi" in t.lower()), None)
+        if rudi is None or rudi > RUDI_SPAETESTENS:
+            fehler.append(f"[{l}] Rudi kommt erst in Beat {rudi} vor (spätestens Beat {RUDI_SPAETESTENS}). Die Geschichte muss ab ~3 s laufen: "
+                          "Opener-Stil verpackt Rudis erste Handlung, kein eigener Satz ohne Handlung.")
+        quiz = next((i for i, t in enumerate(texte) if QUIZ.search(t)), None)
+        if quiz is not None and quiz < QUIZ_FRUEHESTENS:
+            fehler.append(f"[{l}] Rate-Frage schon in Beat {quiz} (frühestens Beat {QUIZ_FRUEHESTENS}, nach Rudis erstem Fehlversuch).")
     if (b0.get("sfx") or "") not in SFX_OK:
         fehler.append(f"Beat 0 braucht einen Knall-Sound ab Bild 1 (sfx {sorted(SFX_OK)}), ist: {b0.get('sfx')!r}.")
     if (b0.get("min") or 0) > MAX_BEAT0_MIN:
