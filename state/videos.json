@@ -1174,5 +1174,44 @@
    ],
    "richtig": 1
   }
+ },
+ {
+  "datum": "2026-11-25T14:21:00+01:00",
+  "thema": "Spatz braucht im Winter eine Badewanne (Comedy-Story, 3D Look v3, nur TikTok DE wegen 21-Uhr-Slot, Opener hotel-bewertung): Vögel brauchen im Winter Wasser zum Trinken und Baden, saubere Federn plustern sich auf und halten die Körperwärme (RSPB); im Herbst wird das Gefieder vom Haussperling 70 % schwerer (BTO); bei Frost ist die Gartentränke oft die einzige offene Wasserstelle (BTO); nie Salz, Frostschutz, Glycerin oder Zucker ins Wasser, schadet den Federn oder ist giftig (RSPB, RSPCA). Hotelbewertung 1 Stern (Wanne gefroren, Chef Rudi) -> Rudi kippt Salz aufs Eis (GIFTIG) -> Rudi strickt Pulli, Spatz hat schon einen. Rate-Frage 'Wie viel schwerer wird das Gefieder im Herbst?' richtig B +70 %. Tipp: flache Schale, täglich frisch, Tischtennisball gegen Eis (RSPB).",
+  "titel": "Why Your Sparrow Needs A Bath In Winter",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-25T21:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=1533938298182582849",
+  "quelle": "RSPB (Keep water available for birds in winter; bird bath buying guide), BTO (Garden birds in winter)",
+  "kategorie": "garten",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de"
+  },
+  "titel_de": "Warum dein Spatz im Winter eine Badewanne braucht",
+  "dauer_s": 33.5,
+  "youtube_titel": null,
+  "opener_stil": "hotel-bewertung",
+  "rate_frage": {
+   "frage": "Wie viel schwerer wird das Gefieder vom Spatz im Herbst? / How much heavier does a sparrow's plumage get in fall?",
+   "optionen": [
+    "+7 %",
+    "+70 %",
+    "Doppelt / Double"
+   ],
+   "richtig": 1
+  },
+  "erstes_bild": "Spatz rutscht mit gespreizten Beinen und flatternden Flügeln über die zugefrorene Vogeltränke, Schnee wirbelt, Kamera zoomt schnell ran, gelber 1-STERN-Stempel knallt sofort quer ins Bild",
+  "erste_sekunde": {
+   "cover": true,
+   "cover_sprung": 8.7,
+   "hell": 205.7,
+   "kontrast": 43.6,
+   "bewegung": 2.86,
+   "still_bilder": 0,
+   "ton_start_s": 0.0,
+   "bestanden": true
+  }
  }
 ]

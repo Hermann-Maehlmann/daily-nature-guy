@@ -1,0 +1,110 @@
+{
+ "titel": "Why Your Sparrow Needs A Bath In Winter",
+ "titel_de": "Warum dein Spatz im Winter eine Badewanne braucht",
+ "thumbnail": "Bath in *winter?*",
+ "thumbnail_de": "Baden bei *Frost?*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY BATHE\nIN WINTER?",
+ "hook_de": "WARUM BADET\nDER SPATZ?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "hotel-bewertung",
+ "erstes_bild": "Spatz rutscht mit gespreizten Beinen und flatternden Flügeln über die zugefrorene Vogeltränke, Schnee wirbelt, Kamera zoomt schnell ran, gelber 1-STERN-Stempel knallt sofort quer ins Bild",
+ "rate_frage": {
+  "frage": "Wie viel schwerer wird das Gefieder vom Spatz im Herbst? / How much heavier does a sparrow's plumage get in fall?",
+  "optionen": [
+   "+7 %",
+   "+70 %",
+   "Doppelt / Double"
+  ],
+  "richtig": 1
+ },
+ "sceneFile": "2026-11-25-sparrow-bath-szenen.js",
+ "beats": [
+  {
+   "say": "Why does your sparrow need a *bathtub* in winter?",
+   "say_de": "Warum braucht dein Spatz im Winter eine *Badewanne?*",
+   "scene": {
+    "shot": "bHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "One star. Tub frozen. Manager: *Rudi.*",
+   "say_de": "Ein Stern. Wanne gefroren. Chef: *Rudi.*",
+   "scene": {
+    "shot": "bReview"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Take a guess: how much heavier do his feathers get in fall? A, B or C?",
+   "say_de": "Tipp mal: Wie viel schwerer wird sein Gefieder im Herbst? A, B oder C?",
+   "scene": {
+    "shot": "bQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Rudi wants to help, so he dumps *salt* on the ice.",
+   "say_de": "Rudi will helfen und kippt *Salz* aufs Eis.",
+   "scene": {
+    "shot": "bSalt"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "Then he knits him a *sweater.* Bad news: he already has one.",
+   "say_de": "Dann strickt er ihm einen *Pulli.* Blöd: Er hat schon einen.",
+   "scene": {
+    "shot": "bSweater"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Here's the kicker: in fall, a sparrow's plumage gets *70 percent* heavier.",
+   "say_de": "Jetzt kommt's: Im Herbst wird Spatzengefieder *70 Prozent* schwerer.",
+   "sprich_de": "Jetzt kommt's: Im Herbst wird Spatzengefieder siebzig Prozent schwerer.",
+   "scene": {
+    "shot": "bDown"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Only *clean* feathers keep him warm. So: bath time, even in frost.",
+   "say_de": "Warm hält nur *sauberes* Gefieder. Also: Baden bei Frost.",
+   "scene": {
+    "shot": "bBathe"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the salt? Wrecks feathers, can be *toxic.*",
+   "say_de": "Und Salz? Ruiniert Federn, kann *giftig* sein.",
+   "scene": {
+    "shot": "bSource"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Tip: a shallow dish, fresh water daily, and a *ping-pong ball* against the ice.",
+   "say_de": "Tipp: flache Schale, täglich frisch, und ein *Tischtennisball* gegen Eis.",
+   "scene": {
+    "shot": "bTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Is your neighbor salting the bird bath? Ask them...",
+   "say_de": "Kippt dein Nachbar Salz in die Tränke? Frag ihn...",
+   "scene": {
+    "shot": "bLoop"
+   },
+   "sfx": "soft"
+  }
+ ]
+}
