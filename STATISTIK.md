@@ -51,7 +51,7 @@ Eigene geplante Aufgabe „Wochenbericht Daily Nature Guy“ (sonntags 19:47 Ber
 1. `git pull`, Git-Name wie in AUTOPILOT.md.
 2. Zahlen holen wie oben, dazu Follower (`TKEV07`, `TKEV08`) und YouTube-Abos/Quellen (`YTEV01`, `YTEV05`, `YTTS01`, `YTTS02`) für die letzten 7 Tage. Dann `python3 autopilot/stats.py --tiktok out/tk.json --youtube out/yt.json --schreiben`.
 3. Auswerten, und zwar ehrlich: wenige Videos sind wenig Beweis. Ein Muster gilt erst, wenn es bei mindestens 3 Videos auftaucht; sonst „Hinweis“, keine Regel.
-4. `state/statistik.json` → `lernregeln` neu schreiben: höchstens 5 kurze Regeln, jede mit Datum und Beleg (`{"regel": "...", "beleg": "Möhre 4533, Wurm 4633 vs. exotisch Median 762", "seit": "2026-11-16"}`). Regeln, die sich nicht bestätigt haben, streichen.
+4. `state/statistik.json` → `lernregeln` neu schreiben: höchstens 5 kurze Regeln, jede mit Datum und Beleg (`{"regel": "...", "beleg": "Möhre 4533, Wurm 4633 vs. exotisch Median 762", "seit": "2026-11-16"}`). Regeln, die sich nicht bestätigt haben, streichen. **Keine Regel, die eine bestimmte Tierart bevorzugt** (Hermann 25.11.2026, „nicht immer wieder Kaninchen“); es gilt die „🔁 Tierarten-Abwechslung“ in AUTOPILOT.md Schritt 2.
 5. Bericht als `state/berichte/<JJJJ-MM-TT>.md` speichern, Commit „Wochenbericht <Datum>“, push auf `main`.
 6. Ausgabe = der Bericht selbst (Hermann bekommt ihn als Push-Nachricht). **Deutsch, kurz, höchstens 250 Wörter**, genau diese Teile:
 
