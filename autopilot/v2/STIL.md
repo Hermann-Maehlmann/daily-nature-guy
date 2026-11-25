@@ -88,12 +88,12 @@ Technik-Hinweise: `stamp()` muss `p` auf 1 begrenzen (sonst wird der Text gespie
 Anlass: Auswertung YouTube (Igel-Video): Hook hält, aber zwischen Sekunde 5 und 12 springt die Hälfte ab, weil es direkt ruhig erklärend wird. Vorbild für den Ton: Kanäle wie „Everyday problems. Ridiculous solutions.“ (nichts kopieren). Hermann: Bindung ans Video ist das Wichtigste, lustig und interessant erklären. Die alte Regel „kein Comedy-Stil“ gilt nicht mehr. Vorbild: `autopilot/v2/szenen/comedy/dog-grass.json` + `dog-grass-szenen.js`.
 
 Aufbau (gilt zusätzlich zum Mix-Stil oben):
-1. **Beat 0 Hook** (Irrtum auflösen), **Beat 1**: Rudi glaubt den Irrtum und reagiert übertrieben (Panik, Sprechblase, Stempel).
+1. **Beat 0 Hook** (Irrtum auflösen), **Beat 1**: Rudi glaubt den Irrtum und reagiert übertrieben (Panik, Sprechblase, Stempel). Rudi ist spätestens hier in Aktion (ab ~3 s), auch wenn ein Opener-Stil die Szene verpackt.
 2. **Beats 2–3 Eskalation als Geschichte, genau 2 Stufen:** Rudi versucht eine übertriebene Lösung, das Tier kontert sofort. Erzählt mit Verbindungen statt Schildern, z. B. „So Rudi builds a fence, to keep the dog off the grass. It just eats right through it.“ → „The fence didn't work, so Rudi decided to move to the fortieth floor. But look what grows on the balcony.“ **Keine „Level 1/2/3“-Schilder** (Hermann: wirkt hingeklatscht). Aufbau und Konter in **einem** Satz/Beat (ca. 4–5 s), die Szene wechselt in der Mitte per Schnitt (`split`-Helfer in der Vorbild-Datei). Nicht 3 Stufen (zu lang), nicht ohne sichtbaren Aufbau (zu schnell).
 3. **Danach die Fakten** (2–3 Beats Infografik mit echten Zahlen + Quelle), dann die Pointe, die auf die Eskalation zurückgreift („So the tower? Slightly overkill.“).
 4. **Praktischer Tipp** (1 Beat), **Loop-Satz** über Rudi zurück zum Hook.
 5. Alle 2–3 Sekunden passiert etwas Neues (Schnitt, Stempel, Kamerafahrt). Kein Beat länger als ~4,5 s.
-5b. **Rate-Frage nach ca. 5–9 s (Hermann 22.11.2026):** Mitten in der Eskalation (Beat 1 oder 2) fragt der Erzähler kurz „Rate mal: … A, B oder C?“ und `quizTiles()` zeigt die Antworten über der Szene. Aufgelöst wird bei den Fakten mit `quizTiles(…, { reveal, correct })`. Details in AUTOPILOT.md „❓ Rate-Frage“.
+5b. **Rate-Frage frühestens in Beat 3 (seit 25.11.2026, vorher 5–9 s):** Nach Rudis erstem Fehlversuch, kurz vor der Auflösung, fragt der Erzähler kurz „Rate mal: … A, B oder C?“ und `quizTiles()` zeigt die Antworten über der Szene. Aufgelöst wird bei den Fakten mit `quizTiles(…, { reveal, correct })`. Details in AUTOPILOT.md „❓ Rate-Frage“.
 6. **Kein Like/Follow im Video** (stört die Bindung). Der erste Kommentar (`firstCommentText`) ist eine Frage an die Zuschauer, die Caption endet mit einer anderen Frage (siehe AUTOPILOT.md).
 
 ## 3D-Look (seit 16.11.2026, Hermann: „komplett alle Videos auf 3D Animation umstellen“)
