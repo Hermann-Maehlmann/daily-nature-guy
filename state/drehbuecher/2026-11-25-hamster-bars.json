@@ -1,0 +1,111 @@
+{
+ "titel": "Why Your Hamster Chews The Cage Bars",
+ "titel_de": "Warum dein Hamster am Gitter nagt",
+ "thumbnail": "Hamster *jailbreak?!*",
+ "thumbnail_de": "Hamster im *Knast?!*",
+ "voice": "bm_george",
+ "speed": 1.1,
+ "hook": "WHY THE\nBARS?",
+ "hook_de": "WARUM\nGITTER?",
+ "key": "#ffd84d",
+ "capY": 0.75,
+ "musicVol": 0.2,
+ "fg": false,
+ "exaggeration": 0.6,
+ "opener_stil": "knast-ausbruch",
+ "erstes_bild": "Goldhamster steht auf den Hinterbeinen und beißt mit gebleckten Zähnen in einen Gitterstab, Blick direkt in die Kamera, Späne fliegen, KRRK-Geräuschtext, roter Stempel AUSBRUCH?! ab Bild 1, Kamera zoomt schnell auf sein Gesicht",
+ "rate_frage": {
+  "frage": "Wie tief buddeln wilde Hamster? / How deep do wild hamsters dig?",
+  "optionen": [
+   "Eine Handbreit / A hand's width",
+   "Über 1 Meter / Over 1 meter",
+   "5 Meter / 5 meters"
+  ],
+  "richtig": 1
+ },
+ "sceneFile": "2026-11-25-hamster-bars-szenen.js",
+ "beats": [
+  {
+   "say": "Why does your hamster chew the cage *bars?*",
+   "say_de": "Warum nagt dein Hamster nachts am *Gitter?*",
+   "scene": {
+    "shot": "gHook"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "Inmate number seven is planning his *escape.*",
+   "say_de": "Häftling Nummer sieben plant den *Ausbruch.*",
+   "scene": {
+    "shot": "gJail"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Take a guess: how deep do wild hamsters *dig?* A, B or C?",
+   "say_de": "Rate mal: Wie tief buddeln wilde Hamster? A, B oder *C?*",
+   "sprich_de": "Rate mal: Wie tief buddeln wilde Hamster? A, B, oder C?",
+   "scene": {
+    "shot": "gQuiz"
+   },
+   "sfx": "soft"
+  },
+  {
+   "say": "Rudi thinks: he's hungry! So he dumps in more *food.*",
+   "say_de": "Rudi denkt: Hunger! Also schüttet er *Futter* nach.",
+   "scene": {
+    "shot": "gFood"
+   },
+   "sfx": "squish"
+  },
+  {
+   "say": "Nope. Teeth, then! A chew stick. Still on the *bars.*",
+   "say_de": "Nö. Dann halt Zähne! Ein Nagestab. Er nagt weiter am *Gitter.*",
+   "scene": {
+    "shot": "gStick"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "Three a.m. Rudi gives up: *earplugs.*",
+   "say_de": "Drei Uhr nachts. Rudi gibt auf und stopft sich die *Ohren* zu.",
+   "scene": {
+    "shot": "gEar"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "It's B: over a *meter* deep! He wants to dig.",
+   "say_de": "Richtig ist B: über einen *Meter* tief! Er will graben.",
+   "scene": {
+    "shot": "gWild"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "And the craziest part? With eighty centimeters of bedding, *not one* hamster chewed the bars.",
+   "say_de": "Jetzt kommt's: Bei achtzig Zentimetern Streu nagte *keiner* am Gitter.",
+   "scene": {
+    "shot": "gStudy"
+   },
+   "sfx": "boom"
+  },
+  {
+   "say": "The fix: at least *forty centimeters* of bedding, pressed down.",
+   "say_de": "Der Tipp: Mindestens *vierzig Zentimeter* Einstreu, schön festgedrückt.",
+   "scene": {
+    "shot": "gTip"
+   },
+   "sfx": "whoosh"
+  },
+  {
+   "say": "So next time you hear that creak at night, ask yourself...",
+   "say_de": "Also, wenn's nachts wieder knarzt, frag dich...",
+   "scene": {
+    "shot": "gLoop"
+   },
+   "sfx": "soft"
+  }
+ ],
+ "thumb_at": 0.02
+}

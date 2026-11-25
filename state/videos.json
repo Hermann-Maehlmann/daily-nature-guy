@@ -1132,5 +1132,47 @@
    ],
    "richtig": 0
   }
+ },
+ {
+  "datum": "2026-11-25T12:48:00+01:00",
+  "thema": "Hamster nagt am Gitter = Stressverhalten, kein Hunger/Zähne: wilde Goldhamster graben 36-106 cm tief (Ø 65 cm, Gattermann 2001 Uni Halle); Studie Uni Bern (Hauzenberger et al. 2006): 10 cm Einstreu viel Gitternagen, bei 80 cm nie, ab 40 cm bauen alle eigene Baue; Vet Record 2024: flachere Einstreu -> mehr Gitterbeißen. Tipp mind. 40 cm Einstreu festdrücken (Comedy-Story, 3D Look v3, zweisprachig; Rudi: Futter, Nagestab, Ohrstöpsel)",
+  "titel": "Why Your Hamster Chews The Cage Bars",
+  "titel_de": "Warum dein Hamster am Gitter nagt",
+  "status": "oeffentlich",
+  "geplant_fuer": "2026-11-25T18:00:00+01:00",
+  "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=-3568074419760116697",
+  "plannerUrl_youtube": "https://app.metricool.com/planner/calendar?blogId=7900279&openWithPostUuid=442987772310472549",
+  "quelle": "Hauzenberger, Gebhardt-Henrich & Steiger 2006 (Uni Bern), Gattermann et al. 2001 J Zool (Uni Halle), Fox et al. 2024 Vet Record",
+  "kategorie": "haustier",
+  "format": "comedy",
+  "look": "3d",
+  "sprachen": {
+   "tiktok": "de",
+   "youtube": "en"
+  },
+  "dauer_s": 33.6,
+  "dauer_en_s": 27.2,
+  "youtube_titel": "Why Does My Hamster Bite The Cage Bars? 🐹 #shorts",
+  "opener_stil": "knast-ausbruch",
+  "erstes_bild": "Goldhamster steht auf den Hinterbeinen und beißt mit gebleckten Zähnen in einen Gitterstab, Blick direkt in die Kamera, Späne fliegen, KRRK-Geräuschtext, roter Stempel AUSBRUCH?! ab Bild 1, Kamera zoomt schnell auf sein Gesicht",
+  "erste_sekunde": {
+   "cover": true,
+   "cover_sprung": 0.7,
+   "hell": 157.6,
+   "kontrast": 71.4,
+   "bewegung": 6.62,
+   "still_bilder": 0,
+   "ton_start_s": 0.0,
+   "bestanden": true
+  },
+  "rate_frage": {
+   "frage": "Wie tief buddeln wilde Hamster?",
+   "optionen": [
+    "Eine Handbreit",
+    "Über 1 Meter",
+    "5 Meter"
+   ],
+   "richtig": 1
+  }
  }
 ]
